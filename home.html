@@ -24,7 +24,7 @@
 					<li id="login" onclick="fade('element')"><img src="./immagini/login.png" alt="login"></li>
 					<li id="cart"><a href="./cart.html"><img src="./immagini/cart.png" alt="cart"></a></li> 
 				</ul>
-				<div id="element" class="fadeout">
+				<form id="element" class="fadeout" action="" method="post">
 					<h2>Login</h2>
 					<div class="input-box">
 						<div class="form-label">E-mail</div>
@@ -34,11 +34,10 @@
 						<div class="form-label">Password</div>
 						<input class="signIn" id="password" name="password" type="password" size="15" maxlength="15" placeholder="Password">
 					</div>
-					<div class="input-box">
-						<a href="./signin.html">Do not have an account? Sign in</a>
-					</div>
+					<a href="./signin.html">Do not have an account? Sign in</a>
+					<button type=submit>Invia</button>
 					<img onclick="fade('element')" src="./immagini/ex.png" alt="ex">
-				</div>
+				</form>
 			</nav>
 			<h1>
 				<a id="titolo" href="./home.html"> Supernova </a>

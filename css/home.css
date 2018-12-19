@@ -123,7 +123,7 @@ h1 {
     opacity: 				1;
 }
 
-#right-icons > div {
+#element {
 	position: 				relative;
 	display: 				block;
 	background-color: 		white;
@@ -131,7 +131,7 @@ h1 {
 	height: 				300px;
 	margin: 				30px 50px;
 }
-#right-icons >div:after {
+#element:after {
 	position: 				absolute;
 	top: 					50px;
 	right: 					0;
@@ -140,7 +140,7 @@ h1 {
 	line-height: 			1;
 }
 
-#right-icons > div > h2 {
+#element > h2 {
 	position: 				relative;
 	text-align: 			center;
 	width: 					100%;
@@ -157,13 +157,18 @@ h1 {
 	padding-left: 			20px;
 }
 
-#right-icons > div > div > input {
+.input-box > input {
 	width: 					80%;
 	height: 				30px;
 	padding: 				0 15px;
 	border: 				1px solid #cecece;
 	background-color: 		#fff;
 	margin: 				0px;
+}
+
+#element > a {
+	font-size: 				10px;
+	text-align: 			left;
 }
 
 #element > img {
@@ -173,6 +178,8 @@ h1 {
 	top: 					0;
 	margin: 				10px;
 }
+
+#element > button {width: 100px; margin-left: 20px;} 
 
 /*----------------------------------------------------*/
 /*						FINE HEADER		    		  */
@@ -290,7 +297,7 @@ footer > form > input {
 	font-family: 			'Marmelad', sans-serif;
 }
 
-footer > form > button {
+button {
 	box-shadow: 			0 1px 3px #4F7AB7;
 	border-radius: 			8px;
 	color: 					black;
