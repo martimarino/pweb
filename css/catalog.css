@@ -1,0 +1,297 @@
+@page {
+	margin:					2cm;
+}
+
+html, body {
+	margin:					0;
+	padding:				0;
+	font-family: 			'Marmelad', sans-serif;
+/*	background-image: 		url(../immagini/starsa.jpg);
+    background-repeat: 		no-repeat;
+    background-attachment: 	fixed;	*/
+
+}
+
+/* ------------barra fissa in alto----------------*/
+
+header {
+	position: 				fixed;
+	width: 					100%;
+	height: 				55px;
+	background-image: 		url(../immagini/blu.jpg);
+	background-size: 		100%;
+/*	background-color: 		#93AFD7;*/
+	text-align: 			center;
+	line-height: 			55px;
+	z-index: 				200;
+	box-shadow: 			black 0px 5px 15px;
+}
+
+/* -------------------------------------------------*/
+
+#search {
+	display: 				inline-block;
+	position: 				relative;
+	float:					left;
+	margin-left:			14px;
+	height: 				100%;
+}
+
+#search > img {
+	height: 				30px;
+	width: 					30px;
+	position: 				absolute;
+	top: 					13px;
+	left: 					5px;
+}
+
+#search > input {
+	height: 				17px;
+  	border: 				1px solid transparent;
+  	border-top: 			none;
+  	border-bottom: 			1px solid #DDD;
+  	box-shadow: 			inset 0 1px 2px rgba(0,0,0,.39), 0 -1px 1px #FFF, 0 1px 0 #FFF;
+}
+
+#search > input[type=text] {
+	display: 				inline-block;
+    width: 					200px;
+    border: 				2px solid #ccc;
+    border-radius: 			15px / 50%;
+    background-color:		white;
+    padding: 				6px 20px 6px 40px;
+    transition: 			width 0.4s ease-in-out;
+    font-family: 			'Marmelad', sans-serif;
+
+}
+
+#search > input[type=text]:focus {
+    width: 					150%;
+    outline: 				none;
+}
+
+/* -------------------------------------------------*/
+
+h1 {
+	margin: 				0;
+	width: 					200px;
+	height: 				100%;
+    margin: 				0 auto;
+}
+
+#titolo {
+	font-family: 			'Srisakdi', cursive;
+	color: 					white;
+	text-decoration: 		none;
+  	text-shadow: 	 		4px 2px 2px black; 
+  	letter-spacing: 		7px;
+}
+
+#right-icons {
+	float: 					right;
+	height: 				55px;
+	padding-right: 			10px;
+}
+
+#right-list {
+	padding:				0;
+	text-align: 			right;
+	margin:  				0;
+}
+
+#right-list > li {
+	display: 				inline;
+	list-style: 			none;
+	padding: 				10px;
+	position: 				relative;
+	bottom: 				0;
+    transition: 			all 0.3s ease 0s;
+    cursor: 				pointer;
+}
+
+#right-list > li:hover{
+	bottom: 				5px;
+}
+
+/*--------------------------------------------------*/
+
+.fadein, .fadeout {
+    opacity: 				0;
+    transition: 			opacity 1s;
+}
+.fadein {
+    opacity: 				1;
+}
+
+#right-icons > div {
+	position: 				relative;
+	display: 				block;
+	background-color: 		white;
+	width: 					400px;
+	height: 				300px;
+	margin: 				30px 50px;
+}
+#right-icons >div:after {
+	position: 				absolute;
+	top: 					50px;
+	right: 					0;
+	margin-right: 			-25px;
+	font-size: 				17px;
+	line-height: 			1;
+}
+
+#right-icons > div > h2 {
+	position: 				relative;
+	text-align: 			center;
+	width: 					100%;
+	display: 				inline-block;
+	margin: 				10px 0;
+	height: 				30px;	
+}
+
+.form-label {
+	display: 				block;
+	height: 				30px;
+	line-height: 			30px;
+	text-align: 			left;
+	padding-left: 			20px;
+}
+
+#right-icons > div > div > input {
+	width: 					80%;
+	height: 				30px;
+	padding: 				0 15px;
+	border: 				1px solid #cecece;
+	background-color: 		#fff;
+	margin: 				0px;
+}
+
+#element > img {
+	cursor: 				pointer;
+	position: 				absolute;
+	right: 					0;
+	top: 					0;
+	margin: 				10px;
+}
+
+/*----------------------------------------------------*/
+/*						FINE HEADER		    		  */
+/*----------------------------------------------------*/
+
+.side-bar {
+	position: 				relative;
+	top: 					55px;
+	height: 				500px;
+}
+
+.left-bar > h2 {
+	padding: 				20px;
+	margin: 				0px;
+}
+
+#leftSidenav {
+    left: 					0;
+}
+
+#rightSidenav {
+    right: 					0;
+}
+
+.sidenav {
+    height: 				100%;
+    width: 					0;
+    position: 				fixed;
+    z-index: 				253;
+    top: 					55px;
+    background-color: 		#111;
+    overflow-x: 			hidden;
+    transition: 			0.5s;
+    padding-top: 			60px;
+}
+
+.sidenav a {
+    padding: 				8px 8px 8px 32px;
+    text-decoration: 		none;
+    font-size: 				25px;
+    color: 					#818181;
+    display: 				block;
+    transition: 			0.3s;
+}
+
+.sidenav a:hover {
+    color: 					#f1f1f1;
+}
+
+.sidenav .closebtn {
+    position: 				absolute;
+    top: 					0;
+    right: 					25px;
+    font-size: 				36px;
+    margin-left: 			50px;
+}
+
+span {
+	position: 				relative;
+	font-size: 				30px;
+	cursor: 				pointer;
+	top: 					10px;
+	left: 					10px;
+	color: 					white;
+}
+
+/* ******************** riquadro catalogo ******************/
+
+#catalog {
+	position: 				absolute;
+	top: 					55px;
+	margin: 				0 auto;
+	padding: 				30px;
+	table-layout: 			fixed;
+    width: 					100%; 
+    font-family: 			'Marmelad', sans-serif;
+    text-align: 			center;
+}
+
+#catalog td {
+	padding:				5px;
+}
+
+.product, .fastSelectors {
+	width: 					100%;
+	position: 				relative;
+}
+
+.caption {
+	font-weight: 			bold;
+	padding: 				10px;
+}
+
+.fastSelectors {
+	text-align: 			center;
+}
+
+
+.fastSelectors > table {
+	border: 				1px solid black;
+    border-collapse: 		collapse;
+	table-layout: 			fixed;
+	width: 					100%;
+	height: 				100%;
+	font-size: 				12px;
+}
+
+.arrow {
+	width: 					10px;
+	float: 					right;
+	padding-top: 			4px;
+}
+
+.fav {
+	background-color: 		#6F8EBA;
+	transition: 			0.2s;
+}
+
+.fav:hover {
+	background-color: 		#587FB7;
+	cursor: 				pointer;
+}

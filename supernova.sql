@@ -1,0 +1,1 @@
+supernova.catalogstabilimento_balneare.userstabilimento_balneare.user

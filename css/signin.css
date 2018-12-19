@@ -1,0 +1,304 @@
+@page {
+	margin:					2cm;
+}
+
+html, body {
+	margin:					0;
+	padding:				0;
+	font-family: 			'Marmelad', sans-serif;
+	background-image: 		url(../immagini/stars.jpg);
+}
+
+/* ------------barra fissa in alto----------------*/
+
+header {
+	position: 				fixed;
+	width: 					100%;
+	height: 				55px;
+	background-image: 		url(../immagini/blu.jpg);
+	background-size: 		100%;
+	text-align: 			center;
+	line-height: 			55px;
+	z-index: 				200;
+	box-shadow: 			black 0px 5px 15px;
+	font-family: 			'Marmelad', sans-serif;
+}
+
+/* -------------------------------------------------*/
+
+#search {
+	display: 				inline-block;
+	position: 				relative;
+	float:					left;
+	margin-left:			14px;
+	height: 				100%;
+}
+
+#search > img {
+	height: 				30px;
+	width: 					30px;
+	position: 				absolute;
+	top: 					13px;
+	left: 					5px;
+}
+
+#search > input {
+	height: 				17px;
+  	border: 				1px solid transparent;
+  	border-top: 			none;
+  	border-bottom: 			1px solid #DDD;
+  	box-shadow: 			inset 0 1px 2px rgba(0,0,0,.39), 0 -1px 1px #FFF, 0 1px 0 #FFF;
+}
+
+#search > input[type=text] {
+	display: 				inline-block;
+    width: 					200px;
+    border: 				2px solid #ccc;
+    border-radius: 			15px / 50%;
+    background-color:		white;
+    padding: 				6px 20px 6px 40px;
+    transition: 			width 0.4s ease-in-out;
+	font-family: 			'Marmelad', sans-serif;
+}
+
+#search > input[type=text]:focus {
+    width: 					150%;
+    outline: 				none;
+}
+
+/* -------------------------------------------------*/
+
+h1 {
+	margin: 				0;
+	width: 					200px;
+	height: 				100%;
+    margin: 				0 auto;
+}
+
+#titolo {
+	font-family: 			'Srisakdi', cursive;
+	color: 					white;
+	text-decoration: 		none;
+  	text-shadow: 	 		4px 2px 2px black; 
+  	letter-spacing: 		7px;
+}
+
+#right-icons {
+	float: 					right;
+	height: 				55px;
+	padding-right: 			10px;
+}
+
+#right-list {
+	padding:				0;
+	text-align: 			right;
+	margin:  				0;
+}
+
+#right-list > li {
+	display: 				inline;
+	list-style: 			none;
+	padding: 				10px;
+	position: 				relative;
+	bottom: 				0;
+    transition: 			all 0.3s ease 0s;
+}
+
+#right-list > li:hover{
+	bottom: 				5px;
+}
+
+/*----------------------------------------------------------*/
+
+.fadein, .fadeout {
+    opacity: 				0;
+    visibility: 			hidden;
+    transition: 			opacity 1s;
+}
+.fadein {
+    opacity: 				1;
+    visibility: 			visible;
+}
+
+#element {
+	position: 				relative;
+	display: 				block;
+	background-color: 		white;
+	width: 					400px;
+	height: 				300px;
+	margin: 				30px 50px;
+	text-align: 			center;
+}
+
+#element:after {
+	position: 				absolute;
+	top: 					50px;
+	right: 					0;
+	margin-right: 			-25px;
+	font-size: 				17px;
+	line-height: 			1;
+}
+
+#element > h2 {
+	position: 				relative;
+	text-align: 			center;
+	width: 					100%;
+	display: 				inline-block;
+	margin: 				10px 0;
+	height: 				30px;	
+}
+
+.form-label {
+	display: 				block;
+	height: 				30px;
+	line-height: 			30px;
+	text-align: 			left;
+	padding-left: 			20px;
+}
+
+#element > div {
+	text-align: center;
+}
+
+#element > div > input {
+	width: 					80%;
+	height: 				30px;
+	padding: 				0 15px;
+	border: 				1px solid #cecece;
+	background-color: 		#fff;
+	margin: 				0px;
+	box-shadow: 			none;
+}
+
+#login {
+	cursor: pointer;
+}
+
+#element > img {
+	cursor: 				pointer;
+	position: 				absolute;
+	right: 					0;
+	top: 					0;
+	margin: 				10px;
+}
+
+/* ------------------ parte sotto la barra superiore ------------- */
+
+.main-container {
+	padding-top:			100px;
+	padding-bottom: 		22px;
+	text-align: 			center;
+	background-size:	 	cover;
+}
+
+.fieldset {
+	/*background: rgba(255, 255, 255, 0.6);*/
+	background: transparent;
+	width: 					500px;
+    margin: 				0 auto;
+    border-radius: 			30px / 5%;
+	/*box-shadow: 			black 0px 5px;*/
+	border-color: transparent;
+	color: white;
+
+	text-align: 			left;
+	letter-spacing: 		0.55px;
+	margin: 				0 auto;
+}
+
+.fieldset > h2 {
+	margin: 10px;
+}
+
+.form-list {
+	list-style: 			none outside none;
+	width: 					100%;
+	margin: 				0px;
+	padding: 				0px;
+	letter-spacing: 		0.55px;
+}
+
+.field {
+	font-weight: 	 		normal;
+	letter-spacing: 		0.55px;
+	padding-bottom: 		5px;
+}
+
+.input-box {
+	text-align: 			left;
+    width: 					100%;
+    display: 				inline-block;
+}
+
+.input-box > input {
+	box-shadow: 			inset 0 1px 2px rgba(0,0,0.5);
+	padding-left: 			4px;
+}
+
+#firstname, #lastname, #email, #pwd, #confirm {
+	text-align: 			left;
+    margin: 				0 auto;
+    width: 					99.3%;
+    display: 				inline-block;
+    height: 				30px;
+    border: 				1px solid #C0C0C0;
+}
+
+.login-submit { 
+	float: 					right;
+  	color: 					black; 
+	margin-top:				10px; 
+  	text-decoration: 		none; 
+  	padding: 				5px 50px; 
+  	border-radius: 			10px; 
+  	background: 			white; 
+  	box-shadow: 			0 -3px #587fb7 inset;
+  	transition: 			0.2s; 
+} 
+.login-submit:hover { background: #6f8eba; } 
+.login-submit:active { 
+  	background: 			#587fb7; 
+  	box-shadow: 			0 3px #587fb7 inset; 
+} 
+
+/* -------------------------- popup style ---------------------------- */
+
+/* Popup container - can be anything you want */
+.popup {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+}
+
+/* The actual popup */
+.popup .popuptext {
+    visibility: hidden;
+    width: 400px;
+    background-color: #555;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 8px 0;
+    position: absolute;
+    z-index: 1;
+    bottom: 125%;
+    left: 50%;
+    margin-left: -200px;
+}
+
+/* Popup arrow */
+.popup .popuptext::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #555 transparent transparent transparent;
+}
+
+/* Toggle this class - hide and show the popup */
+.popup .show {
+    visibility: visible;
+}
