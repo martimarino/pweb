@@ -26,6 +26,20 @@ function favourites() {                             //click su icona cuore
     }
 }
 */
+/*
+function favourites() {
+    <?php session_start(); ?>
+
+    if ( <?php isset( $_SESSION['user_id'] ) ?> ) 
+    {
+        document.location.href="catalog.html";     //porta da icona cuore alla pagina
+        Nav('leftSidenav');
+    } 
+    else 
+    {
+        fade('element');
+    }
+}*/
 
 function showSlides() {
     var i;      //contatore

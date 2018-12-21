@@ -28,14 +28,15 @@
 					<h2>Login</h2>
 					<div class="input-box">
 						<div class="form-label">E-mail</div>
-						<input class="signIn" id="userName" name="userName" type="email" size="15" maxlength="65" placeholder="E-mail">
+						<input class="signIn" id="email" name="email" type="email" size="15" maxlength="65" placeholder="E-mail" required>
 					</div>
 					<div class="input-box">
 						<div class="form-label">Password</div>
-						<input class="signIn" id="password" name="password" type="password" size="15" maxlength="15" placeholder="Password">
+						<input class="signIn" id="password" name="password" type="password" size="15" maxlength="15" placeholder="Password" required>
 					</div>
 					<a href="./signin.html">Do not have an account? Sign in</a>
-					<button type=submit>Invia</button>
+					<button type="submit">Invia</button>
+					<div><?php echo $error; ?></div>
 					<img onclick="fade('element')" src="./immagini/ex.png" alt="ex">
 				</form>
 			</nav>

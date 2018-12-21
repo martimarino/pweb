@@ -1,20 +1,27 @@
 <?php
-session_start();
+	
+	include("db_con.php");
+	include("home.js");
+	session_start();
+      
+	$myemail = mysqli_real_escape_string($db,$_POST['email']);
+	$mypassword = mysqli_real_escape_string($db,$_POST['password']); 
 
-if ( ! empty( $_POST ) ) {
-    if ( isset( $_POST['username'] ) && isset( $_POST['password'] ) ) {
-        // Getting submitted user data from database
-        $con = new mysqli($db_host, $db_user, $db_pass, $db_name);
-        $stmt = $con->prepare("SELECT * FROM users WHERE username = ?");
-        $stmt->bind_param('s', $_POST['username']);
-        $stmt->execute();
-        $result = $stmt->get_result();
-    	$user = $result->fetch_object();
-    		
-    	// Verify user password and set $_SESSION
-    	if ( password_verify( $_POST['password'], $user->password ) ) {
-    		$_SESSION['user_id'] = $user->ID;
-    	}
-    }
-}
+	$sql = "SELECT * FROM user WHERE E-mail = '$myemail' and Password = '$mypassword'";
+	$result = mysqli_query($db,$sql);
+	$row = mysqli_fetch_array($result,MYSQLI_ASSOC);
+	$active = $row['active'];
+
+	$count = mysqli_num_rows($result);
+
+	// If result matched $myemail and $mypassword, table row must be 1 row
+
+	if($count == 1) {
+	 session_register("myemail");
+	 $_SESSION['login_user'] = $myemail;
+	 
+	 header("location: profile.php");
+	}else {
+		echo = "Your Login Name or Password is invalid";
+	}
 ?>
