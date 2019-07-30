@@ -1,6 +1,17 @@
-<?php 
-	include('php/db_con.php'); 
+<?php
 	session_start();
+	include("db_con.php");
+	$_SESSION["email"]=$_POST["email"]; // con questo associo il parametro username che mi è stato passato dal form alla variabile SESSION username
+	$_SESSION["password"]=$_POST["password"]; // con questo associo il parametro username che mi è stato passato dal form alla variabile SESSION password
+	$query = mysql_query("SELECT * FROM users WHERE e-mail= $_POST["email"] AND password = $_POST["password"]")  //per selezionare nel db l'utente e pw che abbiamo appena scritto nel log
+	or DIE('query non riuscita'.mysql_error());
+	if(mysql_num_rows($query)&gt;0){        //se c'è una persona con quel nome nel db allora loggati
+		$row = mysql_fetch_assoc($query); // metto i risultati dentro una variabile di nome $row
+		$_SESSION["logged"] =true; 
+		header("location:prova.php");
+	}else{
+		echo "non ti sei loggato con successo";
+	}
 ?>
 
 <!doctype html>
@@ -39,8 +50,8 @@
 						<div class="form-label">Password</div>
 						<input class="signIn" id="password" name="password" type="password" size="15" maxlength="15" placeholder="Password" required>
 					</div>
-					<a href="php/login.php">Do not have an account? Sign in</a>
-					<button type="submit" action="php/login.php" name="login">Invia</button>
+					<a href="php/registration.php">Do not have an account? Sign in</a>
+					<button type="submit" action="php/registration.php" name="registration">Invia</button>
 					<div><?php echo $error; ?></div>
 					<img onclick="fade('element')" src="immagini/ex.png" alt="ex">
 				</form>

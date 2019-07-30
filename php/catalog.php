@@ -36,7 +36,7 @@
 						<input class="signIn" id="password" name="password" type="password" size="15" maxlength="15" placeholder="Password">
 					</div>
 					<div class="input-box">
-						<a href="login.php">Do not have an account? Sign in</a>
+						<a href="registration.php">Do not have an account? Sign in</a>
 					</div>
 					<img onclick="fade('element')" src="../immagini/ex.png" alt="cross">
 				</div>
