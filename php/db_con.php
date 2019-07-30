@@ -1,8 +1,12 @@
-<?php
+<?php     //connessione al nostro database
+$connessione_al_server=mysql_connect("localhost","root","");  // ip locale, login e password
+if(!$connessione_al_server){
+die ('Non riesco a connettermi: errore '.mysql_error()); // questo apparirà solo se ci sarà un errore
+}
 
-	define('DB_SERVER', 'localhost:3306');
-	define('DB_USERNAME', 'root');
-   	define('DB_PASSWORD', '');
-   	define('DB_DATABASE', 'supernova');
-   	$db = mysqli_connect(DB_SERVER,DB_USERNAME,DB_PASSWORD,DB_DATABASE);
+$db_selected=mysql_select_db("supernova",$connessione_al_server); // dove io ho scritto "prova" andrà inserito il nome del db
+if(!$db_selected){
+die ('Errore nella selezione del database: errore '.mysql_error()); // se la connessione non andrà a buon fine apparirà questo messaggio
+}
+
 ?>

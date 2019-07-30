@@ -10,7 +10,7 @@ function Nav(a) {                //menu a comparsa laterale
 }
 
 function favourites() {
-	document.location.href="catalog.html";     //porta da icona cuore alla pagina
+	document.location.href="php/catalog.php";     //porta da icona cuore alla pagina
 }
 
 /*
