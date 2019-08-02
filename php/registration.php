@@ -48,7 +48,7 @@
 					<h2>Login</h2>
 					<div class="input-box">
 						<div class="form-label">E-mail</div>
-						<input class="signIn" id="userName" name="userName" type="email" size="15" maxlength="65" placeholder="E-mail" autocapitalize="off">
+						<input class="signIn" id="username" name="username" type="email" size="15" maxlength="65" placeholder="E-mail" autocapitalize="off">
 					</div>
 					<div class="input-box">
 						<div class="form-label">Password</div>
