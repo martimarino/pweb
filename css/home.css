@@ -181,6 +181,13 @@ h1 {
 
 #element > button {width: 100px; margin-left: 20px;} 
 
+span {
+	position: 				absolute;
+	top: 					55px;
+	right: 					35px;
+	color: 					red;
+}
+
 /*----------------------------------------------------*/
 /*						FINE HEADER		    		  */
 /*----------------------------------------------------*/

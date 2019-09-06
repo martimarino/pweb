@@ -1,22 +1,3 @@
-<?php
-	session_start(); // serve ad aprire la sessione
-	include("db_con.php"); // includo il file di connessione al database
-	
-	if($_POST["firstname"] != "" && $_POST["lastname"] != "" && $_POST["email"] != "" && $_POST["password"]!= "" && $_POST["confirm"] != ""){  // se i parametri non sono vuoti
-		$query_registrazione = mysql_query("INSERT INTO user (name,surname,e-mail,password,gender)
-		VALUES ('".$_POST["firstname"]."','".$_POST["lastname"]."','".$_POST["email"]."','".$_POST["password"]."','".$_POST["gender"]."')") // scrivo sul DB questi valori
-		or die ("query di registrazione non riuscita".mysql_error()); // se la query fallisce mostrami questo errore
-	}else{
-		header('location:index.php?action=registration&errore=Non hai compilato tutti i campi obbligatori'); // se le prime condizioni non vanno bene entra in questo ramo else
-	}
-	
-	if(isset($query_registrazione)){ //se la reg è andata a buon fine
-		$_SESSION["logged"]=true; //restituisci vero alla chiave logged in SESSION
-		header("location:index.php");
-	}else{
-		echo "non ti sei registrato con successo"; // altrimenti esce scritta a video questa stringa
-	}
-?>
 
 <!doctype html>
 <html lang="en">
@@ -33,6 +14,29 @@
 		<title>Supernova</title>
 	</head>
 	<body>
+	<?php
+		require('db.php');
+		// If form submitted, insert values into the database.
+		if (isset($_REQUEST['username'])){
+		        // removes backslashes
+			$username = stripslashes($_REQUEST['username']);
+			        //escapes special characters in a string
+			$username = mysqli_real_escape_string($con,$username); 
+			$email = stripslashes($_REQUEST['email']);
+			$email = mysqli_real_escape_string($con,$email);
+			$password = stripslashes($_REQUEST['password']);
+			$password = mysqli_real_escape_string($con,$password);
+			$trn_date = date("Y-m-d H:i:s");
+		    $query = "INSERT into `users` (username, password, email, trn_date)
+					VALUES ('$username', '".md5($password)."', '$email', '$trn_date')";
+		    $result = mysqli_query($con,$query);
+		    if($result){
+		        echo "<div class='form'>
+				<h3>You are registered successfully.</h3>
+				<br/>Click here to <a href='login.php'>Login</a></div>";
+	        }
+	    }else{
+	?>
 		<header>
 			<form id="search">
 				<input type="text" name="search" placeholder="Search..">
@@ -115,5 +119,6 @@
 				</fieldset>
 			</form>
 		</div>
+	<?php } ?>
 	</body>
 </html>

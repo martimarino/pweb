@@ -1,21 +1,11 @@
 <?php
-	session_start();
-	include("db_con.php");
-	$_SESSION["email"]=$_POST["email"]; // con questo associo il parametro username che mi è stato passato dal form alla variabile SESSION username
-	$_SESSION["password"]=$_POST["password"]; // con questo associo il parametro username che mi è stato passato dal form alla variabile SESSION password
-	$query = mysql_query("SELECT * FROM user WHERE e-mail= $_POST["email"] AND password = $_POST["password"]")  //per selezionare nel db l'utente e pw che abbiamo appena scritto nel log
-	or DIE('query non riuscita'.mysql_error());
-	if(mysql_num_rows($query)&gt;0){        //se c'è una persona con quel nome nel db allora loggati
-		$row = mysql_fetch_assoc($query); // metto i risultati dentro una variabile di nome $row
-		$_SESSION["logged"] =true; 
-		header("location:prova.php");
-	}else{
-		echo "non ti sei loggato con successo";
+	include('php/login.php');
+	if(isset($_SESSION['login_user'])){
+		header("Location: php/profile.php");
 	}
 ?>
-
 <!doctype html>
-<html lang="en">
+<html>
 	<head>
 		<meta charset="utf-8">
 		<meta name = "author" content = "Martina Marino">
@@ -23,6 +13,7 @@
 		<meta name="description" content="Supernova">
 		<link rel="stylesheet" href="css/home.css" type="text/css" media="screen">
 		<script src="js/home.js"></script>
+		<script src="../js/ajaxManager.js"></script>
 		<link rel="icon" href = "immagini/supernova.png" sizes="32x32" type="image/png"> 
 		<link href="https://fonts.googleapis.com/css?family=Srisakdi:700" rel="stylesheet">
 		<link href="https://fonts.googleapis.com/css?family=Marmelad" rel="stylesheet">
@@ -40,7 +31,7 @@
 					<li id="login" onclick="fade('element')"><img src="immagini/login.png" alt="login"></li>
 					<li id="cart"><a href="php/cart.php"><img src="immagini/cart.png" alt="cart"></a></li> 
 				</ul>
-				<form id="element" class="fadeout" method="post">
+				<form id="element" class="fadeout" method="post" action="">
 					<h2>Login</h2>
 					<div class="input-box">
 						<div class="form-label">E-mail</div>
@@ -50,8 +41,10 @@
 						<div class="form-label">Password</div>
 						<input class="signIn" id="password" name="password" type="password" size="15" maxlength="15" placeholder="Password" required>
 					</div>
+					<span><?php echo $error; ?></span>
 					<a href="php/registration.php">Do not have an account? Sign in</a>
-					<button type="submit" name="registration">Invia</button>
+					<button type="submit" name="submit">Login</button>
+					
 					<img onclick="fade('element')" src="immagini/ex.png" alt="ex">
 				</form>
 			</nav>

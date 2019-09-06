@@ -1,0 +1,240 @@
+@page {
+  margin:         2cm;
+}
+
+html, body {
+  margin:         0;
+  padding:        0;
+  font-family:      'Marmelad', sans-serif;
+  background-image:     url(../immagini/stars.jpg);
+}
+
+/* ------------barra fissa in alto----------------*/
+
+header {
+  position:         fixed;
+  width:          100%;
+  height:         55px;
+  background-image:     url(../immagini/blu.jpg);
+  background-size:    100%;
+  text-align:       center;
+  line-height:      55px;
+  z-index:        200;
+  box-shadow:       black 0px 5px 15px;
+  font-family:      'Marmelad', sans-serif;
+}
+
+/* -------------------------------------------------*/
+
+#search {
+  display:        inline-block;
+  position:         relative;
+  float:          left;
+  margin-left:      14px;
+  height:         100%;
+}
+
+#search > img {
+  height:         30px;
+  width:          30px;
+  position:         absolute;
+  top:          13px;
+  left:           5px;
+}
+
+#search > input {
+  height:         17px;
+    border:         1px solid transparent;
+    border-top:       none;
+    border-bottom:      1px solid #DDD;
+    box-shadow:       inset 0 1px 2px rgba(0,0,0,.39), 0 -1px 1px #FFF, 0 1px 0 #FFF;
+}
+
+#search > input[type=text] {
+  display:        inline-block;
+    width:          200px;
+    border:         2px solid #ccc;
+    border-radius:      15px / 50%;
+    background-color:   white;
+    padding:        6px 20px 6px 40px;
+    transition:       width 0.4s ease-in-out;
+  font-family:      'Marmelad', sans-serif;
+}
+
+#search > input[type=text]:focus {
+    width:          150%;
+    outline:        none;
+}
+
+/* -------------------------------------------------*/
+
+h1 {
+  margin:         0;
+  width:          200px;
+  height:         100%;
+    margin:         0 auto;
+}
+
+#titolo {
+  font-family:      'Srisakdi', cursive;
+  color:          white;
+  text-decoration:    none;
+    text-shadow:      4px 2px 2px black; 
+    letter-spacing:     7px;
+}
+
+#right-icons {
+  float:          right;
+  height:         55px;
+  padding-right:      10px;
+}
+
+#right-list {
+  padding:        0;
+  text-align:       right;
+  margin:         0;
+}
+
+#right-list > li {
+  display:        inline;
+  list-style:       none;
+  padding:        10px;
+  position:         relative;
+  bottom:         0;
+    transition:       all 0.3s ease 0s;
+}
+
+#right-list > li:hover{
+  bottom:         5px;
+}
+
+/*----------------------------------------------------------*/
+
+.fadein, .fadeout {
+    opacity:        0;
+    visibility:       hidden;
+    transition:       opacity 1s;
+}
+.fadein {
+    opacity:        1;
+    visibility:       visible;
+}
+
+#element {
+  position:         relative;
+  display:        block;
+  background-color:     white;
+  width:          400px;
+  height:         300px;
+  margin:         30px 50px;
+  text-align:       center;
+}
+
+#element:after {
+  position:         absolute;
+  top:          50px;
+  right:          0;
+  margin-right:       -25px;
+  font-size:        17px;
+  line-height:      1;
+}
+
+#element > h2 {
+  position:         relative;
+  text-align:       center;
+  width:          100%;
+  display:        inline-block;
+  margin:         10px 0;
+  height:         30px; 
+}
+
+.form-label {
+  display:        block;
+  height:         30px;
+  line-height:      30px;
+  text-align:       left;
+  padding-left:       20px;
+}
+
+#element > div {
+  text-align: center;
+}
+
+#element > div > input {
+  width:          80%;
+  height:         30px;
+  padding:        0 15px;
+  border:         1px solid #cecece;
+  background-color:     #fff;
+  margin:         0px;
+  box-shadow:       none;
+}
+
+#login {
+  cursor: pointer;
+}
+
+#element > img {
+  cursor:         pointer;
+  position:         absolute;
+  right:          0;
+  top:          0;
+  margin:         10px;
+} 
+
+/* Full-width input fields */
+#username, #password {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+
+/* Set a style for all buttons */
+button {
+  background-color: #4CAF50;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+}
+
+button:hover {
+  opacity: 0.8;
+}
+
+.container {
+  padding: 16px;
+}
+
+/* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  padding-top: 60px;
+}
+
+/* Modal Content/Box */
+.modal-content {
+  background-color: #fff;
+  margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
+  border: 1px solid #888;
+  border-radius: 10px;
+  width: 40%; /* Could be more or less, depending on screen size */
+}
+
+h2{
+  margin: 0;
+}
