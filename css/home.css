@@ -5,8 +5,8 @@
 html, body {
 	margin:					0;
 	padding:				0;
-	width: 100%;
-	height: 100%;
+	width: 					100%;
+	height: 				100%;
 	font-family: 			'Marmelad', sans-serif;
 	overflow-y:hidden;
 
@@ -23,7 +23,7 @@ header {
 /*	background-color: 		#93AFD7;*/
 	text-align: 			center;
 	line-height: 			55px;
-	z-index: 				200;
+	z-index: 				50;
 	box-shadow: 			black 0px 5px 15px;
 }
 
@@ -45,24 +45,16 @@ header {
 	left: 					5px;
 }
 
-#search > input {
-	height: 				17px;
-  	border: 				1px solid transparent;
-  	border-top: 			none;
-  	border-bottom: 			1px solid #DDD;
-  	box-shadow: 			inset 0 1px 2px rgba(0,0,0,.39), 0 -1px 1px #FFF, 0 1px 0 #FFF;
-}
-
 #search > input[type=text] {
-	display: 				inline-block;
+	/*display: 				inline-block;*/
     width: 					200px;
-    border: 				2px solid #ccc;
-    border-radius: 			15px / 50%;
+    /*border: 				2px solid #ccc;*/
+    /*border-radius: 			15px / 50%;*/
     background-color:		white;
     padding: 				6px 20px 6px 40px;
     transition: 			width 0.4s ease-in-out;
     font-family: 			'Marmelad', sans-serif;
-
+    border-bottom: 			1px solid #ffffff;
 }
 
 #search > input[type=text]:focus {
@@ -196,18 +188,18 @@ span {
 /* ------------ aside per il menu (link al catalogo) --------------- */
 
 aside {
-	z-index: 				200;
-	margin-top: 			70px;
+	z-index: 				49;
 	position: 				fixed;
-	width:	 				300px;
-	height: 				450px;
+	padding-top: 			5%;
+	width:	 				22%;
+	height: 				100%;
 	float: 					left;
 	background-image:		url(../immagini/stars.jpg);
-	opacity: 				0.8;
+	/*opacity: 				0.8;*/
 }
 
 #menu {
-	padding:				30px;
+	padding:				10%;
 }
 
 .menu-list {
@@ -260,24 +252,24 @@ aside {
 
 /* ----------------- la parte per le immagini ---------- */
 
-			/* Slideshow container */
-			.slideshow-container {
-			  position: relative;
-			  margin: auto;
-			  margin-top: 0;
-			  padding-top: 30px;
-			}
+/* Slideshow container */
+.slideshow-container {
+	position: 				relative;
+	margin: 				auto;
+	margin-top: 			0;
+	padding-top: 			30px;
+}
 
-			.slideshow-container > div {
-				position: absolute;
-				opacity: 1;
-				transition: opacity 1s;
-			}
+.slideshow-container > div {
+	position: 				absolute;
+	opacity: 				1;
+	transition: 			opacity 1s;
+}
 
-			.slideshow-container > div > img {
-				width: 100%;
-				display: inline;
-			}
+.slideshow-container > div > img {
+	width: 					100%;
+	display: 				inline;
+}
 
 
 /* -----------------parte in basso----------------------*/
@@ -298,15 +290,14 @@ footer {
 }
 
 footer > form > input {
-	border-radius: 			20px;
-	width: 					200px;
+	/*border-radius: 			20px;*/
+	width: 					20%;
 	padding-left: 			10px;
 	font-family: 			'Marmelad', sans-serif;
 }
 
 button {
-	box-shadow: 			0 1px 3px #4F7AB7;
-	border-radius: 			8px;
+	/*box-shadow: 			0 1px 3px #4F7AB7;*/
 	color: 					black;
 	background-color: 		#93AFD7;
 	font-family: 			'Marmelad', sans-serif;

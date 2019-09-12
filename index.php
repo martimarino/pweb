@@ -1,7 +1,10 @@
 <?php
-	include('php/login.php');
-	if(isset($_SESSION['login_user'])){
+	include('php/database/session.php');
+	session_start();
+
+	if(isLogged()){
 		header("Location: php/profile.php");
+		exit;
 	}
 ?>
 <!doctype html>
@@ -28,7 +31,20 @@
 			<nav id="right-icons">
 				<ul id="right-list">
 					<li id="favourites" onclick="favourites()"><img src="immagini/heart.png" alt="favourites"></li>
-					<li id="login" onclick="fade('element')"><img src="immagini/login.png" alt="login"></li>
+					<!--<li id='login' onclick="fade('element')"><img src='immagini/login.png' alt='login'></li>-->
+					<?php
+						if(isset($_SESSION['username']))
+						{
+							if($_SESSION['username']!="admin")
+							{
+								echo "<li><a href='./php/profile.php'><img src='immagini/login.png'></a></li>";
+							}
+						}
+						else
+						{
+							echo "<li><a href='./php/loginPage.php?acc=no'><img src='immagini/login.png'></a></li>";
+						}
+					?>
 					<li id="cart"><a href="php/cart.php"><img src="immagini/cart.png" alt="cart"></a></li> 
 				</ul>
 				<form id="element" class="fadeout" method="post" action="">
@@ -43,7 +59,7 @@
 					</div>
 					<span><?php echo $error; ?></span>
 					<a href="php/registration.php">Do not have an account? Sign in</a>
-					<button type="submit" name="submit">Login</button>
+					<button type="submit" name="submit" onclick="AjaxManager.login();">Login</button>
 					
 					<img onclick="fade('element')" src="immagini/ex.png" alt="ex">
 				</form>
@@ -70,9 +86,9 @@
 				</ul>
 				<nav id="social">
 					<ul>
-						<li id="instagram"><a href="ig_page.php"><img src="immagini/instagram.png" alt="ig"></a></li>
-						<li id="facebook"><a href="fb_page.php"><img src="immagini/facebook.png" alt="fb"></a></li>
-						<li id="pinterest"><a href="pin_page.php"><img src="immagini/pinterest.png" alt="pin"></a></li>
+						<li id="instagram"><a href="https://www.instagram.com/accounts/login/?hl=it"><img src="immagini/instagram.png" alt="ig"></a></li>
+						<li id="facebook"><a href="https://it-it.facebook.com/login/"><img src="immagini/facebook.png" alt="fb"></a></li>
+						<li id="pinterest"><a href="https://www.pinterest.it/login/"><img src="immagini/pinterest.png" alt="pin"></a></li>
 					</ul>
 				</nav>
 			</nav>

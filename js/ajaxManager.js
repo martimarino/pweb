@@ -58,8 +58,8 @@ AjaxManager.performAjaxRequest =
 AjaxManager.login =
 	function(){
 
-		var url = "../php/login.php";
-		var un = document.getElementById("username").value;
+		var url = "./.php/database/login.php";
+		var un = document.getElementById("email").value;
 		var pw = document.getElementById("password").value;
 		var vars = "username=" + un + "&password=" + pw;
 		
@@ -69,14 +69,14 @@ AjaxManager.login =
 AjaxManager.prepareLogout =
 	function(){
 
-		var url = "../php/logout.php";
+		var url = "../php/database/logout.php";
 
 		AjaxManager.performAjaxRequest("POST", url, true, null, logout);
 	}
 
 AjaxManager.username =
 	function(){
-		var url = "../php/verify_username.php";
+		var url = "../php/database/verify_username.php";
 
 		var us = document.getElementById("username").value;
 
@@ -87,7 +87,7 @@ AjaxManager.username =
 AjaxManager.matchPassword =
 	function(){
 		
-		var url = "../php/match_password.php";
+		var url = "../php/database/match_password.php";
 		var ps = document.getElementById('password').value;
 		var vars = "password=" + ps;
 

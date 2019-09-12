@@ -1,9 +1,20 @@
 <?php
-	include('session.php');
-	if(!isset($_SESSION['login_user'])){
-		header("location: index.php"); // Redirecting To Home Page
+	include "./database/session.php";
+	include "./datebase/connection.php";
+	session_start();
+    if(isset($_SESSION['username']))
+    {
+		if($_SESSION['username'] == 'admin')
+		{
+			header("Location: ../index.php");
+		}
+	}
+	else
+	{
+		header("Location: ../index.php");
 	}
 ?>
+
 <!DOCTYPE html>
 <html>
 	<head>
