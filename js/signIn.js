@@ -1,9 +1,5 @@
 /*
-function User {
 
-}
-
-*/
 
 function isTrue(COND, ELEM, BOOL, MESS) {
 	for (var i=0; i<ELEM.length; i++) {
@@ -50,3 +46,4 @@ function error(idmess, field) {
 	field.focus(); field.select();
 }
 
+*/

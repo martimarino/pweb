@@ -1,30 +1,22 @@
 <?php
-	include "./database/session.php";
-	include "./datebase/connection.php";
 	session_start();
-    if(isset($_SESSION['username']))
-    {
-		if($_SESSION['username'] == 'admin')
-		{
-			header("Location: ../index.php");
-		}
-	}
-	else
-	{
-		header("Location: ../index.php");
-	}
-?>
+    include "./util/session.php";
 
+    if (!isLogged()){
+		    header('Location: ./../index.php');
+		    exit;
+    }	
+?>
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>Your Home Page</title>
+		<title>Il tuo profilo</title>
 		<link href="style.css" rel="stylesheet" type="text/css">
 	</head>
 	<body>
 		<div id="profile">
-		<b id="welcome">Welcome : <i><?php echo $login_session; ?></i></b>
-		<b id="logout"><a href="logout.php">Log Out</a></b>
+		<b id="welcome">Welcome : <i><?php echo $_SESSION['username']; ?></i></b>
+		<b id="logout"><a href="./util/logout.php">Log Out</a></b>
 		</div>
 	</body>
 </html>

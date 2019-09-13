@@ -16,7 +16,7 @@
 	<body>
 	<?php
 		require('db.php');
-		// If form submitted, insert values into the database.
+		// If form submitted, insert values into the util.
 		if (isset($_REQUEST['username'])){
 		        // removes backslashes
 			$username = stripslashes($_REQUEST['username']);
@@ -37,37 +37,9 @@
 	        }
 	    }else{
 	?>
-		<header>
-			<form id="search">
-				<input type="text" name="search" placeholder="Search..">
-				<img src="../immagini/search.png" alt="search">
-			</form>
-			<nav id="right-icons">
-				<ul id="right-list">
-					<li id="favourites" onclick="favourites()"><img src="../immagini/heart.png" alt="favourites"></li>
-					<li id="login" onclick="fade('element')"><img src="../immagini/login.png" alt="login"></li>
-					<li id="cart"><a href="cart.php"><img src="../immagini/cart.png" alt="cart"></a></li> 
-				</ul>
-				<div id="element" class="fadeout">
-					<h2>Login</h2>
-					<div class="input-box">
-						<div class="form-label">E-mail</div>
-						<input class="signIn" id="username" name="username" type="email" size="15" maxlength="65" placeholder="E-mail" autocapitalize="off">
-					</div>
-					<div class="input-box">
-						<div class="form-label">Password</div>
-						<input class="signIn" id="password" name="password" type="password" autocomplete="off" size="15" maxlength="15" placeholder="Password">
-					</div>
-					<div class="input-box">
-						<a href="registration.php">Do not have an account? Sign in</a>
-					</div>
-					<img onclick="fade('element')" src="../immagini/ex.png" alt="ex">
-				</div>
-			</nav>
-			<h1>
-				<a id="titolo" href="../index.php"> Supernova </a>
-			</h1>
-		</header>
+	<?php
+    	include"./layout/top_bar.php";
+  	?>
 		<div class="main-container">
 			<div class="popup">
 				<span class="popuptext" id="myPopup">A Simple Popup!</span>

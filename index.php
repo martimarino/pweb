@@ -1,14 +1,9 @@
 <?php
-	include('php/database/session.php');
+	include('php/util/session.php');
 	session_start();
-
-	if(isLogged()){
-		header("Location: php/profile.php");
-		exit;
-	}
 ?>
 <!doctype html>
-<html>
+<html lang="it">
 	<head>
 		<meta charset="utf-8">
 		<meta name = "author" content = "Martina Marino">
@@ -32,37 +27,9 @@
 				<ul id="right-list">
 					<li id="favourites" onclick="favourites()"><img src="immagini/heart.png" alt="favourites"></li>
 					<!--<li id='login' onclick="fade('element')"><img src='immagini/login.png' alt='login'></li>-->
-					<?php
-						if(isset($_SESSION['username']))
-						{
-							if($_SESSION['username']!="admin")
-							{
-								echo "<li><a href='./php/profile.php'><img src='immagini/login.png'></a></li>";
-							}
-						}
-						else
-						{
-							echo "<li><a href='./php/loginPage.php?acc=no'><img src='immagini/login.png'></a></li>";
-						}
-					?>
+					<li><a href='./php/loginPage.php?acc=no'><img src='immagini/login.png' alt="login"></a></li>
 					<li id="cart"><a href="php/cart.php"><img src="immagini/cart.png" alt="cart"></a></li> 
 				</ul>
-				<form id="element" class="fadeout" method="post" action="">
-					<h2>Login</h2>
-					<div class="input-box">
-						<div class="form-label">E-mail</div>
-						<input class="signIn" id="email" name="email" type="email" size="15" maxlength="65" placeholder="E-mail" required>
-					</div>
-					<div class="input-box">
-						<div class="form-label">Password</div>
-						<input class="signIn" id="password" name="password" type="password" size="15" maxlength="15" placeholder="Password" required>
-					</div>
-					<span><?php echo $error; ?></span>
-					<a href="php/registration.php">Do not have an account? Sign in</a>
-					<button type="submit" name="submit" onclick="AjaxManager.login();">Login</button>
-					
-					<img onclick="fade('element')" src="immagini/ex.png" alt="ex">
-				</form>
 			</nav>
 			<h1>
 				<a id="titolo" href="index.php"> Supernova </a>

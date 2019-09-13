@@ -193,8 +193,20 @@ h1 {
     box-sizing:               border-box;
 }
 
+.container {
+    padding:                  16px;
+}
+
+.login-container {
+    background-color:         #fff;
+    margin:                   7% auto 5% auto; /* 5% from the top, 15% from the bottom and centered */
+    border:                   1px solid #888;
+    border-radius:            10px;
+    width:                    35%; /* Could be more or less, depending on screen size */
+}
+
 /* Set a style for all buttons */
-button {
+.button {
     background-color:         #B6B6C8;
     color:                    white;
     padding:                  14px 20px;
@@ -204,21 +216,8 @@ button {
     width:                    100%;
 }
 
-button:hover {
+.button:hover {
     opacity:                  0.8;
-}
-
-
-.container {
-    padding:                  16px;
-}
-
-.modal-content {
-    background-color:         #fff;
-    margin:                   5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
-    border:                   1px solid #888;
-    border-radius:            10px;
-    width:                    35%; /* Could be more or less, depending on screen size */
 }
 
 h2{

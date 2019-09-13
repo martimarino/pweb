@@ -39,7 +39,7 @@ AjaxManager.performAjaxRequest =
 				* 2 - LOADED
 				* 3 - INTERACTIVE
 				* 4 - COMPLETE
-			*/
+			*/   
 
 			if (xmlHttp.readyState == 4){ //Se lo stato è completo
 				var risposta = xmlHttp.responseText;
@@ -47,19 +47,19 @@ AjaxManager.performAjaxRequest =
 				//Quando la richiesta è terminata il responso della richiesta è disponibie come responseText.	
 				funzioneRisposta(risposta);
 			}
-		}
+		}    
 
 		/* Passo alla richiesta i valori del form in modo da generare l'output desiderato*/
 		//dati == null serve GET
-		//dati == "stringa" serve post
+		//dati == "stringa" serve post      
 		xmlHttp.send(dati);
 }
 
 AjaxManager.login =
 	function(){
 
-		var url = "./.php/database/login.php";
-		var un = document.getElementById("email").value;
+		var url = "../php/util/login.php";
+		var un = document.getElementById("username").value;
 		var pw = document.getElementById("password").value;
 		var vars = "username=" + un + "&password=" + pw;
 		
@@ -69,31 +69,10 @@ AjaxManager.login =
 AjaxManager.prepareLogout =
 	function(){
 
-		var url = "../php/database/logout.php";
+		var url = "../php/util/logout.php";
 
 		AjaxManager.performAjaxRequest("POST", url, true, null, logout);
 	}
-
-AjaxManager.username =
-	function(){
-		var url = "../php/database/verify_username.php";
-
-		var us = document.getElementById("username").value;
-
-		AjaxManager.performAjaxRequest("POST", url, true, "username=" + us, controllaRisposta);
-	}
-
-
-AjaxManager.matchPassword =
-	function(){
-		
-		var url = "../php/database/match_password.php";
-		var ps = document.getElementById('password').value;
-		var vars = "password=" + ps;
-
-		AjaxManager.performAjaxRequest("POST", url, true, vars, match);
-	}
-
 
 function logout(data){
 	if(data){
