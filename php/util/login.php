@@ -2,21 +2,22 @@
     require_once "./supernovaDbManager.php"; //includes Database Class
     require_once "./session.php"; //includes session util functions
  
-	$username = $_POST['username'];
+	$email = $_POST['email'];
 	$password = $_POST['password'];
 	
-	$errorMessage = login($username, $password);
+	$errorMessage = login($email, $password);
 	$supernovaDb->closeConnection();
-	echo $errorMessage;
+	header('location: ./../loginPage.php?errorMessage=' . $errorMessage );
+	//echo $errorMessage;
 
-	function login($username, $password){   
-		if ($username != null && $password != null){
+	function login($email, $password){   
+		if ($email != null && $password != null){
 			
-			$userId = authenticate($username, $password);
+			$userId = authenticate($email, $password);
 			if($userId != null)
 			{
 				session_start();
-				setSession($username, $userId);
+				setSession($email, $userId);
 				if($userId == "amministratore"){
 					header('Location: ../admin_profile.php');
 				}
@@ -29,15 +30,15 @@
     	else
     		return 'You should insert something';
     	
-    	return 'Username and password not valid.';
+    	return 'E-mail and password not valid.';
 	}
 	
-	function authenticate ($username, $password){   
+	function authenticate ($email, $password){   
 		global $supernovaDb;
-		$username = $supernovaDb->sqlInjectionFilter($username);
+		$email = $supernovaDb->sqlInjectionFilter($email);
 		$password = $supernovaDb->sqlInjectionFilter($password);
 
-		$queryText = "select amministratore from user where username='" . $username . "' AND password='" . $password . "'";
+		$queryText = "select amministratore from user where email='" . $email . "' AND password='" . $password . "'";
 
 		$result = $supernovaDb->performQuery($queryText);
 		$numRow = mysqli_num_rows($result);

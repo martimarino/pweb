@@ -54,7 +54,7 @@ AjaxManager.performAjaxRequest =
 		//dati == "stringa" serve post      
 		xmlHttp.send(dati);
 }
-
+/*
 AjaxManager.login =
 	function(){
 
@@ -78,4 +78,4 @@ function logout(data){
 	if(data){
 		location.href = "../index.php"; 
 	}
-}
+}*/

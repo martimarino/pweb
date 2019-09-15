@@ -26,8 +26,7 @@
 			<nav id="right-icons">
 				<ul id="right-list">
 					<li id="favourites" onclick="favourites()"><img src="immagini/heart.png" alt="favourites"></li>
-					<!--<li id='login' onclick="fade('element')"><img src='immagini/login.png' alt='login'></li>-->
-					<li><a href='./php/loginPage.php?acc=no'><img src='immagini/login.png' alt="login"></a></li>
+					<li onclick="location.href='./php/loginPage.php';"><img src='./immagini/login.png' alt="login"></li>
 					<li id="cart"><a href="php/cart.php"><img src="immagini/cart.png" alt="cart"></a></li> 
 				</ul>
 			</nav>
