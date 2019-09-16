@@ -1,6 +1,6 @@
 
 <!doctype html>
-<html lang="en">
+<html lang="it">
 	<head>
 		<meta charset="utf-8">
 		<meta name = "author" content = "Martina Marino">
@@ -13,7 +13,7 @@
 		<link href="https://fonts.googleapis.com/css?family=Marmelad" rel="stylesheet">
 		<title>Supernova</title>
 	</head>
-	<body>
+	<body onLoad = "svuotaCampi()">
 		<?php
 	    	include"./layout/top_bar.php";
 	  	?>

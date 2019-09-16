@@ -1,8 +1,6 @@
 <?php
 	session_start();
     include "./util/session.php";
-    include "./util/supernovaDbManager.php";
-    include "./util/utility.php";
 
     if (!isLogged()){
 		    header('Location: ./../index.php');
@@ -20,36 +18,34 @@
     <link rel="icon" href = "../immagini/supernova.png" sizes="32x32" type="image/png">
     <link href="https://fonts.googleapis.com/css?family=Srisakdi:700" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Marmelad" rel="stylesheet">
-    <script src="../js/profile.js"></script>
+    <script type="text/javascript" src="../js/profile.js"></script>
     <title>Il tuo profilo</title>
   </head>
-	<body>
+	<body onLoad="recoverInformations($_SESSION['username'])">
 		<?php
       		include"./layout/top_bar.php";
     	?>
-    	<section>
-    		Consulta la tabella per trovare la tua taglia.
-    		<img src="../immagini/tabella_misure.jpg" alt="size_table">
-    	</section>
-		<aside>
-			<nav id="menu">
-				<ul class ="menu-list">
-					<li id="first"><b>Welcome
-					<?php
-						$username = $_SESSION['username'];
-						$name = recoverUserInformations("nome", "user", $username);
-						echo $name . "</b></li>";
-					?>
-				</ul>
-				<ul>
-					<li>Profile informations</li>
-					<li>Orders</li>
-					<li>Whishlist</li>
-					<li>Forme di pagamento</li>
-					<li>Le mie misure</li>
-				</ul>
-			</nav>
-			<button type="submit" id="logout" onclick="location.href='./util/logout.php';">Log out</button>
-		</aside>
+		<div id="container">
+			<div class="square">
+				<h2>INFO PROFILO</h2>
+				<hr>
+				<p id="welcome"><?php echo $_SESSION['username']; ?></p>
+				<button type="submit" id="logout" onclick="location.href='./util/logout.php';">Log out</button>
+			</div>
+			<div class="square">
+				<h2>I TUOI ORDINI</h2>
+				<hr>
+				<p>Tot ordini: 6</p>
+				<p>IL TUO ULTIMO ORDINE</p>
+				<p>653465</p>
+				<p>Stato: consegnato</p>
+				<button class="goTo">Storico ordini</button>
+			</div>
+			<div class="square">
+				<h2>WISHLIST</h2>
+				<hr>
+				<button class="goTo">Vai alla lista</button>
+			</div>
+		</div>
 	</body>
 </html>

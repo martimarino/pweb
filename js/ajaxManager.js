@@ -54,28 +54,3 @@ AjaxManager.performAjaxRequest =
 		//dati == "stringa" serve post      
 		xmlHttp.send(dati);
 }
-/*
-AjaxManager.login =
-	function(){
-
-		var url = "../php/util/login.php";
-		var un = document.getElementById("username").value;
-		var pw = document.getElementById("password").value;
-		var vars = "username=" + un + "&password=" + pw;
-		
-		AjaxManager.performAjaxRequest("POST", url, true, vars, message);
-	}
-
-AjaxManager.prepareLogout =
-	function(){
-
-		var url = "../php/util/logout.php";
-
-		AjaxManager.performAjaxRequest("POST", url, true, null, logout);
-	}
-
-function logout(data){
-	if(data){
-		location.href = "../index.php"; 
-	}
-}*/
