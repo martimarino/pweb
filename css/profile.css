@@ -251,12 +251,12 @@ li:hover {
 }
 
 .detail_garment_item{
-    max-width: 100%;
+    width: 100%;
     letter-spacing: normal;
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
-    text-align: left;
+    text-align: center;
 }
 
 .detail_garment_item a{

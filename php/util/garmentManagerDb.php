@@ -157,7 +157,7 @@
 		$garmentId = $supernovaDb->sqlInjectionFilter($garmentId);
  		$desiredFlag = $supernovaDb->sqlInjectionFilter($desiredFlag);
  		$queryText = 'UPDATE user_garment '
-					. 'SET desired=' . $desiredFlag . ', inCart=0, isLiked=null '
+					. 'SET desired=' . $desiredFlag
 					. 'WHERE email=\'' . $email . '\' AND garmentId = \'' . $garmentId . '\'';
  		
  		$result = $supernovaDb->performQuery($queryText);
@@ -183,7 +183,7 @@
 		$garmentId = $supernovaDb->sqlInjectionFilter($garmentId);
 		$inCartFlag = $supernovaDb->sqlInjectionFilter($inCartFlag);
 		$queryText = 'UPDATE user_garment '
-					. 'SET desired=0, inCart=' . $inCartFlag . ', isLiked=null '
+					. 'SET inCart=' . $inCartFlag . ' '
 					. 'WHERE email=\'' . $email . '\' AND garmentId = \'' . $garmentId . '\'';
  	
  		return $supernovaDb->performQuery($queryText);
@@ -211,7 +211,7 @@
 		$garmentId = $supernovaDb->sqlInjectionFilter($garmentId);
 		$preference = $supernovaDb->sqlInjectionFilter($preference);
 		$queryText = 'UPDATE user_garment '
-					. 'SET desired=1, inCart=0, isLiked= ' . $preference . ' '
+					. 'SET isLiked= ' . $preference . ' '
 					. 'WHERE email = \'' . $email . '\' AND garmentId = \'' . $garmentId . '\'';
  	
  		$result = $supernovaDb->performQuery($queryText);
