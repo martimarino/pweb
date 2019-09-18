@@ -38,8 +38,9 @@
 		<aside>
 			<nav id="menu">
 				<ul class ="menu-list">
-					<li>New collection</li>
-					<li>Abbigliamento</li>
+					<li><a href="">New collection</a></li>
+					<li>Uomo</li>
+					<li>Donna</li>
 					<li>Accessori</li>
 				</ul>
 				<ul class ="menu-list">

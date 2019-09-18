@@ -222,6 +222,15 @@ aside {
 	padding-left: 			10px;
 }
 
+.menu-list > li > a:hover {
+	color: 					#93AFD7;
+}
+
+a:link, a:visited {
+	color: 					white;
+    text-decoration: 		none;
+}
+
 /* -----------------------------------------*/
 
 #social {

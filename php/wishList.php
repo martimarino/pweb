@@ -22,34 +22,42 @@
 	    <link rel="icon" href = "../immagini/supernova.png" sizes="32x32" type="image/png">
 	    <link href="https://fonts.googleapis.com/css?family=Srisakdi:700" rel="stylesheet">
 	    <link href="https://fonts.googleapis.com/css?family=Marmelad" rel="stylesheet">
-		<script type="text/javascript" src="./../js/ajax/ajaxManager.js"></script>	
+	    <script type="text/javascript" src="./../js/ajax/ajaxManager.js"></script>	
 		<script type="text/javascript" src="./../js/ajax/userGarmentNavBarEventHandler.js"></script>	
 		<script type="text/javascript" src="./../js/ajax/GarmentLoader.js"></script>
-		<script type="text/javascript" src="./../js/ajax/GarmentDashboard.js"></script>
-	    <title>Il tuo profilo</title>
+		<script type="text/javascript" src="./../js/ajax/GarmentDashboard.js"></script>	
+	    <title>Wish list</title>
   	</head>
+
 	<?php
+
   		include"./layout/top_bar.php";
-  		$searchType = LATEST_GARMENTS_SEARCH;
+
+  		$searchType = WISHLIST_SEARCH;
   		echo '<body onLoad="GarmentLoader.init(); ';
   		echo 'GarmentLoader.loadGarment(' . $searchType . ')">';
 
-  			include DIR_LAYOUT . "aside_menu.php";
+			include DIR_LAYOUT . "aside_menu.php";
+
+			echo '<div id="content">';
 
 	?>
 
-	<div id>
-	</div>
+			<script type="text/javascript">
+				document.getElementById("wish_list_link").setAttribute("class", "highlighted_text");
+			</script>
 
 	<?php
-		echo '<section id="garmentDashboard" class="garment_dashboard"></section>'; // Fill dinamically with Ajax Request 
+
+		include DIR_LAYOUT . "navigation_page.php";
+
+		echo '<section id="garmentDashboard" class="garment_dashboard">Ciao</section>';
+
+		include DIR_LAYOUT . "navigation_page.php";
+
+		echo '</div>';
+
 	?>
-	<!--
-	<section>
-		Consulta la tabella per trovare la tua taglia.
-		<img src="../immagini/tabella_misure.jpg" alt="size_table">
-	</section>
-	-->
 
 	</body>
 </html>

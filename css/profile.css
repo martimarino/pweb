@@ -1,187 +1,3 @@
-@page{
-    margin:                 2cm;
-}
-
-html, body 
-{
-    margin:                 0;
-    padding:                0;
-    width:                  100%;
-    height:                 100%;
-    font-family:            'Marmelad', sans-serif;
-   /* overflow-y:             hidden;*/
-    background-image:       url(../immagini/2019.jpg);
-    background-size: cover;
-}
-
-/* ------------barra fissa in alto----------------*/
-
-header {
-    position:               fixed;
-    width:                  100%;
-    height:                 55px;
-    background-image:       url(../immagini/blu.jpg);
-    background-size:        100%;
-    text-align:             center;
-    line-height:            55px;
-    z-index:                50;
-    box-shadow:             black 0px 5px 15px;
-}
-/* -------------------------------------------------*/
-
-#search {
-    display:                 inline-block;
-    position:                relative;
-    float:                   left;
-    margin-left:             14px;
-    height:                  100%;
-}
-
-#search > img {
-    height:                   30px;
-    width:                    30px;
-    position:                 absolute;
-    top:                      13px;
-    left:                     5px;
-}
-
-#search > input[type=text] {
-  /*display:                  inline-block;*/
-    width:                    200px;
-    /*border:                 2px solid #ccc;*/
-    /*border-radius:          15px / 50%;*/
-    background-color:         white;
-    padding:                  6px 20px 6px 40px;
-    transition:               width 0.4s ease-in-out;
-    font-family:              'Marmelad', sans-serif;
-    border-bottom:            1px solid #ffffff;
-}
-
-#search > input[type=text]:focus {
-    width:                    150%;
-    outline:                  none;
-}
-
-/***********************************************/
-
-h1 {
-    margin:                   0;
-    width:                    200px;
-    height:                   100%;
-    margin:                   0 auto;
-}
-
-#titolo {
-    font-family:              'Srisakdi', cursive;
-    color:                    white;
-    text-decoration:          none;
-    text-shadow:              4px 2px 2px black; 
-    letter-spacing:           7px;
-}
-
-#right-icons {
-    float:                    right;
-    height:                   55px;
-    padding-right:            10px;
-}
-
-#right-list {
-    padding:                  0;
-    text-align:               right;
-    margin:                   0;
-}
-
-#right-list > li {
-    display:                  inline;
-    list-style:               none;
-    padding:                  10px;
-    position:                 relative;
-    bottom:                   0;
-    transition:               all 0.3s ease 0s;
-    cursor:                   pointer;
-}
-
-#right-list > li:hover{
-    bottom:                   5px;
-}
-
-/*----------------------------------------------------------*/
-
-.fadein, .fadeout {
-    opacity:                  0;
-    visibility:               hidden;
-    transition:               opacity 1s;
-}
-.fadein {
-    opacity:                  1;
-    visibility:               visible;
-}
-
-#element {
-    position:                 relative;
-    display:                  block;
-    background-color:         white;
-    width:                    400px;
-    height:                   300px;
-    margin:                   30px 50px;
-    text-align:               center;
-}
-
-#element:after {
-    position:                 absolute;
-    top:                      50px;
-    right:                    0;
-    margin-right:             -25px;
-    font-size:                17px;
-    line-height:              1;
-}
-
-#element > h2 {
-    position:                 relative;
-    text-align:               center;
-    width:                    100%;
-    display:                  inline-block;
-    margin:                   10px 0;
-    height:                   30px; 
-}
-
-.form-label {
-    display:                  block;
-    height:                   30px;
-    line-height:              30px;
-    text-align:               left;
-    padding-left:             20px;
-}
-
-#element > div {
-    text-align:               center;
-}
-
-#element > div > input {
-    width:                    80%;
-    height:                   30px;
-    padding:                  0 15px;
-    border:                   1px solid #cecece;
-    background-color:         #fff;
-    margin:                   0px;
-    box-shadow:               none;
-}
-
-#login {
-    cursor:                   pointer;
-}
-
-#element > img {
-    cursor:                   pointer;
-    position:                 absolute;
-    right:                    0;
-    top:                      0;
-    margin:                   10px;
-} 
-
-/*----------------------------------------------------*/
-/*            FINE HEADER             */
-/*----------------------------------------------------*/
 
 a:link, a:visited {
     color:                    black;
@@ -197,43 +13,364 @@ button {
     width:                    100%;
     display:                  inline-block;
     position:                 absolute;
-    bottom:                   0;
-    margin:                   0;
-    left:                     0;
-    right:                    0; 
     border-bottom-right-radius: 10px;
     border-bottom-left-radius: 10px;
 }
 
 section {
-    margin-top:               8%;
     text-align:               center;
     display:                  block;
     float:                    right;
-    width:                    75%;
+    width:                    100%;
     font-size:                20px;
 }
 
 section>img{
-    margin-top:               5%;
     width:                    75%;
 }
 
 aside {
-    z-index:                49;
-    position:               fixed;
-    padding-top:            10%;
-    width:                  23%;
-    height:                 100%;
-    float:                  left;
-    font-size:              20px;
-    border-right:           1px solid black;; 
+    z-index:                  49;
+    position:                 fixed;
+    padding-top:              7%;
+    width:                    23%;
+    height:                   100%;
+    float:                    left;
+    font-size:                20px;
+   /* border-right:             1px solid black;*/
+
 }
 
 li {
-    padding:                10px;
+    padding:                  10px;
+    list-style-type:          none;
+    transition:               all .4s ease-in-out;
 }
 
-li#first{
+li:hover {
+    cursor:                   pointer;
+    padding-left:             20px;
+}
+
+#first{
+    list-style-type:          none;
+    padding-left:             0;
+    font-size:                26px;
+}
+
+#first:hover {
+    padding-left:             0;
+    color:                    black;
+    cursor:                   default;
+}
+
+.highlighted_text {
+    font-weight: 800;
+}
+
+
+
+
+
+
+
+
+
+
+
+#content{
+    width: 71.5%;
+    font-family:            'Marmelad', sans-serif;
+    padding: 0px 20px;
+    text-align: left;
+    color: rgb(112, 112, 112);
+    position: absolute;
+    top: 15%;
+    left: 25%;
+}
+
+/* HOME.PHP */
+#content_nav{
+    width: 100%;
+    margin: 25px 0px;
+}
+
+
+
+.normal_text{
+    color: rgb(112, 112, 112);
+    font-weight: 300;
+}
+
+.page_navigation{
+    width: 100%;
+    float: left;
+}
+
+.previous{
+    float: left;    
+    margin: 0px;
+    display: inline;
+    width: 32px;
+    height: 32px;
+    background: url('./../immagini/previous.png');
+    background-size: cover;
+    border: none;
+    opacity: 1;
+    outline: none;
+    cursor: pointer;
+}
+
+.previous:disabled{
+    background: url('./../immagini/previous_disabled.png');
+    background-size: cover;
+    cursor: auto;
+}
+
+.next{
+    float: right;
+    margin: 0px;
+    display: inline;
+    width: 32px;
+    height: 32px;
+    background: url('./../immagini/next.png');
+    background-size: cover;
+    border: none;
+    opacity: 1;
+    outline: none;
+    cursor: pointer;
+}
+
+.next:disabled{
+    background: url('./../immagini/next_disabled.png');
+    background-size: cover; 
+    cursor: auto;
+}
+
+.currentPage{
+    text-align: center;
+    line-height: 32px;
+}
+
+#content_nav a{
+    margin: 0px 20px;
+    text-decoration: none;
+    display: inline;
+    font-size: 19px;
+}
+
+.model_garments_list{
     list-style-type: none;
+    text-align: left;
+    margin: 20px 0px;
+}
+
+.model_garment_item_wrapper{
+    width: 160px;
+    padding: 20px 20px;
+    float: left;
+}
+
+.model_garment_item_wrapper div{
+    float: left;
+}
+
+.nav_garment_item{
+    width: 16px;
+    height: 16px;
+    background-size: cover;
+    margin: 2px 4px;
+    text-align: rigth;
+    float: left;
+    cursor: pointer;
+}
+
+.stats_user_garment{
+    width: 21px;
+    height: 21px;
+    font-size: 12px;
+    color: rgb(172, 172, 172);
+    font-style: italic;
+    margin: 5px 0 0 0;
+}   
+
+
+
+
+
+
+.like_img_0{
+    background-image: url('./../immagini/empty_like.png');
+    background-size: cover;
+}
+
+.like_img_1{
+    background-image: url('./../immagini/full_like.png');
+    background-size: cover;
+}
+
+.dislike_img_0{
+    background-image: url('./../immagini/empty_dislike.png');
+    background-size: cover;
+}
+
+.dislike_img_1{
+    background-image: url('./../immagini/full_dislike.png');
+    background-size: cover;
+}
+
+.in_cart_img_0{
+    background-image: url('./../immagini/empty_cart.png');
+    background-size: cover;
+}
+
+.in_cart_img_1{
+    background-image: url('./../immagini/full_cart.png');
+    background-size: cover;
+}
+
+.desired_img_0{
+    background-image: url('./../immagini/empty_heart.png');
+    background-size: cover;
+}
+
+.desired_img_1{
+    background-image: url('./../immagini/full_heart.png');
+    background-size: cover;
+}
+
+.model_garment_item{
+    width: 160px;
+    height: 220px;
+}
+
+.model_garment_item img{
+    max-width:100%;
+    max-height:100%;
+    border-radius: 3px;
+}
+
+.detail_garment_item{
+    max-width: 100%;
+    letter-spacing: normal;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    text-align: left;
+}
+
+.detail_garment_item a{
+    margin: 2px 0px;
+    color: rgb(68, 68, 68);
+    font-size: 14px;
+    font-weight: bold;
+    line-height: 2.5ex;
+    height: 2.5ex;
+    text-decoration: none;
+}
+
+.detail_garment_item p{
+    margin: 2px 0px;
+    color: rgb(112, 112, 112);
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 2.5ex;
+    height: 2.5ex;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+/* garment.PHP */
+
+#detailed_garment_tab{
+    width: 95%;
+    margin: auto;
+    text-align: justify;
+    font-size: 18px;
+    font-weight: 200;
+}
+
+#left{
+    width: 300px;
+    margin: 20px 0px;
+    float: left;
+}
+
+#left img{
+    max-width:250px;
+    border-radius: 5px;
+}
+
+#main{
+    width: 65%;
+    margin: 20px 0px;
+    float: left;
+}
+
+#detailed_garment_tab h1{
+    margin: 0px;
+    float: left;
+    padding-right: 10px;
+    line-height: 40px;
+    font-size: 32px;
+    font-weight: 1200;
+    color: rgb(48, 48, 48);
+}
+
+#detailed_garment_tab h2{
+    margin: 0px;
+    line-height: 30px;
+    font-size: 21px;
+    color: rgb(18, 18, 18);
+}
+
+#detailed_garment_tab h3{
+    margin: 0px;
+    line-height: 40px;
+    font-size: 22px;
+    color: rgb(172, 172, 172);
+    font-style: italic;
+}
+
+.title_stats{
+    font-size: 18px;
+    color: rgb(38, 38, 38);
+    font-weight: 500;
+}
+
+.content_garment_wrapper{
+    padding: 2px;
+    margin: 25px 0;
+}
+
+
+.error{
+    margin-top: 5px;
+    margin-bottom: 5px;
+    margin: auto;
+    width: 50%;
+    position: relative;
+    background-color: rgba(255, 0, 0, 0.2);
+    border: 1px solid rgba(255, 0, 0, 0.8);
+    border-radius: 4px;
+    color: rgb(132, 3, 3);
+    text-align: center;
+    text-shadow: 0 0 3px rgb(255, 255, 255);
+    padding: 5px;
+}
+
+.warning{
+    float: left;
+    margin: 5px;
+    width: 50%;
+    position: relative;
+    left: 25%;
+    background-color: rgba(255, 255, 0, 0.2);
+    border: 2px solid rgba(162, 168, 5, 0.8);
+    border-radius: 4px;
+    color: rgb(197, 202, 40);
+    text-align: center;
+    text-shadow: 0 0 3px rgb(255, 255, 255);
+    padding: 5px;
 }

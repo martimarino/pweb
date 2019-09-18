@@ -72,7 +72,7 @@
 		<table id="catalog" style="width:100%">
 			<tr>
 		    	<td>	
-		    		<img src="../immagini/product2.jpg" class="product" alt="product">
+		    		<img src="../immagini/garment2.jpg" class="garment" alt="garment">
 		    		<div class="fastSelectors">
 		    			<table>
 		    				<tr>
@@ -94,7 +94,7 @@
 		    		<div class="price">15,99 €</div>
 		    	</td>
 				<td>
-		    		<img src="../immagini/product2.jpg" class="product" alt="product">
+		    		<img src="../immagini/garment2.jpg" class="garment" alt="garment">
 		    		<div class="fastSelectors">
 		    			<table>
 		    				<tr>
@@ -116,7 +116,7 @@
 		    		<div class="price">15,99 €</div>
 		    	</td>
 				<td>
-		    		<img src="../immagini/product2.jpg" class="product" alt="product">
+		    		<img src="../immagini/garment2.jpg" class="garment" alt="garment">
 		    		<div class="fastSelectors">
 		    			<table>
 		    				<tr>

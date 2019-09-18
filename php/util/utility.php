@@ -1,7 +1,7 @@
 <?php
     require_once "supernovaDbManager.php"; //includes Database Class
 
-	function recoverUserInformations($field, $table, $username) {
+	function recoverInformations($field, $table, $username) {
 
 		global $supernovaDb;
 		$query = "select " . $field . " from " . $table . " where email='" . $username . "'";

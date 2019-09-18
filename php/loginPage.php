@@ -21,6 +21,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="Supernova">
     <link rel="stylesheet" href="../css/login.css" type="text/css" media="screen"> 
+    <link rel="stylesheet" href="../css/header.css" type="text/css" media="screen"> 
     <!--<script type="text/javascript" src="../js/home.js"></script>-->
     <!--<script src="../js/ajaxManager.js"></script>-->
     <link rel="icon" href = "../immagini/supernova.png" sizes="32x32" type="image/png">

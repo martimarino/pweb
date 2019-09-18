@@ -22,11 +22,8 @@
 	    <link rel="icon" href = "../immagini/supernova.png" sizes="32x32" type="image/png">
 	    <link href="https://fonts.googleapis.com/css?family=Srisakdi:700" rel="stylesheet">
 	    <link href="https://fonts.googleapis.com/css?family=Marmelad" rel="stylesheet">
-		<script type="text/javascript" src="./../js/ajax/ajaxManager.js"></script>	
-		<script type="text/javascript" src="./../js/ajax/userGarmentNavBarEventHandler.js"></script>	
-		<script type="text/javascript" src="./../js/ajax/GarmentLoader.js"></script>
-		<script type="text/javascript" src="./../js/ajax/GarmentDashboard.js"></script>
-	    <title>Il tuo profilo</title>
+	    <script src="../js/profile.js"></script>
+	    <title>Method of payment</title>
   	</head>
 	<?php
   		include"./layout/top_bar.php";
@@ -38,9 +35,9 @@
 
 	?>
 
-	<div id>
-	</div>
-
+	<script type="text/javascript">
+		document.getElementById("methods_of_payment_link").setAttribute("class", "highlighted_text");
+	</script>
 	<?php
 		echo '<section id="garmentDashboard" class="garment_dashboard"></section>'; // Fill dinamically with Ajax Request 
 	?>
