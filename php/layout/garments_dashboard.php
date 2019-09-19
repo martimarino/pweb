@@ -79,9 +79,9 @@
 		echo '</div>';
 		
 		echo '<div class="content_garment_wrapper">';
-		echo '<span class="title_stats">Model</span>: ' . $garmentRow['model'] . '<br>';
-		echo '<span class="title_stats">ID: </span>: ' . $garmentRow['garmentId'] . '<br>';
-		echo '<span class="title_stats">Price</span>: ' . $garmentRow['price'] . ',00 €' . '<br>';
+		echo '<span class="title_stats">Model: </span> ' . $garmentRow['model'] . '<br>';
+		echo '<span class="title_stats">ID: </span> ' . $garmentRow['garmentId'] . '<br>';
+		echo '<span class="title_stats">Price: </span> ' . $garmentRow['price'] . ',00 €' . '<br>';
 		echo '</div>';		
 		echo '</div>';
 		echo '<div id="main">';
@@ -97,7 +97,7 @@
 		echo '<h2>Size:</h2>' . $garmentRow['size'] . '<br>';		
 		echo '</div>';
 		echo '<div class="content_garment_wrapper">';
-		echo '<h2>Color:</h2>' . $garmentRow['color'] . '</span><br>';
+		echo '<h2>Color:</h2>' . $garmentRow['color'] . '<br>';
 		echo '</div>';
 		echo '</div>';
 		echo '</div>';

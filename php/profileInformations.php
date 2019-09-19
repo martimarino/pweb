@@ -30,14 +30,16 @@
   	</head>
 
 	<?php
+
   		include"./layout/top_bar.php";
-  		$searchType = LATEST_GARMENTS_SEARCH;
-  		echo '<body onLoad="GarmentLoader.init(); ';
-  		echo 'GarmentLoader.loadGarment(' . $searchType . ')">';
+  		include DIR_LAYOUT . "aside_menu.php";
 
-  			include DIR_LAYOUT . "aside_menu.php";
 
-  			echo '<div id="content">';
+  		$username = $_SESSION['username'];
+		$name = recoverInformations("nome", "user", $username);
+		$surname = recoverInformations("cognome", "user", $username);
+		$genre = recoverInformations("genere", "user", $username);
+		$psw = recoverInformations("password", "user", $username);
 
 	?>
 
@@ -45,15 +47,15 @@
 			document.getElementById("profile_informations_link").setAttribute("class", "highlighted_text");
 		</script>
 	
-	<?php
-		include DIR_LAYOUT . "navigation_page.php";
+		<section id="content" class="personal_informations">
+			<h1 id="personal_informations_title">Personal details</h1>
+			<p>E-mail: &nbsp <?php echo $username; ?></p>
+			<p>Name: &nbsp <?php echo $name; ?></p>
+			<p>Surname:  &nbsp <?php echo $surname; ?></p>
+			<p>Genre:  &nbsp <?php echo $genre; ?></p>
+			<p>Password:  &nbsp <?php echo $psw; ?></p>
+		</section>
 
-		echo '<section id="garmentDashboard" class="garment_dashboard"></section>'; // Fill dinamically with Ajax Request 
-
-		include DIR_LAYOUT . "navigation_page.php";
-
-		echo '</div>';
-	?>
 
 	</body>
 </html>
