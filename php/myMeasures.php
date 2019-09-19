@@ -37,7 +37,7 @@
 		</script>
 
 		<section id="content">
-			Consulta la tabella per trovare la tua taglia.
+			<h1 id="personal_informations_title">Consulta la tabella per trovare la tua taglia.</h1>
 			<img src="../immagini/tabella_misure.jpg" alt="size_table">
 		</section>
 	</body>

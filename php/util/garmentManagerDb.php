@@ -106,10 +106,10 @@
 		return $result; 
 	}
 	
-	function getGarmentLikesOrDislikes($garmentId, $like_dislake){
+	function getGarmentLikesOrDislikes($garmentId, $like_dislke){
 		global $supernovaDb;
 		$email = $supernovaDb->sqlInjectionFilter($garmentId);
-		$like_dislake = $supernovaDb->sqlInjectionFilter($like_dislake);
+		$like_dislake = $supernovaDb->sqlInjectionFilter($like_dislke);
  		$queryText = 'SELECT COUNT(*) as num '
 					. 'FROM user_garment '
 					. 'WHERE garmentId = \'' . $garmentId . '\' AND isLiked = ' . $like_dislake;
@@ -155,16 +155,13 @@
 		global $supernovaDb;
 		$email = $supernovaDb->sqlInjectionFilter($email);
 		$garmentId = $supernovaDb->sqlInjectionFilter($garmentId);
- 		$desiredFlag = $supernovaDb->sqlInjectionFilter($desiredFlag);
- 		$queryText = 'UPDATE user_garment '
-					. 'SET desired=' . $desiredFlag
+		$desiredFlag = $supernovaDb->sqlInjectionFilter($desiredFlag);
+		$queryText = 'UPDATE user_garment '
+					. 'SET desired=' . $desiredFlag . ' '
 					. 'WHERE email=\'' . $email . '\' AND garmentId = \'' . $garmentId . '\'';
- 		
- 		$result = $supernovaDb->performQuery($queryText);
-		$supernovaDb->closeConnection();
-		return $result; 
+ 		return $supernovaDb->performQuery($queryText);
 	}
-	
+
 	function insertInCartUserGarmentStat($garmentId, $email, $inCartFlag){
 		global $supernovaDb;
 		$email = $supernovaDb->sqlInjectionFilter($email);
@@ -215,6 +212,15 @@
  	
  		$result = $supernovaDb->performQuery($queryText);
 		$supernovaDb->closeConnection();
+		return $result; 
+	}
+
+	function getUserOders($email){
+		global $supernovaDb;
+		$email = $supernovaDb->sqlInjectionFilter($email);
+		$queryText = 'SELECT * FROM `order` WHERE email = `' . $email . '`';
+		$result = $supernovaDb->performQuery($queryText);
+		$supernovaDb>closeConnection();
 		return $result; 
 	}
 ?>

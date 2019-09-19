@@ -31,9 +31,7 @@ GarmentLoader.loadGarment =
 		var queryString = "?searchType=" + searchType 
 							+ "&garmentToLoad=" + GarmentLoader.GARMENT_TO_LOAD 
 							+ "&offset=" + (GarmentLoader.CURRENT_PAGE_INDEX-1)*GarmentLoader.GARMENT_TO_LOAD;
-		console.log("QS: " + queryString);
 		var url = GarmentLoader.URL_REQUEST + queryString;
-		console.log("URL: " + url);
 		var responseFunction = GarmentLoader.onAjaxResponse;
 		AjaxManager.performAjaxRequest(GarmentLoader.DEFAULT_METHOD, url, GarmentLoader.ASYNC_TYPE, null, responseFunction);
 	}
@@ -59,18 +57,14 @@ GarmentLoader.onAjaxResponse =
 		 	&&	GarmentLoader.CURRENT_PAGE_INDEX === 1){
 			
 				GarmentDashboard.setEmptyDashboard(response.message);
-			console.log("REPONSE = " + response.message);
 				GarmentDashboard.updateNavigationPage(GarmentLoader.CURRENT_PAGE_INDEX,	true);
-				console.log("primo if: ");
 				return;
 		}
 		
 		if (response.responseCode === GarmentLoader.SUCCESS_RESPONSE){
 			GarmentDashboard.refreshData(response.data);
-			console.log("OK");
 		}
 		
 		var noMoreDataExist = (response.data === null || response.data.length < GarmentLoader.GARMENT_TO_LOAD);
 		GarmentDashboard.updateNavigationPage(GarmentLoader.CURRENT_PAGE_INDEX,	noMoreDataExist);
-		console.log("STAMPA: " + noMoreDataExist);
 	}

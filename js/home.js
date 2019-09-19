@@ -37,6 +37,7 @@ function showPopUp(invalidInput) {
     return;
 }
 
+
 /*
 function validate() {
     var name = document.formToValidate.firstname.value;

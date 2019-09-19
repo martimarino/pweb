@@ -22,31 +22,41 @@
 	    <link rel="icon" href = "../immagini/supernova.png" sizes="32x32" type="image/png">
 	    <link href="https://fonts.googleapis.com/css?family=Srisakdi:700" rel="stylesheet">
 	    <link href="https://fonts.googleapis.com/css?family=Marmelad" rel="stylesheet">
-	    <script src="../js/profile.js"></script>
-	    <title>Orders</title>
+	    <script type="text/javascript" src="./../js/ajax/ajaxManager.js"></script>	
+		<script type="text/javascript" src="./../js/ajax/userGarmentNavBarEventHandler.js"></script>	
+		<script type="text/javascript" src="./../js/ajax/GarmentLoader.js"></script>
+		<script type="text/javascript" src="./../js/ajax/GarmentDashboard.js"></script>	
+	    <title>Supernova-Orders</title>
   	</head>
 
 	<?php
+
   		include"./layout/top_bar.php";
-  		$searchType = LATEST_GARMENTS_SEARCH;
-  		echo '<body onLoad="GarmentLoader.init(); ';
-  		echo 'GarmentLoader.loadGarment(' . $searchType . ')">';
+  		include DIR_LAYOUT . "aside_menu.php";
 
-  			include DIR_LAYOUT . "aside_menu.php";
+
+  		$username = $_SESSION['username'];
+		$code = recoverInformations("codice", "order", $username);
+		$products = recoverInformations("prodotti", "order", $username);
+		$date = recoverInformations("data", "order", $username);
+		$state = recoverInformations("stato", "order", $username);
+		$tot = recoverInformations("totale", "order", $username);
 
 	?>
-	<script type="text/javascript">
-		document.getElementById("orders_link").setAttribute("class", "highlighted_text");
-	</script>
-	<?php
-		echo '<section id="garmentDashboard" class="garment_dashboard"></section>'; // Fill dinamically with Ajax Request 
-	?>
-	<!--
-	<section>
-		Consulta la tabella per trovare la tua taglia.
-		<img src="../immagini/tabella_misure.jpg" alt="size_table">
-	</section>
-	-->
+
+		<script type="text/javascript">
+			document.getElementById("orders_link").setAttribute("class", "highlighted_text");
+		</script>
+		
+		<section id="content" class="personal_informations">
+			<h1 id="personal_informations_title">Your orders</h1>
+			<p>Order code: &nbsp <?php echo $code; ?></p>
+			<p>Products: &nbsp <?php echo $products; ?></p>
+			<p>Date:  &nbsp <?php echo $date; ?></p>
+			<p>State:  &nbsp <?php echo $state; ?></p>
+			<p>Tot:  &nbsp <?php echo $tot; ?></p>
+		</section>
+
 
 	</body>
 </html>

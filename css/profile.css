@@ -1,3 +1,9 @@
+html,body{
+    overflow-y: scroll; 
+    overflow-x: hidden; 
+    position: absolute;
+}
+
 
 a:link, a:visited {
     color:                    black;
@@ -26,7 +32,7 @@ section {
 }
 
 section>img{
-    width:                    75%;
+    width:                    99%;
     padding-top:              15px;
 }
 
@@ -70,24 +76,16 @@ li:hover {
 }
 
 
-
-
-
-
-
-
-
-
-
 #content{
     width: 71.5%;
+    left: 25%;
     font-family:            'Marmelad', sans-serif;
-    padding: 10px;
+    padding: 0px;
     text-align: left;
     color: rgb(112, 112, 112);
-    position: absolute;
-    top: 15%;
-    left: 25%;
+    margin-top: 5%;
+    display: block;
+    float: right;
 }
 
 /* HOME.PHP */
@@ -105,7 +103,8 @@ li:hover {
 
 .page_navigation{
     width: 100%;
-    float: left;
+    padding:    30px 0;
+    display: block;
 }
 
 .previous{
@@ -304,7 +303,7 @@ li:hover {
 }
 
 #main{
-    width: 65%;
+    width: 55%;
     margin: 20px 0px;
     float: left;
 }
@@ -378,7 +377,8 @@ li:hover {
 }
 
 #personal_informations_title {
+    color: black;
     width: 100%;
     text-align: center;
-    color: black;
+    margin-top: 5%;
 }

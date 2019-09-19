@@ -45,11 +45,8 @@ UserGarmentNavBarEventHandler.onLikeEvent =
 UserGarmentNavBarEventHandler.onDislikeEvent = 
 	function(garmentId){
 		var flag =  getComplementaryFlag(document.getElementById("dislikeItem_" + garmentId))
-		console.log("Flag " + flag);
 		var queryString = "?garmentId=" + garmentId + "&dislike=" + flag;
-		console.log("Query: " + queryString);
 		var url = UserGarmentNavBarEventHandler.URL_REQUEST + queryString;
-		console.log("URL: " + url);
 		var responseFunction = UserGarmentNavBarEventHandler.onAjaxResponse;
 	
 		AjaxManager.performAjaxRequest(UserGarmentNavBarEventHandler.DEFAULT_METHOD, 
@@ -62,10 +59,6 @@ UserGarmentNavBarEventHandler.onAjaxResponse =
 		if (response.responseCode === UserGarmentNavBarEventHandler.SUCCESS_RESPONSE)
 			GarmentDashboard.updateGarmentNavBar(response.data);
 
-
-		//mia
-		var util = (response.responseCode === UserGarmentNavBarEventHandler.SUCCESS_RESPONSE);
-		console.log("Util: " + util);
 	}
 
 function getComplementaryFlag(item){

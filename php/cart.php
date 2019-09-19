@@ -1,31 +1,59 @@
+<?php
+	require_once __DIR__ . "/config.php";
+	session_start();
+    include DIR_UTIL . "session.php";
+    include DIR_UTIL . "supernovaDbManager.php";
+    include DIR_UTIL . "utility.php";
+
+    if (!isLogged()){
+		    header('Location: ./../index.php');
+		    exit;
+    }	
+?>
 <!DOCTYPE html>
 <html>
-<title>W3.CSS</title>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-<body>
+    <head>
+	    <meta charset="utf-8">
+	    <meta name = "author" content = "Martina Marino">
+	    <meta name="viewport" content="width=device-width, initial-scale=1">
+	    <meta name="description" content="Supernova">
+	    <link rel="stylesheet" href="../css/profile.css" type="text/css" media="screen"> 
+	    <link rel="stylesheet" href="../css/header.css" type="text/css" media="screen"> 
+	    <link rel="icon" href = "../immagini/supernova.png" sizes="32x32" type="image/png">
+	    <link href="https://fonts.googleapis.com/css?family=Srisakdi:700" rel="stylesheet">
+	    <link href="https://fonts.googleapis.com/css?family=Marmelad" rel="stylesheet">
+	    <script type="text/javascript" src="./../js/ajax/ajaxManager.js"></script>	
+		<script type="text/javascript" src="./../js/ajax/userGarmentNavBarEventHandler.js"></script>	
+		<script type="text/javascript" src="./../js/ajax/GarmentLoader.js"></script>
+		<script type="text/javascript" src="./../js/ajax/GarmentDashboard.js"></script>	
+	    <title>Supernova-Wish list</title>
+  	</head>
 
-<div class="w3-sidebar w3-bar-block w3-dark-grey w3-animate-left" style="display:none" id="mySidebar">
-  <button class="w3-bar-item w3-button w3-large"
-  onclick="w3_close()">Close &times;</button>
-  <a href="#" class="w3-bar-item w3-button">Link 1</a>
-  <a href="#" class="w3-bar-item w3-button">Link 2</a>
-  <a href="#" class="w3-bar-item w3-button">Link 3</a>
-</div>
+	<?php
 
-<div>
-  <button class="w3-button w3-white w3-xxlarge" onclick="w3_open()">&#9776;</button>
+  		include"./layout/top_bar.php";
 
-</div>
+  		$searchType = CART_SEARCH;
+  		echo '<body onLoad="GarmentLoader.init(); ';
+  		echo 'GarmentLoader.loadGarment(' . $searchType . ')">';
 
-<script>
-function w3_open() {
-    document.getElementById("mySidebar").style.display = "block";
-}
-function w3_close() {
-    document.getElementById("mySidebar").style.display = "none";
-}
-</script>
-     
-</body>
-</html> 
+			include DIR_LAYOUT . "aside_menu.php";
+
+			echo '<div id="content">';
+
+	?>
+
+	<?php
+
+		include DIR_LAYOUT . "navigation_page.php";
+
+		echo '<section id="garmentDashboard" class="garment_dashboard">Ciao</section>';
+
+		include DIR_LAYOUT . "navigation_page.php";
+
+		echo '</div>';
+
+	?>
+
+	</body>
+</html>

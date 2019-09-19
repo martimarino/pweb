@@ -10,8 +10,8 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<meta name="description" content="Supernova">
 		<link rel="stylesheet" href="css/home.css" type="text/css" media="screen">
-		<script src="js/home.js"></script>
-		<script src="../js/ajaxManager.js"></script>
+		<script type="text/javascript" src="./js/home.js"></script>
+		<script src="./js/ajax/ajaxManager.js"></script>
 		<link rel="icon" href = "immagini/supernova.png" sizes="32x32" type="image/png"> 
 		<link href="https://fonts.googleapis.com/css?family=Srisakdi:700" rel="stylesheet">
 		<link href="https://fonts.googleapis.com/css?family=Marmelad" rel="stylesheet">
@@ -38,14 +38,11 @@
 		<aside>
 			<nav id="menu">
 				<ul class ="menu-list">
-					<li><a href="">New collection</a></li>
-					<li>Uomo</li>
-					<li>Donna</li>
-					<li>Accessori</li>
-				</ul>
-				<ul class ="menu-list">
+					<li><a href="php/catalog.php">Catalog</a></li>
+					<li>Man</li>
+					<li>Woman</li>
+					<li>Accessories</li>
 					<li>SALES</li>
-					<li>It's Christmas time</li>
 				</ul>
 				<ul class ="menu-list">
 					<li>Dove trovarci</li>

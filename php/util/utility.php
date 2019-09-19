@@ -4,7 +4,7 @@
 	function recoverInformations($field, $table, $username) {
 
 		global $supernovaDb;
-		$query = "select " . $field . " from " . $table . " where email='" . $username . "'";
+		$query = "select " . $field . " from `" . $table . "` where email='" . $username . "'";
 		$result = $supernovaDb->performQuery($query);
 		$elem = "";
 		$row = $result->fetch_row();

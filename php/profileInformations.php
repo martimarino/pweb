@@ -47,7 +47,7 @@
 			document.getElementById("profile_informations_link").setAttribute("class", "highlighted_text");
 		</script>
 	
-		<section id="content" class="personal_informations">
+		<section id="content">
 			<h1 id="personal_informations_title">Personal details</h1>
 			<p>E-mail: &nbsp <?php echo $username; ?></p>
 			<p>Name: &nbsp <?php echo $name; ?></p>

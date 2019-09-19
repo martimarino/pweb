@@ -6,7 +6,7 @@
 	</form>
 	<nav id="right-icons">
 		<ul id="right-list">
-			<li id="favourites" onclick="favourites()"><img src="../immagini/heart.png" alt="favourites"></li>
+			<li id="favourites"><a href= "./wishList.php"><img src="../immagini/heart.png" alt="favourites"></a></li>
 			<li onclick="location.href='../php/loginPage.php';"><img src='../immagini/login.png' alt="login"></li>
 			<li id="cart" onclick="location.href='../php/cart.php';"><img src="../immagini/cart.png" alt="cart"></a></li> 
 		</ul>
