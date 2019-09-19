@@ -26,7 +26,7 @@
 		<script type="text/javascript" src="./../js/ajax/userGarmentNavBarEventHandler.js"></script>	
 		<script type="text/javascript" src="./../js/ajax/GarmentLoader.js"></script>
 		<script type="text/javascript" src="./../js/ajax/GarmentDashboard.js"></script>	
-	    <title>Wish list</title>
+	    <title>Supernova-Wish list</title>
   	</head>
 
 	<?php

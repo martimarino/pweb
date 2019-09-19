@@ -21,9 +21,8 @@ GarmentDashboard.setEmptyDashboard =
 		warningDivElem.setAttribute("class", "warning");
 		var warningSpanElem = document.createElement("span");
 		warningSpanElem.textContent = "There are no garments to load!";
-		
-		warningDivElem.appendChild(warningSpanElem);
 		var dashboardElement = document.getElementById("garmentDashboard");
+		warningDivElem.appendChild(warningSpanElem);
 		dashboardElement.appendChild(warningDivElem);
 	}
 	
@@ -95,7 +94,7 @@ GarmentDashboard.createNavBarElement =
 		// Create desired div elem (tag <div></div>)
 		var desiredItemElem = document.createElement("div");
 		desiredItemElem.setAttribute("id", "desiredItem_" + currentData.garment.garmentId);
-		desiredItemElem.setAttribute("class", "nav_garment_item check_img_" + currentData.userGarmentStat.desired);
+		desiredItemElem.setAttribute("class", "nav_garment_item desired_img_" + currentData.userGarmentStat.desired);
 		desiredItemElem.setAttribute("onClick", "UserGarmentNavBarEventHandler.onDesiredEvent(" + currentData.garment.garmentId + ")");
 	
 		// Create in-cart div elem (tag <div></div>)
@@ -191,7 +190,7 @@ GarmentDashboard.updateGarmentNavBar =
 		var itemNavBar;
 		// desired item
 		itemNavBar = document.getElementById("desiredItem_" + data.garment.garmentId);
-		itemNavBar.setAttribute("class", "nav_garment_item check_img_" + data.userGarmentStat.desired);
+		itemNavBar.setAttribute("class", "nav_garment_item desired_img_" + data.userGarmentStat.desired);
 		// in Ccart item
 		itemNavBar = document.getElementById("inCartItem_" + data.garment.garmentId);
 		itemNavBar.setAttribute("class", "nav_garment_item in_cart_img_" +  data.userGarmentStat.inCart);

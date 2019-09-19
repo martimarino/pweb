@@ -17,7 +17,7 @@
 						
 		$result = $supernovaDb->performQuery($queryText);
 		$supernovaDb->closeConnection();
-		return $result; ;
+		return $result;
 	}
 
 	function getAllGarments($offset, $numRecord){  
@@ -75,7 +75,7 @@
 		$supernovaDb->closeConnection();
 		return $result; 
 	}	
-	
+
 	function getDesiredGarments($email, $offset, $numRecord){
 		global $supernovaDb;
 		$email = $supernovaDb->sqlInjectionFilter($email);
@@ -85,7 +85,7 @@
 					. 'FROM user_garment ug JOIN garment g ON ug.garmentId = g.garmentId '
 					. 'WHERE ug.email = \'' . $email . '\' AND ug.desired = 1 '
 					. 'LIMIT ' . $offset . ',' . $numRecord ;
-
+ 		
  		$result = $supernovaDb->performQuery($queryText);
 		$supernovaDb->closeConnection();
 		return $result; 
@@ -137,7 +137,7 @@
 		$supernovaDb->closeConnection();
 		return $result; 
 	}
-	
+
 	function insertDesiredUserGarmentStat($garmentId, $email, $desiredFlag){
 		global $supernovaDb;
 		$email = $supernovaDb->sqlInjectionFilter($email);
@@ -185,7 +185,6 @@
 		$queryText = 'UPDATE user_garment '
 					. 'SET inCart=' . $inCartFlag . ' '
 					. 'WHERE email=\'' . $email . '\' AND garmentId = \'' . $garmentId . '\'';
- 	
  		return $supernovaDb->performQuery($queryText);
 	}
 	

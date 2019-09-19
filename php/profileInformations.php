@@ -22,8 +22,11 @@
 	    <link rel="icon" href = "../immagini/supernova.png" sizes="32x32" type="image/png">
 	    <link href="https://fonts.googleapis.com/css?family=Srisakdi:700" rel="stylesheet">
 	    <link href="https://fonts.googleapis.com/css?family=Marmelad" rel="stylesheet">
-	    <script src="../js/profile.js"></script>
-	    <title>Profile informations</title>
+	    <script type="text/javascript" src="./../js/ajax/ajaxManager.js"></script>	
+		<script type="text/javascript" src="./../js/ajax/userGarmentNavBarEventHandler.js"></script>	
+		<script type="text/javascript" src="./../js/ajax/GarmentLoader.js"></script>
+		<script type="text/javascript" src="./../js/ajax/GarmentDashboard.js"></script>	
+	    <title>Supernova-Profile informations</title>
   	</head>
 
 	<?php
@@ -34,19 +37,23 @@
 
   			include DIR_LAYOUT . "aside_menu.php";
 
+  			echo '<div id="content">';
+
 	?>
-	<script type="text/javascript">
-		document.getElementById("profile_informations_link").setAttribute("class", "highlighted_text");
-	</script>
+
+		<script type="text/javascript">
+			document.getElementById("profile_informations_link").setAttribute("class", "highlighted_text");
+		</script>
+	
 	<?php
+		include DIR_LAYOUT . "navigation_page.php";
+
 		echo '<section id="garmentDashboard" class="garment_dashboard"></section>'; // Fill dinamically with Ajax Request 
+
+		include DIR_LAYOUT . "navigation_page.php";
+
+		echo '</div>';
 	?>
-	<!--
-	<section>
-		Consulta la tabella per trovare la tua taglia.
-		<img src="../immagini/tabella_misure.jpg" alt="size_table">
-	</section>
-	-->
 
 	</body>
 </html>

@@ -22,26 +22,21 @@
 	    <link rel="icon" href = "../immagini/supernova.png" sizes="32x32" type="image/png">
 	    <link href="https://fonts.googleapis.com/css?family=Srisakdi:700" rel="stylesheet">
 	    <link href="https://fonts.googleapis.com/css?family=Marmelad" rel="stylesheet">
-	    <script src="../js/profile.js"></script>
 	    <title>My measures</title>
   	</head>
 
 	<?php
   		include"./layout/top_bar.php";
-  		$searchType = LATEST_GARMENTS_SEARCH;
-  		echo '<body onLoad="GarmentLoader.init(); ';
-  		echo 'GarmentLoader.loadGarment(' . $searchType . ')">';
 
   			include DIR_LAYOUT . "aside_menu.php";
 
 	?>
-	<script type="text/javascript">
-		document.getElementById("my_measures_link").setAttribute("class", "highlighted_text");
-	</script>
-	<?php
-		echo '<section id="garmentDashboard" class="garment_dashboard"></section>'; // Fill dinamically with Ajax Request 
-	?>
-		<section>
+
+		<script type="text/javascript">
+			document.getElementById("my_measures_link").setAttribute("class", "highlighted_text");
+		</script>
+
+		<section id="content">
 			Consulta la tabella per trovare la tua taglia.
 			<img src="../immagini/tabella_misure.jpg" alt="size_table">
 		</section>

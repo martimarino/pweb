@@ -20,7 +20,7 @@
 	// check desired flag
 	if (isset($_GET['desired'])){
 		$currentFlag = $_GET['desired'];
-		if (setDesiredserStat($garmentId, $currentFlag))
+		if (setDesiredUserStat($garmentId, $currentFlag))
 			$response = setCorrectResponse($garmentId, $message);
 		
 		echo json_encode($response);

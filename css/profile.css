@@ -27,6 +27,7 @@ section {
 
 section>img{
     width:                    75%;
+    padding-top:              15px;
 }
 
 aside {
@@ -323,6 +324,7 @@ li:hover {
     line-height: 30px;
     font-size: 21px;
     color: rgb(18, 18, 18);
+    text-align: left;
 }
 
 #detailed_garment_tab h3{

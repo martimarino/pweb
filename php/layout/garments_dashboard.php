@@ -1,6 +1,6 @@
 <?php
 	require_once __DIR__ . "/../config.php";
-    require_once DIR_UTIL . "sessionUtil.php";
+    require_once DIR_UTIL . "session.php";
 	require_once DIR_UTIL . "garmentManagerDb.php";	
 	require_once DIR_LAYOUT . "message.php";
 	
@@ -11,7 +11,7 @@
 		$currentFlag = false; //desired flag
 		if ($userGarmentRow != null AND $userGarmentRow['desired'] != null AND $userGarmentRow['desired'] == 1)
 			$currentFlag = true;
-		echo '<div id="desiredItem_' . $garmentId . '" class="nav_garment_item check_img_' . (int)$currentFlag . '" ';
+		echo '<div id="desiredItem_' . $garmentId . '" class="nav_garment_item desired_img_' . (int)$currentFlag . '" ';
 		echo 'onClick="UserGarmentNavBarEventHandler.desiredEvent(' . $garmentId . ')">';
 		echo '</div>';
 			
@@ -74,14 +74,14 @@
 		if($garmentRow['img'] == "N/A"){
 			echo '<img src="../../immagini/place_holder.jpg">'; 
 		} else {
-			echo '<img src="' . $garmentRow['img'] . '" alt="img">';
+			echo '<img src="../' . $garmentRow['img'] . '" alt="img">';
 		}
 		echo '</div>';
 		
 		echo '<div class="content_garment_wrapper">';
 		echo '<span class="title_stats">Model</span>: ' . $garmentRow['model'] . '<br>';
 		echo '<span class="title_stats">ID: </span>: ' . $garmentRow['garmentId'] . '<br>';
-		echo '<span class="title_stats">Price</span>: ' . $garmentRow['price'] . '<br>';
+		echo '<span class="title_stats">Price</span>: ' . $garmentRow['price'] . ',00 €' . '<br>';
 		echo '</div>';		
 		echo '</div>';
 		echo '<div id="main">';
@@ -94,12 +94,10 @@
 		showUserStat($garmentRow['garmentId'], $userGarmentRow);
 		
 		echo '<div class="content_garment_wrapper">';
-		echo '<h2>Size:</h2>';
-		echo $garmentRow['size'] . '<br>';		
+		echo '<h2>Size:</h2>' . $garmentRow['size'] . '<br>';		
 		echo '</div>';
 		echo '<div class="content_garment_wrapper">';
-		echo '<h2>Color:</h2>';
-		echo '<span><span class="title_stats">Director</span>: ' . $garmentRow['color'] . '</span><br>';
+		echo '<h2>Color:</h2>' . $garmentRow['color'] . '</span><br>';
 		echo '</div>';
 		echo '</div>';
 		echo '</div>';
