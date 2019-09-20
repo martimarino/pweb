@@ -1,6 +1,5 @@
 
 html,body{
-    overflow-y: scroll;
     overflow-x: hidden;
     position: absolute;
 }
@@ -36,6 +35,12 @@ section>img{
     padding-top:              15px;
 }
 
+#first{
+    list-style-type:          none;
+    padding-left:             35px;
+    font-size:                26px;
+}
+
 #aside_menu {
     z-index:                  49;
     position:                 fixed;
@@ -44,56 +49,43 @@ section>img{
     height:                   100%;
     float:                    left;
     font-size:                20px;
-   /* border-right:             1px solid black;*/
-
 }
 
-li {
+#aside_menu > nav > ul > li {
     padding:                  10px;
     list-style-type:          none;
     transition:               all .4s ease-in-out;
 }
 
-li:hover {
+#aside_menu > nav > ul > li:hover {
     cursor:                   pointer;
     padding-left:             20px;
-}
-
-#first{
-    list-style-type:          none;
-    padding-left:             0;
-    font-size:                26px;
-}
-
-#first:hover {
-    padding-left:             0;
-    color:                    black;
-    cursor:                   default;
 }
 
 .highlighted_text {
     font-weight: 800;
 }
 
-
 #content{
-    width: 71.5%;
+    width: 74%;
     left: 25%;
+    padding-right: 10px;
     font-family:            'Marmelad', sans-serif;
-    padding: 0px;
     text-align: left;
     color: rgb(112, 112, 112);
     display: block;
     float: right;
 }
 
-/* HOME.PHP */
+#content > p > a {
+    color: blue;
+}
+
+/* ---------------------------------- HOME.PHP --------------------------------------------------- */
 #content_nav{
     width: 100%;
     margin: 25px 0px;
 }
-
-
 
 .normal_text{
     color: rgb(112, 112, 112);
@@ -160,7 +152,7 @@ li:hover {
 
 .model_garments_list{
     list-style-type: none;
-    text-align: left;
+    text-align: center;
     margin: 20px 0px;
 }
 
@@ -179,8 +171,7 @@ li:hover {
     height: 16px;
     background-size: cover;
     margin: 2px 4px;
-    text-align: rigth;
-    float: left;
+    text-align: center;
     cursor: pointer;
 }
 
@@ -244,6 +235,8 @@ li:hover {
     border-radius: 3px;
 }
 
+/******************************** detailedGarment.php ***************************************/
+
 .detail_garment_item{
     width: 100%;
     letter-spacing: normal;
@@ -278,8 +271,6 @@ li:hover {
     white-space: nowrap;
     text-overflow: ellipsis;
 }
-
-/* garment.PHP */
 
 #detailed_garment_tab{
     width: 95%;
@@ -381,90 +372,22 @@ li:hover {
     margin-top: 5%;
 }
 
+/* ------------------------- moreInfo.php -------------------------------*/
 
-/* ------------ aside per il menu (link al catalogo) --------------- */
-
-#home_menu_aside {
-    z-index:                49;
-    position:               fixed;
-    padding-top:            5%;
-    width:                  22%;
-    height:                 100%;
-    float:                  left;
-    background-image:       url(../immagini/stars.jpg);
-    /*opacity:              0.8;*/
+#credit_cards {
+    width:  20%;
+    height: 50px;
+    list-style-type:          none;
+    padding-left: 0;
+    text-align: left;
+    margin: 0;
 }
 
-#menu {
-    padding:                10%;
-}
-
-.menu-list {
-   list-style-type:         none;           /*tolto pallini lista*/
-   border-bottom:           1px solid #DADADA;  /*linea inferiore al termine di ul*/
-   padding:                 0;
-}
-
-.menu-list > li {  
-    font-size:              24px;
-    padding:                5px 0;
-    color:                  white;
-    transition:             all .4s ease-in-out;
-    z-index:                201;
-}
-
-.menu-list > li:hover {
-    color:                  #93AFD7;
-    cursor:                 pointer;
-    padding-left:           10px;
-}
-
-.menu-list > li > a:hover {
-    color:                  #93AFD7;
-}
-
-.menu-list > li > a:link, .menu-list > li > a:visited {
-    color:                  white;
-    text-decoration:        none;
-}
-
-/* -----------------------------------------*/
-
-#social {
-    background-color:       transparent;
-    height:                 50px;
-    line-height:            50px;
-}
-
-#social > ul {
-    padding:                0;
-    margin:                 0;
-    text-align:             center;
-    height:                 100%;
-}
-
-#social > ul > li {
-    display:                inline;
-    list-style:             none;
-    padding:                10px;
-    position:               relative;
-    bottom:                 0;
-    transition:             all 0.3s ease 0s;
-}
-
-#social > ul > li:hover{
-    bottom:                 5px;
-}
-
-/* -----------------------------------------*/
-
-#credit_cards > li{
+#credit_cards > li {
+    display: inline;
+    width: 30%;
+    height: 50px;
     float: left;
-    width:  30px;
-}
-
-#credit_cards > li:hover{
-    bottom: -5px;
 }
 
 #visa {
@@ -480,4 +403,16 @@ li:hover {
 #american_express {
     background-image: url('../immagini/american_express.png');
     background-size: cover;
+}
+
+#paypal {
+    background-image: url('../immagini/paypal.png');
+    background-size: cover;
+}
+
+#page_title {
+    color: black;
+    width: 100%;
+    text-align: center;
+    margin-top: 5%;
 }

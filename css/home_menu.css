@@ -5,7 +5,7 @@ aside {
 	z-index: 				49;
 	position: 				fixed;
 	padding-top: 			5%;
-	width:	 				22%;
+	width:	 				23.6%;
 	height: 				100%;
 	float: 					left;
 	background-image:		url(../immagini/stars.jpg);
@@ -43,4 +43,32 @@ aside {
 a:link, a:visited {
 	color: 					white;
     text-decoration: 		none;
+}
+
+/* -----------------------------------------*/
+
+#social {
+    background-color:       transparent;
+    height:                 50px;
+    line-height:            50px;
+}
+
+#social > ul {
+    padding:                0;
+    margin:                 0;
+    text-align:             center;
+    height:                 100%;
+}
+
+#social > ul > li {
+    display:                inline;
+    list-style:             none;
+    padding:                10px;
+    position:               relative;
+    bottom:                 0;
+    transition:             all 0.3s ease 0s;
+}
+
+#social > ul > li:hover{
+    bottom:                 5px;
 }

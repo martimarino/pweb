@@ -39,7 +39,6 @@
 		$name = recoverInformations("nome", "user", $username);
 		$surname = recoverInformations("cognome", "user", $username);
 		$genre = recoverInformations("genere", "user", $username);
-		$psw = recoverInformations("password", "user", $username);
 
 	?>
 
@@ -53,7 +52,6 @@
 			<p>Name: &nbsp <?php echo $name; ?></p>
 			<p>Surname:  &nbsp <?php echo $surname; ?></p>
 			<p>Genre:  &nbsp <?php echo $genre; ?></p>
-			<p>Password:  &nbsp <?php echo $psw; ?></p>
 		</section>
 
 
