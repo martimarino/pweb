@@ -1,7 +1,6 @@
 <header>
 	<form id="search">
-		<input type="text" name="search" placeholder="Search..">
-		<link rel="stylesheet" href="../css/login.css" type="text/css" media="screen"> 
+		<input type="text" id="search-input" placeholder="Search.." onkeyup="GarmentLoader.search(this.value)">
 		<img src="../immagini/search.png" alt="search">
 	</form>
 	<nav id="right-icons">

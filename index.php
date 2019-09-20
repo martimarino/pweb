@@ -12,6 +12,9 @@
 		<link rel="stylesheet" href="css/home.css" type="text/css" media="screen">
 		<script type="text/javascript" src="./js/home.js"></script>
 		<script src="./js/ajax/ajaxManager.js"></script>
+		<script type="text/javascript" src="./js/ajax/userGarmentNavBarEventHandler.js"></script>	
+		<script type="text/javascript" src="./js/ajax/GarmentLoader.js"></script>
+		<script type="text/javascript" src="./js/ajax/GarmentDashboard.js"></script>	
 		<link rel="icon" href = "immagini/supernova.png" sizes="32x32" type="image/png"> 
 		<link href="https://fonts.googleapis.com/css?family=Srisakdi:700" rel="stylesheet">
 		<link href="https://fonts.googleapis.com/css?family=Marmelad" rel="stylesheet">
@@ -19,10 +22,7 @@
 	</head>
 	<body>
 		<header>
-			<form id="search">
-				<input type="text" name="search" placeholder="Search..">
-				<img src="immagini/search.png" alt="search">
-			</form>
+
 			<nav id="right-icons">
 				<ul id="right-list">
 					<li id="favourites"><img src="immagini/heart.png" alt="favourites"></li>
