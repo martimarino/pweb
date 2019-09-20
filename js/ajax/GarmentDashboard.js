@@ -174,7 +174,7 @@ GarmentDashboard.createDetailGarmentElement =
 		
 		// Create price paragraph (tag <p></p>)
 		var detailGarmentDirectorPElem = document.createElement("p");
-		detailGarmentDirectorPElem.textContent = currentData.garment.price + " €";
+		detailGarmentDirectorPElem.textContent = currentData.garment.price + ",00 €";
 		
 		detailGarmentDivElem.appendChild(detailGarmentLinkElem);
 		detailGarmentDivElem.appendChild(detailGarmentDirectorPElem);

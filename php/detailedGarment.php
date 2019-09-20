@@ -42,7 +42,7 @@
 			include DIR_LAYOUT . "garments_dashboard.php";
 			require_once DIR_UTIL . "garmentManagerDb.php";	
 
-			echo '<div id="content">';
+			echo '<br><br><div id="content">';
 			$garmentId = $_GET['garmentId'];
 			$result = getGarmentById($garmentId);	
 			showDetailedGarment($result);

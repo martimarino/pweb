@@ -1,8 +1,17 @@
+
+
 <header>
-	<form id="search">
-		<input type="text" id="search-input" placeholder="Search.." onkeyup="GarmentLoader.search(this.value)">
-		<img src="../immagini/search.png" alt="search">
-	</form>
+	<?php 
+		$file = basename($_SERVER['REQUEST_URI']); 
+		if ($file == "catalog.php" || $file == "wishList.php" || $file == "cart.php")
+		{
+			echo "<form id='search'>
+				<input type='text' id='search-input' placeholder='Search..'' onkeyup='GarmentLoader.search(this.value)''>
+				<img src='../immagini/search.png' alt='search'>
+			</form>";
+		}
+
+	?>
 	<nav id="right-icons">
 		<ul id="right-list">
 			<li id="favourites"><a href= "./wishList.php"><img src="../immagini/heart.png" alt="favourites"></a></li>
