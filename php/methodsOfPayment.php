@@ -31,7 +31,7 @@
   		echo '<body onLoad="GarmentLoader.init(); ';
   		echo 'GarmentLoader.loadGarment(' . $searchType . ')">';
 
-  			include DIR_LAYOUT . "aside_menu.php";
+  			include DIR_LAYOUT . "profile_menu.php";
 
 	?>
 
@@ -41,12 +41,20 @@
 	<?php
 		echo '<section id="garmentDashboard" class="garment_dashboard"></section>'; // Fill dinamically with Ajax Request 
 	?>
-	<!--
-	<section>
-		Consulta la tabella per trovare la tua taglia.
-		<img src="../immagini/tabella_misure.jpg" alt="size_table">
-	</section>
-	-->
+
+		<section id="content">
+			<h1 id="personal_informations_title">Payment methods</h1>
+			<p>CREDIT CARDS</p>
+			<ul id="credit_cards">
+				<li id="visa"></li>
+				<li id="master_card"></li>
+				<li id="american_express"></li>
+			</ul>
+			<p>We accept Visa, Mastercard, American Express, Discover, and JCB. Note, cards issued by local banks which do not carry one of these logos will not be accepted by our global processing service, in which case we recommend PayPal as an alternative.</p>
+			<p>PAYPAL</p>
+			<p>Use any payment method on the growing list of ways to fund a PayPal account in your country. Once you have funded your PayPal account, you can use our single-click PayPal express feature to speed through checkout.</p>
+
+		</section>
 
 	</body>
 </html>

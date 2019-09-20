@@ -45,25 +45,6 @@
 		return $result; 
 	}
 	
-	/*
-	function getUpcomingGarments($offset, $numRecord){
-		global $supernovaDb;
-//		$today = date('Y-m-d');
-		$today = DateTime::createFromFormat('m-d-Y', '12-01-2014')->format('Y-m-d');
-		$today = $supernovaDb->sqlInjectionFilter($today);
-		$offset = $supernovaDb->sqlInjectionFilter($offset);
-		$numRecord = $supernovaDb->sqlInjectionFilter($numRecord);
-		$queryText = 'SELECT * '
-					. 'FROM garment '
-					. 'WHERE  > \'' . $today . '\' '
-					. 'ORDER BY  ASC '
-					. 'LIMIT ' . $offset . ',' . $numRecord;
-					
-		$result = $supernovaDb->performQuery($queryText);
-		$supernovaDb->closeConnection();
-		return $result; 
-	}
-*/
 	function getUserGarmentStat($email, $garmentId){
 		global $supernovaDb;
 		$email = $supernovaDb->sqlInjectionFilter($email);
@@ -215,7 +196,7 @@
 		return $result; 
 	}
 
-	function getUserOders($email){
+	function getUserOrders($email){
 		global $supernovaDb;
 		$email = $supernovaDb->sqlInjectionFilter($email);
 		$queryText = 'SELECT * FROM `order` WHERE email = `' . $email . '`';

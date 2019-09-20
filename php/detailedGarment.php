@@ -4,11 +4,11 @@
     include DIR_UTIL . "session.php";
     include DIR_UTIL . "supernovaDbManager.php";
     include DIR_UTIL . "utility.php";
-
+/*
     if (!isLogged()){
 		    header('Location: ./../index.php');
 		    exit;
-    }	
+    }	*/
 ?>
 <!DOCTYPE html>
 <html lang="it">
@@ -18,6 +18,7 @@
 	    <meta name="viewport" content="width=device-width, initial-scale=1">
 	    <meta name="description" content="Supernova">
 	    <link rel="stylesheet" href="../css/profile.css" type="text/css" media="screen"> 
+	    <link rel="stylesheet" href="../css/home_menu.css" type="text/css" media="screen"> 
 	    <link rel="stylesheet" href="../css/header.css" type="text/css" media="screen"> 
 	    <link rel="icon" href = "../immagini/supernova.png" sizes="32x32" type="image/png">
 	    <link href="https://fonts.googleapis.com/css?family=Srisakdi:700" rel="stylesheet">
@@ -29,9 +30,15 @@
 		<title>Supernova-Detailed garment</title>
 	</head>
 	<body>
+		<style>
+			<?php 
+				if (!isLogged())
+					include '../css/catalog.css'; 
+			?>
+		</style>
 		<?php
 			include"./layout/top_bar.php";
-			include DIR_LAYOUT . "aside_menu.php";
+			include DIR_LAYOUT . "home_menu.php";
 			include DIR_LAYOUT . "garments_dashboard.php";
 			require_once DIR_UTIL . "garmentManagerDb.php";	
 

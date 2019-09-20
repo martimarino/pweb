@@ -7,7 +7,7 @@
         header('Location: ./admin_profile.php');
       }
       else{
-        header('Location: ./profile.php');
+        header('Location: ./wishList.php');
       }
       exit;
     } 

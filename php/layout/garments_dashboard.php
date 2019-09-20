@@ -85,14 +85,14 @@
 		echo '</div>';		
 		echo '</div>';
 		echo '<div id="main">';
-		
-		$userGarmentStatResult = getUserGarmentStat($_SESSION['username'], $garmentRow['garmentId']);
-		$userGarmentRow = null;
-		if (mysqli_num_rows($userGarmentStatResult) == 1)
-			$userGarmentRow = $userGarmentStatResult->fetch_assoc();
-			
-		showUserStat($garmentRow['garmentId'], $userGarmentRow);
-		
+		if(isset($_SESSION['username'])){
+			$userGarmentStatResult = getUserGarmentStat($_SESSION['username'], $garmentRow['garmentId']);
+			$userGarmentRow = null;
+			if (mysqli_num_rows($userGarmentStatResult) == 1)
+				$userGarmentRow = $userGarmentStatResult->fetch_assoc();
+				
+			showUserStat($garmentRow['garmentId'], $userGarmentRow);
+		}
 		echo '<div class="content_garment_wrapper">';
 		echo '<h2>Size:</h2>' . $garmentRow['size'] . '<br>';		
 		echo '</div>';

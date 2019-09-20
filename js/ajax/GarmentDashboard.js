@@ -78,7 +78,7 @@ GarmentDashboard.createGarmentItemElement =
 		var garmentItemLi = document.createElement("li");
 		garmentItemLi.setAttribute("id", "garment_item_" + currentData.garment.garmentId);
 		garmentItemLi.setAttribute("class", "model_garment_item_wrapper");
-		
+
 		garmentItemLi.appendChild(GarmentDashboard.createNavBarElement(currentData));
 		garmentItemLi.appendChild(GarmentDashboard.createModelElement(currentData));
 		garmentItemLi.appendChild(GarmentDashboard.createDetailGarmentElement(currentData));

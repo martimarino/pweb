@@ -1,6 +1,6 @@
-<aside>
+<aside id="aside_menu">
 	<nav id="content-nav">
-		<ul class ="menu-list">
+		<ul>
 			<li id="first"><b>Welcome
 			<?php
 				$username = $_SESSION['username'];

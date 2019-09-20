@@ -32,7 +32,7 @@
 	<?php
 
   		include"./layout/top_bar.php";
-  		include DIR_LAYOUT . "aside_menu.php";
+  		include DIR_LAYOUT . "profile_menu.php";
 
 
   		$username = $_SESSION['username'];

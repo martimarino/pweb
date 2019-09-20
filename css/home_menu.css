@@ -1,0 +1,46 @@
+
+/* ------------ aside per il menu (link al catalogo) --------------- */
+
+aside {
+	z-index: 				49;
+	position: 				fixed;
+	padding-top: 			5%;
+	width:	 				22%;
+	height: 				100%;
+	float: 					left;
+	background-image:		url(../immagini/stars.jpg);
+	/*opacity: 				0.8;*/
+}
+
+#menu {
+	padding:				10%;
+}
+
+.menu-list {
+   list-style-type: 		none;			/*tolto pallini lista*/
+   border-bottom: 			1px solid #DADADA;	/*linea inferiore al termine di ul*/
+   padding: 				0;
+}
+
+.menu-list > li {  
+	font-size: 				24px;
+	padding: 				5px 0;
+	color: 					white;
+    transition: 			all .4s ease-in-out;
+    z-index: 				201;
+}
+
+.menu-list > li:hover {
+	color: 					#93AFD7;
+	cursor: 				pointer;
+	padding-left: 			10px;
+}
+
+.menu-list > li > a:hover {
+	color: 					#93AFD7;
+}
+
+a:link, a:visited {
+	color: 					white;
+    text-decoration: 		none;
+}

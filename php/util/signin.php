@@ -13,7 +13,7 @@
     $errorMessage = registration($firstname, $lastname, $email, $gender, $password, $confirm);
     
     if(!$errorMessage)
-		header('Location: ../profile.php');
+		header('Location: ../wishList.php');
 
 	else
 		header('Location: ./../registration.php?errorMessage=' . $errorMessage);

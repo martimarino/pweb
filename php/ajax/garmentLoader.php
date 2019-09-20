@@ -33,7 +33,6 @@
 			$result = getInCartGarments($_SESSION['username'], $offset, $garmentToLoad);
 			break;
 
-
 		default:
 			$result = null;
 			break;
@@ -67,9 +66,10 @@
 			
 		$index = 0;
 		while ($row = $result->fetch_assoc()){
+
 			// Set UserStat class
 			$userStat = new UserStat();
-			
+if(isset($_SESSION['username'])){			
 			$userGarmentResult = getUserGarmentStat($_SESSION['username'], $row['garmentId']);
 			if ($userGarmentRow = $userGarmentResult->fetch_assoc()){
 				$userStat->desired = $userGarmentRow['desired'];
@@ -84,7 +84,7 @@
 			$dislikedCountResult = getGarmentDislikes($row['garmentId']);
 			$dislikedCountRow = $dislikedCountResult->fetch_assoc();
 			$userStat->dislikedCount = $dislikedCountRow['num'];
-		
+}
 			// Set Garment class
 			$garment = new Garment();
 			$garment->garmentId = $row['garmentId'];
@@ -96,10 +96,10 @@
 			$garmentUserStat = new GarmentUserStat($garment, $userStat);
 		
 			$response->data[$index] = $garmentUserStat;
+
 			$index++;
 		}
 		
 		return $response;
 	}
-
 ?>

@@ -22,7 +22,7 @@
 					header('Location: ../admin_profile.php');
 				}
 				if($userId == "cliente"){
-					header('Location: ../profile.php');
+					header('Location: ../wishList.php');
 				}
 				return null;
 			}

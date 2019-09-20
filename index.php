@@ -25,7 +25,7 @@
 			</form>
 			<nav id="right-icons">
 				<ul id="right-list">
-					<li id="favourites" onclick="favourites()"><img src="immagini/heart.png" alt="favourites"></li>
+					<li id="favourites"><img src="immagini/heart.png" alt="favourites"></li>
 					<li onclick="location.href='./php/loginPage.php';"><img src='./immagini/login.png' alt="login"></li>
 					<li id="cart"><a href="php/cart.php"><img src="immagini/cart.png" alt="cart"></a></li> 
 				</ul>
@@ -35,29 +35,9 @@
 			</h1>
 		</header>
 		<br>
-		<aside>
-			<nav id="menu">
-				<ul class ="menu-list">
-					<li><a href="php/catalog.php">Catalog</a></li>
-					<li>Man</li>
-					<li>Woman</li>
-					<li>Accessories</li>
-					<li>SALES</li>
-				</ul>
-				<ul class ="menu-list">
-					<li>Dove trovarci</li>
-					<li>Contatti</li>
-				</ul>
-				<nav id="social">
-					<ul>
-						<li id="instagram"><a href="https://www.instagram.com/accounts/login/?hl=it"><img src="immagini/instagram.png" alt="ig"></a></li>
-						<li id="facebook"><a href="https://it-it.facebook.com/login/"><img src="immagini/facebook.png" alt="fb"></a></li>
-						<li id="pinterest"><a href="https://www.pinterest.it/login/"><img src="immagini/pinterest.png" alt="pin"></a></li>
-					</ul>
-				</nav>
-			</nav>
-		</aside>
-
+		<?php
+			include('php/layout/home_menu.php');
+		?>
 		<div class="slideshow-container">
 
 			<div class="mySlides fade">

@@ -1,9 +1,9 @@
+
 html,body{
-    overflow-y: scroll; 
-    overflow-x: hidden; 
+    overflow-y: scroll;
+    overflow-x: hidden;
     position: absolute;
 }
-
 
 a:link, a:visited {
     color:                    black;
@@ -36,7 +36,7 @@ section>img{
     padding-top:              15px;
 }
 
-aside {
+#aside_menu {
     z-index:                  49;
     position:                 fixed;
     padding-top:              7%;
@@ -83,7 +83,6 @@ li:hover {
     padding: 0px;
     text-align: left;
     color: rgb(112, 112, 112);
-    margin-top: 5%;
     display: block;
     float: right;
 }
@@ -194,11 +193,6 @@ li:hover {
     margin: 5px 0 0 0;
 }   
 
-
-
-
-
-
 .like_img_0{
     background-image: url('./../immagini/empty_like.png');
     background-size: cover;
@@ -267,6 +261,10 @@ li:hover {
     line-height: 2.5ex;
     height: 2.5ex;
     text-decoration: none;
+}
+
+.detail_garment_item a:link, .detail_garment_item a:visited{
+    color: black;
 }
 
 .detail_garment_item p{
@@ -381,4 +379,105 @@ li:hover {
     width: 100%;
     text-align: center;
     margin-top: 5%;
+}
+
+
+/* ------------ aside per il menu (link al catalogo) --------------- */
+
+#home_menu_aside {
+    z-index:                49;
+    position:               fixed;
+    padding-top:            5%;
+    width:                  22%;
+    height:                 100%;
+    float:                  left;
+    background-image:       url(../immagini/stars.jpg);
+    /*opacity:              0.8;*/
+}
+
+#menu {
+    padding:                10%;
+}
+
+.menu-list {
+   list-style-type:         none;           /*tolto pallini lista*/
+   border-bottom:           1px solid #DADADA;  /*linea inferiore al termine di ul*/
+   padding:                 0;
+}
+
+.menu-list > li {  
+    font-size:              24px;
+    padding:                5px 0;
+    color:                  white;
+    transition:             all .4s ease-in-out;
+    z-index:                201;
+}
+
+.menu-list > li:hover {
+    color:                  #93AFD7;
+    cursor:                 pointer;
+    padding-left:           10px;
+}
+
+.menu-list > li > a:hover {
+    color:                  #93AFD7;
+}
+
+.menu-list > li > a:link, .menu-list > li > a:visited {
+    color:                  white;
+    text-decoration:        none;
+}
+
+/* -----------------------------------------*/
+
+#social {
+    background-color:       transparent;
+    height:                 50px;
+    line-height:            50px;
+}
+
+#social > ul {
+    padding:                0;
+    margin:                 0;
+    text-align:             center;
+    height:                 100%;
+}
+
+#social > ul > li {
+    display:                inline;
+    list-style:             none;
+    padding:                10px;
+    position:               relative;
+    bottom:                 0;
+    transition:             all 0.3s ease 0s;
+}
+
+#social > ul > li:hover{
+    bottom:                 5px;
+}
+
+/* -----------------------------------------*/
+
+#credit_cards > li{
+    float: left;
+    width:  30px;
+}
+
+#credit_cards > li:hover{
+    bottom: -5px;
+}
+
+#visa {
+    background-image: url('../immagini/visa.png');
+    background-size: cover;
+}
+
+#master_card {
+    background-image: url('../immagini/master_card.png');
+    background-size: cover;
+}
+
+#american_express {
+    background-image: url('../immagini/american_express.png');
+    background-size: cover;
 }

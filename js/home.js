@@ -9,10 +9,6 @@ function Nav(a) {                //menu a comparsa laterale
 	e.style.width == "250px" ? e.style.width = "0" : e.style.width = "250px";
 }
 
-function favourites() {
-	document.location.href="php/catalog.php";     //porta da icona cuore alla pagina
-}
-
 function showSlides() {
     var i;      //contatore
     var slides = document.getElementsByClassName("mySlides");

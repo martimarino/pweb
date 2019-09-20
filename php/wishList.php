@@ -37,7 +37,7 @@
   		echo '<body onLoad="GarmentLoader.init(); ';
   		echo 'GarmentLoader.loadGarment(' . $searchType . ')">';
 
-			include DIR_LAYOUT . "aside_menu.php";
+			include DIR_LAYOUT . "profile_menu.php";
 
 			echo '<div id="content">';
 
