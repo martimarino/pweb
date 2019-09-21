@@ -79,14 +79,14 @@ GarmentLoader.search =
 			
 		var queryString = "?pattern=" + pattern;
 		var url = GarmentLoader.SEARCH_REQUEST + queryString;
-		var responseFunction = GarmentLoader.onExploreAjaxResponse;
+		var responseFunction = GarmentLoader.onSearchAjaxResponse;
 	
 		AjaxManager.performAjaxRequest(GarmentLoader.DEFAULT_METHOD, 
 										url, GarmentLoader.ASYNC_TYPE, 
 										null, responseFunction);
 	}
 	
-GarmentLoader.onExploreAjaxResponse =
+GarmentLoader.onSearchAjaxResponse =
 	function(response){
 		if (response.responseCode === UserGarmentNavBarEventHandler.SUCCESS_RESPONSE){
 			GarmentDashboard.refreshData(response.data);
@@ -97,4 +97,3 @@ GarmentLoader.onExploreAjaxResponse =
 			GarmentDashboard.setEmptyDashboard();
 		
 	}
-		

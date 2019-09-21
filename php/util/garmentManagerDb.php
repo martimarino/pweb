@@ -2,23 +2,6 @@
 	require_once __DIR__ . "/../config.php";
     require_once DIR_UTIL . "supernovaDbManager.php"; //includes Database Class
  	
-	function getLatestGarments($offset, $numRecord){  
-		global $supernovaDb;
-//		$today = date('Y-m-d');
-		$today = DateTime::createFromFormat('m-d-Y', '12-01-2014')->format('Y-m-d');
-		$today = $supernovaDb->sqlInjectionFilter($today);
-		$offset = $supernovaDb->sqlInjectionFilter($offset);
-		$numRecord = $supernovaDb->sqlInjectionFilter($numRecord);
-		$queryText = 'SELECT * '
-						. 'FROM garment '
-						. 'WHERE released <= \'' . $today . '\' '
-						. 'ORDER BY released DESC '
-						. 'LIMIT ' . $offset . ',' . $numRecord;
-						
-		$result = $supernovaDb->performQuery($queryText);
-		$supernovaDb->closeConnection();
-		return $result;
-	}
 
 	function getAllGarments($offset, $numRecord){  
 		global $supernovaDb;
@@ -195,6 +178,23 @@
 		$supernovaDb->closeConnection();
 		return $result; 
 	}
+
+
+    function getFilterGarments($offset, $numRecord, $field, $value){
+		global $supernovaDb;
+		$offset = $supernovaDb->sqlInjectionFilter($offset);
+		$numRecord = $supernovaDb->sqlInjectionFilter($numRecord);
+		$queryText = 'SELECT * '
+						. 'FROM garment '
+						. 'WHERE ' . $field . ' = \'' . $value . '\' '
+						. 'LIMIT ' . $offset . ',' . $numRecord;
+
+		$result = $supernovaDb->performQuery($queryText);
+		$supernovaDb->closeConnection();
+		return $result;
+    }
+
+
 
 	function getUserOrders($email){
 		global $supernovaDb;

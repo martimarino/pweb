@@ -18,7 +18,7 @@
 
 	switch ($searchType) {
 		case 0:
-			$result = getLatestGarments($offset, $garmentToLoad);
+			$result = getFilterGarments($offset, $garmentToLoad, "discountedFlag", "1");
 			break;
 		
 		case 1:
@@ -31,6 +31,18 @@
 
 		case 3:
 			$result = getInCartGarments($_SESSION['username'], $offset, $garmentToLoad);
+			break;
+
+		case 4:
+			$result = getFilterGarments($offset, $garmentToLoad, "genre", "male");
+			break;
+
+		case 5:
+			$result = getFilterGarments($offset, $garmentToLoad, "genre", "female");
+			break;
+
+		case 6:
+			$result = getFilterGarments($offset, $garmentToLoad, "category", "accessories");
 			break;
 
 		default:
