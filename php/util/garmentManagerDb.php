@@ -195,13 +195,15 @@
     }
 
 
-
 	function getUserOrders($email){
 		global $supernovaDb;
 		$email = $supernovaDb->sqlInjectionFilter($email);
-		$queryText = 'SELECT * FROM `order` WHERE email = `' . $email . '`';
+		$queryText = 'SELECT * '
+						. 'FROM `order` '
+						. 'WHERE email = ' . '\'' . $email . '\' ';
+
 		$result = $supernovaDb->performQuery($queryText);
-		$supernovaDb>closeConnection();
+		$supernovaDb->closeConnection();
 		return $result; 
 	}
 ?>

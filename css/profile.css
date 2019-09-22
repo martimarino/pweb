@@ -31,8 +31,9 @@ section {
 }
 
 section>img{
-    width:                    99%;
+    width:                    85%;
     padding-top:              15px;
+    padding-left:             5%;
 }
 
 #first{

@@ -1,18 +1,15 @@
 <?php
 	
+	session_start();
 	require_once __DIR__ . "/../config.php";
 	require_once DIR_UTIL . "garmentManagerDb.php";
 	require_once DIR_AJAX_UTIL . "AjaxResponse.php";
 	
 	$response = new AjaxResponse();
-	
-	if (!isset($_GET['pattern'])){
-		echo json_encode($response);
-		return;
-	}		
-	
-	$pattern = $_GET['pattern'];
-	$result = getSearchGarmentsByModel($pattern);
+
+	$email = $_SESSION['username'];
+	$result = getUserOrders($email);
+
 	
 	if (checkEmptyResult($result)){
 		$response = setEmptyResponse();
@@ -44,13 +41,13 @@
 		$index = 0;
 		while ($row = $result->fetch_assoc()){
 
-			// Set Garment class
+			// Set Order class
 			$order = new Order();
 			$order->orderId = $row['codice'];
+			$order->date = $row['data'];
 			$order->products = $row['prodotti'];
 			$order->state = $row['stato'];
-			$order->date = $row['data'];
-			$order->tot = $row['tot'];
+			$order->tot = $row['totale'];
 
 			$response->data[$index] = $order;
 

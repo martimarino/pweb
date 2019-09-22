@@ -1,7 +1,11 @@
 <?php
+	require_once __DIR__ . "/php/config.php";
 	include('php/util/session.php');
 	session_start();
+	include DIR_UTIL . "supernovaDbManager.php";
+    include DIR_UTIL . "utility.php";
 ?>
+
 <!doctype html>
 <html lang="it">
 	<head>

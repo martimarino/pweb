@@ -67,4 +67,22 @@
 		
 	}
 
+	class Order
+	{
+		public $orderId;
+		public $date;
+		public $products;
+		public $state;
+		public $tot;
+
+		function Order($orderId = 0, $date = null, $products = null, $state = null, $tot = 0)
+		{
+			$this->orderId = $orderId;
+			$this->date = $date;
+			$this->products = $products;
+			$this->state = $state;
+			$this->tot = $tot;
+		}
+	}
+
 ?>

@@ -2,7 +2,7 @@
 
 	<?php 
 		$file = basename($_SERVER['REQUEST_URI']); 
-		if ($file == "index.php")
+		if ($file == "index.php" || $file == "")
 		{
 			$igPath = "immagini/instagram.png";
 			$fbPath = "immagini/facebook.png";

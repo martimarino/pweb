@@ -33,6 +33,15 @@ function showPopUp(invalidInput) {
     return;
 }
 
+function hideSlidesShowCatalog(){
+    var slides = document.getElementsByClassName("mySlides");
+    document.removeChild(slides);
+    content = document.createElement("div");
+    content.setAttribute("id", "content");
+    
+}
+
+
 
 /*
 function validate() {

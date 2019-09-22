@@ -1,0 +1,31 @@
+
+html,body{
+    overflow-x: hidden;
+    position: absolute;
+}
+
+#orderDashboard {	
+	margin-top: 5%;
+	float: left;
+}
+
+#orderList {
+	list-style-type: none;
+	height: 100%;
+}
+
+#thead, .order_item_wrapper, .div_elem{
+	width: 100%;
+	padding: 10px 0px;
+}
+
+#thead {
+	border-top: 1px solid black;
+	border-bottom: 1px solid black;
+}
+
+.thead_class, .div_elem{
+	width: 20%;
+	float: left;
+	display: inline-block;
+}

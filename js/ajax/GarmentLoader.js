@@ -5,9 +5,11 @@ function GarmentLoader(){}
 GarmentLoader.DEFAULT_METHOD = "GET";
 GarmentLoader.URL_REQUEST = "./ajax/garmentLoader.php";
 GarmentLoader.SEARCH_REQUEST = "./ajax/searchLoader.php";
+GarmentLoader.ORDER_REQUEST = "./ajax/orderLoader.php";
 GarmentLoader.ASYNC_TYPE = true;
 
 GarmentLoader.GARMENT_TO_LOAD = 20;
+GarmentLoader.ORDER_TO_LOAD = 5;
 GarmentLoader.CURRENT_PAGE_INDEX = 1;
 
 GarmentLoader.SUCCESS_RESPONSE = "0";
@@ -96,4 +98,33 @@ GarmentLoader.onSearchAjaxResponse =
 		if (response.responseCode === GarmentLoader.NO_MORE_DATA)
 			GarmentDashboard.setEmptyDashboard();
 		
+	}
+
+GarmentLoader.loadOrder = 
+	function(searchType)
+	{
+		var queryString = "?searchType=" + searchType 
+							+ "&orderToLoad=" + GarmentLoader.ORDER_TO_LOAD 
+							+ "&offset=" + (GarmentLoader.CURRENT_PAGE_INDEX-1)*GarmentLoader.ORDER_TO_LOAD;
+		var url = GarmentLoader.ORDER_REQUEST + queryString;
+		var responseFunction = GarmentLoader.onOrderAjaxResponse;
+		AjaxManager.performAjaxRequest(GarmentLoader.DEFAULT_METHOD, url, GarmentLoader.ASYNC_TYPE, null, responseFunction);
+	}
+
+GarmentLoader.onOrderAjaxResponse =
+	function(response){
+		if (response.responseCode === GarmentLoader.NO_MORE_DATA 
+		 	&&	GarmentLoader.CURRENT_PAGE_INDEX === 1){
+			
+				OrderDashboard.setEmptyDashboard(response.message);
+				GarmentDashboard.updateNavigationPage(GarmentLoader.CURRENT_PAGE_INDEX,	true);
+				return;
+		}
+		
+		if (response.responseCode === GarmentLoader.SUCCESS_RESPONSE){
+			OrderDashboard.refreshData(response.data);
+		}
+		
+		var noMoreDataExist = (response.data === null || response.data.length < GarmentLoader.ORDER_TO_LOAD);
+		GarmentDashboard.updateNavigationPage(GarmentLoader.CURRENT_PAGE_INDEX,	noMoreDataExist);
 	}
