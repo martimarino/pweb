@@ -6,7 +6,7 @@ html,body{
 
 #orderDashboard {	
 	margin-top: 5%;
-	float: left;
+	margin-right: 3%;
 }
 
 #orderList {
@@ -22,6 +22,8 @@ html,body{
 #thead {
 	border-top: 1px solid black;
 	border-bottom: 1px solid black;
+	color: black;
+	font-weight: bold;
 }
 
 .thead_class, .div_elem{

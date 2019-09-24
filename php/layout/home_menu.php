@@ -2,7 +2,7 @@
 
 	<?php 
 		$file = basename($_SERVER['REQUEST_URI']); 
-		if ($file == "index.php" || $file == "")
+		if ($file == "index.php")
 		{
 			$igPath = "immagini/instagram.png";
 			$fbPath = "immagini/facebook.png";
@@ -29,6 +29,8 @@
 				<ul class ="menu-list">
 					<li><a href=<?php echo $catalogPath ?>>Catalog</a></li>
 					<?php 
+						if ($file == "catalog.php"){
+						
 						$searchType = MEN_GARMENTS_SEARCH; 
 						echo '<li onclick="GarmentLoader.init(); ';
   						echo 'GarmentLoader.loadGarment(' . $searchType . ')">Man</li>';   
@@ -44,6 +46,7 @@
   						$searchType = SALES_SEARCH; 
 						echo '<li onclick="GarmentLoader.init(); ';
   						echo 'GarmentLoader.loadGarment(' . $searchType . ')">SALES</li>';   
+  					}
   					?>
 				</ul>
 				<ul class ="menu-list">

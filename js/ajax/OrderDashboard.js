@@ -110,7 +110,7 @@ OrderDashboard.createTheadOfTheList =
 		var detailThead = document.createElement("div");
 		detailThead.setAttribute("id", "detail_thead");
 		detailThead.setAttribute("class", "thead_class");
-		detailThead.textContent = "More details";
+		detailThead.textContent = "Details";
 
 		theadElem.appendChild(codThead);
 		theadElem.appendChild(dateThead);
@@ -167,9 +167,10 @@ OrderDashboard.createDivElement =
 		detailElem.textContent = "More details";
 
 		var linkElem = document.createElement("a");
-		linkElem.setAttribute("href", "./detailedOrder.php?orderId=" + currentData.orderId);
+		linkElem.setAttribute("onclick", "showOrderDetails(" + currentData.orderId + ")");
+		//linkElem.setAttribute("href", "./detailedOrder.php?orderId=" + currentData.orderId);
 
-		linkElem.appendChild(detailElem);
+		linkElem.appendChild(detailElem);	//add link div in the a element
 		divElem.appendChild(idElem);
 		divElem.appendChild(dateElem);
 		divElem.appendChild(stateElem);
@@ -177,4 +178,11 @@ OrderDashboard.createDivElement =
 		divElem.appendChild(linkElem);
 		
 		return divElem;
+	}
+
+
+OrderDashboard.showOrderDetails() = 
+	function(orderId){
+		OrderDashboard.removeContent();
+
 	}

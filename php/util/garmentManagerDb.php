@@ -155,7 +155,7 @@
 		$garmentId = $supernovaDb->sqlInjectionFilter($garmentId);
 		$preference = $supernovaDb->sqlInjectionFilter($preference);
 		$queryText = 'INSERT INTO user_garment (id, email, garmentId, desired, inCart, isLiked) ' 
-						. 'VALUES (NULL, \'' . $email . '\', \'' . $garmentId . '\', 1, 0, ' . $preference . ')';
+						. 'VALUES (NULL, \'' . $email . '\', \'' . $garmentId . '\', 0, 0, ' . $preference . ')';
  		
  		$result = $supernovaDb->performQuery($queryText);
 		$supernovaDb->closeConnection();
