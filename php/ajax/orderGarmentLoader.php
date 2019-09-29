@@ -48,6 +48,7 @@
 			$orderGarment = new OrderGarment();
 			$orderGarment->orderId = $row['orderId'];
 			$orderGarment->garmentId = $row['garmentId'];
+			$orderGarment->model = $row['model'];
 			$orderGarment->quantity = $row['quantity'];
 			$orderGarment->garmentSize = $row['garmentSize'];
 			$orderGarment->garmentColor = $row['color'];

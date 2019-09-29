@@ -87,15 +87,17 @@
 	{
 		public $orderId;
 		public $garmentId;
+		public $model;
 		public $quantity;
 		public $garmentSize;
 		public $garmentColor;
 		public $price;
 
-		function OrderGarment($orderId = 0, $garmentId = 0, $quantity = 0, $garmentSize = null, $garmentColor = null, $price = 0)
+		function OrderGarment($orderId = 0, $garmentId = 0, $model = null, $quantity = 0, $garmentSize = null, $garmentColor = null, $price = 0)
 		{
 			$this->orderId = $orderId;
 			$this->garmentId = $garmentId;
+			$this->model = $model;
 			$this->quantity = $quantity;
 			$this->garmentSize = $garmentSize;
 			$this->garmentColor = $garmentColor;

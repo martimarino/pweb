@@ -192,6 +192,11 @@ OrderDashboard.fillOrderTable =
 			var idField = document.createElement("td");
 			idField.textContent = currentData[i].garmentId;
 
+			var modelField = document.createElement("td");
+			var modelLink = document.createElement("a");
+			modelLink.setAttribute("href", "./detailedGarment.php?garmentId=" + currentData[i].garmentId);
+			modelLink.textContent = currentData[i].model;
+
 			var quantityField = document.createElement("td");
 			quantityField.textContent = currentData[i].quantity;
 
@@ -204,7 +209,10 @@ OrderDashboard.fillOrderTable =
 			var priceField = document.createElement("td");
 			priceField.textContent = currentData[i].price;
 
+			modelField.appendChild(modelLink);
+
 			node.appendChild(idField);
+			node.appendChild(modelField);
 			node.appendChild(quantityField);
 			node.appendChild(sizeField);
 			node.appendChild(colorField);

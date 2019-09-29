@@ -221,8 +221,9 @@
 	function getOrderGarments($orderId){
 		global $supernovaDb;
 		$orderId = $supernovaDb->sqlInjectionFilter($orderId);
-		$queryText = 'SELECT * '
-						. 'FROM `order_garment` '
+		$queryText = 'SELECT O.orderId, O.garmentId, G.model, '
+						. 'O.quantity, O.garmentSize, O.color, O.price '
+						. 'FROM `order_garment` O JOIN `garment` G ON O.garmentId = G.garmentId '
 						. 'WHERE orderId = ' . $orderId;
 
 		$result = $supernovaDb->performQuery($queryText);

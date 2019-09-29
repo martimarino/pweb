@@ -124,6 +124,7 @@
 				echo '<table cellpadding="0" width="100%" cellspacing="0" id="shopping_cart_items" class="cart_container">';
 						echo '<tr>';
 							echo '<th colspan="1">Your items</th>';
+							echo '<th colspan="1">Model</th>';
 							echo '<th colspan="1">QUANTITY</th>';
 							echo '<th colspan="1">SIZE</th>';
 							echo '<th colspan="1">COLOR</th>';
