@@ -336,6 +336,10 @@ section>img{
     margin: 25px 0;
 }
 
+#go_to_payment {
+    width: 15%;
+    border-radius: 0;
+}
 
 .error{
     margin-top: 5px;

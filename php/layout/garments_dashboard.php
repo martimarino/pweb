@@ -96,6 +96,7 @@
 		echo '<div class="content_garment_wrapper">';
 		echo '<h2>Color:</h2>' . $garmentRow['color'] . '<br>';
 		echo '</div>';
+		echo '<button id="go_to_payment">Proceed to the payment</button>';
 		echo '</div>';
 		echo '</div>';
 	}
