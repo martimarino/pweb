@@ -4,24 +4,27 @@
 	require_once __DIR__ . "/../config.php";
 	require_once DIR_UTIL . "garmentManagerDb.php";
 	require_once DIR_AJAX_UTIL . "AjaxResponse.php";
-	
+
 	$response = new AjaxResponse();
 
-	$email = $_SESSION['username'];
-	$result = getUserOrders($email);
+	if (!isset($_GET['orderId'])){
+		echo json_encode($response);
+		return;
+	}	
 
+	$orderId = $_GET['orderId'];
+	$result = getOrderGarments($orderId);
 	
-	if (checkEmptyResult($result)){
+	if(checkEmptyResult($result)){
 		$response = setEmptyResponse();
 		echo json_encode($response);
 		return;
 	}
 	
-	$message = "OK";	
+	$message = "OK";
 	$response = setResponse($result, $message);
 	echo json_encode($response);
 	return;
-	
 	
 	function checkEmptyResult($result){
 		if ($result === null || !$result)
@@ -31,7 +34,7 @@
 	}
 	
 	function setEmptyResponse(){
-		$message = "No more orders to load";
+		$message = "No more garments to load";
 		return new AjaxResponse("-1", $message);
 	}
 	
@@ -41,14 +44,16 @@
 		$index = 0;
 		while ($row = $result->fetch_assoc()){
 
-			// Set Order class
-			$order = new Order();
-			$order->orderId = $row['codice'];
-			$order->date = $row['data'];
-			$order->state = $row['stato'];
-			$order->tot = $row['totale'];
+			// Set OrderGarment class
+			$orderGarment = new OrderGarment();
+			$orderGarment->orderId = $row['orderId'];
+			$orderGarment->garmentId = $row['garmentId'];
+			$orderGarment->quantity = $row['quantity'];
+			$orderGarment->garmentSize = $row['garmentSize'];
+			$orderGarment->garmentColor = $row['color'];
+			$orderGarment->price = $row['price'];
 
-			$response->data[$index] = $order;
+			$response->data[$index] = $orderGarment;
 
 			$index++;
 		}

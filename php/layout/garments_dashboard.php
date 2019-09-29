@@ -94,13 +94,47 @@
 			showUserStat($garmentRow['garmentId'], $userGarmentRow);
 		}
 		echo '<div class="content_garment_wrapper">';
-		echo '<h2>Size:</h2>' . $garmentRow['size'] . '<br>';		
-		echo '</div>';
-		echo '<div class="content_garment_wrapper">';
 		echo '<h2>Color:</h2>' . $garmentRow['color'] . '<br>';
 		echo '</div>';
 		echo '</div>';
 		echo '</div>';
+	}
+
+	function showOrderDetails($result){
+		$numOrders = mysqli_num_rows($result);
+		if($numOrders != 1) { 
+			showError();	
+			return;
+		}
+		
+		$orderRow = $result->fetch_assoc();
+		echo '<h1 id="page_title">Order details</h1>';
+		echo '<div id="detailed_order">';
+			echo '<div id="general_info">';
+				echo '<p class="orderDetailsInfo">Order number: ' . $orderRow['codice'] . '</p>';
+				echo '<p class="orderDetailsInfo">Date placed: ' . $orderRow['data'] . '</p>';
+				echo '<hr>';
+				echo '<p class="orderDetailsInfo">Shipping information: ' . $orderRow['stato'] . '</p>';
+				echo '<hr>';
+				echo '<p class="orderDetailsInfo">Contact e-mail: ' . $orderRow['email'] . '</p>';
+				echo '<p class="orderDetailsInfo">Payment method: ' . $orderRow['pagamento'] . '</p>';
+				//echo '<hr>';
+			echo '</div>';
+			echo '<div class="items_container">';
+				echo '<table cellpadding="0" width="100%" cellspacing="0" id="shopping_cart_items" class="cart_container">';
+						echo '<tr>';
+							echo '<th colspan="1">Your items</th>';
+							echo '<th colspan="1">QUANTITY</th>';
+							echo '<th colspan="1">SIZE</th>';
+							echo '<th colspan="1">COLOR</th>';
+							echo '<th colspan="1">PRICE</th>';
+						echo '</tr>';
+				echo '</table>';
+			echo '</div>';
+			echo '<br><br>';
+			echo '<div class="totalPrice"><b>Total price: ' . $orderRow['totale'] . ',00 €</b></div>';	//A DESTRA GRANDE
+		echo '</div>';
+		echo '<br><br><br>';
 	}
 	
 ?>

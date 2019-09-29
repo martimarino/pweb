@@ -194,7 +194,6 @@
 		return $result;
     }
 
-
 	function getUserOrders($email){
 		global $supernovaDb;
 		$email = $supernovaDb->sqlInjectionFilter($email);
@@ -205,5 +204,29 @@
 		$result = $supernovaDb->performQuery($queryText);
 		$supernovaDb->closeConnection();
 		return $result; 
+	}
+
+	function getOrderById($orderId){
+		global $supernovaDb;
+		$orderId = $supernovaDb->sqlInjectionFilter($orderId);
+		$queryText = 'SELECT * '
+						. 'FROM `order` '
+						. 'WHERE codice = ' . $orderId;
+
+		$result = $supernovaDb->performQuery($queryText);
+		$supernovaDb->closeConnection();
+		return $result; 
+	}
+
+	function getOrderGarments($orderId){
+		global $supernovaDb;
+		$orderId = $supernovaDb->sqlInjectionFilter($orderId);
+		$queryText = 'SELECT * '
+						. 'FROM `order_garment` '
+						. 'WHERE orderId = ' . $orderId;
+
+		$result = $supernovaDb->performQuery($queryText);
+		$supernovaDb->closeConnection();
+		return $result;
 	}
 ?>

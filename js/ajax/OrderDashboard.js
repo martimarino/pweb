@@ -145,7 +145,7 @@ OrderDashboard.createDivElement =
 		var idElem = document.createElement("div");
 		idElem.setAttribute("class", "div_elem");
 		idElem.textContent = currentData.orderId;
-
+ 
 		//Create date div
 		var dateElem = document.createElement("div");
 		dateElem.setAttribute("class", "div_elem");
@@ -159,7 +159,7 @@ OrderDashboard.createDivElement =
 		//Create tot div
 		var totElem = document.createElement("div");
 		totElem.setAttribute("class", "div_elem");
-		totElem.textContent = currentData.tot;
+		totElem.textContent = currentData.tot + ",00 €";
 
 		//Create details div
 		var detailElem = document.createElement("div");
@@ -167,8 +167,8 @@ OrderDashboard.createDivElement =
 		detailElem.textContent = "More details";
 
 		var linkElem = document.createElement("a");
-		linkElem.setAttribute("onclick", "showOrderDetails(" + currentData.orderId + ")");
-		//linkElem.setAttribute("href", "./detailedOrder.php?orderId=" + currentData.orderId);
+		//linkElem.setAttribute("onclick", "showOrderDetails(" + currentData.orderId + ")");
+		linkElem.setAttribute("href", "./detailedOrder.php?orderId=" + currentData.orderId);
 
 		linkElem.appendChild(detailElem);	//add link div in the a element
 		divElem.appendChild(idElem);
@@ -180,9 +180,35 @@ OrderDashboard.createDivElement =
 		return divElem;
 	}
 
+OrderDashboard.fillOrderTable =
+	function(currentData){
 
-OrderDashboard.showOrderDetails() = 
-	function(orderId){
-		OrderDashboard.removeContent();
+		for (var i = 0; i < currentData.length; i++){
 
+			var tab = document.getElementsByTagName("table")[0];
+			var node = document.createElement("tr");
+			node.setAttribute("class", "tr_garment");
+
+			var idField = document.createElement("td");
+			idField.textContent = currentData[i].garmentId;
+
+			var quantityField = document.createElement("td");
+			quantityField.textContent = currentData[i].quantity;
+
+			var sizeField = document.createElement("td");
+			sizeField.textContent = currentData[i].garmentSize;
+
+			var colorField = document.createElement("td");
+			colorField.textContent = currentData[i].garmentColor;
+
+			var priceField = document.createElement("td");
+			priceField.textContent = currentData[i].price;
+
+			node.appendChild(idField);
+			node.appendChild(quantityField);
+			node.appendChild(sizeField);
+			node.appendChild(colorField);
+			node.appendChild(priceField);
+			tab.appendChild(node);
+		}
 	}

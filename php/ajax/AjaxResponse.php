@@ -71,17 +71,35 @@
 	{
 		public $orderId;
 		public $date;
-		public $products;
 		public $state;
 		public $tot;
 
-		function Order($orderId = 0, $date = null, $products = null, $state = null, $tot = 0)
+		function Order($orderId = 0, $date = null, $state = null, $tot = 0)
 		{
 			$this->orderId = $orderId;
 			$this->date = $date;
-			$this->products = $products;
 			$this->state = $state;
 			$this->tot = $tot;
+		}
+	}
+
+	class OrderGarment
+	{
+		public $orderId;
+		public $garmentId;
+		public $quantity;
+		public $garmentSize;
+		public $garmentColor;
+		public $price;
+
+		function OrderGarment($orderId = 0, $garmentId = 0, $quantity = 0, $garmentSize = null, $garmentColor = null, $price = 0)
+		{
+			$this->orderId = $orderId;
+			$this->garmentId = $garmentId;
+			$this->quantity = $quantity;
+			$this->garmentSize = $garmentSize;
+			$this->garmentColor = $garmentColor;
+			$this->price = $price;
 		}
 	}
 
