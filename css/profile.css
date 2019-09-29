@@ -337,8 +337,20 @@ section>img{
 }
 
 #go_to_payment {
-    width: 15%;
+    width: 100%;
+    margin: 20px 0 20px 0;
+
+    position: relative;
     border-radius: 0;
+}
+
+#go_to_measures, #go_to_measures > a {
+    color: black;
+}
+
+#go_to_measures > a:hover {
+    color: blue;
+    text-decoration: underline;
 }
 
 .error{

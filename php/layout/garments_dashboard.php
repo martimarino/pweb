@@ -69,35 +69,36 @@
 		
 		$garmentRow = $result->fetch_assoc();
 		echo '<div id="detailed_garment_tab">';
-		echo '<div id="left">';
-		echo '<div id="detailed_img">';
-		if($garmentRow['img'] == "N/A"){
-			echo '<img src="../../immagini/place_holder.jpg">'; 
-		} else {
-			echo '<img src="../' . $garmentRow['img'] . '" alt="img">';
-		}
-		echo '</div>';
+			echo '<div id="left">';
+				echo '<div id="detailed_img">';
+					if($garmentRow['img'] == "N/A"){
+						echo '<img src="../../immagini/place_holder.jpg">'; 
+					} else {
+						echo '<img src="../' . $garmentRow['img'] . '" alt="img">';
+					}
+				echo '</div>';
 		
-		echo '<div class="content_garment_wrapper">';
-		echo '<span class="title_stats">Model: </span> ' . $garmentRow['model'] . '<br>';
-		echo '<span class="title_stats">ID: </span> ' . $garmentRow['garmentId'] . '<br>';
-		echo '<span class="title_stats">Price: </span> ' . $garmentRow['price'] . ',00 €' . '<br>';
-		echo '</div>';		
-		echo '</div>';
-		echo '<div id="main">';
-		if(isset($_SESSION['username'])){
-			$userGarmentStatResult = getUserGarmentStat($_SESSION['username'], $garmentRow['garmentId']);
-			$userGarmentRow = null;
-			if (mysqli_num_rows($userGarmentStatResult) == 1)
-				$userGarmentRow = $userGarmentStatResult->fetch_assoc();
-				
-			showUserStat($garmentRow['garmentId'], $userGarmentRow);
-		}
-		echo '<div class="content_garment_wrapper">';
-		echo '<h2>Color:</h2>' . $garmentRow['color'] . '<br>';
-		echo '</div>';
-		echo '<button id="go_to_payment">Proceed to the payment</button>';
-		echo '</div>';
+				echo '<div class="content_garment_wrapper">';
+					echo '<span class="title_stats">Model: </span> ' . $garmentRow['model'] . '<br>';
+					echo '<span class="title_stats">ID: </span> ' . $garmentRow['garmentId'] . '<br>';
+					echo '<span class="title_stats">Price: </span> ' . $garmentRow['price'] . ',00 €' . '<br>';
+				echo '</div>';		
+			echo '</div>';
+			echo '<div id="main">';
+				if(isset($_SESSION['username'])){
+					$userGarmentStatResult = getUserGarmentStat($_SESSION['username'], $garmentRow['garmentId']);
+					$userGarmentRow = null;
+					if (mysqli_num_rows($userGarmentStatResult) == 1)
+						$userGarmentRow = $userGarmentStatResult->fetch_assoc();
+						
+					showUserStat($garmentRow['garmentId'], $userGarmentRow);
+				}
+				echo '<div class="content_garment_wrapper">';
+					echo '<h2>Color:</h2>' . $garmentRow['color'] . '<br>';
+				echo '</div>';
+				echo '<button id="go_to_payment">Proceed to the payment</button>';
+					echo '<p id = "go_to_measures">Not sure about the size? <a href="././myMeasures.php">Click here!</a></p>';
+			echo '</div>';
 		echo '</div>';
 	}
 
