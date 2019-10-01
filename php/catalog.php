@@ -3,6 +3,7 @@
 	session_start();
     include DIR_UTIL . "session.php";
     include DIR_UTIL . "supernovaDbManager.php";
+    include DIR_UTIL . "garmentManagerDb.php";
     include DIR_UTIL . "utility.php";
 ?>
 <!DOCTYPE html>

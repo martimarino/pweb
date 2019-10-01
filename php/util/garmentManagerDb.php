@@ -230,4 +230,16 @@
 		$supernovaDb->closeConnection();
 		return $result;
 	}
+
+	function getHowManyInCart($email){
+		global $supernovaDb;
+		$email = $supernovaDb->sqlInjectionFilter($email);
+		$queryText = 'SELECT COUNT(*) AS cartBadge '
+						. 'FROM user_garment '
+						. 'WHERE email = \'' . $email . '\' AND inCart = 1';
+
+		$result = $supernovaDb->performQuery($queryText);
+		$supernovaDb->closeConnection();
+		return $result;
+	}
 ?>

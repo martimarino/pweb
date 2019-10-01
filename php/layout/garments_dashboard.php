@@ -12,7 +12,7 @@
 		if ($userGarmentRow != null AND $userGarmentRow['desired'] != null AND $userGarmentRow['desired'] == 1)
 			$currentFlag = true;
 		echo '<div id="desiredItem_' . $garmentId . '" class="nav_garment_item desired_img_' . (int)$currentFlag . '" ';
-		echo 'onClick="UserGarmentNavBarEventHandler.desiredEvent(' . $garmentId . ')">';
+		echo 'onClick="UserGarmentNavBarEventHandler.onDesiredEvent(' . $garmentId . ')">';
 		echo '</div>';
 			
 		// inCart nav bar item		

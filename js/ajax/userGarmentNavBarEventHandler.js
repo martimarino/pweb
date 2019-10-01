@@ -56,9 +56,10 @@ UserGarmentNavBarEventHandler.onDislikeEvent =
 
 UserGarmentNavBarEventHandler.onAjaxResponse = 
 	function(response){
-		if (response.responseCode === UserGarmentNavBarEventHandler.SUCCESS_RESPONSE)
+		if (response.responseCode === UserGarmentNavBarEventHandler.SUCCESS_RESPONSE){
 			GarmentDashboard.updateGarmentNavBar(response.data);
 
+		}
 	}
 
 function getComplementaryFlag(item){

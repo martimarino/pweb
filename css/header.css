@@ -109,6 +109,13 @@ h1 {
     bottom:                   5px;
 }
 
+.badge {
+    color: white;
+  padding-left: 9px;
+  padding-right: 9px;
+  border-radius: 9px;
+}
+
 /*----------------------------------------------------------*/
 
 .fadein, .fadeout {

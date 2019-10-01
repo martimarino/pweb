@@ -34,6 +34,7 @@ GarmentLoader.loadGarment =
 		var queryString = "?searchType=" + searchType 
 							+ "&garmentToLoad=" + GarmentLoader.GARMENT_TO_LOAD 
 							+ "&offset=" + (GarmentLoader.CURRENT_PAGE_INDEX-1)*GarmentLoader.GARMENT_TO_LOAD;
+							
 		var url = GarmentLoader.URL_REQUEST + queryString;
 		var responseFunction = GarmentLoader.onAjaxResponse;
 		AjaxManager.performAjaxRequest(GarmentLoader.DEFAULT_METHOD, url, GarmentLoader.ASYNC_TYPE, null, responseFunction);

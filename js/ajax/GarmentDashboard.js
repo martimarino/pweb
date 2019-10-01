@@ -96,7 +96,7 @@ GarmentDashboard.createNavBarElement =
 		desiredItemElem.setAttribute("id", "desiredItem_" + currentData.garment.garmentId);
 		desiredItemElem.setAttribute("class", "nav_garment_item desired_img_" + currentData.userGarmentStat.desired);
 		desiredItemElem.setAttribute("onClick", "UserGarmentNavBarEventHandler.onDesiredEvent(" + currentData.garment.garmentId + ")");
-	
+
 		// Create in-cart div elem (tag <div></div>)
 		var inCartItemElem = document.createElement("div");
 		inCartItemElem.setAttribute("id", "inCartItem_" + currentData.garment.garmentId);
@@ -204,6 +204,24 @@ GarmentDashboard.updateGarmentNavBar =
 		itemNavBar.setAttribute("class", "nav_garment_item dislike_img_" + data.userGarmentStat.disliked);
 		itemNavBar = document.getElementById("dislikeCountItem_" + data.garment.garmentId);
 		itemNavBar.textContent = "(" + data.userGarmentStat.dislikedCount + ")";
+
+		//remove node from wishlist
+		var flag =  getComplementaryFlag(document.getElementById("desiredItem_" + data.garment.garmentId));
+		var url = window.location.pathname;
+		if(flag == 1 && url == "/Supernova/php/wishList.php")
+		{
+			var element = document.getElementById("garment_item_" + data.garment.garmentId);
+			element.remove();
+		}
+
+		//remove node from cart
+		flag = getComplementaryFlag(document.getElementById("inCartItem_" + data.garment.garmentId));
+		if(flag == 1 && url == "/Supernova/php/cart.php")
+		{
+			element = document.getElementById("garment_item_" + data.garment.garmentId);
+			element.remove();
+		}
+
 	}
 	
 GarmentDashboard.updateNavigationPage = 
@@ -230,7 +248,5 @@ GarmentDashboard.updateNavigationPage =
 				nextElems[i].disabled = false;
 			
 		}
-			
-		
+
 	}
-	

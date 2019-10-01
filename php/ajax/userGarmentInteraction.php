@@ -13,16 +13,15 @@
 		echo json_encode($response);
 		return;
 	}		
-	
-	$garmentId = $_GET['garmentId'];		
+
+	$garmentId = $_GET['garmentId'];	
 	$currentFlag = 0;		
-		
+
 	// check desired flag
 	if (isset($_GET['desired'])){
 		$currentFlag = $_GET['desired'];
 		if (setDesiredUserStat($garmentId, $currentFlag))
 			$response = setCorrectResponse($garmentId, $message);
-		
 		echo json_encode($response);
 		return;
 	}	
@@ -32,7 +31,7 @@
 		$currentFlag = $_GET['inCart'];
 		if (setInCartUserStat($garmentId, $currentFlag))
 			$response = setCorrectResponse($garmentId, $message);
-				
+	
 		echo json_encode($response);
 		return;
 	}
@@ -56,7 +55,7 @@
 		echo json_encode($response);
 		return;
 	}		
-	
+
 	function isUserGarmentStatInDb($garmentId, $email){
 		$result = getUserGarmentStat($email, $garmentId);
 		$numRows = $result->num_rows;
