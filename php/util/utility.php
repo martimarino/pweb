@@ -13,5 +13,31 @@
 		return $elem;
 	}
 
+	function setCartBadge(){
+		
+		$result = getHowManyInCart($_SESSION['username']);
+
+		$num = mysqli_num_rows($result);
+		if($num != 1) { 
+			showError();	
+			return;
+		}
+		
+		$row = $result->fetch_assoc();
+		return $row['cartBadge'];
+	}
+
+	function setWishlistBadge(){
+		$result = getHowManyInWishList($_SESSION['username']);
+
+		$num = mysqli_num_rows($result);
+		if($num != 1) { 
+			showError();	
+			return;
+		}
+		
+		$row = $result->fetch_assoc();
+		return $row['wishlistBadge'];		
+	}
 
 ?>

@@ -242,4 +242,16 @@
 		$supernovaDb->closeConnection();
 		return $result;
 	}
+
+	function getHowManyInWishList($email){
+		global $supernovaDb;
+		$email = $supernovaDb->sqlInjectionFilter($email);
+		$queryText = 'SELECT COUNT(*) AS wishlistBadge '
+						. 'FROM user_garment '
+						. 'WHERE email = \'' . $email . '\' AND desired = 1';
+
+		$result = $supernovaDb->performQuery($queryText);
+		$supernovaDb->closeConnection();
+		return $result;
+	}
 ?>

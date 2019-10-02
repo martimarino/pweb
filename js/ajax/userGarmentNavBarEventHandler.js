@@ -2,6 +2,7 @@ function UserGarmentNavBarEventHandler(){}
 
 UserGarmentNavBarEventHandler.DEFAULT_METHOD = "GET";
 UserGarmentNavBarEventHandler.URL_REQUEST = "./ajax/userGarmentInteraction.php";
+UserGarmentNavBarEventHandler.BADGE_REQUEST = "./ajax/badgeLoader.php";
 UserGarmentNavBarEventHandler.ASYNC_TYPE = true;
 
 UserGarmentNavBarEventHandler.SUCCESS_RESPONSE = "0";
@@ -28,6 +29,24 @@ UserGarmentNavBarEventHandler.onInCartEvent =
 		AjaxManager.performAjaxRequest(UserGarmentNavBarEventHandler.DEFAULT_METHOD, 
 										url, UserGarmentNavBarEventHandler.ASYNC_TYPE, 
 										null, responseFunction)
+	}
+
+UserGarmentNavBarEventHandler.onBadgeNumber = 
+	function(){
+		var url = UserGarmentNavBarEventHandler.BADGE_REQUEST;
+		console.log(url);
+		var responseFunction = UserGarmentNavBarEventHandler.onBadgeAjaxResponse;
+		console.log(responseFunction);
+		AjaxManager.performAjaxRequest(UserGarmentNavBarEventHandler.DEFAULT_METHOD, 
+										url, UserGarmentNavBarEventHandler.ASYNC_TYPE, 
+										null, responseFunction)
+	}
+
+UserGarmentNavBarEventHandler.onBadgeAjaxResponse = 
+	function(response){
+		if(response.responseCode === UserGarmentNavBarEventHandler.SUCCESS_RESPONSE){
+			GarmentDashboard.updateBadgeNumber(response.data);
+		}
 	}
 
 UserGarmentNavBarEventHandler.onLikeEvent = 
@@ -67,3 +86,4 @@ function getComplementaryFlag(item){
 	var currentFlag = parseInt(classAttribute.charAt(classAttribute.length-1)); // parseInt(classAttribute.slice(-1));
 	return (currentFlag+1)%2;
 }
+

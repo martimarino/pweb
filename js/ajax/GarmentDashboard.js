@@ -78,7 +78,7 @@ GarmentDashboard.createGarmentItemElement =
 		var garmentItemLi = document.createElement("li");
 		garmentItemLi.setAttribute("id", "garment_item_" + currentData.garment.garmentId);
 		garmentItemLi.setAttribute("class", "model_garment_item_wrapper");
-
+if(window.location.pathname == "/Supernova/php/catalog.php" || window.location.pathname == "/Supernova/php/wishList.php")
 		garmentItemLi.appendChild(GarmentDashboard.createNavBarElement(currentData));
 		garmentItemLi.appendChild(GarmentDashboard.createModelElement(currentData));
 		garmentItemLi.appendChild(GarmentDashboard.createDetailGarmentElement(currentData));
@@ -95,13 +95,13 @@ GarmentDashboard.createNavBarElement =
 		var desiredItemElem = document.createElement("div");
 		desiredItemElem.setAttribute("id", "desiredItem_" + currentData.garment.garmentId);
 		desiredItemElem.setAttribute("class", "nav_garment_item desired_img_" + currentData.userGarmentStat.desired);
-		desiredItemElem.setAttribute("onClick", "UserGarmentNavBarEventHandler.onDesiredEvent(" + currentData.garment.garmentId + ")");
+		desiredItemElem.setAttribute("onClick", "UserGarmentNavBarEventHandler.onDesiredEvent(" + currentData.garment.garmentId + "); UserGarmentNavBarEventHandler.onBadgeNumber()");
 
 		// Create in-cart div elem (tag <div></div>)
 		var inCartItemElem = document.createElement("div");
 		inCartItemElem.setAttribute("id", "inCartItem_" + currentData.garment.garmentId);
 		inCartItemElem.setAttribute("class", "nav_garment_item in_cart_img_" + currentData.userGarmentStat.inCart);
-		inCartItemElem.setAttribute("onClick", "UserGarmentNavBarEventHandler.onInCartEvent(" + currentData.garment.garmentId + ")");
+		inCartItemElem.setAttribute("onClick", "UserGarmentNavBarEventHandler.onInCartEvent(" + currentData.garment.garmentId + "); UserGarmentNavBarEventHandler.onBadgeNumber()");
 		
 		// Create like div elem (tag <div></div>)
 		var likeItemElem = document.createElement("div");
@@ -222,6 +222,25 @@ GarmentDashboard.updateGarmentNavBar =
 			element.remove();
 		}
 
+	}
+
+GarmentDashboard.updateBadgeNumber =
+	function(data){
+		//reload wishlist number
+		newWishlistBadge = document.createElement("li");
+		newWishlistBadge.setAttribute("id", "wishlistBadge");
+		newWishlistBadge.setAttribute("class", "badge");
+		newWishlistBadge.textContent = data.wishlist;
+		parentNode = document.getElementById("right-list");
+		parentNode.replaceChild(newWishlistBadge, parentNode.childNodes[3]);
+
+
+		//reload cart number
+		newCartBadge = document.createElement("li");
+		newCartBadge.setAttribute("id", "cartBadge");
+		newCartBadge.setAttribute("class", "badge");
+		newCartBadge.textContent = data.cart;
+		parentNode.replaceChild(newCartBadge, parentNode.childNodes[9]);
 	}
 	
 GarmentDashboard.updateNavigationPage = 

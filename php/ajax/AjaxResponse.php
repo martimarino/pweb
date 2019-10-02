@@ -105,4 +105,16 @@
 		}
 	}
 
+	class Badge
+	{
+		public $wishlist;
+		public $cart;
+
+		function Badge($wishlist = 0, $cart = 0)
+		{
+			$this->wishlist = $wishlist;
+			$this->cart = $cart;
+		}
+	}
+
 ?>
