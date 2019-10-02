@@ -41,7 +41,13 @@ function hideSlidesShowCatalog(){
     
 }
 
-
+function hideBadges(){
+    var badge = document.getElementById("wishlistBadge");
+    badge.remove();
+    badge = document.getElementById("cartBadge");
+    console.log(badge);
+    badge.remove();
+}
 
 /*
 function validate() {

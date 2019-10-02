@@ -49,40 +49,40 @@
 
 				<p><b>MODENA</b></p>
 				<p><a href="https://www.google.com/maps/place/Centro+Commerciale+La+Rotonda/@44.622051,10.9247249,17z/data=!3m1!4b1!4m5!3m4!1s0x477fe5f41fa04555:0x28dc9d6cdca67564!8m2!3d44.622051!4d10.9269136">Centro Commerciale la Rotonda</a></p>
-				<p>tel +39 059 395560</p>
-				<p>Orari di apertura: </p>
-				<p>LUN-SAB</p>
+				<p>phone +39 059 395560</p>
+				<p>Opening time: </p>
+				<p>MON-SAT</p>
 				<p>08.30 - 21.00</p>
-				<p>DOMENICA</p>
+				<p>SUNDAY</p>
 				<p>09.00 - 20.00</p>
 
 				<br>
 
 				<p><b>MASSA</b></p>
 				<p><a href="https://www.google.com/maps/place/Centro+Commerciale+MareMonti/@44.0234128,10.106934,17z/data=!3m1!4b1!4m5!3m4!1s0x12d508b2d378967b:0x9abfd092b6947e2!8m2!3d44.0234128!4d10.1091227">Centro Commerciale MareMonti - 54100 Massa (MS)<a></p>
-				<p>tel +39 0585.793399</p>
-				<p>Orari di apertura: </p>
-				<p>LUN-DOM</p>
+				<p>phone +39 0585.793399</p>
+				<p>Opening time: </p>
+				<p>SUN-MON</p>
 				<p>08.30 - 21.00</p>
 
 				<br>
 
 				<p><b>SARZANA</b></p>
 				<p><a href="https://www.google.com/maps/place/Centroluna/@44.1178259,9.9449655,17z/data=!3m1!4b1!4m5!3m4!1s0x12d51cd555376e59:0xd2e90a45776151!8m2!3d44.1178259!4d9.9471542">Centro Commerciale Centroluna - 19038 Sarzana (SP)</a></p>
-				<p>tel +39 0187 603040</p>
-				<p>Orari di apertura: </p>
-				<p>LUN-DOM</p>
+				<p>phone +39 0187 603040</p>
+				<p>Opening time: </p>
+				<p>SUN-MON</p>
 				<p>09.30 - 21.00</p>
 
 				<br>
 
 				<p><b>LA SPEZIA VIA PRIONE</b></p>
 				<p><a href="https://www.google.com/maps/place/Via+del+Prione,+98,+19121+La+Spezia+SP/@44.1047326,9.8187536,17z/data=!3m1!4b1!4m5!3m4!1s0x12d4fc999f06324b:0xb18f849ca56e2230!8m2!3d44.1047326!4d9.8209423">Via Del Prione 98 - 19124 La Spezia (SP)</a></p>
-				<p>tel +39 0187.20702</p>
-				<p>Orari di apertura: </p>
-				<p>LUN-VEN</p>
+				<p>phone +39 0187.20702</p>
+				<p>Opening time: </p>
+				<p>MON-FRI</p>
 				<p>09.00 - 20.00</p>
-				<p>SABATO E DOMENICA</p>
+				<p>SATURDAY AND SUNDAY</p>
 				<p>09.30 - 20.30</p>
 
 				<br>
@@ -90,10 +90,10 @@
 				<p><b>LA SPEZIA VIA VENETO</b></p>
 				<p><a href="https://www.google.com/maps/place/Via+Vittorio+Veneto,+35,+19124+La+Spezia+SP/@44.1077465,9.8253246,17z/data=!3m1!4b1!4m5!3m4!1s0x12d4fc96214eaf41:0x393144a78b68f8bc!8m2!3d44.1077465!4d9.8275133">Via Vittorio Veneto 35 - 19124 La Spezia (SP)</a></p>
 				<p>tel +39 0187.29655</p>
-				<p>Orari di apertura: </p>
-				<p>LUN-VEN</p>
+				<p>Opening time: </p>
+				<p>MON-FRI</p>
 				<p>09.00 - 20.00</p>
-				<p>SABATO E DOMENICA</p>
+				<p>SATURDAY AND SUNDAY</p>
 				<p>09.30 - 20.30</p>
 
 

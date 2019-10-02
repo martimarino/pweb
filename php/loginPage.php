@@ -1,6 +1,7 @@
 <?php
+    require_once __DIR__ . "/config.php";
   session_start();
-    include "./util/session.php";
+    include DIR_UTIL . "session.php";
 
     if (isLogged()){
       if($_SESSION['userId'] == "amministratore"){
@@ -21,16 +22,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="Supernova">
     <link rel="stylesheet" href="../css/login.css" type="text/css" media="screen"> 
-    <link rel="stylesheet" href="../css/header.css" type="text/css" media="screen"> 
-    <!--<script type="text/javascript" src="../js/home.js"></script>-->
-    <!--<script src="../js/ajaxManager.js"></script>-->
+    <link rel="stylesheet" href="../css/header.css" type="text/css" media="screen">
     <link rel="icon" href = "../immagini/supernova.png" sizes="32x32" type="image/png">
     <link href="https://fonts.googleapis.com/css?family=Srisakdi:700" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Marmelad" rel="stylesheet">
+    <script src="./../js/home.js"></script>  
     <title>Supernova</title>
   </head>
   
-  <body>
+  <body onLoad="hideBadges()">
     <?php
       include"./layout/top_bar.php";
     ?>
