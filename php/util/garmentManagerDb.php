@@ -254,4 +254,17 @@
 		$supernovaDb->closeConnection();
 		return $result;
 	}
+
+	function getActualValueFromField($garmentId, $field){
+		global $supernovaDb;
+		$garmentId = $supernovaDb->sqlInjectionFilter($garmentId);
+		$field = $supernovaDb->sqlInjectionFilter($field);
+		$queryText = 'SELECT ' . $field . ' '
+						. 'FROM garment '
+						. 'WHERE garmentId = \'' . $garment . '\'';
+		$result = $supernovaDb->performQuery($queryText);
+		$supernovaDb->closeConnection();
+		return $result;
+	}
+
 ?>

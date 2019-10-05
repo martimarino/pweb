@@ -40,4 +40,10 @@
 		return $row['wishlistBadge'];		
 	}
 
+	function setCatalogFields(){
+		$result = getCatalogFields();
+
+		
+	}
+
 ?>
