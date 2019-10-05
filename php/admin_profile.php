@@ -28,8 +28,7 @@
 		?>
 		<h2>Admin control panel</h2>
 		<div id="profile">
-			<b id="welcome">Welcome : <i><?php echo $_SESSION['username']; ?></i></b>
-			<b id="logout"><a href="./util/logout.php">Log Out</a></b>
+			<button id="logout" onclick="window.location.href='./util/logout.php'">Log Out</button>
 		</div>
 			<ul class="admin_list">
 				<li>
@@ -75,9 +74,9 @@
 								<div>New value: </div>
 							</div>
 							<div class="input">
-									<select class="dropdown" name="ID">
-										<option></option>
-									</select>
+								<select class="dropdown" name="ID">
+									<option></option>
+								</select>
 				    			<select name="field">
 					  				<option value="model">model</option>
 						 			<option value="color">color</option>
@@ -87,6 +86,8 @@
 						 			<option value="price">price</option>
 						 			<option value="img">image</option>
 								</select>
+								<input>
+								<input>
 							</div>
 						</div>
 						<button class="button">Apply</button>
@@ -130,10 +131,11 @@
 								<div>Select collection to discount: </div>
 							</div>
 							<div class="input">
-								<input></input>
+								<input>
 								<select name="collection">
 									<option></option>
 								</select>
+
 							</div>
 						</div>
 						<button class="button">Add</button>
@@ -164,6 +166,7 @@
 						 			<option value="pagamento">pagamento</option>
 								</select>
 								<input id="order_new_value">
+								<input>
 							</div>
 						</div>
 						<button class="button">Apply</button>
@@ -184,6 +187,7 @@
 								<select name="ID">
 									<option></option>
 								</select>
+								<input>
 							</div>
 						</div>
 						<button class="button">Apply</button>
