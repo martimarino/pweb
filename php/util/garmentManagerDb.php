@@ -314,4 +314,19 @@
 		return $result;
 	}
 
+	function getActualValue($table, $field, $fieldToFind, $value){
+		global $supernovaDb;
+		$table = $supernovaDb->sqlInjectionFilter($table);
+		$field = $supernovaDb->sqlInjectionFilter($field);
+		$fieldToFind = $supernovaDb->sqlInjectionFilter($fieldToFind);
+		$value = $supernovaDb->sqlInjectionFilter($value);
+		$queryText = 'SELECT ' . $fieldToFind . ' '
+						. 'FROM `' . $table . '` '
+						. 'WHERE ' . $field . ' = \'' 
+						. $value . '\''; 
+		$result = $supernovaDb->performQuery($queryText);
+		$supernovaDb->closeConnection();
+		return $result;
+	}
+
 ?>

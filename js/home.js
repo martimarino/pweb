@@ -52,8 +52,8 @@ function hideBadges(){
     badge.remove();
 }
 
-function getSelectedValue(){
-    var element = document.getElementById("stockGarmentID");
+function getSelectedValue(tag){
+    var element = document.getElementById(tag);
     var selectedValue = element.options[element.selectedIndex].value;
     return selectedValue; 
 }

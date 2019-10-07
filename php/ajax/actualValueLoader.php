@@ -7,8 +7,12 @@
 
 	$response = new AjaxResponse();	
 
-	$garmentId = $_GET['selectedValue'];
-	$result = getAllGarmentSize($garmentId);
+	$label = $_GET['label'];
+	$table = $_GET['table'];
+	$field = $_GET['field'];
+	$value = $_GET['value'];
+	$fieldToFind = $_GET['fieldToFind'];
+	$result = getActualValue($table, $field, $fieldToFind, $value);
 
 	if(checkEmptyResult($result)){
 		$response = setEmptyResponse();
@@ -17,7 +21,7 @@
 	}
 
 	$message = "OK";
-	$response = setResponse($result, $message);
+	$response = setResponse($result, $message, $fieldToFind);
 	echo json_encode($response);
 	return;
 
@@ -29,25 +33,17 @@
 	}
 
 	function setEmptyResponse(){
-		$message = "No size to load";
+		$message = "Nothing to load";
 		return new AjaxResponse("-1", $message);
 	}
 
-	function setResponse($result, $message){
+	function setResponse($result, $message, $fieldToFind){
 		$response = new AjaxResponse("0", $message);
 			
-		$index = 0;
-		while ($row = $result->fetch_assoc()){
+		if ($row = $result->fetch_assoc()){
 
-			// Set Stock class
-			$stock = new Stock();
-			$stock->garmentId = $row['garmentId'];
-			$stock->size = $row['size'];
-			$stock->quantity = $row['quantity'];
+			$response->data = $row[$fieldToFind];
 
-			$response->data[$index] = $stock;
-
-			$index++;
 		}
 		
 		return $response;

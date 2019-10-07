@@ -81,12 +81,12 @@
 								<div>New value: </div>
 							</div>
 							<div class="input">
-								<select class="dropdown" name="ID">
+								<select class="dropdown" id="ID">
 									<?php 
 										allGarmentsID(); 
 									?>
 								</select>
-				    			<select name="field">
+				    			<select id="garmentField" onfocus="AdminLoader.showActualValue('garment', 'garmentId', getSelectedValue('ID'), getSelectedValue('garmentField'), 'garment_actual_value')" onchange="AdminLoader.showActualValue('garment', 'garmentId', getSelectedValue('ID'), getSelectedValue('garmentField'), 'garment_actual_value')">
 					  				<option value="model">model</option>
 						 			<option value="color">color</option>
 						 			<option value="category">category</option>
@@ -95,7 +95,7 @@
 						 			<option value="price">price</option>
 						 			<option value="img">image</option>
 								</select>
-								<input>
+								<div class="actual_value" id="garment_actual_value"></div>
 								<input>
 							</div>
 						</div>
@@ -160,19 +160,19 @@
 								<div>New value: </div>
 							</div>
 							<div class="input">
-								<select name="ordersID">
+								<select id="ordersID">
 									<?php
 										allOrdersID();
 									?>
 								</select>
-				    			<select name="field">
+				    			<select id="order_select" onfocus="AdminLoader.showActualValue('order', 'garmentId', getSelectedValue('ordersID'), getSelectedValue('order_select'), 'order_new_value')" onchange="AdminLoader.showActualValue('order', 'codice', getSelectedValue('ordersID'), getSelectedValue('order_select'), 'order_new_value')">
 					  				<option value="email">email</option>
 						 			<option value="totale">totale</option>
 						 			<option value="data">data</option>
 						 			<option value="stato">stato</option>
 						 			<option value="pagamento">pagamento</option>
 								</select>
-								<input id="order_new_value">
+								<div class="actual_value" id="order_new_value"></div>
 								<input>
 							</div>
 						</div>
@@ -193,15 +193,17 @@
 								<div>Modify quantity</div>
 							</div>
 							<div class="input">
-								<select id="stockGarmentID" onchange="AdminLoader.showGarmentSize(getSelectedValue())">
+								<select id="stockGarmentID" onchange="AdminLoader.showGarmentSize(getSelectedValue('stockGarmentID'))">
 									<option value="" disabled selected>Select a garment</option>
 									<?php
 										allGarmentsID();
 									?>
 								</select>
-								<select id="sizes">
+								<select id="sizes" onfocus="AdminLoader.showActualValue('stock', 'size', getSelectedValue('sizes'), 'quantity', 'actual_stock_quantity')" onchange="AdminLoader.showActualValue('stock', 'size', getSelectedValue('sizes'), 'actual_stock_quantity')">
 									<option value="" disabled selected>Please select a size</option>
 								</select>
+								<div class="actual_value" id="actual_stock_quantity"></div>
+								<br>
 								<input>
 							</div>
 						</div>

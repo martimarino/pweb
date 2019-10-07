@@ -101,7 +101,7 @@ h3 {
 	float: 					  right;
 }
 
-input, select {
+input, select, .input > div {
   float:            right;
   margin:           0 0 3px 0;
   width:            80%;
@@ -110,6 +110,10 @@ input, select {
 .input > select {
   width:            83%;
   padding:          0 0 5px 0;
+}
+
+.actual_value {
+  height: 20px;
 }
 
 .button {

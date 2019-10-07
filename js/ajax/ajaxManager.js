@@ -37,3 +37,22 @@ AjaxManager.performAjaxRequest =
 		}
 		xmlHttp.send(dataToSend);
 }		
+
+AjaxManager.performAdminAjaxRequest = 
+	function(method, url, isAsync, dataToSend, responseFunction, label){
+		var xmlHttp = AjaxManager.getAjaxObject();
+		if (xmlHttp === null){
+			window.alert("Your browser does not support AJAX!"); // set error function
+			return;
+		}
+	
+		xmlHttp.open(method, url, isAsync); 
+		xmlHttp.onreadystatechange = function (){
+			if (xmlHttp.readyState == 4){
+				console.log(xmlHttp.responseText);
+				var data = JSON.parse(xmlHttp.responseText);
+				responseFunction(data, label);
+			}
+		}
+		xmlHttp.send(dataToSend);
+}		

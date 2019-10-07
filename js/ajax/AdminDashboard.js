@@ -30,3 +30,9 @@ AdminDashboard.fillGarmentSizeOptions =
     		options.appendChild(sizeElem);
     	}
 	}
+
+AdminDashboard.fillSizeActualValue = 
+	function(data, label){
+		var labelToFill = document.getElementById(label);
+		labelToFill.textContent = data;
+	}
