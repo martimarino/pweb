@@ -243,6 +243,53 @@
 		return $result;
 	}
 
+	function getAllGarmentsID(){
+		global $supernovaDb;
+		$queryText = 'SELECT garmentId '
+						. 'FROM garment';
+		$result = $supernovaDb->performQuery($queryText);
+		$supernovaDb->closeConnection();
+		return $result;
+	}
+
+	function getAllOrdersID(){
+		global $supernovaDb;
+		$queryText = 'SELECT codice '
+						. 'FROM `order`';
+		$result = $supernovaDb->performQuery($queryText);
+		$supernovaDb->closeConnection();
+		return $result;
+	}
+
+	function getAllCollections(){
+		global $supernovaDb;
+		$queryText = 'SELECT DISTINCT collection '
+						. 'FROM garment';
+		$result = $supernovaDb->performQuery($queryText);
+		$supernovaDb->closeConnection();
+		return $result;		
+	}
+
+	function getStock(){
+		global $supernovaDb;
+		$queryText = 'SELECT * '
+						. 'FROM `stock`';
+		$result = $supernovaDb->performQuery($queryText);
+		$supernovaDb->closeConnection();
+		return $result;		
+	}
+
+	function getAllGarmentSize($garmentId){
+		global $supernovaDb;
+		$garmentId = $supernovaDb->sqlInjectionFilter($garmentId);
+		$queryText = 'SELECT * '
+						. 'FROM `stock` '
+						. 'WHERE garmentId = \''. $garmentId . '\'';
+		$result = $supernovaDb->performQuery($queryText);
+		$supernovaDb->closeConnection();
+		return $result;
+	}
+
 	function getHowManyInWishList($email){
 		global $supernovaDb;
 		$email = $supernovaDb->sqlInjectionFilter($email);

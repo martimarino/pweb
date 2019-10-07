@@ -1,6 +1,10 @@
 <?php
-	session_start();
-    include "./util/session.php";
+	require_once __DIR__ . "/config.php";
+  	session_start();
+    include DIR_UTIL . "session.php";
+    include DIR_UTIL . "supernovaDbManager.php";
+    include DIR_UTIL . "garmentManagerDb.php";
+    include "util/utility.php";
 
     if (!isLogged()){
 		    header('Location: ./../index.php');
@@ -19,7 +23,10 @@
 	    <link rel="stylesheet" rel="icon" href = "../immagini/supernova.png" sizes="32x32" type="image/png">
 	    <link href="https://fonts.googleapis.com/css?family=Srisakdi:700" rel="stylesheet">
 	    <link href="https://fonts.googleapis.com/css?family=Marmelad" rel="stylesheet">
-	    <script src="./../js/home.js"></script>  
+	    <script src="./../js/ajax/AdminLoader.js"></script>  
+	    <script src="./../js/ajax/AdminDashboard.js"></script>  
+	    <script src="./../js/ajax/ajaxManager.js"></script>  
+	    <script src="./../js/home.js"></script>
 		<title>Supernova-Admin profile</title>
 	</head>
 	<body onLoad="hideBadges()">
@@ -75,7 +82,9 @@
 							</div>
 							<div class="input">
 								<select class="dropdown" name="ID">
-									<option></option>
+									<?php 
+										allGarmentsID(); 
+									?>
 								</select>
 				    			<select name="field">
 					  				<option value="model">model</option>
@@ -91,13 +100,6 @@
 							</div>
 						</div>
 						<button class="button">Apply</button>
-						<!--<?php/*
-							$query = mysql_query("SELECT * FROM docenti ORDER BY cognome");
-							while ($riga=mysql_fetch_array($query)){
-							    $cognome=$riga['cognome'];
-							    echo "<option value=\"$cognome\">$cognome</option>";
-							}*/
-						?>-->
 					</div>
 				</li>
 				<li>
@@ -112,7 +114,9 @@
 							</div>
 							<div class="input">
 								<select class="dropdown" name="ID">
-										<option></option>
+									<?php 
+										allGarmentsID(); 
+									?>
 								</select>
 							</div>
 						</div>
@@ -133,9 +137,10 @@
 							<div class="input">
 								<input>
 								<select name="collection">
-									<option></option>
+									<?php 
+										allCollections(); 
+									?>
 								</select>
-
 							</div>
 						</div>
 						<button class="button">Add</button>
@@ -155,8 +160,10 @@
 								<div>New value: </div>
 							</div>
 							<div class="input">
-								<select class="dropdown" name="ID">
-									<option></option>
+								<select name="ordersID">
+									<?php
+										allOrdersID();
+									?>
 								</select>
 				    			<select name="field">
 					  				<option value="email">email</option>
@@ -181,11 +188,19 @@
 						<div class="content">
 							<div class="label">
 								<div>Select garment</div>
+								<div>Select size</div>
+								<div>Actual quantity</div>
 								<div>Modify quantity</div>
 							</div>
 							<div class="input">
-								<select name="ID">
-									<option></option>
+								<select id="stockGarmentID" onchange="AdminLoader.showGarmentSize(getSelectedValue())">
+									<option value="" disabled selected>Select a garment</option>
+									<?php
+										allGarmentsID();
+									?>
+								</select>
+								<select id="sizes">
+									<option value="" disabled selected>Please select a size</option>
 								</select>
 								<input>
 							</div>

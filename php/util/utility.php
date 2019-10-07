@@ -1,5 +1,6 @@
 <?php
     require_once "supernovaDbManager.php"; //includes Database Class
+    require_once "garmentManagerDb.php";
 
 	function recoverInformations($field, $table, $username) {
 
@@ -40,10 +41,42 @@
 		return $row['wishlistBadge'];		
 	}
 
-	function setCatalogFields(){
-		$result = getCatalogFields();
+	function allGarmentsID(){
+		$result = getAllGarmentsID();
+		$num = mysqli_num_rows($result);
 
-		
+		while ($row = $result->fetch_assoc()){
+			$id = $row['garmentId'];
+			echo '<option value=\'' . $id . '\'>' . $id . '</option>';
+		}
 	}
 
+	function allOrdersID(){
+		$result = getAllOrdersID();
+
+		while ($row = $result->fetch_assoc()) {
+			$order = $row['codice'];
+			echo '<option value=\'' . $order . '\'>' . $order . '</option>';
+		}
+	}
+
+	function allCollections(){
+		$result = getAllCollections();
+
+		while ($row = $result->fetch_assoc()){
+			$collection = $row['collection'];
+			echo '<option value=\'' . $collection . '\'>' . $collection . '</option>';
+		}
+	}
+/*
+	function allGarmentSize(){
+		$result = getAllGarmentSize();
+		$num = mysqli_num_rows($result);
+
+		while ($row = $result->fetch_assoc()){
+			$size = $row['size'];
+			echo '<option value=\'' . $size . '\'>' . $size . '</option>';
+		}		
+	}
+*/
 ?>

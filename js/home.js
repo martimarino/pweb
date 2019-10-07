@@ -1,4 +1,8 @@
 
+
+
+/* ------------------------------------------------------------------------ */
+
 function fade(a) {                          //comparsa/scomparsa login
 	var e = document.getElementById(a);
     e.className == "fadeout" ? e.className = "fadein" : e.className = "fadeout";
@@ -22,7 +26,7 @@ function showSlides() {
     setTimeout(showSlides, 4000); // Change image every 2 seconds
 }
 
-/* -------------------------------------------------------------------------*/
+/* ------------------------------------------------------------------------- */
 
 function showPopUp(invalidInput) {
     var popup = document.getElementById("myPopup");
@@ -46,6 +50,12 @@ function hideBadges(){
     badge.remove();
     badge = document.getElementById("cartBadge");
     badge.remove();
+}
+
+function getSelectedValue(){
+    var element = document.getElementById("stockGarmentID");
+    var selectedValue = element.options[element.selectedIndex].value;
+    return selectedValue; 
 }
 
 /*

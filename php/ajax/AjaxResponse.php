@@ -117,4 +117,18 @@
 		}
 	}
 
+	class Stock
+	{
+		public $garmentId;
+		public $size;
+		public $quantity;
+
+		function Stock($garmentId = 0, $size="", $quantity = 0)
+		{
+			$this->garmentId = $garmentId;
+			$this->size = $size;
+			$this->quantity = $quantity;
+		}
+	}
+
 ?>
