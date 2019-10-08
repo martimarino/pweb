@@ -36,3 +36,26 @@ AdminDashboard.fillSizeActualValue =
 		var labelToFill = document.getElementById(label);
 		labelToFill.textContent = data;
 	}
+
+AdminDashboard.clearInsertIntoCatalogFields =
+	function(data){
+	    var model = document.getElementById("model_input").value = "";
+	    var color = document.getElementById("color_input").value = "";
+	    var category = document.getElementById("category_input").value = "";
+	    var genre = document.getElementById("genre_input").value = "";
+	    var collection = document.getElementById("collection_input").value = "";
+	    var price = document.getElementById("price_input").value = "";
+	    var image = document.getElementById("image_input").value = "";
+	    AdminDashboard.reloadPage(data);
+}
+
+AdminDashboard.clearModifyGarmentFields =
+	function(data){
+		var newValue = document.getElementById("new_garment_value").value = "";
+		AdminDashboard.reloadPage(data);
+	}
+
+AdminDashboard.reloadPage = 
+	function(data){
+		location.reload();
+	}

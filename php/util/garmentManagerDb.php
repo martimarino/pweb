@@ -354,4 +354,88 @@
 		return $result;	
 	}
 
+	function modifyGarment($garmentId, $field, $newValue){
+		global $supernovaDb;
+		$garmentId = $supernovaDb->sqlInjectionFilter($garmentId);
+		$field = $supernovaDb->sqlInjectionFilter($field);
+		$newValue = $supernovaDb->sqlInjectionFilter($newValue);
+
+		$queryText = 'UPDATE garment '
+					. 'SET ' . $field . '= \'' .$newValue . '\' '
+					. 'WHERE garmentId = \''. $garmentId . '\'';
+
+		$result = $supernovaDb->performQuery($queryText);
+		$supernovaDb->closeConnection();	
+		return $result;		
+	}
+
+	function deleteGarment($garmentId){
+		global $supernovaDb;
+		$garmentId = $supernovaDb->sqlInjectionFilter($garmentId);
+
+		$queryText = 'DELETE FROM garment '
+					. 'WHERE garmentId = \''. $garmentId . '\'';
+
+		$result = $supernovaDb->performQuery($queryText);
+		$supernovaDb->closeConnection();	
+		return $result;			
+	}
+
+	function getElementsToDiscount($collection){
+		global $supernovaDb;
+		$collection = $supernovaDb->sqlInjectionFilter($collection);
+		$queryText = 'SELECT garmentId, price '
+						. 'FROM garment '
+						. 'WHERE collection = \'' . $collection . '\'';
+		$result = $supernovaDb->performQuery($queryText);
+		$supernovaDb->closeConnection();	
+		return $result;							
+	}
+
+	function insertNewSale($garmentId, $newPrice){
+		global $supernovaDb;
+		$garmentId = $supernovaDb->sqlInjectionFilter($garmentId);
+		$newPrice = $supernovaDb->sqlInjectionFilter($newPrice);
+
+		$queryText = 'UPDATE garment '
+					. 'SET discountedFlag = 1 AND '
+					. 'price = \''. $newPrice . '\' '
+					. 'WHERE garmentId = \'' . $garmentId . '\'';
+
+		$result = $supernovaDb->performQuery($queryText);
+		$supernovaDb->closeConnection();	
+		return $result;			
+	}
+
+	function modifyOrder($orderId, $field, $value){
+		global $supernovaDb;
+		$orderId = $supernovaDb->sqlInjectionFilter($orderId);
+		$field = $supernovaDb->sqlInjectionFilter($field);
+		$value = $supernovaDb->sqlInjectionFilter($value);
+
+		$queryText = 'UPDATE `order` '
+					. 'SET ' . $field . '= \'' . $value . '\' '
+					. 'WHERE codice = \''. $orderId . '\'';
+
+		$result = $supernovaDb->performQuery($queryText);
+		$supernovaDb->closeConnection();	
+		return $result;			
+	}
+
+	function modifyStockQuantity($garmentId, $size, $quantity){
+		global $supernovaDb;
+		$garmentId = $supernovaDb->sqlInjectionFilter($garmentId);
+		$size = $supernovaDb->sqlInjectionFilter($size);
+		$quantity = $supernovaDb->sqlInjectionFilter($quantity);
+
+		$queryText = 'UPDATE `stock` '
+					. 'SET quantity = \'' . $quantity . '\' '
+					. 'WHERE garmentId = \''. $garmentId . '\' '
+					. 'AND size = \'' . $size . '\'';
+
+		$result = $supernovaDb->performQuery($queryText);
+		$supernovaDb->closeConnection();	
+		return $result;				
+	}
+
 ?>

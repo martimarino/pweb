@@ -35,6 +35,7 @@ AdminLoader.showActualValue =
 							"&value=" + value +
 							"&fieldToFind=" + fieldToFind +
 							"&label=" + label;
+							console.log(queryString);
 		var url = AdminLoader.ACTUAL_VALUE_REQUEST + queryString;
 		var responseFunction = AdminLoader.onActualValueAjaxResponse;
 		AjaxManager.performAdminAjaxRequest(AdminLoader.DEFAULT_METHOD, url, AdminLoader.ASYNC_TYPE, null, responseFunction, label);
@@ -64,6 +65,67 @@ AdminLoader.insertNewGarment =
 AdminLoader.onInsertAjaxResponse = 
 	function(response){
 		if (response.responseCode === AdminLoader.SUCCESS_RESPONSE){
-			clearInsertIntoCatalogFields(response.data);
+			AdminDashboard.clearInsertIntoCatalogFields(response.data);
+		}
+	}
+
+AdminLoader.modifyGarmentProperty = 
+	function(garmentId, field, newValue){
+		var queryString = "?garmentId=" + garmentId +
+							"&field=" + field + 
+							"&newValue=" + newValue;
+		var url = "../php/ajax/modify_garment.php" + queryString;
+		var responseFunction = AdminLoader.onModifyGarmentAjaxResponse;
+		AjaxManager.performAjaxRequest(AdminLoader.DEFAULT_METHOD, url, AdminLoader.ASYNC_TYPE, null, responseFunction);		
+	}
+
+AdminLoader.onModifyGarmentAjaxResponse = 
+	function(response){
+		if (response.responseCode === AdminLoader.SUCCESS_RESPONSE){
+			AdminDashboard.clearModifyGarmentFields(response.data);
 		}		
+	}
+
+AdminLoader.deleteGarment = 
+	function(garmentId){
+		var queryString = "?garmentId=" + garmentId; console.log(queryString);
+		var url = "../php/ajax/delete_garment.php" + queryString;
+		var responseFunction = AdminLoader.onReloadAjaxResponse;
+		AjaxManager.performAjaxRequest(AdminLoader.DEFAULT_METHOD, url, AdminLoader.ASYNC_TYPE, null, responseFunction);		
+	}
+
+AdminLoader.onReloadAjaxResponse = 
+	function(response){
+		if (response.responseCode === AdminLoader.SUCCESS_RESPONSE){
+			AdminDashboard.reloadPage(response.data);
+		}		
+	}
+
+AdminLoader.insertNewSale =
+	function(percentage, collection){
+		var queryString = "?percentage=" + percentage +
+							"&collection=" + collection;
+		var url = "../php/ajax/insert_sale.php" + queryString;
+		var responseFunction = AdminLoader.onReloadAjaxResponse;
+		AjaxManager.performAjaxRequest(AdminLoader.DEFAULT_METHOD, url, AdminLoader.ASYNC_TYPE, null, responseFunction);		
+	}
+
+AdminLoader.modifyOrderField =
+	function(orderId, field, value){
+		var queryString = "?orderId=" + orderId +
+							"&field=" + field +
+							"&value=" + value;
+		var url = "../php/ajax/modify_order.php" + queryString;
+		var responseFunction = AdminLoader.onReloadAjaxResponse;
+		AjaxManager.performAjaxRequest(AdminLoader.DEFAULT_METHOD, url, AdminLoader.ASYNC_TYPE, null, responseFunction);
+}
+
+AdminLoader.modifyQuantity = 
+	function(garmentId, size, quantity){
+		var queryString = "?garmentId=" + garmentId +
+							"&size=" + size +
+							"&quantity=" + quantity;
+		var url = "../php/ajax/modify_stock.php" + queryString;
+		var responseFunction = AdminLoader.onReloadAjaxResponse;
+		AjaxManager.performAjaxRequest(AdminLoader.DEFAULT_METHOD, url, AdminLoader.ASYNC_TYPE, null, responseFunction);
 	}

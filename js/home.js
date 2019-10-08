@@ -54,8 +54,8 @@ function hideBadges(){
 
 function getSelectedValue(tag){
     var element = document.getElementById(tag);
-    var selectedValue = element.options[element.selectedIndex].value;
-    return selectedValue; 
+    var selectedValue = element.options[element.selectedIndex].value;  console.log("SELECTED: " + selectedValue);
+    return selectedValue;
 }
 
 function insertIntoCatalog(){
@@ -71,37 +71,37 @@ function insertIntoCatalog(){
 }
 
 function modifyGarment(){
-
+    var garmentId = getSelectedValue("ID");
+    var field = getSelectedValue("garmentField");
+    var newValue = document.getElementById("new_garment_value").value;
+    AdminLoader.modifyGarmentProperty(garmentId, field, newValue);
 }
 
 function deleteFromCatalog(){
-
+    var garmentId = getSelectedValue("garmentToDelete");
+    AdminLoader.deleteGarment(garmentId);
 }
 
 function insertSale(){
+    var salePercentage = document.getElementById("new_sale_value").value;
+    var collection = getSelectedValue("collectionToDiscount");
+    AdminLoader.insertNewSale(salePercentage, collection);
+}
 
+function modifyOrder(){
+    var orderId = getSelectedValue("ordersID");
+    var field = getSelectedValue("order_select");
+    var value = document.getElementById("order_new_value").value;
+    AdminLoader.modifyOrderField(orderId, field, value);
 }
 
 function stock(){
-
+    var garmentId = getSelectedValue("stockGarmentID");
+    var size = getSelectedValue("sizes");
+    var quantity = document.getElementById("actual_stock_quantity").value;
+    AdminLoader.modifyQuantity(garmentId, size, quantity);
 }
 
-function clearInsertIntoCatalogFields(){
-    var model = document.getElementById("model_input");
-    model.textContent = "";
-    var color = document.getElementById("color_input");
-    color.textContent = "";
-    var category = document.getElementById("category_input");
-    category.textContent = "";
-    var genre = document.getElementById("genre_input");
-    genre.textContent = "";
-    var collection = document.getElementById("collection_input");
-    collection.textContent = "";
-    var price = document.getElementById("price_input");
-    price.textContent = "";
-    var image = document.getElementById("image_input");
-    image.textContent = "";
-}
 
 /*
 function validate() {

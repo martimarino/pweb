@@ -96,10 +96,10 @@
 						 			<option value="img">image</option>
 								</select>
 								<div class="actual_value" id="garment_actual_value"></div>
-								<input>
+								<input id="new_garment_value">
 							</div>
 						</div>
-						<button class="button">Apply</button>
+						<button class="button" onclick="modifyGarment()">Apply</button>
 					</div>
 				</li>
 				<li>
@@ -113,14 +113,14 @@
 								<div>Select garment to delete: </div>
 							</div>
 							<div class="input">
-								<select class="dropdown" name="ID">
+								<select class="dropdown" id="garmentToDelete">
 									<?php 
 										allGarmentsID(); 
 									?>
 								</select>
 							</div>
 						</div>
-						<button class="button">Delete</button>
+						<button class="button" onclick="deleteFromCatalog()">Delete</button>
 					</div>
 				</li>
 				<li>
@@ -135,15 +135,15 @@
 								<div>Select collection to discount: </div>
 							</div>
 							<div class="input">
-								<input>
-								<select name="collection">
+								<input id="new_sale_value">
+								<select id="collectionToDiscount">
 									<?php 
 										allCollections(); 
 									?>
 								</select>
 							</div>
 						</div>
-						<button class="button">Add</button>
+						<button class="button" onclick="insertSale()">Add</button>
 					</div>
 				</li>
 				<li>
@@ -165,18 +165,18 @@
 										allOrdersID();
 									?>
 								</select>
-				    			<select id="order_select" onfocus="AdminLoader.showActualValue('order', 'garmentId', getSelectedValue('ordersID'), getSelectedValue('order_select'), 'order_new_value')" onchange="AdminLoader.showActualValue('order', 'codice', getSelectedValue('ordersID'), getSelectedValue('order_select'), 'order_new_value')">
+				    			<select id="order_select" onfocus="AdminLoader.showActualValue('order', 'garmentId', getSelectedValue('ordersID'), getSelectedValue('order_select'), 'order_actual_value')" onchange="AdminLoader.showActualValue('order', 'codice', getSelectedValue('ordersID'), getSelectedValue('order_select'), 'order_actual_value')">
 					  				<option value="email">email</option>
 						 			<option value="totale">totale</option>
 						 			<option value="data">data</option>
 						 			<option value="stato">stato</option>
 						 			<option value="pagamento">pagamento</option>
 								</select>
-								<div class="actual_value" id="order_new_value"></div>
-								<input>
+								<div class="actual_value" id="order_actual_value"></div>
+								<input id="order_new_value">
 							</div>
 						</div>
-						<button class="button">Apply</button>
+						<button class="button" onclick="modifyOrder()">Apply</button>
 					</div>
 				</li>
 				<li>
@@ -207,7 +207,7 @@
 								<input>
 							</div>
 						</div>
-						<button class="button">Apply</button>
+						<button class="button" onclick="stock()">Apply</button>
 					</div>
 				</li>
 			</ul>

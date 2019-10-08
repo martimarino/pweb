@@ -2,24 +2,20 @@
 
 	session_start();
 	require_once __DIR__ . "/../config.php";
-	require_once DIR_UTIL . "garmentManagerDb.php";	
+	require_once DIR_UTIL . "garmentManagerDb.php";
 	require_once DIR_AJAX_UTIL . "AjaxResponse.php";
 
 	$response = new AjaxResponse();	
 
-	if (!isset($_GET['model']) || !isset($_GET['color']) || !isset($_GET['category']) || !isset($_GET['genre']) || !isset($_GET['collection']) || !isset($_GET['price']) || !isset($_GET['image'])){
+	if (!isset($_GET['garmentId']) || !isset($_GET['field']) || !isset($_GET['newValue'])){
 		return;
 	}	
 
-	$model = $_GET['model']; 
-	$color = $_GET['color'];
-	$category = $_GET['category'];
-	$genre = $_GET['genre'];
-	$collection = $_GET['collection'];
-	$price = $_GET['price'];
-	$image = $_GET['image'];
+	$garmentId = $_GET['garmentId']; 
+	$field = $_GET['field'];
+	$newValue = $_GET['newValue'];
 	
-	$result = garmentInsertion($model, $color, $category, $genre, $collection, $price, $image);
+	$result = modifyGarment($garmentId, $field, $newValue);
 
 	if(checkEmptyResult($result)){
 		$response = setEmptyResponse();
