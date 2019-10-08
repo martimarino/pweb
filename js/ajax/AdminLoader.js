@@ -23,7 +23,6 @@ AdminLoader.showGarmentSize =
 AdminLoader.onSizeAjaxResponse = 
 	function(response){
 		if (response.responseCode === AdminLoader.SUCCESS_RESPONSE){
-			console.log(response.data);
 			AdminDashboard.fillGarmentSizeOptions(response.data);
 		}
 	}
@@ -36,7 +35,6 @@ AdminLoader.showActualValue =
 							"&value=" + value +
 							"&fieldToFind=" + fieldToFind +
 							"&label=" + label;
-							console.log(queryString);
 		var url = AdminLoader.ACTUAL_VALUE_REQUEST + queryString;
 		var responseFunction = AdminLoader.onActualValueAjaxResponse;
 		AjaxManager.performAdminAjaxRequest(AdminLoader.DEFAULT_METHOD, url, AdminLoader.ASYNC_TYPE, null, responseFunction, label);
@@ -45,7 +43,27 @@ AdminLoader.showActualValue =
 AdminLoader.onActualValueAjaxResponse = 
 	function(response, label){
 		if (response.responseCode === AdminLoader.SUCCESS_RESPONSE){
-			console.log(response.data);
 			AdminDashboard.fillSizeActualValue(response.data, label);
 		}
+	}
+
+AdminLoader.insertNewGarment =
+	function(model, color, category, genre, collection, price, image){
+		var queryString = "?model=" + model +
+							"&color=" + color +
+							"&category=" + category +
+							"&genre=" + genre +
+							"&collection=" + collection +
+							"&price=" + price +
+							"&image=" + image;
+		var url = "../php/ajax/insert_new_garment.php" + queryString;
+		var responseFunction = AdminLoader.onInsertAjaxResponse;
+		AjaxManager.performAjaxRequest(AdminLoader.DEFAULT_METHOD, url, AdminLoader.ASYNC_TYPE, null, responseFunction);
+	}
+
+AdminLoader.onInsertAjaxResponse = 
+	function(response){
+		if (response.responseCode === AdminLoader.SUCCESS_RESPONSE){
+			clearInsertIntoCatalogFields(response.data);
+		}		
 	}

@@ -68,15 +68,7 @@
 			echo '<option value=\'' . $collection . '\'>' . $collection . '</option>';
 		}
 	}
-/*
-	function allGarmentSize(){
-		$result = getAllGarmentSize();
-		$num = mysqli_num_rows($result);
 
-		while ($row = $result->fetch_assoc()){
-			$size = $row['size'];
-			echo '<option value=\'' . $size . '\'>' . $size . '</option>';
-		}		
-	}
-*/
+
+
 ?>

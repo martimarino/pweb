@@ -58,6 +58,51 @@ function getSelectedValue(tag){
     return selectedValue; 
 }
 
+function insertIntoCatalog(){
+    var model = document.getElementById("model_input").value;
+    var color = document.getElementById("color_input").value;
+    var category = document.getElementById("category_input").value;
+    var genre = document.getElementById("genre_input").value;
+    var collection = document.getElementById("collection_input").value;
+    var price = document.getElementById("price_input").value;
+    var image = document.getElementById("image_input").value;
+
+    AdminLoader.insertNewGarment(model, color, category, genre, collection, price, image);
+}
+
+function modifyGarment(){
+
+}
+
+function deleteFromCatalog(){
+
+}
+
+function insertSale(){
+
+}
+
+function stock(){
+
+}
+
+function clearInsertIntoCatalogFields(){
+    var model = document.getElementById("model_input");
+    model.textContent = "";
+    var color = document.getElementById("color_input");
+    color.textContent = "";
+    var category = document.getElementById("category_input");
+    category.textContent = "";
+    var genre = document.getElementById("genre_input");
+    genre.textContent = "";
+    var collection = document.getElementById("collection_input");
+    collection.textContent = "";
+    var price = document.getElementById("price_input");
+    price.textContent = "";
+    var image = document.getElementById("image_input");
+    image.textContent = "";
+}
+
 /*
 function validate() {
     var name = document.formToValidate.firstname.value;

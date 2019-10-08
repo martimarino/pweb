@@ -329,4 +329,29 @@
 		return $result;
 	}
 
+	function garmentInsertion($model, $color, $category, $genre, $collection, $price, $image){
+		global $supernovaDb;
+		$model = $supernovaDb->sqlInjectionFilter($model);
+		$color = $supernovaDb->sqlInjectionFilter($color);
+		$category = $supernovaDb->sqlInjectionFilter($category);
+		$genre = $supernovaDb->sqlInjectionFilter($genre);
+		$collection = $supernovaDb->sqlInjectionFilter($collection);
+		$price = $supernovaDb->sqlInjectionFilter($price);
+		$image = $supernovaDb->sqlInjectionFilter($image);
+
+		$queryText = 'INSERT INTO garment (garmentId, model, color, category, genre, collection, released, price, img) ' 
+						. 'VALUES (NULL, \'' . $model . '\', '
+						. '\'' . $color . '\', ' 
+						. '\'' . $category . '\', '
+						. '\'' . $genre . '\', '
+						. '\'' . $collection . '\', '
+						. date("Y-m-d") . ', '
+						. '\'' . $price . '\', '
+						. '\'' . $image . '\')'; 
+
+		$result = $supernovaDb->performQuery($queryText);
+		$supernovaDb->closeConnection();
+		return $result;	
+	}
+
 ?>

@@ -64,7 +64,7 @@
 								<input id="image_input" required>
 							</div>
 						</div>
-						<button class="button">Add</button>
+						<button class="button" onclick="insertIntoCatalog()">Add</button>
 					</div>
 				</li>
 				<li>
