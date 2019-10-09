@@ -29,7 +29,7 @@
 	    <script src="./../js/home.js"></script>
 		<title>Supernova-Admin profile</title>
 	</head>
-	<body>
+	<body onLoad="effects();">
 		<?php
 			include"./layout/top_bar.php";
 		?>
