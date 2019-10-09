@@ -3,7 +3,8 @@
 	session_start();
 	require_once __DIR__ . "/../config.php";
 	require_once DIR_UTIL . "garmentManagerDb.php";
-	require_once DIR_AJAX_UTIL . "AjaxResponse.php";
+	require_once DIR_AJAX_UTIL . "AjaxResponse.php";	
+	require_once DIR_UTIL . "verify_input.php";
 
 	$response = new AjaxResponse();	
 
@@ -25,20 +26,5 @@
 	$response = setResponse($result, $message);
 	echo json_encode($response);
 	return;
-
-	function checkEmptyResult($result){
-		if ($result === null || !$result)
-			return true;
-	}
-
-	function setEmptyResponse(){
-		$message = "Nothing to load";
-		return new AjaxResponse("-1", $message);
-	}
-
-	function setResponse($result, $message){
-		$response = new AjaxResponse("0", $message);
-			
-		return $response;
-	}
+	
 ?>

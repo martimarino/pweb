@@ -13,17 +13,41 @@
 
 	$percentage = $_GET['percentage']; 
 	$collection = $_GET['collection'];
-	
-	$result = getElementsToDiscount($collection);
 
-	if(checkEmptyResult($result)){
-		$response = setEmptyResponse();
-		echo json_encode($response);
-		return;
+	$errorMessage = "";
+	$errorMessage = verifyInsertSaleInput($percentage);
+
+	function verifyInsertSaleInput($percentage)
+	{
+		if (($percentage == "") || ($percentage == "undefined"))
+			return 'Empty field';
+
+		if(!preg_match("/^[0-90]$/", $percentage))
+			return "Invalid value";
 	}
 
-	$message = "OK";
-	$response = setResponse($percentage, $result, $message);
+	if(!$errorMessage){
+	
+		$result = getElementsToDiscount($collection);
+
+		if(checkEmptyResult($result)){
+			$response = setEmptyResponse();
+			echo json_encode($response);
+			return;
+		}
+
+		$message = "OK";
+		$response = setResponse($percentage, $result, $message);
+
+	}
+
+	else {
+		$result = "./../php/admin_profile.php?errorMessage=" . $errorMessage;
+
+		$message = "INPUT ERROR";
+		$response = setErrorInputResponse($result, $message);
+	}
+
 	echo json_encode($response);
 	return;
 
@@ -49,6 +73,12 @@
 			$index++;
 		}
 		
+		return $response;
+	}
+
+	function setErrorInputResponse($result, $message){
+		$response = new AjaxResponse("0", $message);
+		$response->data = $result;
 		return $response;
 	}
 
