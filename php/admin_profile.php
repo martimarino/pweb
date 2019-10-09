@@ -29,14 +29,21 @@
 	    <script src="./../js/home.js"></script>
 		<title>Supernova-Admin profile</title>
 	</head>
-	<body onLoad="hideBadges()">
+	<body>
 		<?php
 			include"./layout/top_bar.php";
 		?>
 		<h2>Admin control panel</h2>
 		<div id="profile">
 			<button id="logout" onclick="window.location.href='./util/logout.php'">Log Out</button>
-		</div>
+		</div>					
+				<?php
+		            if (isset($_GET['errorMessage'])){
+		                echo '<div class="sign_in_error" id="admin_message">';
+		                echo '<span><b>' . $_GET['errorMessage'] . '</b></span>';
+		                echo '</div>';
+		          	}
+		        ?>
 			<ul class="admin_list">
 				<li>
 					<div class="container">

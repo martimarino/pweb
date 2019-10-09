@@ -57,5 +57,8 @@ AdminDashboard.clearModifyGarmentFields =
 
 AdminDashboard.reloadPage = 
 	function(data){
-		location.reload();
+		if(data == null)
+			location.reload();
+		else
+			location.href = data;
 	}

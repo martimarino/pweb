@@ -186,3 +186,18 @@ input, select, .input > div {
 .dropdown a:hover {background-color: #ddd;}
 
 .show {display: block;}
+
+
+.sign_in_error {
+    color:                  red;
+    width:                  100%;
+    text-align:             center;
+    position:               fixed;
+    z-index:                100;
+    padding:                20px;
+    background-color:       rgba(255,255,255, 0.8);
+}
+
+#admin_message {
+  position: fixed;
+}

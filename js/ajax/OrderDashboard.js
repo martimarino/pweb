@@ -159,7 +159,7 @@ OrderDashboard.createDivElement =
 		//Create tot div
 		var totElem = document.createElement("div");
 		totElem.setAttribute("class", "div_elem");
-		totElem.textContent = currentData.tot + ",00 €";
+		totElem.textContent = currentData.tot + " €";
 
 		//Create details div
 		var detailElem = document.createElement("div");

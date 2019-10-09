@@ -347,7 +347,7 @@
 						. '\'' . $collection . '\', '
 						. date("Y-m-d") . ', '
 						. '\'' . $price . '\', '
-						. '\'' . $image . '\')'; 
+						. '\'immagini/garments/' . $image . '\')'; 
 
 		$result = $supernovaDb->performQuery($queryText);
 		$supernovaDb->closeConnection();

@@ -30,7 +30,7 @@
     <title>Supernova</title>
   </head>
   
-  <body onLoad="hideBadges()">
+  <body>
     <?php
       include"./layout/top_bar.php";
     ?>

@@ -81,7 +81,7 @@
 				echo '<div class="content_garment_wrapper">';
 					echo '<span class="title_stats">Model: </span> ' . $garmentRow['model'] . '<br>';
 					echo '<span class="title_stats">ID: </span> ' . $garmentRow['garmentId'] . '<br>';
-					echo '<span class="title_stats">Price: </span> ' . $garmentRow['price'] . ',00 €' . '<br>';
+					echo '<span class="title_stats">Price: </span> ' . $garmentRow['price'] . ' €' . '<br>';
 				echo '</div>';		
 			echo '</div>';
 			echo '<div id="main">';
@@ -135,7 +135,7 @@
 				echo '</table>';
 			echo '</div>';
 			echo '<br><br>';
-			echo '<div class="totalPrice"><b>Total price: ' . $orderRow['totale'] . ',00 €</b></div>';	//A DESTRA GRANDE
+			echo '<div class="totalPrice"><b>Total price: ' . $orderRow['totale'] . ' €</b></div>';	//A DESTRA GRANDE
 		echo '</div>';
 		echo '<br><br><br>';
 	}

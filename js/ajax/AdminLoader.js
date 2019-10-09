@@ -48,6 +48,8 @@ AdminLoader.onActualValueAjaxResponse =
 		}
 	}
 
+/* ------------------------------------------------------------------------------------------------ */
+
 AdminLoader.insertNewGarment =
 	function(model, color, category, genre, collection, price, image){
 		var queryString = "?model=" + model +
@@ -59,13 +61,17 @@ AdminLoader.insertNewGarment =
 							"&image=" + image;
 		var url = "../php/ajax/insert_new_garment.php" + queryString;
 		var responseFunction = AdminLoader.onInsertAjaxResponse;
+		console.log("QUERY = " + queryString);
+		console.log("URL = " + url);
 		AjaxManager.performAjaxRequest(AdminLoader.DEFAULT_METHOD, url, AdminLoader.ASYNC_TYPE, null, responseFunction);
 	}
 
 AdminLoader.onInsertAjaxResponse = 
 	function(response){
 		if (response.responseCode === AdminLoader.SUCCESS_RESPONSE){
-			AdminDashboard.clearInsertIntoCatalogFields(response.data);
+			//AdminDashboard.clearInsertIntoCatalogFields(response.data);
+					console.log("RESPONSE:DATE = " + response.data);
+		AdminDashboard.reloadPage(response.data);
 		}
 	}
 
