@@ -2,10 +2,6 @@
 	margin:					2cm;
 }
 
-html {
-	margin-top: 55px;
-}
-
 html, body {
 	margin:					0;
 	padding:				0;
@@ -267,9 +263,11 @@ a:link, a:visited {
 /* Slideshow container */
 .slideshow-container {
 	position: 				relative;
+	width: 100%;
+	height: 100%;
 	margin: 				auto;
 	margin-top: 			0;
-	padding-top: 			30px;
+	top: 55px;
 }
 
 .slideshow-container > div {
@@ -313,4 +311,22 @@ button {
 	color: 					black;
 	background-color: 		#93AFD7;
 	font-family: 			'Marmelad', sans-serif;
+}
+
+
+.sign_in_error {
+  color:                  red;
+  width:                  100%;
+  text-align:             center;
+  position:               fixed;
+  padding:                20px 0;
+  background-color:       rgba(244, 198, 198, 0.8);
+  float: right;
+  position: relative;
+  top: 20%;
+}
+
+.sign_in_error > span {
+	text-align: center;
+	position: static;
 }

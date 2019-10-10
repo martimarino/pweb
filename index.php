@@ -25,7 +25,7 @@
 		<title>Supernova</title>
 	</head>
 	<body>
-		<header>
+	<!--	<header>
 
 			<nav id="right-icons">
 				<ul id="right-list">
@@ -37,12 +37,11 @@
 			<h1>
 				<a id="titolo" href="index.php"> Supernova </a>
 			</h1>
-		</header>
-		<br>
+		</header>  -->
 		<?php
-			include('php/layout/home_menu.php');
+			//include('php/layout/home_menu.php');
 		?>
-		<div class="slideshow-container">
+	<!--	<div class="slideshow-container">
 
 			<div class="mySlides fade">
 			  <img src="immagini/image7.jpg" alt="img-1">
@@ -66,17 +65,24 @@
 
 			<div class="mySlides fade">
 			  <img src="immagini/image6.jpg" alt="img-5">
-			</div>
+			</div>-->
 
 		</div>
 		<br>
 
+			<?php
+		            if (isset($_GET['errorMessage'])){
+		                echo '<div class="sign_in_error">';
+		                echo '<span><b>' . $_GET['errorMessage'] . '</b></span>';
+		                echo '</div>';
+		          	}
+		        ?>
 		<script>
 			var slideIndex = 0;
 			showSlides();
 		</script>
 		<footer>
-	  		<form>
+	  		<form action="./php/util/newsletter.php" method="post">
 	  			<input id="newsletter" name="newsletter" placeholder="Newsletter" type="email" required>
 				<button type=submit>Invia</button>
 			</form>
