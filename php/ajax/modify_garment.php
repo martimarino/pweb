@@ -17,25 +17,48 @@
 	$newValue = $_GET['newValue'];
 
 	$errorMessage = "";
-	$errorMessage = verifyModifyGarmentInput($newValue);
+	$errorMessage = verifyModifyGarmentInput($field, $newValue);
 
-	function verifyModifyGarmentInput($newValue)
-	{
-		if (($newValue == "") || ($newValue == "undefined"))
+	function verifyModifyGarmentInput($field, $newValue)
+	{ 
+		if (($newValue == "") || ($newValue == "undefined")){
 			return 'Empty field';
+		}
 
-		if(!preg_match("/^[a-zA-Z]$/", $newValue))
-			return "ID invalid";
+		if (($field == "model") || ($field == "color")){
+			if(!preg_match("/[a-zA-Z]$/", $newValue)){
+				return "Input should be alphabetical";
+			}
+		}
+
+		if($field == "category")
+			if(($newValue != "clothing") || ($newValue != "accessories"))
+				return "Category options are clothing and accessories";
+
+		if($field == "genre")
+			if(($newValue != "female") || ($newValue != "female") || ($newValue != "unisex"))
+				return "Genre options are male, female and unisex";
+
+		if($field == "collection")
+			if(($newValue != "A/I") || ($newValue != "P/E"))
+				return "collection options are A/I and P/E";
+
+		if($field == "price")
+			if(!preg_match("/[0-9]\.[0-9]{2}$/", $newValue))
+				return "Input should be a real number (es '50.00')";
+
+		if ($field == "img"){
+			if(!preg_match("/^garment+[0-9]+\.jpg$/", $newValue)){ 
+				return 'Insert image as garment**.jpg';
+			}
+		}
 	}
 
 	if(!$errorMessage){
-		$result = modifyGarment($garmentId, $field, $newValue);
+		$query = modifyGarment($garmentId, $field, $newValue);
 
-		if(checkEmptyResult($result)){
-			$response = setEmptyResponse();
-			echo json_encode($response);
-			return;
-		}
+		if($query)
+			$result = null;
 
 		$message = "OK";
 	}

@@ -85,6 +85,7 @@
 								<div>Select garment : </div>
 								<div>Select field: </div>
 								<div>Actual value: </div>
+								<br>
 								<div>New value: </div>
 							</div>
 							<div class="input">
@@ -103,6 +104,7 @@
 						 			<option value="img">image</option>
 								</select>
 								<div class="actual_value" id="garment_actual_value"></div>
+								<div class="input"></div>
 								<input id="new_garment_value">
 							</div>
 						</div>
@@ -164,6 +166,7 @@
 								<div>Select order : </div>
 								<div>Select field: </div>
 								<div>Actual value: </div>
+								<br>
 								<div>New value: </div>
 							</div>
 							<div class="input">
@@ -194,10 +197,11 @@
 						</div>
 						<div class="content">
 							<div class="label">
-								<div>Select garment</div>
-								<div>Select size</div>
-								<div>Actual quantity</div>
-								<div>Modify quantity</div>
+								<div>Select garment:</div>
+								<div>Select size:</div>
+								<div>Actual quantity:</div>
+								<br>
+								<div>Modify quantity;</div>
 							</div>
 							<div class="input">
 								<select id="stockGarmentID" onchange="AdminLoader.showGarmentSize(getSelectedValue('stockGarmentID'))">

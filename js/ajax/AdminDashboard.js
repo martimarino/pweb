@@ -56,10 +56,11 @@ AdminDashboard.clearModifyGarmentFields =
 	}
 
 AdminDashboard.reloadPage = 
-	function(data){
-		if(data == null)
-			location.reload();
+	function(error){
+		if(error == null){
+			location.href = './admin_profile.php';
+		}
 		else{
-			location.href = data;
+			location.href = error;
 		}
 	}

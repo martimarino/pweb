@@ -24,26 +24,29 @@
 		if (($value == "") || ($value == "undefined"))
 			return 'Empty field';
 
-		if(!preg_match("/^[a-zA-Z]$/", $value))
-			return "Invalid value";
+		if (($field = "email") || ($field == "pagamento") || ($field == "stato"))
+			if(!preg_match("/[a-zA-Z]$/", $value))
+				return "Input should be alphabetical";
+
+		if ($field == "data")
+			if(!preg_match("/[0-9]{4}+-+[0-9]{2}+-+[0-9]{2}$/", $value))
+				return "Date format is incorrect (AAAA-MM-DD)";
+
+		if($field == "totale")
+			if(!preg_match("/[0-9]\.[0-9]{2}$/", $value))
+				return "Input should be a real number (es '50.00')";
 	}
 
 	if(!$errorMessage){
 
-		$result = modifyOrder($orderId, $field, $value);
-
-		if(checkEmptyResult($result)){
-			$response = setEmptyResponse();
-			echo json_encode($response);
-			return;
-		}
-
+		$query = modifyOrder($orderId, $field, $value);
+		if($query)
+			$result = null;
 		$message = "OK";
 	}
 
 	else {
 		$result = "./../php/admin_profile.php?errorMessage=" . $errorMessage;
-
 		$message = "INPUT ERROR";
 	}
 

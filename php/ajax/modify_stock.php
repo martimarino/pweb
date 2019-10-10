@@ -24,20 +24,15 @@
 		if (($quantity == "") || ($quantity == "quantity"))
 			return 'Empty field';
 
-		if(!preg_match("/^[0-9]$/", $quantity))
+		if(!preg_match("/[0-9]$/", $quantity))
 			return "Invalid quantity";
 	}
 
 	if(!$errorMessage){
 	
-		$result = modifyStockQuantity($garmentId, $size, $quantity);
-
-		if(checkEmptyResult($result)){
-			$response = setEmptyResponse();
-			echo json_encode($response);
-			return;
-		}
-
+		$query = modifyStockQuantity($garmentId, $size, $quantity);
+		if($query)
+			$result = null;
 		$message = "OK";
 
 	}

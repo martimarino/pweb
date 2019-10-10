@@ -22,7 +22,7 @@
 		if (($percentage == "") || ($percentage == "undefined"))
 			return 'Empty field';
 
-		if(!preg_match("/^[0-90]$/", $percentage))
+		if(!preg_match("/[0-90]$/", $percentage))
 			return "Invalid value";
 	}
 

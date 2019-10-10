@@ -356,6 +356,12 @@
 
 	function modifyGarment($garmentId, $field, $newValue){
 		global $supernovaDb;
+
+		if($field == "img"){
+			$value = "immagini/garments/" . $newValue;
+			$newValue = $value;
+		}
+
 		$garmentId = $supernovaDb->sqlInjectionFilter($garmentId);
 		$field = $supernovaDb->sqlInjectionFilter($field);
 		$newValue = $supernovaDb->sqlInjectionFilter($newValue);

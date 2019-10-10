@@ -69,8 +69,6 @@ AdminLoader.insertNewGarment =
 AdminLoader.onInsertAjaxResponse = 
 	function(response){
 		if (response.responseCode === AdminLoader.SUCCESS_RESPONSE){
-			//AdminDashboard.clearInsertIntoCatalogFields(response.data);
-					console.log("RESPONSE:DATE = " + response.data);
 		AdminDashboard.reloadPage(response.data);
 		}
 	}
@@ -81,20 +79,13 @@ AdminLoader.modifyGarmentProperty =
 							"&field=" + field + 
 							"&newValue=" + newValue;
 		var url = "../php/ajax/modify_garment.php" + queryString;
-		var responseFunction = AdminLoader.onModifyGarmentAjaxResponse;
+		var responseFunction = AdminLoader.onReloadAjaxResponse;
 		AjaxManager.performAjaxRequest(AdminLoader.DEFAULT_METHOD, url, AdminLoader.ASYNC_TYPE, null, responseFunction);		
-	}
-
-AdminLoader.onModifyGarmentAjaxResponse = 
-	function(response){
-		if (response.responseCode === AdminLoader.SUCCESS_RESPONSE){
-			AdminDashboard.clearModifyGarmentFields(response.data);
-		}		
 	}
 
 AdminLoader.deleteGarment = 
 	function(garmentId){
-		var queryString = "?garmentId=" + garmentId; console.log(queryString);
+		var queryString = "?garmentId=" + garmentId;
 		var url = "../php/ajax/delete_garment.php" + queryString;
 		var responseFunction = AdminLoader.onReloadAjaxResponse;
 		AjaxManager.performAjaxRequest(AdminLoader.DEFAULT_METHOD, url, AdminLoader.ASYNC_TYPE, null, responseFunction);		
