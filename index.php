@@ -24,12 +24,12 @@
 		<link href="https://fonts.googleapis.com/css?family=Marmelad" rel="stylesheet">
 		<title>Supernova</title>
 	</head>
-	<body>
-	<!--	<header>
+	<body <?php if(isset($_GET['errorMessage'])) echo 'onload="IndexEffects()"'; ?>>
+		<header>
 
 			<nav id="right-icons">
 				<ul id="right-list">
-					<li id="favourites"><img src="immagini/heart.png" alt="favourites"></li>
+					<li id="favourites"><a href="php/wishList.php"><img src="immagini/heart.png" alt="favourites"></a></li>
 					<li onclick="location.href='./php/loginPage.php';"><img src='./immagini/login.png' alt="login"></li>
 					<li id="cart"><a href="php/cart.php"><img src="immagini/cart.png" alt="cart"></a></li> 
 				</ul>
@@ -37,11 +37,11 @@
 			<h1>
 				<a id="titolo" href="index.php"> Supernova </a>
 			</h1>
-		</header>  -->
+		</header>  
 		<?php
-			//include('php/layout/home_menu.php');
+			include('php/layout/home_menu.php');
 		?>
-	<!--	<div class="slideshow-container">
+		<div class="slideshow-container">
 
 			<div class="mySlides fade">
 			  <img src="immagini/image7.jpg" alt="img-1">
@@ -65,14 +65,14 @@
 
 			<div class="mySlides fade">
 			  <img src="immagini/image6.jpg" alt="img-5">
-			</div>-->
+			</div>
 
 		</div>
 		<br>
 
 			<?php
 		            if (isset($_GET['errorMessage'])){
-		                echo '<div class="sign_in_error">';
+		                echo '<div class="sign_in_error" id="index_message">';
 		                echo '<span><b>' . $_GET['errorMessage'] . '</b></span>';
 		                echo '</div>';
 		          	}

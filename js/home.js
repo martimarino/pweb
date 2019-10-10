@@ -28,8 +28,13 @@ function showSlides() {
 
 /* ------------------------------------------------------------------------- */
 
-function effects(){
-    fadeIn(document.getElementById("admin_message"), 1);
+function IndexEffects(){ console.log("CIAO");
+    fadeIn(document.getElementById('index_message'), 1);
+    slideUp(document.getElementById('index_message'), 35, 16);
+}
+
+function AdminEffects(){
+    fadeIn(document.getElementById('admin_message'), 1);
     slideUp(document.getElementById('admin_message'), 35, 16);
 }
 

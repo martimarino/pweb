@@ -61,6 +61,5 @@ AdminDashboard.reloadPage =
 			location.reload();
 		else{
 			location.href = data;
-			effects();
 		}
 	}

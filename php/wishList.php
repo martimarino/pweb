@@ -7,7 +7,7 @@
     include DIR_UTIL . "utility.php";
 
     if (!isLogged()){
-		    header('Location: ./../index.php');
+		    header('Location: ./../index.php?errorMessage=You are not logged');
 		    exit;
     }	
 ?>

@@ -29,7 +29,7 @@
 	    <script src="./../js/home.js"></script>
 		<title>Supernova-Admin profile</title>
 	</head>
-	<body>
+	<body <?php if(isset($_GET['errorMessage'])) echo 'onload="AdminEffects()"'; ?>>
 		<?php
 			include"./layout/top_bar.php";
 		?>

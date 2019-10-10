@@ -16,14 +16,9 @@
 	
 	$result = deleteGarment($garmentId);
 
-	if(checkEmptyResult($result)){
-		$response = setEmptyResponse();
-		echo json_encode($response);
-		return;
-	}
-
 	$message = "OK";
 	$response = setResponse($result, $message);
+	$response->data = null;
 	echo json_encode($response);
 	return;
 	

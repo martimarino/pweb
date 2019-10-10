@@ -322,7 +322,7 @@ button {
   padding:                20px 0;
   background-color:       rgba(244, 198, 198, 0.8);
   float: right;
-  position: relative;
+  position: absolute;
   top: 20%;
 }
 
