@@ -37,7 +37,7 @@
 		if(($collection != "A/I") && ($collection != "P/E"))
 			return 'Collections available are A/I and P/E';
 
-		if(($genre != "male") && ($collection != "female") && ($genre != "unisex"))
+		if(($genre != "male") && ($genre != "female") && ($genre != "unisex"))
 			return 'Genre options are: male, female, unisex';
 
 		if(!preg_match("/[0-9]+\.+[0-9]{2}$/", $price))

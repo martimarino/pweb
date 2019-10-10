@@ -17,14 +17,14 @@
 	$value = $_GET['value'];
 
 	$errorMessage = "";
-	$errorMessage = verifyModifyOrderInput($value);
+	$errorMessage = verifyModifyOrderInput($field, $value);
 	
-	function verifyModifyOrderInput($value)
+	function verifyModifyOrderInput($field, $value)
 	{
 		if (($value == "") || ($value == "undefined"))
 			return 'Empty field';
 
-		if (($field = "email") || ($field == "pagamento") || ($field == "stato"))
+		if (($field == "email") || ($field == "pagamento") || ($field == "stato"))
 			if(!preg_match("/[a-zA-Z]$/", $value))
 				return "Input should be alphabetical";
 

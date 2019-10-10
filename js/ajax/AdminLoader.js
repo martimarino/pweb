@@ -121,7 +121,7 @@ AdminLoader.modifyQuantity =
 	function(garmentId, size, quantity){
 		var queryString = "?garmentId=" + garmentId +
 							"&size=" + size +
-							"&quantity=" + quantity;
+							"&quantity=" + quantity;  console.log(queryString);
 		var url = "../php/ajax/modify_stock.php" + queryString;
 		var responseFunction = AdminLoader.onReloadAjaxResponse;
 		AjaxManager.performAjaxRequest(AdminLoader.DEFAULT_METHOD, url, AdminLoader.ASYNC_TYPE, null, responseFunction);

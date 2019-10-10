@@ -143,7 +143,7 @@ function modifyOrder(){
 function stock(){
     var garmentId = getSelectedValue("stockGarmentID");
     var size = getSelectedValue("sizes");
-    var quantity = document.getElementById("actual_stock_quantity").value;
+    var quantity = document.getElementById("quantity").value;
     AdminLoader.modifyQuantity(garmentId, size, quantity);
 }
 

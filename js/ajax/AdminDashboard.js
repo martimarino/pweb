@@ -9,8 +9,7 @@ AdminDashboard.removeContent =
     		while (select.hasChildNodes()) {
                select.removeChild(select.firstChild);
             }	
-    	}
-    	console.log(select.childNodes.length);	
+    	}	
 	}
 
 AdminDashboard.fillGarmentSizeOptions = 

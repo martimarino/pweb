@@ -116,6 +116,10 @@ input, select, .input > div {
   height: 40px;
 }
 
+#order_actual_value{
+  display: table;
+}
+
 .button {
   background-color:       #0E2130;
   color:                  white;

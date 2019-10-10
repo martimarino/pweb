@@ -175,7 +175,7 @@
 										allOrdersID();
 									?>
 								</select>
-				    			<select id="order_select" onfocus="AdminLoader.showActualValue('order', 'garmentId', getSelectedValue('ordersID'), getSelectedValue('order_select'), 'order_actual_value')" onchange="AdminLoader.showActualValue('order', 'codice', getSelectedValue('ordersID'), getSelectedValue('order_select'), 'order_actual_value')">
+				    			<select id="order_select" onfocus="AdminLoader.showActualValue('order', 'codice', getSelectedValue('ordersID'), getSelectedValue('order_select'), 'order_actual_value')" onchange="AdminLoader.showActualValue('order', 'codice', getSelectedValue('ordersID'), getSelectedValue('order_select'), 'order_actual_value')">
 					  				<option value="email">email</option>
 						 			<option value="totale">totale</option>
 						 			<option value="data">data</option>
@@ -210,12 +210,12 @@
 										allGarmentsID();
 									?>
 								</select>
-								<select id="sizes" onfocus="AdminLoader.showActualValue('stock', 'size', getSelectedValue('sizes'), 'quantity', 'actual_stock_quantity')" onchange="AdminLoader.showActualValue('stock', 'size', getSelectedValue('sizes'), 'actual_stock_quantity')">
+								<select id="sizes" onfocus="AdminLoader.showActualValue('stock', 'size', getSelectedValue('sizes'), 'quantity', 'actual_stock_quantity')" onchange="AdminLoader.showActualValue('stock', 'size', getSelectedValue('sizes'), 'quantity', 'actual_stock_quantity')">
 									<option value="" disabled selected>Please select a size</option>
 								</select>
 								<div class="actual_value" id="actual_stock_quantity"></div>
 								<br>
-								<input>
+								<input id="quantity">
 							</div>
 						</div>
 						<button class="button" onclick="stock()">Apply</button>
