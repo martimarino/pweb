@@ -269,3 +269,21 @@ GarmentDashboard.updateNavigationPage =
 		}
 
 	}
+
+GarmentDashboard.fillSizesOptions = 
+	function(currentData){
+
+		var dropDown = document.getElementsByTagName("select")[0];
+		for (var i = 0; i < currentData.length; i++){
+			var node = document.createElement("option");
+			if(currentData[i].quantity > 0)
+				node.setAttribute("class", "sizes_option");
+			else
+				node.setAttribute("class", "finished_sizes_option");
+			node.setAttribute("value", currentData[i].sizeLetter);
+			node.textContent = currentData[i].sizeLetter;
+
+			dropDown.appendChild(node);
+		}
+
+	}

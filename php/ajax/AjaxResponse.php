@@ -120,13 +120,13 @@
 	class Stock
 	{
 		public $garmentId;
-		public $size;
+		public $sizeLetter;
 		public $quantity;
 
-		function Stock($garmentId = 0, $size="", $quantity = 0)
+		function Stock($garmentId = 0, $sizeLetter="", $quantity = 0)
 		{
 			$this->garmentId = $garmentId;
-			$this->size = $size;
+			$this->sizeLetter = $sizeLetter;
 			$this->quantity = $quantity;
 		}
 	}

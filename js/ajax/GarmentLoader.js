@@ -7,6 +7,7 @@ GarmentLoader.URL_REQUEST = "./ajax/garmentLoader.php";
 GarmentLoader.SEARCH_REQUEST = "./ajax/searchLoader.php";
 GarmentLoader.ORDER_REQUEST = "./ajax/orderLoader.php";
 GarmentLoader.DETAILED_ORDER_REQUEST = "./ajax/orderGarmentLoader.php";
+GarmentLoader.GARMENT_SIZES_REQUEST = "./ajax/sizesGarmentLoader.php";
 GarmentLoader.ASYNC_TYPE = true;
 
 GarmentLoader.GARMENT_TO_LOAD = 20;
@@ -124,5 +125,23 @@ GarmentLoader.onOrderItemsAjaxResponse =
 	function(response){
 		if (response.responseCode === GarmentLoader.SUCCESS_RESPONSE){
 			OrderDashboard.fillOrderTable(response.data);
+		}
+	}
+
+GarmentLoader.loadGarmentSizes = 
+	function(garmentId){
+		if(garmentId == null || garmentId.length === 0){
+			return;
+		}
+		var queryString = "?garmentId=" + garmentId;
+		var url = GarmentLoader.GARMENT_SIZES_REQUEST + queryString;  
+		var responseFunction = GarmentLoader.onGarmentSizesAjaxResponse;
+		AjaxManager.performAjaxRequest(GarmentLoader.DEFAULT_METHOD, url, GarmentLoader.ASYNC_TYPE, null, responseFunction);		
+	}
+
+GarmentLoader.onGarmentSizesAjaxResponse =
+	function(response){
+		if (response.responseCode === GarmentLoader.SUCCESS_RESPONSE){
+			GarmentDashboard.fillSizesOptions(response.data); 
 		}
 	}

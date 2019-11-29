@@ -30,9 +30,12 @@
 		<script type="text/javascript" src="./../js/ajax/GarmentDashboard.js"></script>	
 		<title>Supernova-Detailed garment</title>
 	</head>
-	<body>
+	<?php
+		$garmentId = $_GET['garmentId'];
+		echo '<body onLoad="GarmentLoader.loadGarmentSizes(' . $garmentId . ')">';
+	?>
 		<style>
-			<?php 
+			<?php  
 				if (!isLogged())
 					include '../css/catalog.css'; 
 			?>
@@ -44,9 +47,8 @@
 			require_once DIR_UTIL . "garmentManagerDb.php";	
 
 			echo '<br><br><div id="content">';
-			$garmentId = $_GET['garmentId'];
 			$result = getGarmentById($garmentId);	
-			showDetailedGarment($result);
+			showDetailedGarment($result); 
 			echo '</div>';
 		?>
 	</body>

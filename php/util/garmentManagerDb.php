@@ -444,4 +444,15 @@
 		return $result;				
 	}
 
+	function getGarmentSizes($garmentId){
+		global $supernovaDb;
+		$garmentId = $supernovaDb->sqlInjectionFilter($garmentId);
+		$queryText = 'SELECT * '
+						. 'FROM `stock` '
+						. 'WHERE garmentId = \'' . $garmentId . '\'';
+		$result = $supernovaDb->performQuery($queryText);
+		$supernovaDb->closeConnection();	
+		return $result;	
+	}
+
 ?>
