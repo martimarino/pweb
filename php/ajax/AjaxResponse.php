@@ -47,18 +47,16 @@
 	class UserStat
 	{
 		public $desired;
-		public $inCart;
 		public $liked;
 		public $likedCount;
 		public $disliked;
 		public $dislikedCount;
 	
-		function UserStat($desired = 0, $inCart = 0, $liked = 0, 
+		function UserStat($desired = 0, $liked = 0, 
 								$likedCount = -1, $disliked = 0, $dislikedCount = -1)
 		{
 			
 			$this->desired = $desired;
-			$this->inCart = $inCart;
 			$this->liked = $liked;
 			$this->likedCount = $likedCount;
 			$this->disliked = $disliked;
@@ -127,6 +125,22 @@
 		{
 			$this->garmentId = $garmentId;
 			$this->sizeLetter = $sizeLetter;
+			$this->quantity = $quantity;
+		}
+	}
+
+	class Cart
+	{
+		public $email;
+		public $garmentId;
+		public $garmentSize;
+		public $quantity;
+
+		function Cart($email = null, $garmentId = 0, $garmentSize = null, $quantity = 0)
+		{
+			$this->email = $email;
+			$this->garmentId = $garmentId;
+			$this->garmentSize = $garmentSize;
 			$this->quantity = $quantity;
 		}
 	}

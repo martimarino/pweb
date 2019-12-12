@@ -12,15 +12,7 @@
 		if ($userGarmentRow != null AND $userGarmentRow['desired'] != null AND $userGarmentRow['desired'] == 1)
 			$currentFlag = true;
 		echo '<div id="desiredItem_' . $garmentId . '" class="nav_garment_item desired_img_' . (int)$currentFlag . '" ';
-		echo 'onClick="UserGarmentNavBarEventHandler.onDesiredEvent(' . $garmentId . ')">';
-		echo '</div>';
-			
-		// inCart nav bar item		
-		$currentFlag = false; //inCart flag
-		if ($userGarmentRow != null AND $userGarmentRow['inCart'] != null AND $userGarmentRow['inCart'] == 1)
-				$currentFlag = true;
-		echo '<div id="inCartItem_' . $garmentId . '" class="nav_garment_item in_cart_img_' . (int)$currentFlag . '" ';
-		echo 'onClick="UserGarmentNavBarEventHandler.onInCartEvent(' . $garmentId . ')">';
+		echo 'onClick="UserGarmentNavBarEventHandler.onDesiredEvent(' . $garmentId . '); UserGarmentNavBarEventHandler.onBadgeNumber()">';
 		echo '</div>';
 		
 		// like nav bar item
@@ -95,9 +87,9 @@
 				}
 				echo '<div class="content_garment_wrapper">';
 					echo '<h2>Color:</h2>' . $garmentRow['color'] . '<br>';
-					echo '<h2>Size:</h2>' . '<select name="size_options"></select>' . '<br>';
+					echo '<h2>Size:</h2>' . '<select id="size_options"></select>' . '<br>';
 				echo '</div>';
-				echo '<button id="go_to_payment">Proceed to the payment</button>';
+				echo '<button id="add_to_cart" onClick="UserGarmentNavBarEventHandler.onCartEvent(' . $garmentRow['garmentId'] . '); UserGarmentNavBarEventHandler.onBadgeNumber()">Add to cart</button>';
 					echo '<p id = "go_to_measures">Not sure about the size? <a href="././myMeasures.php">Click here!</a></p>';
 			echo '</div>';
 		echo '</div>';

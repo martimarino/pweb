@@ -14,7 +14,7 @@
 		return;
 	}		
 
-	$garmentId = $_GET['garmentId'];	
+	$garmentId = $_GET['garmentId'];
 	$currentFlag = 0;		
 
 	// check desired flag
@@ -25,16 +25,6 @@
 		echo json_encode($response);
 		return;
 	}	
-
-	// check inCart flag
-	if (isset($_GET['inCart'])){
-		$currentFlag = $_GET['inCart'];
-		if (setInCartUserStat($garmentId, $currentFlag))
-			$response = setCorrectResponse($garmentId, $message);
-	
-		echo json_encode($response);
-		return;
-	}
 
 	// check like flag		
 	if (isset($_GET['like'])){
@@ -61,21 +51,12 @@
 		$numRows = $result->num_rows;
 		return $numRows === 1;
 	}
-	
+
 	function setDesiredUserStat($garmentId, $desiredFlag){
 		if(isUserGarmentStatInDb($garmentId, $_SESSION['username']))
 			$result = updateDesiredUserGarmentStat($garmentId, $_SESSION['username'], $desiredFlag);
 		else
 			$result = insertDesiredUserGarmentStat($garmentId, $_SESSION['username'], $desiredFlag);
-		
-		return $result;
-	}
-	
-	function setInCartUserStat($garmentId, $inCartFlag){
-		if(isUserGarmentStatInDb($garmentId, $_SESSION['username'])) 
-			$result = updateInCartUserGarmentStat($garmentId, $_SESSION['username'], $inCartFlag);
-		else
-			$result = insertInCartUserGarmentStat($garmentId, $_SESSION['username'], $inCartFlag);
 		
 		return $result;
 	}
@@ -113,7 +94,6 @@
 		// Set UserStat class
 		$userStat = new UserStat();
 		$userStat->desired = $userGarmentRow['desired'];
-		$userStat->inCart = $userGarmentRow['inCart'];
 		$userStat->liked = ($userGarmentRow['isLiked'] === null)? 0 : (int)$userGarmentRow['isLiked'];
 		$userStat->disliked = ($userGarmentRow['isLiked'] === null)? 0 : (int)!$userGarmentRow['isLiked'];
 		$likedCountResult = getGarmentLikes($garmentId);

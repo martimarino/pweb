@@ -3,13 +3,14 @@ function UserGarmentNavBarEventHandler(){}
 UserGarmentNavBarEventHandler.DEFAULT_METHOD = "GET";
 UserGarmentNavBarEventHandler.URL_REQUEST = "./ajax/userGarmentInteraction.php";
 UserGarmentNavBarEventHandler.BADGE_REQUEST = "./ajax/badgeLoader.php";
+UserGarmentNavBarEventHandler.CART_REQUEST = "./ajax/cartLoader.php";
 UserGarmentNavBarEventHandler.ASYNC_TYPE = true;
 
 UserGarmentNavBarEventHandler.SUCCESS_RESPONSE = "0";
 
 UserGarmentNavBarEventHandler.onDesiredEvent = 
 	function(garmentId) {
-		var flag =  getComplementaryFlag(document.getElementById("desiredItem_" + garmentId))
+		var flag =  getComplementaryFlag(document.getElementById("desiredItem_" + garmentId));
 		var queryString = "?garmentId=" + garmentId + "&desired=" + flag;
 		var url = UserGarmentNavBarEventHandler.URL_REQUEST + queryString;
 		var responseFunction = UserGarmentNavBarEventHandler.onAjaxResponse;
@@ -19,22 +20,28 @@ UserGarmentNavBarEventHandler.onDesiredEvent =
 										null, responseFunction)
 	}
 
-UserGarmentNavBarEventHandler.onInCartEvent =
+UserGarmentNavBarEventHandler.onCartEvent = 
 	function(garmentId){
-		var flag =  getComplementaryFlag(document.getElementById("inCartItem_" + garmentId))
-		var queryString = "?garmentId=" + garmentId + "&inCart=" + flag;
-		var url = UserGarmentNavBarEventHandler.URL_REQUEST + queryString;
-		var responseFunction = UserGarmentNavBarEventHandler.onAjaxResponse;
+		var garmentSize = getSelectedSize(garmentId);
+		var queryString = "?garmentId=" + garmentId + "&garmentSize=" + garmentSize;
+		var url = UserGarmentNavBarEventHandler.CART_REQUEST + queryString;
+		var responseFunction = UserGarmentNavBarEventHandler.onModifyCartAjaxResponse;
 	
 		AjaxManager.performAjaxRequest(UserGarmentNavBarEventHandler.DEFAULT_METHOD, 
 										url, UserGarmentNavBarEventHandler.ASYNC_TYPE, 
 										null, responseFunction)
 	}
 
+UserGarmentNavBarEventHandler.onModifyCartAjaxResponse = 
+	function(response){
+		if (response.responseCode === UserGarmentNavBarEventHandler.SUCCESS_RESPONSE){
+			GarmentDashboard.updateCartPage(response.data);
+		}
+	}
+	
 UserGarmentNavBarEventHandler.onBadgeNumber = 
 	function(){
 		var url = UserGarmentNavBarEventHandler.BADGE_REQUEST;
-		console.log(url);
 		var responseFunction = UserGarmentNavBarEventHandler.onBadgeAjaxResponse;
 		console.log(responseFunction);
 		AjaxManager.performAjaxRequest(UserGarmentNavBarEventHandler.DEFAULT_METHOD, 
@@ -51,7 +58,7 @@ UserGarmentNavBarEventHandler.onBadgeAjaxResponse =
 
 UserGarmentNavBarEventHandler.onLikeEvent = 
 	function(garmentId){
-		var flag =  getComplementaryFlag(document.getElementById("likeItem_" + garmentId))
+		var flag =  getComplementaryFlag(document.getElementById("likeItem_" + garmentId));
 		var queryString = "?garmentId=" + garmentId + "&like=" + flag;
 		var url = UserGarmentNavBarEventHandler.URL_REQUEST + queryString;
 		var responseFunction = UserGarmentNavBarEventHandler.onAjaxResponse;
@@ -63,7 +70,7 @@ UserGarmentNavBarEventHandler.onLikeEvent =
 
 UserGarmentNavBarEventHandler.onDislikeEvent = 
 	function(garmentId){
-		var flag =  getComplementaryFlag(document.getElementById("dislikeItem_" + garmentId))
+		var flag =  getComplementaryFlag(document.getElementById("dislikeItem_" + garmentId));
 		var queryString = "?garmentId=" + garmentId + "&dislike=" + flag;
 		var url = UserGarmentNavBarEventHandler.URL_REQUEST + queryString;
 		var responseFunction = UserGarmentNavBarEventHandler.onAjaxResponse;
@@ -77,7 +84,6 @@ UserGarmentNavBarEventHandler.onAjaxResponse =
 	function(response){
 		if (response.responseCode === UserGarmentNavBarEventHandler.SUCCESS_RESPONSE){
 			GarmentDashboard.updateGarmentNavBar(response.data);
-
 		}
 	}
 
@@ -87,3 +93,8 @@ function getComplementaryFlag(item){
 	return (currentFlag+1)%2;
 }
 
+function getSelectedSize(garmentId){
+	var elem = document.getElementById("size_options");
+	var size = elem.options[elem.selectedIndex].value;
+	return size; 
+}

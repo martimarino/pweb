@@ -186,6 +186,12 @@ section>img{
     margin: 5px 0 0 0;
 }   
 
+.user_nav_bar{
+    position: static;
+    height: 25px;
+    padding: 0 20px;
+}
+
 .like_img_0{
     background-image: url('./../immagini/empty_like.png');
     background-size: cover;
@@ -336,8 +342,8 @@ section>img{
     margin: 25px 0;
 }
 
-#go_to_payment {
-    width: 100%;
+#add_to_cart {
+    width: 60%;
     margin: 20px 0 20px 0;
 
     position: relative;

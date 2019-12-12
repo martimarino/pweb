@@ -47,7 +47,7 @@
 			require_once DIR_UTIL . "garmentManagerDb.php";	
 
 			echo '<br><br><div id="content">';
-			$result = getGarmentById($garmentId);	
+			$result = getGarmentById($garmentId);
 			showDetailedGarment($result); 
 			echo '</div>';
 		?>

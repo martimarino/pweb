@@ -61,8 +61,8 @@
  		$offset = $supernovaDb->sqlInjectionFilter($offset);
 		$numRecord = $supernovaDb->sqlInjectionFilter($numRecord);
 		$queryText = 'SELECT g.* '
-					. 'FROM user_garment ug JOIN garment g ON ug.garmentId = g.garmentId '
-					. 'WHERE ug.email = \'' . $email . '\' AND ug.inCart = 1 '
+					. 'FROM cart c JOIN garment g ON c.garmentId = g.garmentId '
+					. 'WHERE c.email = \'' . $email . '\' '
 					. 'LIMIT ' . $offset . ',' . $numRecord ;
  		
  		$result = $supernovaDb->performQuery($queryText);
@@ -107,8 +107,8 @@
 		$email = $supernovaDb->sqlInjectionFilter($email);
 		$garmentId = $supernovaDb->sqlInjectionFilter($garmentId);
  		$desiredFlag = $supernovaDb->sqlInjectionFilter($desiredFlag);
-		$queryText = 'INSERT INTO user_garment (id, email, garmentId, desired, inCart, isLiked) ' 
-						. 'VALUES (NULL, \'' . $email . '\', \'' . $garmentId . '\', ' . $desiredFlag . ', 0, NULL)';
+		$queryText = 'INSERT INTO user_garment (id, email, garmentId, desired, isLiked) ' 
+						. 'VALUES (NULL, \'' . $email . '\', \'' . $garmentId . '\', ' . $desiredFlag . ', NULL)';
  	
  		$result = $supernovaDb->performQuery($queryText);
 		$supernovaDb->closeConnection();
@@ -126,36 +126,13 @@
  		return $supernovaDb->performQuery($queryText);
 	}
 
-	function insertInCartUserGarmentStat($garmentId, $email, $inCartFlag){
-		global $supernovaDb;
-		$email = $supernovaDb->sqlInjectionFilter($email);
-		$inCartFlag = $supernovaDb->sqlInjectionFilter($inCartFlag);
-		$queryText = 'INSERT INTO user_garment (id, email, garmentId, desired, inCart, isLiked) ' 
-						. 'VALUES (NULL, \'' . $email . '\', \'' . $garmentId . '\', 0, ' . $inCartFlag . ', NULL)';
- 	
- 		$result = $supernovaDb->performQuery($queryText);
-		$supernovaDb->closeConnection();
-		return $result; 
-	}
-	
-	function updateInCartUserGarmentStat($garmentId, $email, $inCartFlag){
-		global $supernovaDb;
-		$email = $supernovaDb->sqlInjectionFilter($email);
-		$garmentId = $supernovaDb->sqlInjectionFilter($garmentId);
-		$inCartFlag = $supernovaDb->sqlInjectionFilter($inCartFlag);
-		$queryText = 'UPDATE user_garment '
-					. 'SET inCart=' . $inCartFlag . ' '
-					. 'WHERE email=\'' . $email . '\' AND garmentId = \'' . $garmentId . '\'';
- 		return $supernovaDb->performQuery($queryText);
-	}
-	
 	function insertLikeDislikeUserGarmentStat($garmentId, $email, $preference){
 		global $supernovaDb;
 		$email = $supernovaDb->sqlInjectionFilter($email);
 		$garmentId = $supernovaDb->sqlInjectionFilter($garmentId);
 		$preference = $supernovaDb->sqlInjectionFilter($preference);
-		$queryText = 'INSERT INTO user_garment (id, email, garmentId, desired, inCart, isLiked) ' 
-						. 'VALUES (NULL, \'' . $email . '\', \'' . $garmentId . '\', 0, 0, ' . $preference . ')';
+		$queryText = 'INSERT INTO user_garment (id, email, garmentId, desired, isLiked) ' 
+						. 'VALUES (NULL, \'' . $email . '\', \'' . $garmentId . '\', 0, ' . $preference . ')';
  		
  		$result = $supernovaDb->performQuery($queryText);
 		$supernovaDb->closeConnection();
@@ -234,9 +211,9 @@
 	function getHowManyInCart($email){
 		global $supernovaDb;
 		$email = $supernovaDb->sqlInjectionFilter($email);
-		$queryText = 'SELECT COUNT(*) AS cartBadge '
-						. 'FROM user_garment '
-						. 'WHERE email = \'' . $email . '\' AND inCart = 1';
+		$queryText = 'SELECT SUM(quantity) AS cartBadge '
+						. 'FROM cart '
+						. 'WHERE email = \'' . $email . '\' ';
 
 		$result = $supernovaDb->performQuery($queryText);
 		$supernovaDb->closeConnection();
@@ -454,5 +431,70 @@
 		$supernovaDb->closeConnection();	
 		return $result;	
 	}
+
+	function getUserGarmentCart($email, $garmentId, $garmentSize){
+		global $supernovaDb;
+		$email = $supernovaDb->sqlInjectionFilter($email);
+		$garmentId = $supernovaDb->sqlInjectionFilter($garmentId);
+		$garmentSize = $supernovaDb->sqlInjectionFilter($garmentSize);
+		$queryText = 'SELECT * '
+						. 'FROM `cart` '
+						. 'WHERE garmentId = \'' . $garmentId . '\' '
+						. 'AND email = \'' . $email . '\' '
+						. 'AND size = \'' . $garmentSize . '\'';
+		$result = $supernovaDb->performQuery($queryText);
+		$supernovaDb->closeConnection();	
+		return $result;	
+	}
+
+	function getCartItemActualQuantity($garmentId, $email, $garmentSize){
+		global $supernovaDb;
+		$email = $supernovaDb->sqlInjectionFilter($email);
+		$garmentId = $supernovaDb->sqlInjectionFilter($garmentId);
+		$garmentSize = $supernovaDb->sqlInjectionFilter($garmentSize);
+		$queryText = 'SELECT quantity '
+					. 'FROM `cart` '
+					. 'WHERE garmentId = \'' . $garmentId . '\' '
+					. 'AND email = \'' . $email . '\' '
+					. 'AND size = \'' . $garmentSize . '\'';
+
+		$result = $supernovaDb->performQuery($queryText);
+		$supernovaDb->closeConnection();
+		return $result;
+	}
+
+	function updateCart($garmentId, $email, $garmentSize, $quantity){
+		global $supernovaDb;
+		$email = $supernovaDb->sqlInjectionFilter($email);
+		$garmentId = $supernovaDb->sqlInjectionFilter($garmentId);
+		$garmentSize = $supernovaDb->sqlInjectionFilter($garmentSize);
+		$quantity = $supernovaDb->sqlInjectionFilter($quantity);
+		$queryText = 'UPDATE cart '
+					. 'SET quantity= ' . $quantity . ' '
+					. 'WHERE email = \'' . $email . '\' AND garmentId = \'' . $garmentId . '\' AND size = \'' . $garmentSize . '\'';
+ 	
+ 		$result = $supernovaDb->performQuery($queryText);
+		$supernovaDb->closeConnection();
+		return $result; 
+	}
+
+	function insertInCart($garmentId, $email, $garmentSize){
+		global $supernovaDb;
+		$email = $supernovaDb->sqlInjectionFilter($email);
+		$garmentId = $supernovaDb->sqlInjectionFilter($garmentId);
+		$garmentSize = $supernovaDb->sqlInjectionFilter($garmentSize);
+		$queryText = 'INSERT INTO `cart` (email, garmentId, size, quantity) ' 
+						. 'VALUES (\'' . $email . '\', \'' . $garmentId . '\', \'' . $garmentSize . '\', 1)';
+ 		
+ 		$result = $supernovaDb->performQuery($queryText);
+		$supernovaDb->closeConnection();
+		return $result; 
+	}
+
+	function removeFromCart(){
+
+	}
+
+
 
 ?>

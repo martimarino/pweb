@@ -50,7 +50,6 @@
 				$userGarmentResult = getUserGarmentStat($_SESSION['username'], $row['garmentId']);
 				if ($userGarmentRow = $userGarmentResult->fetch_assoc()){
 					$userStat->desired = $userGarmentRow['desired'];
-					$userStat->inCart = $userGarmentRow['inCart'];
 					$userStat->liked = ($userGarmentRow['isLiked'] === null)? 0 : (int)$userGarmentRow['isLiked'];
 					$userStat->disliked = ($userGarmentRow['isLiked'] === null)? 0 : (int)!$userGarmentRow['isLiked'];		
 				}

@@ -78,7 +78,7 @@ GarmentDashboard.createGarmentItemElement =
 		var garmentItemLi = document.createElement("li");
 		garmentItemLi.setAttribute("id", "garment_item_" + currentData.garment.garmentId);
 		garmentItemLi.setAttribute("class", "model_garment_item_wrapper");
-if(window.location.pathname == "/Supernova/php/catalog.php" || window.location.pathname == "/Supernova/php/wishList.php")
+//if(window.location.pathname == "/Supernova/php/catalog.php" || window.location.pathname == "/Supernova/php/wishList.php")
 		garmentItemLi.appendChild(GarmentDashboard.createNavBarElement(currentData));
 		garmentItemLi.appendChild(GarmentDashboard.createModelElement(currentData));
 		garmentItemLi.appendChild(GarmentDashboard.createDetailGarmentElement(currentData));
@@ -90,19 +90,14 @@ GarmentDashboard.createNavBarElement =
 	function(currentData){
 		var navBarElem = document.createElement("nav");
 		navBarElem.setAttribute("id", "user_garment_nav_bar_" + currentData.garment.garmentId);
+		navBarElem.setAttribute("class", "user_nav_bar");
 		
 		// Create desired div elem (tag <div></div>)
 		var desiredItemElem = document.createElement("div");
 		desiredItemElem.setAttribute("id", "desiredItem_" + currentData.garment.garmentId);
 		desiredItemElem.setAttribute("class", "nav_garment_item desired_img_" + currentData.userGarmentStat.desired);
 		desiredItemElem.setAttribute("onClick", "UserGarmentNavBarEventHandler.onDesiredEvent(" + currentData.garment.garmentId + "); UserGarmentNavBarEventHandler.onBadgeNumber()");
-
-		// Create in-cart div elem (tag <div></div>)
-		var inCartItemElem = document.createElement("div");
-		inCartItemElem.setAttribute("id", "inCartItem_" + currentData.garment.garmentId);
-		inCartItemElem.setAttribute("class", "nav_garment_item in_cart_img_" + currentData.userGarmentStat.inCart);
-		inCartItemElem.setAttribute("onClick", "UserGarmentNavBarEventHandler.onInCartEvent(" + currentData.garment.garmentId + "); UserGarmentNavBarEventHandler.onBadgeNumber()");
-		
+	
 		// Create like div elem (tag <div></div>)
 		var likeItemElem = document.createElement("div");
 		likeItemElem.setAttribute("id", "likeItem_" + currentData.garment.garmentId);
@@ -129,7 +124,6 @@ GarmentDashboard.createNavBarElement =
 
 		// Append all the div element to the nav bar
 		navBarElem.appendChild(desiredItemElem);
-		navBarElem.appendChild(inCartItemElem);
 		navBarElem.appendChild(likeItemElem);
 		navBarElem.appendChild(likeCountItemElem);
 		navBarElem.appendChild(dislikeItemElem);
@@ -191,9 +185,6 @@ GarmentDashboard.updateGarmentNavBar =
 		// desired item
 		itemNavBar = document.getElementById("desiredItem_" + data.garment.garmentId);
 		itemNavBar.setAttribute("class", "nav_garment_item desired_img_" + data.userGarmentStat.desired);
-		// in Ccart item
-		itemNavBar = document.getElementById("inCartItem_" + data.garment.garmentId);
-		itemNavBar.setAttribute("class", "nav_garment_item in_cart_img_" +  data.userGarmentStat.inCart);
 		// like item
 		itemNavBar = document.getElementById("likeItem_" + data.garment.garmentId);
 		itemNavBar.setAttribute("class", "nav_garment_item like_img_" + data.userGarmentStat.liked);
@@ -215,7 +206,6 @@ GarmentDashboard.updateGarmentNavBar =
 		}
 
 		//remove node from cart
-		flag = getComplementaryFlag(document.getElementById("inCartItem_" + data.garment.garmentId));
 		if(flag == 1 && url == "/Supernova/php/cart.php")
 		{
 			element = document.getElementById("garment_item_" + data.garment.garmentId);
@@ -233,7 +223,6 @@ GarmentDashboard.updateBadgeNumber =
 		newWishlistBadge.textContent = data.wishlist;
 		parentNode = document.getElementById("right-list");
 		parentNode.replaceChild(newWishlistBadge, parentNode.childNodes[3]);
-
 
 		//reload cart number
 		newCartBadge = document.createElement("li");
@@ -285,5 +274,10 @@ GarmentDashboard.fillSizesOptions =
 
 			dropDown.appendChild(node);
 		}
+
+	}
+
+GarmentDashboard.updateCartPage = 
+	function(currentData){
 
 	}
