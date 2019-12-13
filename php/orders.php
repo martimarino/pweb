@@ -38,6 +38,7 @@
 
 		echo '<body onLoad="GarmentLoader.loadOrder()">';
 		echo '<div id="content">';
+		
 	?>
 			<h1 id="personal_informations_title">Order history</h1>
 

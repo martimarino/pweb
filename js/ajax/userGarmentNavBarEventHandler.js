@@ -3,7 +3,7 @@ function UserGarmentNavBarEventHandler(){}
 UserGarmentNavBarEventHandler.DEFAULT_METHOD = "GET";
 UserGarmentNavBarEventHandler.URL_REQUEST = "./ajax/userGarmentInteraction.php";
 UserGarmentNavBarEventHandler.BADGE_REQUEST = "./ajax/badgeLoader.php";
-UserGarmentNavBarEventHandler.CART_REQUEST = "./ajax/cartLoader.php";
+UserGarmentNavBarEventHandler.ADD_TO_CART_REQUEST = "./ajax/addToCart.php";
 UserGarmentNavBarEventHandler.ASYNC_TYPE = true;
 
 UserGarmentNavBarEventHandler.SUCCESS_RESPONSE = "0";
@@ -24,17 +24,17 @@ UserGarmentNavBarEventHandler.onCartEvent =
 	function(garmentId){
 		var garmentSize = getSelectedSize(garmentId);
 		var queryString = "?garmentId=" + garmentId + "&garmentSize=" + garmentSize;
-		var url = UserGarmentNavBarEventHandler.CART_REQUEST + queryString;
-		var responseFunction = UserGarmentNavBarEventHandler.onModifyCartAjaxResponse;
+		var url = UserGarmentNavBarEventHandler.ADD_TO_CART_REQUEST + queryString;
+		var responseFunction = UserGarmentNavBarEventHandler.onAddToCartAjaxResponse;
 	
 		AjaxManager.performAjaxRequest(UserGarmentNavBarEventHandler.DEFAULT_METHOD, 
 										url, UserGarmentNavBarEventHandler.ASYNC_TYPE, 
 										null, responseFunction)
 	}
 
-UserGarmentNavBarEventHandler.onModifyCartAjaxResponse = 
+UserGarmentNavBarEventHandler.onAddToCartAjaxResponse = 
 	function(response){
-		if (response.responseCode === UserGarmentNavBarEventHandler.SUCCESS_RESPONSE){
+		if (response.responseCode === UserGarmentNavBarEventHandler.SUCCESS_RESPONSE){   console.log("QUI" + response.data);
 			GarmentDashboard.updateCartPage(response.data);
 		}
 	}
@@ -43,7 +43,6 @@ UserGarmentNavBarEventHandler.onBadgeNumber =
 	function(){
 		var url = UserGarmentNavBarEventHandler.BADGE_REQUEST;
 		var responseFunction = UserGarmentNavBarEventHandler.onBadgeAjaxResponse;
-		console.log(responseFunction);
 		AjaxManager.performAjaxRequest(UserGarmentNavBarEventHandler.DEFAULT_METHOD, 
 										url, UserGarmentNavBarEventHandler.ASYNC_TYPE, 
 										null, responseFunction)

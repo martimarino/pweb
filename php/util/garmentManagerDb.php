@@ -55,15 +55,12 @@
 		return $result; 
 	}
 	
-	function getInCartGarments($email, $offset, $numRecord){
+	function getInCartGarments($email){
 		global $supernovaDb;
 		$email = $supernovaDb->sqlInjectionFilter($email);
- 		$offset = $supernovaDb->sqlInjectionFilter($offset);
-		$numRecord = $supernovaDb->sqlInjectionFilter($numRecord);
-		$queryText = 'SELECT g.* '
-					. 'FROM cart c JOIN garment g ON c.garmentId = g.garmentId '
-					. 'WHERE c.email = \'' . $email . '\' '
-					. 'LIMIT ' . $offset . ',' . $numRecord ;
+		$queryText = 'SELECT * '
+					. 'FROM `cart` c JOIN `garment` g ON c.garmentId = g.garmentId '
+					. 'WHERE c.email = \'' . $email . '\'';
  		
  		$result = $supernovaDb->performQuery($queryText);
 		$supernovaDb->closeConnection();
@@ -426,7 +423,8 @@
 		$garmentId = $supernovaDb->sqlInjectionFilter($garmentId);
 		$queryText = 'SELECT * '
 						. 'FROM `stock` '
-						. 'WHERE garmentId = \'' . $garmentId . '\'';
+						. 'WHERE garmentId = \'' . $garmentId . '\' ' 
+						. 'AND quantity > 0';
 		$result = $supernovaDb->performQuery($queryText);
 		$supernovaDb->closeConnection();	
 		return $result;	
@@ -495,6 +493,18 @@
 
 	}
 
+	function getGarmentQuantityInStock($garmentId, $garmentSize){
+		global $supernovaDb;
+		$garmentId = $supernovaDb->sqlInjectionFilter($garmentId);
+		$garmentSize = $supernovaDb->sqlInjectionFilter($garmentSize);
+		$queryText = 'SELECT quantity '
+					. 'FROM `stock` '
+					. 'WHERE garmentId = \'' . $garmentId . '\' '
+					. 'AND size = \'' . $garmentSize . '\'';
 
+		$result = $supernovaDb->performQuery($queryText);
+		$supernovaDb->closeConnection();
+		return $result;
+	}
 
 ?>

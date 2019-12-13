@@ -278,6 +278,14 @@ GarmentDashboard.fillSizesOptions =
 	}
 
 GarmentDashboard.updateCartPage = 
-	function(currentData){
-
+	function(currentData){ 
+		if(currentData.quantity === currentData.stockQuantity) {
+			document.getElementById("add_to_cart").disabled = true;
+			document.getElementById("add_to_cart").style.cursor = "auto";
+			var newChild = document.createElement("p");
+			newChild.setAttribute("id", "no_more_available");
+			newChild.textContent = "No longer available in stock";
+			var parent = document.getElementById("main");
+			parent.appendChild(newChild);
+		}
 	}

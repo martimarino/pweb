@@ -30,18 +30,14 @@
 			break;
 
 		case 3:
-			$result = getInCartGarments($_SESSION['username'], $offset, $garmentToLoad);
-			break;
-
-		case 4:
 			$result = getFilterGarments($offset, $garmentToLoad, "genre", "male");
 			break;
 
-		case 5:
+		case 4:
 			$result = getFilterGarments($offset, $garmentToLoad, "genre", "female");
 			break;
 
-		case 6:
+		case 5:
 			$result = getFilterGarments($offset, $garmentToLoad, "category", "accessories");
 			break;
 

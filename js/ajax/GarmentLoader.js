@@ -6,6 +6,7 @@ GarmentLoader.DEFAULT_METHOD = "GET";
 GarmentLoader.URL_REQUEST = "./ajax/garmentLoader.php";
 GarmentLoader.SEARCH_REQUEST = "./ajax/searchLoader.php";
 GarmentLoader.ORDER_REQUEST = "./ajax/orderLoader.php";
+GarmentLoader.CART_REQUEST = "./ajax/cartLoader.php";
 GarmentLoader.DETAILED_ORDER_REQUEST = "./ajax/orderGarmentLoader.php";
 GarmentLoader.GARMENT_SIZES_REQUEST = "./ajax/sizesGarmentLoader.php";
 GarmentLoader.ASYNC_TYPE = true;
@@ -88,6 +89,20 @@ GarmentLoader.search =
 		AjaxManager.performAjaxRequest(GarmentLoader.DEFAULT_METHOD, 
 										url, GarmentLoader.ASYNC_TYPE, 
 										null, responseFunction);
+	}
+
+GarmentLoader.loadCart = 
+	function(){
+		var url = GarmentLoader.CART_REQUEST;
+		var responseFunction = GarmentLoader.onCartAjaxResponse;
+		AjaxManager.performAjaxRequest(GarmentLoader.DEFAULT_METHOD, url, GarmentLoader.ASYNC_TYPE, null, responseFunction);
+	}
+
+GarmentLoader.onCartAjaxResponse = 
+	function(response){
+		if (response.responseCode === GarmentLoader.SUCCESS_RESPONSE){
+			CartDashboard.refreshData(response.data);
+		}
 	}
 
 GarmentLoader.loadOrder = 

@@ -135,13 +135,17 @@
 		public $garmentId;
 		public $garmentSize;
 		public $quantity;
+		public $stockQuantity;
+		public $price;
 
-		function Cart($email = null, $garmentId = 0, $garmentSize = null, $quantity = 0)
+		function Cart($email = null, $garmentId = 0, $garmentSize = null, $quantity = 0, $stockQuantity = 0, $price = 0)
 		{
 			$this->email = $email;
 			$this->garmentId = $garmentId;
 			$this->garmentSize = $garmentSize;
 			$this->quantity = $quantity;
+			$this->stockQuantity = $stockQuantity;
+			$this->price = $price;
 		}
 	}
 
