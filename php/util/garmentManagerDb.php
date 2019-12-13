@@ -507,4 +507,15 @@
 		return $result;
 	}
 
+	function getTotalFromCart($email){
+		global $supernovaDb;
+		$email = $supernovaDb->sqlInjectionFilter($email);
+		$queryText = 'SELECT SUM(price*quantity) AS totale '
+					. 'FROM `cart` c JOIN `garment` g '
+					. 'ON c.garmentId = g.garmentId ';
+		$result = $supernovaDb->performQuery($queryText);
+		$supernovaDb->closeConnection();
+		return $result;			
+	}
+
 ?>
