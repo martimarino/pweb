@@ -9,7 +9,7 @@
     if (!isLogged()){
 		    header('Location: ./../index.php?errorMessage=You are not logged');
 		    exit;
-    }	
+    }
 ?>
 <!DOCTYPE html>
 <html>
@@ -27,7 +27,7 @@
 	    <script type="text/javascript" src="./../js/ajax/ajaxManager.js"></script>	
 		<script type="text/javascript" src="./../js/ajax/userGarmentNavBarEventHandler.js"></script>	
 		<script type="text/javascript" src="./../js/ajax/GarmentLoader.js"></script>
-		<script type="text/javascript" src="../js/ajax/CartDashboard.js"></script>	
+		<script type="text/javascript" src="./../js/ajax/CartDashboard.js"></script>	
 		<script type="text/javascript" src="./../js/ajax/GarmentDashboard.js"></script>	
 	    <title>Supernova-Wish list</title>
   	</head>
@@ -46,11 +46,11 @@
 
 	<?php
 
-	echo '<section id="cartDashboard" class="cart_dashboard"></section>';
-	$total = getTotalFromCart($_SESSION['username']);
-	$orderRow = $total->fetch_assoc();
-	echo '<div class="totalPrice"><b>Total price: ' . $orderRow['totale'] . ' €</b></div>';	//A DESTRA GRANDE
-	echo '</div>';
+		echo '<section id="cartDashboard" class="cart_dashboard"></section>';
+		$total = getTotalFromCart($_SESSION['username']);
+		$orderRow = $total->fetch_assoc();
+		echo '<div class="totalPrice"><b>Total price: ' . $orderRow['totale'] . ' €</b></div>';	//A DESTRA GRANDE
+		echo '</div>';
 
 	?>
 

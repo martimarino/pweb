@@ -489,8 +489,20 @@
 		return $result; 
 	}
 
-	function removeFromCart(){
+	function removeFromCart($garmentId, $email, $garmentSize){
+		global $supernovaDb;
+		$email = $supernovaDb->sqlInjectionFilter($email);
+		$garmentId = $supernovaDb->sqlInjectionFilter($garmentId);
+		$garmentSize = $supernovaDb->sqlInjectionFilter($garmentSize);
 
+		$queryText = 'DELETE FROM `cart` '
+					. 'WHERE garmentId = \''. $garmentId . '\' '
+					. 'AND email = \'' . $email . '\' ' 
+					. 'AND size = \'' . $garmentSize . '\'';
+
+		$result = $supernovaDb->performQuery($queryText);
+		$supernovaDb->closeConnection();	
+		return $result;		
 	}
 
 	function getGarmentQuantityInStock($garmentId, $garmentSize){

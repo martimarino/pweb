@@ -31,3 +31,12 @@ html,body{
 	float: left;
 	display: inline-block;
 }
+
+.div_elem > a {
+	cursor: pointer;
+}
+
+.div_elem > a > img {
+	padding: 0px 10px 0px 10px;
+	width: 15px;
+}

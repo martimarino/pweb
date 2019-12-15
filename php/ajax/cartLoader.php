@@ -9,7 +9,6 @@
 
 	$email = $_SESSION['username'];
 	$result = getInCartGarments($email);
-
 	
 	if (checkEmptyResult($result)){
 		$response = setEmptyResponse();
@@ -21,7 +20,6 @@
 	$response = setResponse($result, $message);
 	echo json_encode($response);
 	return;
-	
 	
 	function checkEmptyResult($result){
 		if ($result === null || !$result)
@@ -48,6 +46,10 @@
 			$cart->garmentSize = $row['size'];
 			$cart->quantity = $row['quantity'];
 			$cart->price = $row['price'];
+
+			$query = getGarmentQuantityInStock($cart->garmentId, $cart->garmentSize);
+			$stockQuantity = $query->fetch_assoc();
+			$cart->stockQuantity = $stockQuantity['quantity'];
 
 			$response->data[$index] = $cart;
 

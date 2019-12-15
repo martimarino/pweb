@@ -22,7 +22,7 @@ CartDashboard.setEmptyDashboard =
 		warningDivElem.setAttribute("class", "warning");
 		var warningSpanElem = document.createElement("span");
 		warningSpanElem.textContent = "There are no items to load!";
-		var dashboardElement = document.getElementById("cartDashboard");
+		var dashboardElement = document.getElementById("cartDashboard"); 
 		warningDivElem.appendChild(warningSpanElem);
 		dashboardElement.appendChild(warningDivElem);
 	}
@@ -121,8 +121,6 @@ CartDashboard.createTheadOfTheList =
 		return theadElem;
 	}
 
-
-
 CartDashboard.createCartItemElement = 	
 	function(currentData){
 		var cartItemLi = document.createElement("li");
@@ -154,13 +152,31 @@ CartDashboard.createDivElement =
 		//Create quantity div
 		var quantityElem = document.createElement("div");
 		quantityElem.setAttribute("class", "div_elem");
-		quantityElem.textContent = currentData.quantity
+		quantityElem.textContent = currentData.quantity;
+
+		//Create minus div
+		var minusImg = document.createElement("img");
+		var minusLink = document.createElement("a");
+		minusImg.setAttribute("src", "./../immagini/minus.png");
+		minusLink.setAttribute("onclick", "GarmentLoader.modifyCart(\"0\", \"" + currentData.garmentId +  "\", \"" + currentData.garmentSize + "\"); UserGarmentNavBarEventHandler.onBadgeNumber()");
+
+		minusLink.appendChild(minusImg);
+		quantityElem.insertBefore(minusLink, quantityElem.firstChild);
+
+		//Create plus div
+		var plusImg = document.createElement("img");
+		var plusLink = document.createElement("a");
+if(currentData.quantity < currentData.stockQuantity){
+		plusImg.setAttribute("src", "./../immagini/plus.png");  console.log("------ " + currentData.garmentId + ", " + currentData.garmentSize + ", " + currentData.quantity + ", " + currentData.stockQuantity + " -------");
+		plusLink.setAttribute("onclick", "GarmentLoader.modifyCart(\"1\", \"" + currentData.garmentId +  "\", \"" + currentData.garmentSize + "\"); UserGarmentNavBarEventHandler.onBadgeNumber()");
+}
+		plusLink.appendChild(plusImg);
+		quantityElem.appendChild(plusLink);
 
 		//Create price div
 		var priceElem = document.createElement("div");
 		priceElem.setAttribute("class", "div_elem");
-		priceElem.textContent = currentData.price + " €";;
-
+		priceElem.textContent = currentData.price + " €";
 		//Create details div
 		var detailElem = document.createElement("div");
 		detailElem.setAttribute("class", "div_elem");
@@ -170,6 +186,7 @@ CartDashboard.createDivElement =
 		linkElem.setAttribute("href", "./detailedGarment.php?garmentId=" + currentData.garmentId);
 
 		linkElem.appendChild(detailElem);	//add link div in the a element
+
 		divElem.appendChild(idElem);
 		divElem.appendChild(sizeElem);
 		divElem.appendChild(quantityElem);
@@ -178,6 +195,7 @@ CartDashboard.createDivElement =
 		
 		return divElem;
 	}
+
 
 CartDashboard.fillCartTable =
 	function(currentData){
@@ -195,8 +213,12 @@ CartDashboard.fillCartTable =
 			var modelLink = document.createElement("a");
 			modelLink.setAttribute("href", "./detailedGarment.php?garmentId=" + currentData[i].garmentId);
 
+			var minusField = document.createElement("td");
+			
 			var quantityField = document.createElement("td");
 			quantityField.textContent = currentData[i].quantity;
+
+			var plusField = document.createElement("td");
 
 			var sizeField = document.createElement("td");
 			sizeField.textContent = currentData[i].garmentSize;
@@ -208,7 +230,9 @@ CartDashboard.fillCartTable =
 
 			node.appendChild(idField);
 			node.appendChild(sizeField);
+			node.appendChild(minusField);
 			node.appendChild(quantityField);
+			node.appendChild(plusField);
 			node.appendChild(priceField);
 			node.appendChild(modelField);
 			tab.appendChild(node);
