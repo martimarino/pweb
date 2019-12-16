@@ -22,16 +22,14 @@
 
 	if (isset($_GET['garmentSize'])){
 		$garmentSize = $_GET['garmentSize'];
+		$query = getGarmentQuantityInStock($garmentId, $garmentSize);
+		$stockQuantity = $query->fetch_assoc();
 		if (modifyCart($garmentId, $email, $garmentSize)) {  
-			$query = getGarmentQuantityInStock($garmentId, $garmentSize);
-			$stockQuantity = $query->fetch_assoc();
 			$response = setCorrectResponse($email, $garmentId, $garmentSize, $stockQuantity, $message);
 		}
-		else 
-			if (modifyCart($garmentId, $email, $garmentSize) == 0) { 
-				$query = getGarmentQuantityInStock($garmentId, $garmentSize);
-				$stockQuantity = $query->fetch_assoc();
-				$response = setCorrectResponse($email, $garmentId, $garmentSize, $stockQuantity, $message);
+		else {
+			$message = "No more available";
+			$response = setCorrectResponse($email, $garmentId, $garmentSize, $stockQuantity, $message);
 			}
 		echo json_encode($response);
 		return;

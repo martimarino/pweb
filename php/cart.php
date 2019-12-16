@@ -47,10 +47,6 @@
 	<?php
 
 		echo '<section id="cartDashboard" class="cart_dashboard"></section>';
-		$total = getTotalFromCart($_SESSION['username']);
-		$orderRow = $total->fetch_assoc();
-		echo '<div class="totalPrice"><b>Total price: ' . $orderRow['totale'] . ' €</b></div>';	//A DESTRA GRANDE
-		echo '</div>';
 
 	?>
 

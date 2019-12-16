@@ -51,6 +51,10 @@
 			$stockQuantity = $query->fetch_assoc();
 			$cart->stockQuantity = $stockQuantity['quantity'];
 
+			$total = getTotalFromCart($_SESSION['username']);
+			$totalRow = $total->fetch_assoc();
+			$cart->total = $totalRow['totale'];
+
 			$response->data[$index] = $cart;
 
 			$index++;
