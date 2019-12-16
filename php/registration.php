@@ -8,7 +8,7 @@
 		<meta name="description" content="Supernova">
 		<link rel="stylesheet" href="../css/login.css" type="text/css" media="screen">
     	<link rel="stylesheet" href="../css/header.css" type="text/css" media="screen"> 	
-		<script type="text/javascript" src="../js/home.js"></script>
+		<script src="../js/home.js"></script>
 		<link rel="icon" href = "../immagini/supernova.png" sizes="32x32" type="image/png">
 		<link href="https://fonts.googleapis.com/css?family=Srisakdi:700" rel="stylesheet">
 		<link href="https://fonts.googleapis.com/css?family=Marmelad" rel="stylesheet">

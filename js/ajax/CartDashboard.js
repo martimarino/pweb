@@ -45,29 +45,6 @@ CartDashboard.refreshData =
 			
 	}
 
-
-CartDashboard.addMoreData =
-	function(data){
-		var dashboardElement = document.getElementById("cartDashboard");
-		if (dashboardElement === null || data === null || data.length <= 0)
-			return;
-			
-		// Get the cart list element (tag '<ul></ul>')	
-		var cartListElem = document.getElementById("cartList");
-		if (cartListElem === null){
-			cartListElem = CartDashboard.createCartListElement();
-			dashboardElement.appendChild(cartListElem);
-		}
-		
-		// Create new garment item (tag '<li></li>')
-		for (var i = 0; i < data.length; i++){
-			var cartListElem = CartDashboard.createCartItemElement(data[i]);
-			cartListElem.appendChild(cartItemElem);
-		}		
-		
-	}
-
-
 CartDashboard.createCartListElement = 
 	function(){
 		var cartListElem = document.createElement("ul");
@@ -124,7 +101,7 @@ CartDashboard.createTheadOfTheList =
 CartDashboard.createCartItemElement = 	
 	function(currentData){
 		var cartItemLi = document.createElement("li");
-		cartItemLi.setAttribute("id", "cart_item_" + currentData.garmentId);
+		cartItemLi.setAttribute("id", "cart_item_" + currentData.garmentId + "_" + currentData.garmentSize);
 		cartItemLi.setAttribute("class", "cart_item_wrapper");
 
 		cartItemLi.appendChild(CartDashboard.createDivElement(currentData));
@@ -156,20 +133,21 @@ CartDashboard.createDivElement =
 
 		//Create minus div
 		var minusImg = document.createElement("img");
+		minusImg.setAttribute("alt", "remove_quantity");
 		var minusLink = document.createElement("a");
 		minusImg.setAttribute("src", "./../immagini/minus.png");
-		minusLink.setAttribute("onclick", "GarmentLoader.modifyCart(\"0\", \"" + currentData.garmentId +  "\", \"" + currentData.garmentSize + "\"); UserGarmentNavBarEventHandler.onBadgeNumber()");
+		minusImg.setAttribute("onclick", "GarmentLoader.modifyCart(\'0\',\'" + currentData.garmentId +  "\',\'" + currentData.garmentSize + "\'); UserGarmentNavBarEventHandler.onBadgeNumber()");
 
 		minusLink.appendChild(minusImg);
 		quantityElem.insertBefore(minusLink, quantityElem.firstChild);
 
 		//Create plus div
 		var plusImg = document.createElement("img");
+		plusImg.setAttribute("alt", "add_quantity");
 		var plusLink = document.createElement("a");
-if(currentData.quantity < currentData.stockQuantity){
 		plusImg.setAttribute("src", "./../immagini/plus.png");  console.log("------ " + currentData.garmentId + ", " + currentData.garmentSize + ", " + currentData.quantity + ", " + currentData.stockQuantity + " -------");
-		plusLink.setAttribute("onclick", "GarmentLoader.modifyCart(\"1\", \"" + currentData.garmentId +  "\", \"" + currentData.garmentSize + "\"); UserGarmentNavBarEventHandler.onBadgeNumber()");
-}
+		plusImg.setAttribute("onclick", "GarmentLoader.modifyCart(\'1\',\'" + currentData.garmentId +  "\',\'" + currentData.garmentSize + "\'); UserGarmentNavBarEventHandler.onBadgeNumber()");
+
 		plusLink.appendChild(plusImg);
 		quantityElem.appendChild(plusLink);
 

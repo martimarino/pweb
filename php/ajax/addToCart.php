@@ -27,6 +27,12 @@
 			$stockQuantity = $query->fetch_assoc();
 			$response = setCorrectResponse($email, $garmentId, $garmentSize, $stockQuantity, $message);
 		}
+		else 
+			if (modifyCart($garmentId, $email, $garmentSize) == 0) { 
+				$query = getGarmentQuantityInStock($garmentId, $garmentSize);
+				$stockQuantity = $query->fetch_assoc();
+				$response = setCorrectResponse($email, $garmentId, $garmentSize, $stockQuantity, $message);
+			}
 		echo json_encode($response);
 		return;
 	}
@@ -50,6 +56,8 @@
 			$quantity = $actualQuantity['quantity'] +1;
 			if(checkStock($garmentId, $garmentSize, $quantity))
 				$result = updateCart($garmentId, $email, $garmentSize, $quantity);
+			else 
+				$result = 0;
 		}
 		else
 			$result = insertInCart($garmentId, $email, $garmentSize);

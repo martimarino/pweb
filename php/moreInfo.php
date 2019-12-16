@@ -4,7 +4,7 @@
 
 ?>
 <!DOCTYPE html>
-<html>
+<html lang="en">
     <head>
 	    <meta charset="utf-8">
 	    <meta name = "author" content = "Martina Marino">
@@ -23,10 +23,6 @@
   			include DIR_LAYOUT . "home_menu.php";
 
 	?>
-<!--
-	<script type="text/javascript">
-		document.getElementById("methods_of_payment_link").setAttribute("class", "highlighted_text");
-	</script>   -->
 
 		<section id="content">
 			<h1 id="page_title">Payment methods</h1>

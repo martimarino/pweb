@@ -6,7 +6,7 @@
 		if ($file == "catalog.php" || $file == "wishList.php" || $file == "cart.php")
 		{
 			echo "<form id='search'>
-				<input type='text' id='search-input' placeholder='Search..'' onkeyup='GarmentLoader.search(this.value)''>
+				<input type='text' id='search-input' placeholder='Search..' onkeyup='GarmentLoader.search(this.value)'>
 				<img src='../immagini/search.png' alt='search'>
 			</form>";
 		}
@@ -17,7 +17,7 @@
 			<?php 
 				if((isset($_SESSION['username'])) && ($_SESSION['userId'] != "amministratore"))
 				{
-					echo "<li id='cartBadge' class='badge'>";
+					echo "<li id='wishlistBadge' class='badge'>";
 					echo setWishlistBadge();
 					echo "</li>";
 				}

@@ -23,9 +23,9 @@
 	    <link rel="icon" href = "../immagini/supernova.png" sizes="32x32" type="image/png">
 	    <link href="https://fonts.googleapis.com/css?family=Srisakdi:700" rel="stylesheet">
 	    <link href="https://fonts.googleapis.com/css?family=Marmelad" rel="stylesheet">
-	    <script type="text/javascript" src="./../js/ajax/ajaxManager.js"></script>	
-		<script type="text/javascript" src="./../js/ajax/GarmentLoader.js"></script>
-		<script type="text/javascript" src="./../js/ajax/GarmentDashboard.js"></script>	
+	    <script src="./../js/ajax/ajaxManager.js"></script>	
+		<script src="./../js/ajax/GarmentLoader.js"></script>
+		<script src="./../js/ajax/GarmentDashboard.js"></script>	
 		<script src="./../js/ajax/OrderDashboard.js"></script>
 		<title>Supernova-Detailed garment</title>
 	</head>
