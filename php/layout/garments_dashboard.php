@@ -103,7 +103,7 @@
 		}
 		
 		$orderRow = $result->fetch_assoc();
-		echo '<h1 id="page_title">Order details</h1>';
+		echo '<h1 class="page_title">Order details</h1>';
 		echo '<div id="detailed_order">';
 			echo '<div id="general_info">';
 				echo '<p class="orderDetailsInfo">Order number: ' . $orderRow['codice'] . '</p>';
@@ -116,7 +116,7 @@
 				//echo '<hr>';
 			echo '</div>';
 			echo '<div class="items_container">';
-				echo '<table cellpadding="0" width="100%" cellspacing="0" id="shopping_cart_items" class="cart_container">';
+				echo '<table id="shopping_cart_items" class="cart_container">';
 						echo '<tr>';
 							echo '<th colspan="1">Your items</th>';
 							echo '<th colspan="1">Model</th>';

@@ -69,7 +69,7 @@ GarmentLoader.onAjaxResponse =
 				GarmentDashboard.updateNavigationPage(GarmentLoader.CURRENT_PAGE_INDEX,	true);
 				return;
 		}
-		
+		console.log(); 
 		if (response.responseCode === GarmentLoader.SUCCESS_RESPONSE){
 			GarmentDashboard.refreshData(response.data);
 		}

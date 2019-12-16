@@ -34,7 +34,7 @@ UserGarmentNavBarEventHandler.onCartEvent =
 
 UserGarmentNavBarEventHandler.onAddToCartAjaxResponse = 
 	function(response){
-		if (response.responseCode === UserGarmentNavBarEventHandler.SUCCESS_RESPONSE){   console.log("QUI" + response.data);
+		if (response.responseCode === UserGarmentNavBarEventHandler.SUCCESS_RESPONSE){  
 			GarmentDashboard.updateCartPage(response.data);
 		}
 	}

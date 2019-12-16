@@ -35,7 +35,6 @@ AdminLoader.showActualValue =
 							"&value=" + value +
 							"&fieldToFind=" + fieldToFind +
 							"&label=" + label;
-							console.log(queryString);
 		var url = AdminLoader.ACTUAL_VALUE_REQUEST + queryString;
 		var responseFunction = AdminLoader.onActualValueAjaxResponse;
 		AjaxManager.performAdminAjaxRequest(AdminLoader.DEFAULT_METHOD, url, AdminLoader.ASYNC_TYPE, null, responseFunction, label);
@@ -61,8 +60,6 @@ AdminLoader.insertNewGarment =
 							"&image=" + image;
 		var url = "../php/ajax/insert_new_garment.php" + queryString;
 		var responseFunction = AdminLoader.onInsertAjaxResponse;
-		console.log("QUERY = " + queryString);
-		console.log("URL = " + url);
 		AjaxManager.performAjaxRequest(AdminLoader.DEFAULT_METHOD, url, AdminLoader.ASYNC_TYPE, null, responseFunction);
 	}
 
@@ -121,7 +118,7 @@ AdminLoader.modifyQuantity =
 	function(garmentId, size, quantity){
 		var queryString = "?garmentId=" + garmentId +
 							"&size=" + size +
-							"&quantity=" + quantity;  console.log(queryString);
+							"&quantity=" + quantity;
 		var url = "../php/ajax/modify_stock.php" + queryString;
 		var responseFunction = AdminLoader.onReloadAjaxResponse;
 		AjaxManager.performAjaxRequest(AdminLoader.DEFAULT_METHOD, url, AdminLoader.ASYNC_TYPE, null, responseFunction);

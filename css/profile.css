@@ -311,7 +311,6 @@ section>img{
     padding-right: 10px;
     line-height: 40px;
     font-size: 32px;
-    font-weight: 1200;
     color: rgb(48, 48, 48);
 }
 
@@ -398,7 +397,7 @@ section>img{
 
 /* ------------------------- moreInfo.php -------------------------------*/
 
-#credit_cards {
+.credit_cards {
     width:  20%;
     height: 50px;
     list-style-type:          none;
@@ -407,7 +406,7 @@ section>img{
     margin: 0;
 }
 
-#credit_cards > li {
+.credit_cards > li {
     display: inline;
     width: 30%;
     height: 50px;
@@ -434,7 +433,7 @@ section>img{
     background-size: cover;
 }
 
-#page_title {
+.page_title {
     color: black;
     width: 100%;
     text-align: center;
@@ -452,11 +451,13 @@ table {
     border-collapse: collapse;
     border-spacing: 2px;
     text-align: center;
+    width: 100%;
 }
 
 tbody {
     display: table-header-group;
     vertical-align: middle;
+    width: 100%;
 }
 
 tr {

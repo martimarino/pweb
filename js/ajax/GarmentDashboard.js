@@ -59,9 +59,9 @@ GarmentDashboard.refreshData =
 			var garmentItemElem = GarmentDashboard.createGarmentItemElement(data[i]);
 			newGarmentListElem.appendChild(garmentItemElem);
 		}		
-		
+
 		document.getElementById("garmentDashboard").appendChild(newGarmentListElem);
-			
+
 	}
 	
 GarmentDashboard.createGarmentListElement = 
@@ -78,7 +78,7 @@ GarmentDashboard.createGarmentItemElement =
 		var garmentItemLi = document.createElement("li");
 		garmentItemLi.setAttribute("id", "garment_item_" + currentData.garment.garmentId);
 		garmentItemLi.setAttribute("class", "model_garment_item_wrapper");
-//if(window.location.pathname == "/Supernova/php/catalog.php" || window.location.pathname == "/Supernova/php/wishList.php")
+		
 		garmentItemLi.appendChild(GarmentDashboard.createNavBarElement(currentData));
 		garmentItemLi.appendChild(GarmentDashboard.createModelElement(currentData));
 		garmentItemLi.appendChild(GarmentDashboard.createDetailGarmentElement(currentData));

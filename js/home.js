@@ -28,7 +28,7 @@ function showSlides() {
 
 /* ------------------------------------------------------------------------- */
 
-function IndexEffects(){ console.log("CIAO");
+function IndexEffects(){ 
     fadeIn(document.getElementById('index_message'), 1);
     slideUp(document.getElementById('index_message'), 35, 16);
 }
@@ -99,7 +99,7 @@ function hideBadges(){
 
 function getSelectedValue(tag){
     var element = document.getElementById(tag);
-    var selectedValue = element.options[element.selectedIndex].value;  console.log("SELECTED: " + selectedValue);
+    var selectedValue = element.options[element.selectedIndex].value; 
     return selectedValue;
 }
 

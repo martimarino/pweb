@@ -30,16 +30,17 @@
 		<script src="./../js/ajax/GarmentDashboard.js"></script>	
 		<title>Supernova-Detailed garment</title>
 	</head>
-	<?php
+	<?php 
+		if (!isLogged()){
+			echo '<style>'; 
+			include '../css/catalog.css'; 
+			echo '</style>';
+		}
+
 		$garmentId = $_GET['garmentId'];
 		echo '<body onLoad="GarmentLoader.loadGarmentSizes(' . $garmentId . ')">';
 	?>
-		<style>
-			<?php  
-				if (!isLogged())
-					include '../css/catalog.css'; 
-			?>
-		</style>
+
 		<?php
 			include"./layout/top_bar.php";
 			include DIR_LAYOUT . "home_menu.php";

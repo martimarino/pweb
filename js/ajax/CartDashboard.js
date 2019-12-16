@@ -149,7 +149,7 @@ CartDashboard.createDivElement =
 		var plusImg = document.createElement("img");
 		plusImg.setAttribute("alt", "add_quantity");
 		var plusLink = document.createElement("a");
-		plusImg.setAttribute("src", "./../immagini/plus.png");  console.log("------ " + currentData.garmentId + ", " + currentData.garmentSize + ", " + currentData.quantity + ", " + currentData.stockQuantity + ", " + currentData.total + " -------");
+		plusImg.setAttribute("src", "./../immagini/plus.png"); 
 		plusImg.setAttribute("onclick", "GarmentLoader.modifyCart(\'1\',\'" + currentData.garmentId +  "\',\'" + currentData.garmentSize + "\'); UserGarmentNavBarEventHandler.onBadgeNumber()");
 
 		plusLink.appendChild(plusImg);

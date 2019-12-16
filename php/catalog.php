@@ -26,6 +26,13 @@
 	    <title>Supernova-Catalog</title>
   	</head>
 
+	<?php 
+		if (!isLogged()){
+			echo '<style>'; 
+			include '../css/catalog.css'; 
+			echo '</style>';
+		}
+	?>
 	<?php
 		include DIR_LAYOUT . "home_menu.php";
   		include"./layout/top_bar.php";
@@ -37,12 +44,6 @@
 			echo '<div id="content">';
 
 	?>
-	<style>
-		<?php 
-			if (!isLogged())
-				include '../css/catalog.css'; 
-		?>
-	</style>
 	<?php
 
 		include DIR_LAYOUT . "navigation_page.php";
