@@ -39,7 +39,7 @@
 			</h1>
 		</header>  
 		<?php
-			include('php/layout/home_menu.php');
+			include('php/layout/index_home_menu.php');
 		?>
 		<div class="slideshow-container">
 

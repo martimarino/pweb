@@ -29,8 +29,9 @@
 	    if($firstname != null && $lastname != null && $email != null && $password != null && $confirm != null)
 	    {
 	    	$verify = verifyUsername($firstname, $lastname, $email, $gender, $password, $confirm);
-	    	echo $verify;
-		    return $verify;
+	    	if($verify == false)
+		    	return $verify;
+		    return null;
     	}
     	return 'Some fields are empty';
 
@@ -52,13 +53,13 @@
 		if(mysqli_num_rows($result) == 1)
 			return 'User already registered';
 
-		$query = "insert into user values ('" . $email . "', '" . $password . "', '" . 0 . "', '" . $firstname . "', '" . $lastname . "', '" . $gender . "');";
+		$query = "insert into user values ('" . $email . "', '" . $password . "', '" . 0 . "', '" . $firstname . "', '" . $lastname . "', '" . $gender . "', '" . 0 . "');";
 		$res = $supernovaDb->performQuery($query);
 		$supernovaDb->closeConnection();
 
 		session_start();
 	    setSession($email, "cliente");
 
-		return (!$res);
+		return ($res);
 	}
 ?>

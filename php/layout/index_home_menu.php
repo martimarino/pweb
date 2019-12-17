@@ -1,20 +1,18 @@
 	
 
-	<?php
-			$igPath = "../immagini/instagram.png";
-			$fbPath = "../immagini/facebook.png";
-			$pinPath = "../immagini/pinterest.png";
-			$catalogPath = "catalog.php";
-			$findPath = "moreInfo.php#findAnchor";
-			$contactPath = "moreInfo.php#contactAnchor";
-			$methodsOfPayment = "moreInfo.php";
-
+	<?php 
+		$igPath = "immagini/instagram.png";
+		$fbPath = "immagini/facebook.png";
+		$pinPath = "immagini/pinterest.png";
+		$catalogPath = "php/catalog.php";
+		$findPath = "php/moreInfo.php#findAnchor";
+		$contactPath = "php/moreInfo.php#contactAnchor";
+		$methodsOfPayment = "php/moreInfo.php";
 	?>
 		<aside>
 			<nav id="menu">
 				<ul class ="menu-list">
 					<li><a href=<?php echo $catalogPath ?>>Catalog</a></li>
-
 				</ul>
 				<ul class ="menu-list">
 					<li><a href=<?php echo $findPath ?>>Find us</a></li>

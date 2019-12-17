@@ -34,7 +34,7 @@
 		}
 	?>
 	<?php
-		include DIR_LAYOUT . "home_menu.php";
+		include DIR_LAYOUT . "catalog_home_menu.php";
   		include"./layout/top_bar.php";
 
   		$searchType = ALL_GARMENTS_SEARCH;

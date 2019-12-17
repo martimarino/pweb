@@ -1,6 +1,7 @@
 	
 
-	<?php
+	<?php 
+
 			$igPath = "../immagini/instagram.png";
 			$fbPath = "../immagini/facebook.png";
 			$pinPath = "../immagini/pinterest.png";
@@ -14,7 +15,25 @@
 			<nav id="menu">
 				<ul class ="menu-list">
 					<li><a href=<?php echo $catalogPath ?>>Catalog</a></li>
+					<?php 
+						
+						$searchType = MEN_GARMENTS_SEARCH; 
+						echo '<li onclick="GarmentLoader.init(); ';
+  						echo 'GarmentLoader.loadGarment(' . $searchType . ')">Man</li>';   
 
+						$searchType = WOMEN_GARMENTS_SEARCH; 
+						echo '<li onclick="GarmentLoader.init(); ';
+  						echo 'GarmentLoader.loadGarment(' . $searchType . ')">Woman</li>';   
+
+  						$searchType = ACCESSORIES_GARMENTS_SEARCH_SEARCH; 
+						echo '<li onclick="GarmentLoader.init(); ';
+  						echo 'GarmentLoader.loadGarment(' . $searchType . ')">Accessories</li>';   
+
+  						$searchType = SALES_SEARCH; 
+						echo '<li onclick="GarmentLoader.init(); ';
+  						echo 'GarmentLoader.loadGarment(' . $searchType . ')">SALES</li>';   
+  					
+  					?>
 				</ul>
 				<ul class ="menu-list">
 					<li><a href=<?php echo $findPath ?>>Find us</a></li>

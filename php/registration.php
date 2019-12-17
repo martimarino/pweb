@@ -14,7 +14,7 @@
 		<link href="https://fonts.googleapis.com/css?family=Marmelad" rel="stylesheet">
 		<title>Supernova</title>
 	</head>
-	<body onLoad = "svuotaCampi()">
+	<body>
 		<?php
 	    	include"./layout/top_bar.php";
 	  	?>
