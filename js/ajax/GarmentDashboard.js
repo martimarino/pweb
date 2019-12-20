@@ -216,20 +216,74 @@ GarmentDashboard.updateGarmentNavBar =
 
 GarmentDashboard.updateBadgeNumber =
 	function(data){
-		//reload wishlist number
-		newWishlistBadge = document.createElement("li");
-		newWishlistBadge.setAttribute("id", "wishlistBadge");
-		newWishlistBadge.setAttribute("class", "badge");
-		newWishlistBadge.textContent = data.wishlist;
-		parentNode = document.getElementById("right-list");
-		parentNode.replaceChild(newWishlistBadge, parentNode.childNodes[3]);
 
-		//reload cart number
-		newCartBadge = document.createElement("li");
-		newCartBadge.setAttribute("id", "cartBadge");
-		newCartBadge.setAttribute("class", "badge");
-		newCartBadge.textContent = data.cart;
-		parentNode.replaceChild(newCartBadge, parentNode.childNodes[9]);
+		var heartElement = document.getElementById("wishlistBadge");
+
+		if(heartElement != null)	//se c'è il badge lo aggiorno
+		{
+
+			//reload wishlist number
+			newWishlistBadge = document.createElement("li");
+			newWishlistBadge.setAttribute("id", "wishlistBadge");
+			newWishlistBadge.setAttribute("class", "badge");
+			newWishlistBadge.textContent = data.wishlist;
+			parentNode = document.getElementById("right-list");
+			parentNode.replaceChild(newWishlistBadge, document.getElementById("wishlistBadge"));
+
+			if(data.wishlist == 0){		//se il valore è 0 rimuovo il badge
+				var heartElement = document.getElementById("wishlistBadge");
+				heartElement.parentNode.removeChild(heartElement);
+			}
+		}
+		else  		//se il badge non c'è
+		{
+			if(data.wishlist > 0)	//se il valore è > 0
+			{
+				newWishlistBadge = document.createElement("li");
+				newWishlistBadge.setAttribute("id", "wishlistBadge");
+				newWishlistBadge.setAttribute("class", "badge");
+				newWishlistBadge.textContent = data.wishlist;
+				beforeNode = document.getElementById("login");
+				parentNode = document.getElementById("right-list");
+				parentNode.insertBefore(newWishlistBadge, beforeNode);
+			}
+		}
+
+		var cartElement = document.getElementById("cartBadge");
+
+		if(cartElement != null)		//come sopra
+		{
+
+			//reload cart number
+			newCartBadge = document.createElement("li");
+			newCartBadge.setAttribute("id", "cartBadge");
+			newCartBadge.setAttribute("class", "badge");
+			newCartBadge.textContent = data.cart;
+			parentNode = document.getElementById("right-list");
+			parentNode.replaceChild(newCartBadge, document.getElementById("cartBadge"));
+
+			if(data.cart == null)
+			{
+				var cartElement = document.getElementById("cartBadge");
+				cartElement.parentNode.removeChild(cartElement);
+			}
+		}
+
+		else  		//se il badge non c'è
+		{
+			if(data.cart != null)	//se il valore non è null
+			{
+				newCartBadge = document.createElement("li");
+				newCartBadge.setAttribute("id", "cartBadge");
+				newCartBadge.setAttribute("class", "badge");
+				newCartBadge.textContent = data.cart;
+				parentNode = document.getElementById("right-list");
+				parentNode.appendChild(newCartBadge);
+			} 
+
+		}
+
+
 	}
 	
 GarmentDashboard.updateNavigationPage = 

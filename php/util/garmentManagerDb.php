@@ -524,7 +524,8 @@
 		$email = $supernovaDb->sqlInjectionFilter($email);
 		$queryText = 'SELECT SUM(price*quantity) AS totale '
 					. 'FROM `cart` c JOIN `garment` g '
-					. 'ON c.garmentId = g.garmentId ';
+					. 'ON c.garmentId = g.garmentId '
+					. 'WHERE c.email = \'' . $email . '\'';
 		$result = $supernovaDb->performQuery($queryText);
 		$supernovaDb->closeConnection();
 		return $result;			

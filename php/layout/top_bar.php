@@ -3,7 +3,7 @@
 <header>
 	<?php 
 		$file = basename($_SERVER['REQUEST_URI']); 
-		if ($file == "catalog.php" || $file == "wishList.php" || $file == "cart.php")
+		if ($file == "catalog.php")
 		{
 			echo "<form id='search'>
 				<input type='text' id='search-input' placeholder='Search..' onkeyup='GarmentLoader.search(this.value)'>
@@ -17,20 +17,26 @@
 			<?php 
 				if((isset($_SESSION['username'])) && ($_SESSION['userId'] != "amministratore"))
 				{
-					echo "<li id='wishlistBadge' class='badge'>";
-					echo setWishlistBadge();
-					echo "</li>";
+					if(setWishlistBadge() > 0)
+					{
+						echo "<li id='wishlistBadge' class='badge'>";
+						echo setWishlistBadge();
+						echo "</li>";
+					}
 				}
 			?>
-			<li onclick="location.href='../php/loginPage.php';"><img src='../immagini/login.png' alt="login"></li>
+			<li id="login"onclick="location.href='../php/loginPage.php';"><img src='../immagini/login.png' alt="login"></li>
 			<li id="cart" onclick="location.href='../php/cart.php';"><img src="../immagini/cart.png" alt="cart"></a></li> 
 			
 			<?php 
 				if((isset($_SESSION['username'])) && ($_SESSION['userId'] != "amministratore"))
 				{
-					echo "<li id='cartBadge' class='badge'>";
-					echo setCartBadge();
-					echo "</li>";
+					if(setCartBadge())
+					{
+						echo "<li id='cartBadge' class='badge'>";
+						echo setCartBadge();
+						echo "</li>";
+					}
 				}
 			?>
 

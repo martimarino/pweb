@@ -147,43 +147,13 @@ function stock(){
     AdminLoader.modifyQuantity(garmentId, size, quantity);
 }
 
-
-/*
-function validate() {
-    var name = document.formToValidate.firstname.value;
-    var surname = document.formToValidate.lastname.value;
-    var email = document.formToValidate.email.value;
-    var password = document.formToValidate.password.value;
-    var confirm = document.formToValidate.confirm.value;
-
-    var existNUMERICAL = /\d/;
-    var email_reg_exp = /^([a-zA-Z0-9_.-])+@(([a-zA-Z0-9-]{2,})+.)+([a-zA-Z0-9]{2,})+$/;
-
-    if((existNUMERICAL.test(name)) || (name == "") || (name == "undefined")){
-        showPopUp("Insert a correct name.");
-        document.formToValidate.firstname.focus();
-        return false;
+function removeFromRightLst(){
+        var heart = document.getElementById("favourites");
+        heart.parentNode.removeChild(heart);
+        var wishlistBadge = document.getElementById("wishlistBadge");
+        wishlistBadge.parentNode.removeChild("wishlistBadge");
+        var cart = document.getElementById("cart");
+        cart.parentNode.removeChild(cart);
+        cartBadge = document.getElementById("cartBadge");
+        cartBadge.parentNode.removeChild("cartBadge");
     }
-
-    if((existNUMERICAL.test(surname)) || (surname == "") || (surname == "undefined")){
-        showPopUp("Insert a correct surname.");
-        document.formToValidate.lastname.focus();
-        return false;
-    }
-
-    if (!email_reg_exp.test(email) || (email == "") || (email == "undefined")) {
-        showPopUp("Insert a correct email.");
-        document.formToValidate.email.focus();
-        return false;
-    }
-
-    if (password != confirm) {
-        showPopUp("The password confirmed is different from the chosen one, check.");
-        document.formToValidate.confirm.value = '';
-        document.formToValidate.confirm.focus();
-        return false;
-    }
-    return true;
-}
-*/
-

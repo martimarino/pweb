@@ -63,3 +63,4 @@ AdminDashboard.reloadPage =
 			location.href = error;
 		}
 	}
+

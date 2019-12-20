@@ -30,7 +30,7 @@
 			<nav id="right-icons">
 				<ul id="right-list">
 					<li id="favourites"><a href="php/wishList.php"><img src="immagini/heart.png" alt="favourites"></a></li>
-					<li onclick="location.href='./php/loginPage.php';"><img src='./immagini/login.png' alt="login"></li>
+					<li id="login" onclick="location.href='./php/loginPage.php';"><img src='./immagini/login.png' alt="login"></li>
 					<li id="cart"><a href="php/cart.php"><img src="immagini/cart.png" alt="cart"></a></li> 
 				</ul>
 			</nav>
@@ -69,14 +69,13 @@
 
 		</div>
 		<br>
-
 			<?php
-		            if (isset($_GET['errorMessage'])){
-		                echo '<div class="sign_in_error" id="index_message">';
-		                echo '<span><b>' . $_GET['errorMessage'] . '</b></span>';
-		                echo '</div>';
-		          	}
-		        ?>
+	            if (isset($_GET['errorMessage'])){
+	                echo '<div class="sign_in_error" id="index_message">';
+	                echo '<span><b>' . $_GET['errorMessage'] . '</b></span>';
+	                echo '</div>';
+	          	}
+		    ?>
 		<script>
 			var slideIndex = 0;
 			showSlides();

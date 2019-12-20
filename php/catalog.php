@@ -34,6 +34,7 @@
 		}
 	?>
 	<?php
+	
 		include DIR_LAYOUT . "catalog_home_menu.php";
   		include"./layout/top_bar.php";
 

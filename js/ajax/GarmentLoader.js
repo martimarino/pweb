@@ -106,6 +106,9 @@ GarmentLoader.onCartAjaxResponse =
 		if (response.responseCode === GarmentLoader.SUCCESS_RESPONSE){
 			CartDashboard.refreshData(response.data);
 		}
+		else {
+			CartDashboard.setEmptyDashboard(response.message);
+		}
 	}
 
 GarmentLoader.modifyCart = 
@@ -132,6 +135,9 @@ GarmentLoader.onOrderAjaxResponse =
 	function(response){
 		if (response.responseCode === GarmentLoader.SUCCESS_RESPONSE){
 			OrderDashboard.refreshData(response.data);
+		}
+		else{
+			OrderDashboard.setEmptyDashboard(response.message);
 		}
 	}
 
