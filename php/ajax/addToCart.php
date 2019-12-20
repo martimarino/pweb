@@ -57,8 +57,12 @@
 			else 
 				$result = 0;
 		}
-		else
-			$result = insertInCart($garmentId, $email, $garmentSize);
+		else{
+			if(checkStock($garmentId, $garmentSize, 1))
+				$result = insertInCart($garmentId, $email, $garmentSize);
+			else
+				$result = 0;
+		}
 		
 		return $result;
 	}

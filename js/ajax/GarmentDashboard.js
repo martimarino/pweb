@@ -340,8 +340,8 @@ GarmentDashboard.fillSizesOptions =
 	}
 
 GarmentDashboard.updateCartPage = 
-	function(currentData){ 
-		if(currentData.quantity === currentData.stockQuantity) {
+	function(currentData){   console.log(currentData);
+		if((currentData.quantity === currentData.stockQuantity) || (currentData.stockQuantity === "0")) {
 			document.getElementById("add_to_cart").disabled = true;
 			document.getElementById("add_to_cart").style.cursor = "auto";
 			var newChild = document.createElement("p");
