@@ -148,6 +148,14 @@ GarmentDashboard.createModelElement =
 		modelImgElem.src = "../" + currentData.garment.img;
 		if (currentData.garment.img === "N/A")
 			modelImgElem.src = GarmentDashboard.DEFAULT_MODEL_URL;
+		if (currentData.garment.totalInStock == 0)  //se è finito in ogni taglia
+		{
+			modelImgElem.style.opacity = '0.4';
+			var soldOut = document.createElement("p");
+			soldOut.setAttribute("id", "sold_out");
+			soldOut.textContent = "SOLD OUT";
+			modelDivElem.appendChild(soldOut);
+		}
 				
 		modelLinkElem.appendChild(modelImgElem);
 		modelDivElem.appendChild(modelLinkElem);

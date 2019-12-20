@@ -99,6 +99,10 @@ if(isset($_SESSION['username'])){
 			$garment->img = $row['img'];
 			$garment->price = $row['price'];
 
+			$checkStockResult = getGarmentTotalQuantityInStock($garment->garmentId);
+			$checkStock = $checkStockResult->fetch_assoc();
+			$garment->totalInStock = $checkStock['total'];
+
 			// Set GarmentUserStat class		
 			$garmentUserStat = new GarmentUserStat($garment, $userStat);
 		

@@ -22,7 +22,7 @@
 
 	if (isset($_GET['garmentSize'])){
 		$garmentSize = $_GET['garmentSize'];
-		$query = getGarmentQuantityInStock($garmentId, $garmentSize);
+		$query = getGarmentSizeQuantityInStock($garmentId, $garmentSize);
 		$stockQuantity = $query->fetch_assoc();
 		if (modifyCart($garmentId, $email, $garmentSize)) {  
 			$response = setCorrectResponse($email, $garmentId, $garmentSize, $stockQuantity, $message);
@@ -42,7 +42,7 @@
 	}
 
 	function checkStock($garmentId, $garmentSize, $quantity){
-		$garmentQuantity = getGarmentQuantityInStock($garmentId, $garmentSize);
+		$garmentQuantity = getGarmentSizeQuantityInStock($garmentId, $garmentSize);
 		$howMany = $garmentQuantity->fetch_assoc();
 		return (($howMany['quantity'] - $quantity) >= 0);
 	}

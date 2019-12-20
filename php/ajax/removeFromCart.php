@@ -23,7 +23,7 @@
 	if (isset($_GET['garmentSize'])){
 		$garmentSize = $_GET['garmentSize'];
 		if (modifyCart($garmentId, $email, $garmentSize)) {  
-			$query = getGarmentQuantityInStock($garmentId, $garmentSize);
+			$query = getGarmentSizeQuantityInStock($garmentId, $garmentSize);
 			$stockQuantity = $query->fetch_assoc();
 			$response = setCorrectResponse($email, $garmentId, $garmentSize, $stockQuantity, $message);
 		}

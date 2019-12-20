@@ -21,13 +21,15 @@
 		public $model;
 		public $img;
 		public $price;
+		public $totalInStock;
 
-		function Garment($garmentId = null, $model = null, $img = null, $price = 0.0)
+		function Garment($garmentId = null, $model = null, $img = null, $price = 0.0, $totalInStock = 0)
 		{
 			$this->garmentId = $garmentId;
 			$this->model = $model;
 			$this->img = $img;
 			$this->price = $price;
+			$this->totalInStock = $totalInStock;
 		}
 	}
 

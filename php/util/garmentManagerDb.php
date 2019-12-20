@@ -505,7 +505,7 @@
 		return $result;		
 	}
 
-	function getGarmentQuantityInStock($garmentId, $garmentSize){
+	function getGarmentSizeQuantityInStock($garmentId, $garmentSize){
 		global $supernovaDb;
 		$garmentId = $supernovaDb->sqlInjectionFilter($garmentId);
 		$garmentSize = $supernovaDb->sqlInjectionFilter($garmentSize);
@@ -513,6 +513,18 @@
 					. 'FROM `stock` '
 					. 'WHERE garmentId = \'' . $garmentId . '\' '
 					. 'AND size = \'' . $garmentSize . '\'';
+
+		$result = $supernovaDb->performQuery($queryText);
+		$supernovaDb->closeConnection();
+		return $result;
+	}
+
+	function getGarmentTotalQuantityInStock($garmentId){
+		global $supernovaDb;
+		$garmentId = $supernovaDb->sqlInjectionFilter($garmentId);
+		$queryText = 'SELECT SUM(quantity) AS total '
+					. 'FROM `stock` '
+					. 'WHERE garmentId = \'' . $garmentId . '\'';
 
 		$result = $supernovaDb->performQuery($queryText);
 		$supernovaDb->closeConnection();
