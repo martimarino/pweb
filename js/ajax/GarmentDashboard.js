@@ -329,8 +329,10 @@ GarmentDashboard.fillSizesOptions =
 			var node = document.createElement("option");
 			if(currentData[i].quantity > 0)
 				node.setAttribute("class", "sizes_option");
-			else
+			else{
 				node.setAttribute("class", "finished_sizes_option");
+				node.disabled = true;
+			}
 			node.setAttribute("value", currentData[i].sizeLetter);
 			node.textContent = currentData[i].sizeLetter;
 

@@ -494,3 +494,8 @@ th, td {
     color: red;
     font-weight: bold;
 }
+
+.finished_sizes_option {
+    text-decoration: line-through;
+    color: grey;
+}
