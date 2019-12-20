@@ -157,3 +157,9 @@ function removeFromRightLst(){
         cartBadge = document.getElementById("cartBadge");
         cartBadge.parentNode.removeChild("cartBadge");
     }
+
+function enableCartButton(){
+    document.getElementById("add_to_cart").disabled = false;
+    document.getElementById("add_to_cart").style.cursor = "pointer";
+    document.getElementById("no_more_available").remove();
+}

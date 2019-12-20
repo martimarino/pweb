@@ -496,6 +496,5 @@ th, td {
 }
 
 .finished_sizes_option {
-    text-decoration: line-through;
     color: grey;
 }

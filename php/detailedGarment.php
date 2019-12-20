@@ -28,6 +28,7 @@
 		<script src="./../js/ajax/userGarmentNavBarEventHandler.js"></script>	
 		<script src="./../js/ajax/GarmentLoader.js"></script>
 		<script src="./../js/ajax/GarmentDashboard.js"></script>	
+		<script src="./../js/home.js"></script>	
 		<title>Supernova-Detailed garment</title>
 	</head>
 	<?php 

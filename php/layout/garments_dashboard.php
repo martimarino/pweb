@@ -87,7 +87,7 @@
 				}
 				echo '<div class="content_garment_wrapper">';
 					echo '<h2>Color:</h2>' . $garmentRow['color'] . '<br>';
-					echo '<h2>Size:</h2>' . '<select id="size_options"></select>' . '<br>';
+					echo '<h2>Size:</h2>' . '<select id="size_options" onChange="enableCartButton()"></select>' . '<br>';
 				echo '</div>';
 				echo '<p id = "go_to_measures">Not sure about the size? <a href="././myMeasures.php">Click here!</a></p>';
 			if(isLogged())
@@ -135,5 +135,5 @@
 		echo '</div>';
 		echo '<br><br><br>';
 	}
-	
+
 ?>
