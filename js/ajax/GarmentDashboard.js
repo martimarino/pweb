@@ -329,10 +329,8 @@ GarmentDashboard.fillSizesOptions =
 			var node = document.createElement("option");
 			if(currentData[i].quantity > 0)
 				node.setAttribute("class", "sizes_option");
-			else{
+			else
 				node.setAttribute("class", "finished_sizes_option");
-				node.disabled = true;
-			}
 			node.setAttribute("value", currentData[i].sizeLetter);
 			node.textContent = currentData[i].sizeLetter;
 
@@ -342,7 +340,7 @@ GarmentDashboard.fillSizesOptions =
 	}
 
 GarmentDashboard.updateCartPage = 
-	function(currentData){   console.log(currentData);
+	function(currentData){  
 		if((currentData.quantity === currentData.stockQuantity) || (currentData.stockQuantity === "0")) {
 			document.getElementById("add_to_cart").disabled = true;
 			document.getElementById("add_to_cart").style.cursor = "auto";
