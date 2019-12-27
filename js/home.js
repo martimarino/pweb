@@ -128,8 +128,8 @@ function deleteFromCatalog(){
 }
 
 function insertSale(){
-    var salePercentage = document.getElementById("new_sale_value").value;
-    var collection = getSelectedValue("collectionToDiscount");
+    var salePercentage = document.getElementById("new_sale_value").value;  
+    var collection = getSelectedValue("collectionToDiscount");  
     AdminLoader.insertNewSale(salePercentage, collection);
 }
 
@@ -161,5 +161,6 @@ function removeFromRightLst(){
 function enableCartButton(){
     document.getElementById("add_to_cart").disabled = false;
     document.getElementById("add_to_cart").style.cursor = "pointer";
-    document.getElementById("no_more_available").remove();
+    if(document.getElementById("no_more_available"))
+        document.getElementById("no_more_available").remove();
 }

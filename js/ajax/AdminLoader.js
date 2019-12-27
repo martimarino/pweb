@@ -91,7 +91,7 @@ AdminLoader.deleteGarment =
 AdminLoader.onReloadAjaxResponse = 
 	function(response){
 		if (response.responseCode === AdminLoader.SUCCESS_RESPONSE){
-			AdminDashboard.reloadPage(response.data);
+			AdminDashboard.reloadPage(response.data);  
 		}		
 	}
 
@@ -100,8 +100,8 @@ AdminLoader.insertNewSale =
 		var queryString = "?percentage=" + percentage +
 							"&collection=" + collection;
 		var url = "../php/ajax/insert_sale.php" + queryString;
-		var responseFunction = AdminLoader.onReloadAjaxResponse;
-		AjaxManager.performAjaxRequest(AdminLoader.DEFAULT_METHOD, url, AdminLoader.ASYNC_TYPE, null, responseFunction);		
+		var responseFunction = AdminLoader.onReloadAjaxResponse; 
+		AjaxManager.performAjaxRequest(AdminLoader.DEFAULT_METHOD, url, AdminLoader.ASYNC_TYPE, null, responseFunction);		 
 	}
 
 AdminLoader.modifyOrderField =

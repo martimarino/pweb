@@ -36,9 +36,9 @@
   					?>
 				</ul>
 				<ul class ="menu-list">
+					<li><a href=<?php echo $methodsOfPayment ?>>Methods of payment</a></li>
 					<li><a href=<?php echo $findPath ?>>Find us</a></li>
 					<li><a href=<?php echo $contactPath ?>>Contacts</a></li>
-					<li><a href=<?php echo $methodsOfPayment ?>>Methods of payment</a></li>
 				</ul>
 				<nav id="social">
 					<ul>
