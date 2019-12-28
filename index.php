@@ -30,8 +30,31 @@
 			<nav id="right-icons">
 				<ul id="right-list">
 					<li id="favourites"><a href="php/wishList.php"><img src="immagini/heart.png" alt="favourites"></a></li>
+					<?php 
+						if((isset($_SESSION['username'])) && ($_SESSION['userId'] != "amministratore"))
+						{
+							if(setWishlistBadge() > 0)
+							{
+								echo "<li id='wishlistBadge' class='badge'>";
+								echo setWishlistBadge();
+								echo "</li>";
+							}
+						}
+					?>
 					<li id="login" onclick="location.href='./php/loginPage.php';"><img src='./immagini/login.png' alt="login"></li>
 					<li id="cart"><a href="php/cart.php"><img src="immagini/cart.png" alt="cart"></a></li> 
+
+					<?php 
+						if((isset($_SESSION['username'])) && ($_SESSION['userId'] != "amministratore"))
+						{
+							if(setCartBadge())
+							{
+								echo "<li id='cartBadge' class='badge'>";
+								echo setCartBadge();
+								echo "</li>";
+							}
+						}
+					?>
 				</ul>
 			</nav>
 			<h1>

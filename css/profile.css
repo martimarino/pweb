@@ -192,36 +192,6 @@ section>img{
     padding: 0 20px;
 }
 
-.like_img_0{
-    background-image: url('./../immagini/empty_like.png');
-    background-size: cover;
-}
-
-.like_img_1{
-    background-image: url('./../immagini/full_like.png');
-    background-size: cover;
-}
-
-.dislike_img_0{
-    background-image: url('./../immagini/empty_dislike.png');
-    background-size: cover;
-}
-
-.dislike_img_1{
-    background-image: url('./../immagini/full_dislike.png');
-    background-size: cover;
-}
-
-.in_cart_img_0{
-    background-image: url('./../immagini/empty_cart.png');
-    background-size: cover;
-}
-
-.in_cart_img_1{
-    background-image: url('./../immagini/full_cart.png');
-    background-size: cover;
-}
-
 .desired_img_0{
     background-image: url('./../immagini/empty_heart.png');
     background-size: cover;

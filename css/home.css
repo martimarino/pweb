@@ -64,44 +64,59 @@ header {
 /* -------------------------------------------------*/
 
 h1 {
-	margin: 				0;
-	width: 					200px;
-	height: 				100%;
-    margin: 				0 auto;
+    margin:                   0;
+    width:                    200px;
+    height:                   100%;
+    margin:                   0 auto;
 }
 
 #titolo {
-	font-family: 			'Srisakdi', cursive;
-	color: 					white;
-	text-decoration: 		none;
-  	text-shadow: 	 		4px 2px 2px black; 
-  	letter-spacing: 		7px;
+    font-family:              'Srisakdi', cursive;
+    color:                    white;
+    text-decoration:          none;
+    text-shadow:              4px 2px 2px black; 
+    letter-spacing:           7px;
 }
 
 #right-icons {
-	float: 					right;
-	height: 				55px;
-	padding-right: 			10px;
+    float:                    right;
+    height:                   55px;
+    padding-right:            10px;
 }
 
 #right-list {
-	padding:				0;
-	text-align: 			right;
-	margin:  				0;
+    padding:                  0;
+    text-align:               right;
+    margin:                   0;
 }
 
-#right-list > li {
-	display: 				inline;
-	list-style: 			none;
-	padding: 				10px;
-	position: 				relative;
-	bottom: 				0;
-    transition: 			all 0.3s ease 0s;
-    cursor: 				pointer;
+#right-list > li:not(.badge) {
+    display:                  inline;
+    list-style:               none;
+    padding:                  8px;
+    position:                 relative;
+    bottom:                   0;
+    transition:               all 0.3s ease 0s;
+    cursor:                   pointer;
 }
 
-#right-list > li:hover{
-	bottom: 				5px;
+#right-list > li:not(.badge):hover{
+    bottom:                   5px;
+}
+
+.badge {
+  color: black;
+  border-radius: 50%;
+  background-color: white;
+    display: inline;
+    height: auto;
+    width: auto;
+    padding: 1px 4px;
+    text-align: center;
+    font-size: 10px;
+    position: relative;
+    bottom: 15px;
+    left: -10px;
 }
 
 /*--------------------------------------------------*/

@@ -33,36 +33,15 @@
 		}
 	}
 
-	class GarmentUserStat 
+	class GarmentUser
 	{
-		public $garment;
-		public $userGarmentStat;
-	
-		function GarmentUserStat($garment = null, $userGarmentStat = null)
-		{
-			$this->garment = $garment;
-			$this->userGarmentStat = $userGarmentStat;
-		}
-		
-	}
-
-	class UserStat
-	{
+		public $garmentId;
 		public $desired;
-		public $liked;
-		public $likedCount;
-		public $disliked;
-		public $dislikedCount;
 	
-		function UserStat($desired = 0, $liked = 0, 
-								$likedCount = -1, $disliked = 0, $dislikedCount = -1)
+		function GarmentUser($garmentId = null, $desired = 0)
 		{
-			
+			$this->garmentId = $garmentId;
 			$this->desired = $desired;
-			$this->liked = $liked;
-			$this->likedCount = $likedCount;
-			$this->disliked = $disliked;
-			$this->dislikedCount = $dislikedCount;
 		}
 		
 	}

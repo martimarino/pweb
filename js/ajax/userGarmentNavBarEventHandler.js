@@ -10,7 +10,7 @@ UserGarmentNavBarEventHandler.SUCCESS_RESPONSE = "0";
 
 UserGarmentNavBarEventHandler.onDesiredEvent = 
 	function(garmentId) {
-		var flag =  getComplementaryFlag(document.getElementById("desiredItem_" + garmentId));
+		var flag =  getComplementaryFlag(document.getElementById("desiredItem_" + garmentId)); console.log(flag);
 		var queryString = "?garmentId=" + garmentId + "&desired=" + flag;
 		var url = UserGarmentNavBarEventHandler.URL_REQUEST + queryString;
 		var responseFunction = UserGarmentNavBarEventHandler.onAjaxResponse;
@@ -53,30 +53,6 @@ UserGarmentNavBarEventHandler.onBadgeAjaxResponse =
 		if(response.responseCode === UserGarmentNavBarEventHandler.SUCCESS_RESPONSE){
 			GarmentDashboard.updateBadgeNumber(response.data);
 		}
-	}
-
-UserGarmentNavBarEventHandler.onLikeEvent = 
-	function(garmentId){
-		var flag =  getComplementaryFlag(document.getElementById("likeItem_" + garmentId));
-		var queryString = "?garmentId=" + garmentId + "&like=" + flag;
-		var url = UserGarmentNavBarEventHandler.URL_REQUEST + queryString;
-		var responseFunction = UserGarmentNavBarEventHandler.onAjaxResponse;
-	
-		AjaxManager.performAjaxRequest(UserGarmentNavBarEventHandler.DEFAULT_METHOD, 
-										url, UserGarmentNavBarEventHandler.ASYNC_TYPE, 
-										null, responseFunction)
-	}	
-
-UserGarmentNavBarEventHandler.onDislikeEvent = 
-	function(garmentId){
-		var flag =  getComplementaryFlag(document.getElementById("dislikeItem_" + garmentId));
-		var queryString = "?garmentId=" + garmentId + "&dislike=" + flag;
-		var url = UserGarmentNavBarEventHandler.URL_REQUEST + queryString;
-		var responseFunction = UserGarmentNavBarEventHandler.onAjaxResponse;
-	
-		AjaxManager.performAjaxRequest(UserGarmentNavBarEventHandler.DEFAULT_METHOD, 
-										url, UserGarmentNavBarEventHandler.ASYNC_TYPE, 
-										null, responseFunction)
 	}
 
 UserGarmentNavBarEventHandler.onAjaxResponse = 

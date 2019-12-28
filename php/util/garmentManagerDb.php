@@ -28,7 +28,7 @@
 		return $result; 
 	}
 	
-	function getUserGarmentStat($email, $garmentId){
+	function getUserGarment($email, $garmentId){
 		global $supernovaDb;
 		$email = $supernovaDb->sqlInjectionFilter($email);
 		$garmentId = $supernovaDb->sqlInjectionFilter($garmentId);
@@ -67,26 +67,6 @@
 		return $result; 
 	}
 	
-	function getGarmentLikesOrDislikes($garmentId, $like_dislke){
-		global $supernovaDb;
-		$email = $supernovaDb->sqlInjectionFilter($garmentId);
-		$like_dislake = $supernovaDb->sqlInjectionFilter($like_dislke);
- 		$queryText = 'SELECT COUNT(*) as num '
-					. 'FROM user_garment '
-					. 'WHERE garmentId = \'' . $garmentId . '\' AND isLiked = ' . $like_dislake;
- 		$result = $supernovaDb->performQuery($queryText);
-		$supernovaDb->closeConnection();
-		return $result; 
-	}
-	
-	function getGarmentLikes($garmentId){
- 		return getGarmentLikesOrDislikes($garmentId, 1);
-	}
-	
-	function getGarmentDislikes($garmentId){
-		 return getGarmentLikesOrDislikes($garmentId, 0);
-	}
-	
 	function getSearchGarmentsByModel($pattern){
 		global $supernovaDb;
 		$pattern = $supernovaDb->sqlInjectionFilter($pattern);
@@ -104,8 +84,8 @@
 		$email = $supernovaDb->sqlInjectionFilter($email);
 		$garmentId = $supernovaDb->sqlInjectionFilter($garmentId);
  		$desiredFlag = $supernovaDb->sqlInjectionFilter($desiredFlag);
-		$queryText = 'INSERT INTO user_garment (id, email, garmentId, desired, isLiked) ' 
-						. 'VALUES (NULL, \'' . $email . '\', \'' . $garmentId . '\', ' . $desiredFlag . ', NULL)';
+		$queryText = 'INSERT INTO user_garment (id, email, garmentId, desired) ' 
+						. 'VALUES (NULL, \'' . $email . '\', \'' . $garmentId . '\', ' . $desiredFlag . ')';
  	
  		$result = $supernovaDb->performQuery($queryText);
 		$supernovaDb->closeConnection();
@@ -122,37 +102,6 @@
 					. 'WHERE email=\'' . $email . '\' AND garmentId = \'' . $garmentId . '\'';
  		return $supernovaDb->performQuery($queryText);
 	}
-
-	function insertLikeDislikeUserGarmentStat($garmentId, $email, $preference){
-		global $supernovaDb;
-		$email = $supernovaDb->sqlInjectionFilter($email);
-		$garmentId = $supernovaDb->sqlInjectionFilter($garmentId);
-		$preference = $supernovaDb->sqlInjectionFilter($preference);
-		$queryText = 'INSERT INTO user_garment (id, email, garmentId, desired, isLiked) ' 
-						. 'VALUES (NULL, \'' . $email . '\', \'' . $garmentId . '\', 0, ' . $preference . ')';
- 		
- 		$result = $supernovaDb->performQuery($queryText);
-		$supernovaDb->closeConnection();
-		return $result; 
-	}
-	
-	function updateLikeDislikeUserGarmentStat($garmentId, $email, $preference){
-		if ($preference === null)
-			$preference = "null";
-			
-		global $supernovaDb;
-		$email = $supernovaDb->sqlInjectionFilter($email);
-		$garmentId = $supernovaDb->sqlInjectionFilter($garmentId);
-		$preference = $supernovaDb->sqlInjectionFilter($preference);
-		$queryText = 'UPDATE user_garment '
-					. 'SET isLiked= ' . $preference . ' '
-					. 'WHERE email = \'' . $email . '\' AND garmentId = \'' . $garmentId . '\'';
- 	
- 		$result = $supernovaDb->performQuery($queryText);
-		$supernovaDb->closeConnection();
-		return $result; 
-	}
-
 
     function getFilterGarments($offset, $numRecord, $field, $value){
 		global $supernovaDb;

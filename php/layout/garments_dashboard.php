@@ -4,52 +4,15 @@
 	require_once DIR_UTIL . "garmentManagerDb.php";	
 	require_once DIR_LAYOUT . "message.php";
 	
-	function showUserStat($garmentId, $userGarmentRow){
-		echo '<nav id="user_garment_nav_bar_' . $garmentId . '">';	
-		
-		// desired nav bar item
+	function showDesiredButton($garmentId, $userGarmentRow){
+
 		$currentFlag = false; //desired flag
 		if ($userGarmentRow != null AND $userGarmentRow['desired'] != null AND $userGarmentRow['desired'] == 1)
 			$currentFlag = true;
 		echo '<div id="desiredItem_' . $garmentId . '" class="nav_garment_item desired_img_' . (int)$currentFlag . '" ';
 		echo 'onClick="UserGarmentNavBarEventHandler.onDesiredEvent(' . $garmentId . '); UserGarmentNavBarEventHandler.onBadgeNumber()">';
 		echo '</div>';
-		
-		// like nav bar item
-		$currentFlag = false; //like flag
-		if ($userGarmentRow != null AND $userGarmentRow['isLiked'] != null AND $userGarmentRow['isLiked'] == 1)
-			$currentFlag = true;
-		echo '<div id="likeItem_' . $garmentId . '" class="nav_garment_item like_img_' . (int)$currentFlag . '" ';
-		echo 'onClick="UserGarmentNavBarEventHandler.onLikeEvent(' . $garmentId . ')">';
-		echo '</div>';
-		showGarmentLikes($garmentId);
-		
-		// dislike nav bar item
-		$currentFlag = false; //dislike flag
-		if ($userGarmentRow != null AND $userGarmentRow['isLiked'] != null AND $userGarmentRow['isLiked'] == 0)
-			$currentFlag = true;
-		echo '<div id="dislikeItem_' . $garmentId . '" class="nav_garment_item dislike_img_' . (int)$currentFlag . '" ';
-		echo 'onClick="UserGarmentNavBarEventHandler.onDislikeEvent(' . $garmentId . ')">';
-		echo '</div>';
-		showGarmentDislikes($garmentId);
-		
-		echo '</nav>';	
-	}
-	
-	function showGarmentLikes($garmentId){
-		echo '<div id="likeCountItem_' . $garmentId . '" class="nav_garment_item stats_user_garment">';
-		$numLikesResult = getGarmentLikes($garmentId);
-		$numLikesRow = $numLikesResult->fetch_assoc();
-		echo '(' . $numLikesRow['num'] . ')';
-		echo '</div>';		
-	}
-	
-	function showGarmentDislikes($garmentId){
-		echo '<div id="dislikeCountItem_' . $garmentId . '" class="nav_garment_item stats_user_garment">';
-		$numDislikesResult = getGarmentDislikes($garmentId);
-		$numDislikesRow = $numDislikesResult->fetch_assoc();
-		echo '(' . $numDislikesRow['num'] . ')';
-		echo '</div>';		
+			
 	}
 	
 	function showDetailedGarment($result){
@@ -78,12 +41,12 @@
 			echo '</div>';
 			echo '<div id="main">';
 				if(isset($_SESSION['username'])){
-					$userGarmentStatResult = getUserGarmentStat($_SESSION['username'], $garmentRow['garmentId']);
+					$userGarmentStatResult = getUserGarment($_SESSION['username'], $garmentRow['garmentId']);
 					$userGarmentRow = null;
 					if (mysqli_num_rows($userGarmentStatResult) == 1)
 						$userGarmentRow = $userGarmentStatResult->fetch_assoc();
 						
-					showUserStat($garmentRow['garmentId'], $userGarmentRow);
+					showDesiredButton($garmentRow['garmentId'], $userGarmentRow);
 				}
 				echo '<div class="content_garment_wrapper">';
 					echo '<h2>Color:</h2>' . $garmentRow['color'] . '<br>';

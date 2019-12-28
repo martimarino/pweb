@@ -43,24 +43,6 @@
 			
 		$index = 0;
 		while ($row = $result->fetch_assoc()){
-			// Set UserStat class
-			$userStat = new UserStat();
-			
-			if(isset($_SESSION['username'])){
-				$userGarmentResult = getUserGarmentStat($_SESSION['username'], $row['garmentId']);
-				if ($userGarmentRow = $userGarmentResult->fetch_assoc()){
-					$userStat->desired = $userGarmentRow['desired'];
-					$userStat->liked = ($userGarmentRow['isLiked'] === null)? 0 : (int)$userGarmentRow['isLiked'];
-					$userStat->disliked = ($userGarmentRow['isLiked'] === null)? 0 : (int)!$userGarmentRow['isLiked'];		
-				}
-				
-				$likedCountResult = getGarmentLikes($row['garmentId']);
-				$likedCountRow = $likedCountResult->fetch_assoc();
-				$userStat->likedCount = $likedCountRow['num'];
-				$dislikedCountResult = getGarmentDislikes($row['garmentId']);
-				$dislikedCountRow = $dislikedCountResult->fetch_assoc();
-				$userStat->dislikedCount = $dislikedCountRow['num'];
-			}
 
 			// Set Garment class
 			$garment = new Garment();
@@ -69,10 +51,7 @@
 			$garment->img = $row['img'];
 			$garment->price = $row['price'];
 
-			// Set GarmentUserStat class		
-			$garmentUserStat = new GarmentUserStat($garment, $userStat);
-		
-			$response->data[$index] = $garmentUserStat;
+			$response->data[$index] = $garment;
 
 			$index++;
 		}
