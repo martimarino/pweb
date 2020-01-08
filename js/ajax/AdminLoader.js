@@ -43,7 +43,7 @@ AdminLoader.showActualValue =
 AdminLoader.onActualValueAjaxResponse = 
 	function(response, label){
 		if (response.responseCode === AdminLoader.SUCCESS_RESPONSE){
-			AdminDashboard.fillSizeActualValue(response.data, label);
+			AdminDashboard.fillActualValue(response.data, label);
 		}
 	}
 

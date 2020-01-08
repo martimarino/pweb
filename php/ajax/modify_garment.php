@@ -40,8 +40,8 @@
 				return "Genre options are male, female and unisex";
 
 		if($field == "collection")
-			if(($newValue != "A/I") || ($newValue != "P/E"))
-				return "collection options are A/I and P/E";
+			if(($newValue != "A/W") || ($newValue != "S/S"))
+				return "collection options are A/W and S/S";
 
 		if($field == "price")
 			if(!preg_match("/[0-9]\.[0-9]{2}$/", $newValue))

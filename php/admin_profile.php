@@ -61,7 +61,7 @@
 								<div>Price: </div>
 								<div>Insert image: </div>
 							</div>
-							<form class="input" method="POST" action="ajax/iinsert_new_garment.php" enctype="multipart/form-data">
+							<form class="input" method="POST" action="ajax/insert_new_garment.php" enctype="multipart/form-data">
 								<input id="model_input" class="input_field" name="model_input" required>
 								<input id="color_input" class="input_field" name="color_input" required>
 								<input type="radio" name="category_input" class="radio_options" value="clothing">clothing &nbsp
@@ -69,8 +69,8 @@
 								<input type="radio" name="genre_input" class="radio_options" value="male">M
 								<input type="radio" name="genre_input" class="radio_options" value="female">F
 								<input type="radio" name="genre_input" class="radio_options" value="unisex">U<br>
-								<input type="radio" name="collection_input" class="radio_options" value="P/E">P/E
-								<input type="radio" name="collection_input" class="radio_options" value="A/I">A/I
+								<input type="radio" name="collection_input" class="radio_options" value="S/S">S/S
+								<input type="radio" name="collection_input" class="radio_options" value="A/W">A/W
 								<input id="price_input" class="input_field" name="price_input" required>
 								<input type="file" id="image_input" name="image_input">
 								<input type="submit" class="button" value="Add">
@@ -92,7 +92,7 @@
 								<br>
 								<div>New value: </div>
 							</div>
-							<div class="input">
+							<div class="input" id="modify_garment">
 								<select class="dropdown" id="ID">
 									<?php 
 										allGarmentsID(); 
@@ -104,6 +104,7 @@
 						 			<option value="category">category</option>
 						 			<option value="genre">genre</option>
 						 			<option value="collection">collection</option>
+						 			<option value="discountedPrice">discounted price</option>
 						 			<option value="price">price</option>
 						 			<option value="img">image</option>
 								</select>
