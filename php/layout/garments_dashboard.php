@@ -36,7 +36,12 @@
 				echo '<div class="content_garment_wrapper">';
 					echo '<span class="title_stats">Model: </span> ' . $garmentRow['model'] . '<br>';
 					echo '<span class="title_stats">ID: </span> ' . $garmentRow['garmentId'] . '<br>';
-					echo '<span class="title_stats">Price: </span> ' . $garmentRow['price'] . ' €' . '<br>';
+					if($garmentRow['discountedPrice'] == NULL)
+						echo '<span class="title_stats">Price: </span> ' . $garmentRow['price'] . ' €' . '<br>';
+					else{
+						echo '<span class="title_stats">Price: </span><del> ' . $garmentRow['price'] . ' €</del>';
+						echo '<span class="discountedPrice"> ' . $garmentRow['discountedPrice'] . ' €</span><br>';
+					}
 				echo '</div>';		
 			echo '</div>';
 			echo '<div id="main">';

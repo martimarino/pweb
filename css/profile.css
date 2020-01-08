@@ -212,6 +212,11 @@ section>img{
     border-radius: 3px;
 }
 
+.discountedPrice {
+     color: red; 
+     font-weight: bold;
+}
+
 /******************************** detailedGarment.php ***************************************/
 
 .detail_garment_item{
