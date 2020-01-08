@@ -117,6 +117,20 @@
 		return $result;
     }
 
+    function getGarmentsInSale($offset, $numRecord){
+		global $supernovaDb;
+		$offset = $supernovaDb->sqlInjectionFilter($offset);
+		$numRecord = $supernovaDb->sqlInjectionFilter($numRecord);
+		$queryText = 'SELECT * '
+						. 'FROM garment '
+						. 'WHERE ' . $discountedPrice . ' IS NOT NULL '
+						. 'LIMIT ' . $offset . ',' . $numRecord;
+
+		$result = $supernovaDb->performQuery($queryText);
+		$supernovaDb->closeConnection();
+		return $result;
+    }
+
 	function getUserOrders($email){
 		global $supernovaDb;
 		$email = $supernovaDb->sqlInjectionFilter($email);
@@ -252,8 +266,9 @@
 		return $result;
 	}
 
-	function garmentInsertion($model, $color, $category, $genre, $collection, $price, $image){
+	function garmentInsertion($id, $model, $color, $category, $genre, $collection, $price, $image){
 		global $supernovaDb;
+		$id = $supernovaDb->sqlInjectionFilter($id);
 		$model = $supernovaDb->sqlInjectionFilter($model);
 		$color = $supernovaDb->sqlInjectionFilter($color);
 		$category = $supernovaDb->sqlInjectionFilter($category);
@@ -263,7 +278,7 @@
 		$image = $supernovaDb->sqlInjectionFilter($image);
 
 		$queryText = 'INSERT INTO garment (garmentId, model, color, category, genre, collection, released, price, img) ' 
-						. 'VALUES (NULL, \'' . $model . '\', '
+						. 'VALUES (\'' . $id . '\', \'' . $model . '\', '
 						. '\'' . $color . '\', ' 
 						. '\'' . $category . '\', '
 						. '\'' . $genre . '\', '
@@ -327,8 +342,7 @@
 		$newPrice = $supernovaDb->sqlInjectionFilter($newPrice);
 
 		$queryText = 'UPDATE garment '
-					. 'SET discountedFlag = 1 AND '
-					. 'price = \''. $newPrice . '\' '
+					. 'SET discountedPrice = \'' . $newPrice . '\' '
 					. 'WHERE garmentId = \'' . $garmentId . '\'';
 
 		$result = $supernovaDb->performQuery($queryText);
@@ -489,6 +503,17 @@
 		$result = $supernovaDb->performQuery($queryText);
 		$supernovaDb->closeConnection();
 		return $result;			
+	}
+
+	function lastId($table, $field){
+		global $supernovaDb;
+		$table = $supernovaDb->sqlInjectionFilter($table);
+		$field = $supernovaDb->sqlInjectionFilter($field);
+		$queryText = 'SELECT MAX(' . $field . ') AS lastId '
+					. 'FROM `' . $table . '`';
+		$result = $supernovaDb->performQuery($queryText);
+		$supernovaDb->closeConnection();
+		return $result;
 	}
 
 ?>

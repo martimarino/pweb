@@ -22,14 +22,16 @@
 		public $img;
 		public $price;
 		public $totalInStock;
+		public $discountedPrice;
 
-		function Garment($garmentId = null, $model = null, $img = null, $price = 0.0, $totalInStock = 0)
+		function Garment($garmentId = null, $model = null, $img = null, $price = 0.0, $totalInStock = 0, $discountedPrice = null)
 		{
 			$this->garmentId = $garmentId;
 			$this->model = $model;
 			$this->img = $img;
 			$this->price = $price;
 			$this->totalInStock = $totalInStock;
+			$this->discountedPrice = $discountedPrice;
 		}
 	}
 

@@ -101,14 +101,26 @@ h3 {
 	float: 					        right;
 }
 
-input, select, .input > div {
+select, .input > div, .input_field {
   float:                  right;
   margin:                 0 0 3px 0;
-  width:                  80%;
+  width:                  97%;
+}
+
+input {
+  margin:                 0 0 3px 0;
+}
+
+.radio_options {
+  margin: 6px 2px;
+}
+
+#image_input {
+  width: auto;
 }
 
 .input > select {
-  width:                  83%;
+  width:                  100%;
   padding:                0 0 5px 0;
 }
 

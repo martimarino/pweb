@@ -31,7 +31,7 @@
 				<ul id="right-list">
 					<li id="favourites"><a href="php/wishList.php"><img src="immagini/heart.png" alt="favourites"></a></li>
 					<?php 
-						if((isset($_SESSION['username'])) && ($_SESSION['userId'] != "amministratore"))
+						if((isset($_SESSION['userId'])) && ($_SESSION['userId'] != "amministratore"))
 						{
 							if(setWishlistBadge() > 0)
 							{
@@ -45,7 +45,7 @@
 					<li id="cart"><a href="php/cart.php"><img src="immagini/cart.png" alt="cart"></a></li> 
 
 					<?php 
-						if((isset($_SESSION['username'])) && ($_SESSION['userId'] != "amministratore"))
+						if((isset($_SESSION['userId'])) && ($_SESSION['userId'] != "amministratore"))
 						{
 							if(setCartBadge())
 							{

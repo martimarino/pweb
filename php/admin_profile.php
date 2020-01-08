@@ -59,19 +59,23 @@
 								<div>Genre: </div>
 								<div>Collection: </div>
 								<div>Price: </div>
-								<div>Image: </div>
+								<div>Insert image: </div>
 							</div>
-							<div class="input">
-								<input id="model_input" required>
-								<input id="color_input" required>
-								<input id="category_input" required>
-								<input id="genre_input" required>
-								<input id="collection_input" required>
-								<input id="price_input" required>
-								<input id="image_input" required>
-							</div>
+							<form class="input" method="POST" action="ajax/iinsert_new_garment.php" enctype="multipart/form-data">
+								<input id="model_input" class="input_field" name="model_input" required>
+								<input id="color_input" class="input_field" name="color_input" required>
+								<input type="radio" name="category_input" class="radio_options" value="clothing">clothing &nbsp
+								<input type="radio" name="category_input" class="radio_options" value="accessories">accessories<br>
+								<input type="radio" name="genre_input" class="radio_options" value="male">M
+								<input type="radio" name="genre_input" class="radio_options" value="female">F
+								<input type="radio" name="genre_input" class="radio_options" value="unisex">U<br>
+								<input type="radio" name="collection_input" class="radio_options" value="P/E">P/E
+								<input type="radio" name="collection_input" class="radio_options" value="A/I">A/I
+								<input id="price_input" class="input_field" name="price_input" required>
+								<input type="file" id="image_input" name="image_input">
+								<input type="submit" class="button" value="Add">
+							</form>
 						</div>
-						<button class="button" onclick="insertIntoCatalog()">Add</button>
 					</div>
 				</li>
 				<li>
@@ -105,7 +109,7 @@
 								</select>
 								<div class="actual_value" id="garment_actual_value"></div>
 								<div class="input"></div>
-								<input id="new_garment_value">
+								<input id="new_garment_value" class="input_field">
 							</div>
 						</div>
 						<button class="button" onclick="modifyGarment()">Apply</button>
@@ -144,7 +148,7 @@
 								<div>Select collection to discount: </div>
 							</div>
 							<div class="input">
-								<input id="new_sale_value">
+								<input id="new_sale_value" class="input_field">
 								<select id="collectionToDiscount">
 									<?php 
 										allCollections(); 
@@ -183,7 +187,7 @@
 						 			<option value="pagamento">pagamento</option>
 								</select>
 								<div class="actual_value" id="order_actual_value"></div>
-								<input id="order_new_value">
+								<input id="order_new_value" class="input_field">
 							</div>
 						</div>
 						<button class="button" onclick="modifyOrder()">Apply</button>
@@ -215,7 +219,7 @@
 								</select>
 								<div class="actual_value" id="actual_stock_quantity"></div>
 								<br>
-								<input id="quantity">
+								<input id="quantity" class="input_field">
 							</div>
 						</div>
 						<button class="button" onclick="stock()">Apply</button>

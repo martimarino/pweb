@@ -18,7 +18,7 @@
 
 	switch ($searchType) {
 		case 0:
-			$result = getFilterGarments($offset, $garmentToLoad, "discountedFlag", "1");
+			$result = getGarmentsInSale($offset, $garmentToLoad);
 			break;
 		
 		case 1:
@@ -81,6 +81,7 @@
 			$garment->model = $row['model'];
 			$garment->img = $row['img'];
 			$garment->price = $row['price'];
+			$garment->discountedPrice = $row['discountedPrice'];
 
 			$checkStockResult = getGarmentTotalQuantityInStock($garment->garmentId);
 			$checkStock = $checkStockResult->fetch_assoc();

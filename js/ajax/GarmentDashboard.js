@@ -128,12 +128,34 @@ GarmentDashboard.createDetailGarmentElement =
 		detailGarmentLinkElem.setAttribute("href", "./detailedGarment.php?garmentId=" + currentData.garmentId);
 		detailGarmentLinkElem.textContent = currentData.model;
 		
+
+
 		// Create price paragraph (tag <p></p>)
 		var detailGarmentDirectorPElem = document.createElement("p");
+if(currentData.discountedPrice != null){
+	var del = document.createElement("del");
+	del.textContent = currentData.price + " €";
+	detailGarmentDirectorPElem.style.width = '50%';
+	detailGarmentDirectorPElem.style.float = 'left';
+}	
+	else
 		detailGarmentDirectorPElem.textContent = currentData.price + " €";
-		
+
+if(currentData.discountedPrice != null){
+	var detailGarmentDirectorDiscountedPriceElem = document.createElement("p");
+	detailGarmentDirectorDiscountedPriceElem.textContent = currentData.discountedPrice + " €";
+	detailGarmentDirectorDiscountedPriceElem.setAttribute("class", "discountedPrice");
+	detailGarmentDirectorDiscountedPriceElem.style.width = '50%';
+	detailGarmentDirectorDiscountedPriceElem.style.float = 'left';
+
+}
+
+if(currentData.discountedPrice != null)	
+	detailGarmentDirectorPElem.appendChild(del);
 		detailGarmentDivElem.appendChild(detailGarmentLinkElem);
 		detailGarmentDivElem.appendChild(detailGarmentDirectorPElem);
+if(currentData.discountedPrice != null)	
+	detailGarmentDivElem.appendChild(detailGarmentDirectorDiscountedPriceElem);
 		
 		return detailGarmentDivElem;	
 	}
