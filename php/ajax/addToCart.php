@@ -24,12 +24,20 @@
 		$garmentSize = $_GET['garmentSize'];
 		$query = getGarmentSizeQuantityInStock($garmentId, $garmentSize);
 		$stockQuantity = $query->fetch_assoc();
-		if (modifyCart($garmentId, $email, $garmentSize)) {  
-			$response = setCorrectResponse($email, $garmentId, $garmentSize, $stockQuantity, $message);
+
+		$priceQuery = getGarmentPrice($garmentId);
+		$priceResult = $priceQuery->fetch_assoc();
+		if($priceResult['discountedPrice'] != NULL)
+			$price = $priceResult['discountedPrice'];
+		else
+			$price = $priceResult['price'];
+
+		if (modifyCart($garmentId, $email, $garmentSize, $price)) {  
+			$response = setCorrectResponse($email, $garmentId, $garmentSize, $price, $stockQuantity, $message);
 		}
 		else {
 			$message = "No more available";
-			$response = setCorrectResponse($email, $garmentId, $garmentSize, $stockQuantity, $message);
+			$response = setCorrectResponse($email, $garmentId, $garmentSize, $price, $stockQuantity, $message);
 			}
 		echo json_encode($response);
 		return;
@@ -47,7 +55,7 @@
 		return (($howMany['quantity'] - $quantity) >= 0);
 	}
 
-	function modifyCart($garmentId, $email, $garmentSize){
+	function modifyCart($garmentId, $email, $garmentSize, $price){
 		if(isGarmentInCart($garmentId, $email, $garmentSize)){
 			$query = getCartItemActualQuantity($garmentId, $email, $garmentSize);
 			$actualQuantity = $query->fetch_assoc();
@@ -59,7 +67,7 @@
 		}
 		else{
 			if(checkStock($garmentId, $garmentSize, 1))
-				$result = insertInCart($garmentId, $email, $garmentSize);
+				$result = insertInCart($garmentId, $email, $garmentSize, $price);
 			else
 				$result = 0;
 		}
@@ -67,7 +75,7 @@
 		return $result;
 	}
 	
-	function setCorrectResponse($email, $garmentId, $garmentSize, $stockQuantity, $message){
+	function setCorrectResponse($email, $garmentId, $garmentSize, $price, $stockQuantity, $message){
 		$response = new AjaxResponse("0", $message);
 		$result = getUserGarmentCart($email, $garmentId, $garmentSize);
 		$newCartItem = $result->fetch_assoc();
@@ -78,6 +86,7 @@
 		$cart->garmentId = $newCartItem['garmentId'];
 		$cart->garmentSize = $newCartItem['size'];
 		$cart->quantity = $newCartItem['quantity'];
+		$cart->price = $price;
 		$cart->stockQuantity = $stockQuantity['quantity'];
 		
 		$response->data = $cart;

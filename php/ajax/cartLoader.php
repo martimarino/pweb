@@ -45,7 +45,10 @@
 			$cart->garmentId = $row['garmentId'];
 			$cart->garmentSize = $row['size'];
 			$cart->quantity = $row['quantity'];
-			$cart->price = $row['price'];
+			if($row['discountedPrice'] != NULL)
+				$cart->price = $row['discountedPrice'];
+			else
+				$cart->price = $row['price'];
 
 			$query = getGarmentSizeQuantityInStock($cart->garmentId, $cart->garmentSize);
 			$stockQuantity = $query->fetch_assoc();
