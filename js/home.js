@@ -103,22 +103,28 @@ function getSelectedValue(tag){
     return selectedValue;
 }
 
-function insertIntoCatalog(){
-    var model = document.getElementById("model_input").value;
-    var color = document.getElementById("color_input").value;
-    var category = document.getElementById("category_input").value;
-    var genre = document.getElementById("genre_input").value;
-    var collection = document.getElementById("collection_input").value;
-    var price = document.getElementById("price_input").value;
-    var image = document.getElementById("image_input").value;
-
-    AdminLoader.insertNewGarment(model, color, category, genre, collection, price, image);
-}
-
 function modifyGarment(){
     var garmentId = getSelectedValue("ID");
     var field = getSelectedValue("garmentField");
-    var newValue = document.getElementById("new_garment_value").value;
+    switch(field)
+    {
+        case 'model':
+        case 'color':
+        case 'price':
+        case 'discountedPrice':
+            var newValue = document.getElementById("new_garment_value").value;
+            break;
+        
+        case 'category':
+        case 'genre':
+        case 'collection':
+            var newValue = "radio";
+            break;
+        case 'img':
+            var newValue = "img";
+            break;
+
+    }
     AdminLoader.modifyGarmentProperty(garmentId, field, newValue);
 }
 

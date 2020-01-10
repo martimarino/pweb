@@ -49,27 +49,6 @@ AdminLoader.onActualValueAjaxResponse =
 
 /* ------------------------------------------------------------------------------------------------ */
 
-AdminLoader.insertNewGarment =
-	function(model, color, category, genre, collection, price, image){
-		var queryString = "?model=" + model +
-							"&color=" + color +
-							"&category=" + category +
-							"&genre=" + genre +
-							"&collection=" + collection +
-							"&price=" + price +
-							"&image=" + image;
-		var url = "../php/ajax/insert_new_garment.php" + queryString;
-		var responseFunction = AdminLoader.onInsertAjaxResponse;
-		AjaxManager.performAjaxRequest(AdminLoader.DEFAULT_METHOD, url, AdminLoader.ASYNC_TYPE, null, responseFunction);
-	}
-
-AdminLoader.onInsertAjaxResponse = 
-	function(response){
-		if (response.responseCode === AdminLoader.SUCCESS_RESPONSE){
-		AdminDashboard.reloadPage(response.data);
-		}
-	}
-
 AdminLoader.modifyGarmentProperty = 
 	function(garmentId, field, newValue){
 		var queryString = "?garmentId=" + garmentId +

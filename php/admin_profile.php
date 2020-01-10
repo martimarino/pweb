@@ -20,7 +20,7 @@
 	    <meta name="description" content="Supernova">
 		<link rel="stylesheet" href="../css/header.css" rel="stylesheet" type="text/css">
 		<link href="../css/admin.css" rel="stylesheet" type="text/css">
-	    <link rel="stylesheet" rel="icon" href = "../immagini/supernova.png" sizes="32x32" type="image/png">
+	    <link rel="icon" rel="icon" href = "../immagini/supernova.png" sizes="32x32" type="image/png">
 	    <link href="https://fonts.googleapis.com/css?family=Srisakdi:700" rel="stylesheet">
 	    <link href="https://fonts.googleapis.com/css?family=Marmelad" rel="stylesheet">
 	    <script src="./../js/ajax/AdminLoader.js"></script>  
@@ -66,9 +66,9 @@
 								<input id="color_input" class="input_field" name="color_input" required>
 								<input type="radio" name="category_input" class="radio_options" value="clothing">clothing &nbsp
 								<input type="radio" name="category_input" class="radio_options" value="accessories">accessories<br>
-								<input type="radio" name="genre_input" class="radio_options" value="male">M
-								<input type="radio" name="genre_input" class="radio_options" value="female">F
-								<input type="radio" name="genre_input" class="radio_options" value="unisex">U<br>
+								<input type="radio" name="genre_input" class="radio_options" value="male">Male
+								<input type="radio" name="genre_input" class="radio_options" value="female">Female
+								<input type="radio" name="genre_input" class="radio_options" value="unisex">Unisex<br>
 								<input type="radio" name="collection_input" class="radio_options" value="S/S">S/S
 								<input type="radio" name="collection_input" class="radio_options" value="A/W">A/W
 								<input id="price_input" class="input_field" name="price_input" required>
@@ -92,13 +92,13 @@
 								<br>
 								<div>New value: </div>
 							</div>
-							<div class="input" id="modify_garment">
-								<select class="dropdown" id="ID">
+							<form class="input" id="modify_garment" action="ajax/mmodify_garment.php" method="post" enctype="multipart/form-data">
+								<select class="dropdown" id="ID" name="ID">
 									<?php 
 										allGarmentsID(); 
 									?>
 								</select>
-				    			<select id="garmentField" onfocus="AdminLoader.showActualValue('garment', 'garmentId', getSelectedValue('ID'), getSelectedValue('garmentField'), 'garment_actual_value')" onchange="AdminLoader.showActualValue('garment', 'garmentId', getSelectedValue('ID'), getSelectedValue('garmentField'), 'garment_actual_value')">
+				    			<select id="garmentField" name="garmentField" onfocus="AdminLoader.showActualValue('garment', 'garmentId', getSelectedValue('ID'), getSelectedValue('garmentField'), 'garment_actual_value')" onchange="AdminLoader.showActualValue('garment', 'garmentId', getSelectedValue('ID'), getSelectedValue('garmentField'), 'garment_actual_value')">
 					  				<option value="model">model</option>
 						 			<option value="color">color</option>
 						 			<option value="category">category</option>
@@ -109,11 +109,10 @@
 						 			<option value="img">image</option>
 								</select>
 								<div class="actual_value" id="garment_actual_value"></div>
-								<div class="input"></div>
-								<input id="new_garment_value" class="input_field">
-							</div>
+								<input id="new_garment_value" name="new_garment_value" class="input_field">
+								<input class="button" type="submit" value="Apply">
+							</form>
 						</div>
-						<button class="button" onclick="modifyGarment()">Apply</button>
 					</div>
 				</li>
 				<li>

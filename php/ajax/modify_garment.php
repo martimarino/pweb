@@ -15,6 +15,8 @@
 	$garmentId = $_GET['garmentId']; 
 	$field = $_GET['field'];
 	$newValue = $_GET['newValue'];
+	if($newValue == "radio")
+		$newValue = $_POST['new_garment_value_option'];
 
 	$errorMessage = "";
 	$errorMessage = verifyModifyGarmentInput($field, $newValue);
@@ -31,27 +33,9 @@
 			}
 		}
 
-		if($field == "category")
-			if(($newValue != "clothing") || ($newValue != "accessories"))
-				return "Category options are clothing and accessories";
-
-		if($field == "genre")
-			if(($newValue != "female") || ($newValue != "female") || ($newValue != "unisex"))
-				return "Genre options are male, female and unisex";
-
-		if($field == "collection")
-			if(($newValue != "A/W") || ($newValue != "S/S"))
-				return "collection options are A/W and S/S";
-
-		if($field == "price")
+		if(($field == "price") || ($field == "discountedPrice"))
 			if(!preg_match("/[0-9]\.[0-9]{2}$/", $newValue))
 				return "Input should be a real number (es '50.00')";
-
-		if ($field == "img"){
-			if(!preg_match("/^garment+[0-9]+\.jpg$/", $newValue)){ 
-				return 'Insert image as garment**.jpg';
-			}
-		}
 	}
 
 	if(!$errorMessage){
@@ -59,6 +43,7 @@
 
 		if($query)
 			$result = null;
+		else $result="ERRORE NELLA QUERY";
 
 		$message = "OK";
 	}
@@ -67,6 +52,12 @@
 		$result = "./../php/admin_profile.php?errorMessage=" . $errorMessage;
 
 		$message = "INPUT ERROR";
+	}
+
+	if(checkEmptyResult($result)){
+		$response = setEmptyResponse();
+		echo json_encode($response);
+		return;
 	}
 
 	$response = setResponse($result, $message);
