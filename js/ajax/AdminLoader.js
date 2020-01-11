@@ -6,6 +6,7 @@ AdminLoader.DEFAULT_METHOD = "GET";
 AdminLoader.ASYNC_TYPE = true;
 AdminLoader.SUCCESS_RESPONSE = "0";
 AdminLoader.URL_REQUEST = "./ajax/adminLoader.php";
+AdminLoader.ORDER_GARMENT_ID_REQUEST = "./ajax/orderGarmentIdLoader.php"
 AdminLoader.ACTUAL_VALUE_REQUEST = "./ajax/actualValueLoader.php";
 
 //*****************************			FUNCTIONS		************************************
@@ -27,37 +28,42 @@ AdminLoader.onSizeAjaxResponse =
 		}
 	}
 
+AdminLoader.showOrderGarmentId = 
+	function(selectId, orderId){
+		var queryString = "?orderId=" + orderId;
+		var url = AdminLoader.ORDER_GARMENT_ID_REQUEST + queryString;
+		var responseFunction = AdminLoader.onOrderGarmentIdAjaxResponse;
+		AjaxManager.performAjaxRequest(AdminLoader.DEFAULT_METHOD, url, AdminLoader.ASYNC_TYPE, null, responseFunction);
+	}
+
+AdminLoader.onOrderGarmentIdAjaxResponse = 
+	function(response){
+		if (response.responseCode === AdminLoader.SUCCESS_RESPONSE){
+			AdminDashboard.fillOrderGarmentId(response.data);
+		}
+	}
+
 AdminLoader.showActualValue = 
-	function(table, field, value, fieldToFind, label)
-	{
+	function(table, field, value, fieldToFind, label, panel)
+	{  console.log("TABLE = " + table + " FIELD= " + field + " VALUE = " + value + " FIELD TO FIND= " + fieldToFind + " LABEL = " + label + " PANEL = " + panel);
 		var queryString = "?table=" + table +
 							"&field=" + field +
 							"&value=" + value +
 							"&fieldToFind=" + fieldToFind +
-							"&label=" + label;
+							"&label=" + label;  
 		var url = AdminLoader.ACTUAL_VALUE_REQUEST + queryString;
 		var responseFunction = AdminLoader.onActualValueAjaxResponse;
-		AjaxManager.performAdminAjaxRequest(AdminLoader.DEFAULT_METHOD, url, AdminLoader.ASYNC_TYPE, null, responseFunction, label);
+		AjaxManager.performAdminAjaxRequest(AdminLoader.DEFAULT_METHOD, url, AdminLoader.ASYNC_TYPE, null, responseFunction, label, panel);
 	}
 
 AdminLoader.onActualValueAjaxResponse = 
-	function(response, label){
+	function(response, label, panel){
 		if (response.responseCode === AdminLoader.SUCCESS_RESPONSE){
-			AdminDashboard.fillActualValue(response.data, label);
+			AdminDashboard.fillActualValue(response.data, label, panel);
 		}
 	}
 
 /* ------------------------------------------------------------------------------------------------ */
-
-AdminLoader.modifyGarmentProperty = 
-	function(garmentId, field, newValue){
-		var queryString = "?garmentId=" + garmentId +
-							"&field=" + field + 
-							"&newValue=" + newValue;
-		var url = "../php/ajax/modify_garment.php" + queryString;
-		var responseFunction = AdminLoader.onReloadAjaxResponse;
-		AjaxManager.performAjaxRequest(AdminLoader.DEFAULT_METHOD, url, AdminLoader.ASYNC_TYPE, null, responseFunction);		
-	}
 
 AdminLoader.deleteGarment = 
 	function(garmentId){

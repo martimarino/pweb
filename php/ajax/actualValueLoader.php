@@ -12,7 +12,21 @@
 	$field = $_GET['field'];
 	$value = $_GET['value'];
 	$fieldToFind = $_GET['fieldToFind'];
-	$result = getActualValue($table, $field, $fieldToFind, $value);
+
+	if($table == 'order_garment') {
+		$result = getOrderGarmentActualValue($table, $field, $value, $fieldToFind);
+	}
+	else{
+		$result = getActualValue($table, $field, $value, $fieldToFind);
+	}
+
+	if($fieldToFind == 'articoli')
+	{
+		$message = "Case garment details";
+		$response = setGarmentResponse($message);
+		echo json_encode($response);
+		return;
+	}
 
 	if(checkEmptyResult($result)){
 		$response = setEmptyResponse();
@@ -46,6 +60,12 @@
 
 		}
 		
+		return $response;
+	}
+
+	function setGarmentResponse($message){
+		$response = new AjaxResponse("0", $message);
+		$response->data = "";
 		return $response;
 	}
 

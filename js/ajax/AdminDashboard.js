@@ -12,6 +12,15 @@ AdminDashboard.removeContent =
     	}	
 	}
 
+AdminDashboard.removeOrderGarmentIdContent = 
+	function(){
+		var select = document.getElementById("select_order_garment_id");
+
+		if(select.hasChildNodes())
+			while(select.hasChildNodes())
+				select.removeChild(select.firstChild);
+	}
+
 AdminDashboard.fillGarmentSizeOptions = 
 	function(data){
 
@@ -30,8 +39,26 @@ AdminDashboard.fillGarmentSizeOptions =
     	}
 	}
 
+AdminDashboard.fillOrderGarmentId =
+	function(data){
+
+		AdminDashboard.removeOrderGarmentIdContent();
+
+    	var options = document.getElementById("select_order_garment_id");
+
+		if (data === null || data.length <= 0)
+			return;
+
+    	for (var i = 0; i < data.length; i++){
+    		var idElem = document.createElement("option");
+    		idElem.setAttribute("value", data[i]);
+    		idElem.textContent = data[i];
+    		options.appendChild(idElem);
+    	}
+	}
+
 AdminDashboard.fillActualValue = 
-	function(data, label){
+	function(data, label, panel){
 		var labelToFill = document.getElementById(label);
 		if(data.startsWith("immagini/")) 
 		{
@@ -40,147 +67,151 @@ AdminDashboard.fillActualValue =
 		}
 		else
 			labelToFill.textContent = data;
-
-		var field = getSelectedValue('garmentField');				// <input id="new_garment_value" class="input_field">
-		var newValue = document.getElementById("new_garment_value");
-
-		switch(field)
+				
+		if(panel == "modify_garment")
 		{
-			case 'img':
-				upLoad = document.createElement("input");
-				upLoad.setAttribute("id", "new_garment_value");
-				upLoad.setAttribute("name", "new_garment_value_option");
-				upLoad.setAttribute("type", "file");
-				newValue.parentNode.replaceChild(upLoad, newValue);
-				break;
+			var field = getSelectedValue('garmentField');
+			var newValue = document.getElementById("new_garment_value");
 
-			case 'category':
-				categoryOptions = document.createElement("div");
-				categoryOptions.setAttribute("id", "new_garment_value");
-				categoryOptionClothing = document.createElement("input");
-				categoryOptionClothing.setAttribute("id", "clothing");
-				categoryOptionClothing.setAttribute("name", "new_garment_value_option");
-				categoryOptionClothing.setAttribute("value", "clothing");
-				categoryOptionClothing.setAttribute("type", "radio");
-				clothingLabel = document.createElement("label");
-				clothingLabel.setAttribute("for", "clothing");
-				clothingLabel.textContent = 'clothing';
-				categoryOptions.appendChild(categoryOptionClothing);
-				categoryOptions.appendChild(clothingLabel);
-				categoryOptionAccessories = document.createElement("input");
-				categoryOptionAccessories.setAttribute("id", "accessories");
-				categoryOptionAccessories.setAttribute("name", "new_garment_value_option");
-				categoryOptionAccessories.setAttribute("value", "accessories");
-				categoryOptionAccessories.setAttribute("type", "radio");
-				accessoriesLabel = document.createElement("label");
-				accessoriesLabel.setAttribute("for", "accessories");
-				accessoriesLabel.textContent = 'accessories';
-				categoryOptions.appendChild(categoryOptionAccessories);
-				categoryOptions.appendChild(accessoriesLabel);
-				newValue.parentNode.replaceChild(categoryOptions, newValue);
-				break;
+			switch(field)
+			{
+				case 'img':
+					upLoad = document.createElement("input");
+					upLoad.setAttribute("id", "new_garment_value");
+					upLoad.setAttribute("name", "new_garment_value_option");
+					upLoad.setAttribute("type", "file");
+					newValue.parentNode.replaceChild(upLoad, newValue);
+					break;
 
-			case 'genre':
-				genreOptions = document.createElement("div");
-				genreOptions.setAttribute("id", "new_garment_value");
-				genreOptionM = document.createElement("input");
-				genreOptionM.setAttribute("id", "M");
-				genreOptionM.setAttribute("name", "new_garment_value_option");
-				genreOptionM.setAttribute("value", "male");
-				genreOptionM.setAttribute("type", "radio");
+				case 'category':
+					categoryOptions = document.createElement("div");
+					categoryOptions.setAttribute("id", "new_garment_value");
+					categoryOptionClothing = document.createElement("input");
+					categoryOptionClothing.setAttribute("id", "clothing");
+					categoryOptionClothing.setAttribute("name", "new_garment_value_option");
+					categoryOptionClothing.setAttribute("value", "clothing");
+					categoryOptionClothing.setAttribute("type", "radio");
+					clothingLabel = document.createElement("label");
+					clothingLabel.setAttribute("for", "clothing");
+					clothingLabel.textContent = 'clothing';
+					categoryOptions.appendChild(categoryOptionClothing);
+					categoryOptions.appendChild(clothingLabel);
+					categoryOptionAccessories = document.createElement("input");
+					categoryOptionAccessories.setAttribute("id", "accessories");
+					categoryOptionAccessories.setAttribute("name", "new_garment_value_option");
+					categoryOptionAccessories.setAttribute("value", "accessories");
+					categoryOptionAccessories.setAttribute("type", "radio");
+					accessoriesLabel = document.createElement("label");
+					accessoriesLabel.setAttribute("for", "accessories");
+					accessoriesLabel.textContent = 'accessories';
+					categoryOptions.appendChild(categoryOptionAccessories);
+					categoryOptions.appendChild(accessoriesLabel);
+					newValue.parentNode.replaceChild(categoryOptions, newValue);
+					break;
 
-				labelM = document.createElement("label");
-				labelM.setAttribute("for", "M");
-				labelM.textContent = 'Male';
+				case 'genre':
+					genreOptions = document.createElement("div");
+					genreOptions.setAttribute("id", "new_garment_value");
+					genreOptionM = document.createElement("input");
+					genreOptionM.setAttribute("id", "M");
+					genreOptionM.setAttribute("name", "new_garment_value_option");
+					genreOptionM.setAttribute("value", "male");
+					genreOptionM.setAttribute("type", "radio");
 
-				genreOptionF = document.createElement("input");
-				genreOptionF.setAttribute("id", "F");
-				genreOptionF.setAttribute("name", "new_garment_value_option");
-				genreOptionF.setAttribute("value", "female");
-				genreOptionF.setAttribute("type", "radio");
+					labelM = document.createElement("label");
+					labelM.setAttribute("for", "M");
+					labelM.textContent = 'Male';
 
-				labelF = document.createElement("label");
-				labelF.setAttribute("for", "F");
-				labelF.textContent = 'Female';
+					genreOptionF = document.createElement("input");
+					genreOptionF.setAttribute("id", "F");
+					genreOptionF.setAttribute("name", "new_garment_value_option");
+					genreOptionF.setAttribute("value", "female");
+					genreOptionF.setAttribute("type", "radio");
 
-				genreOptionU = document.createElement("input");
-				genreOptionU.setAttribute("id", "U");
-				genreOptionU.setAttribute("name", "new_garment_value_option");
-				genreOptionU.setAttribute("value", "unisex");
-				genreOptionU.setAttribute("type", "radio");
+					labelF = document.createElement("label");
+					labelF.setAttribute("for", "F");
+					labelF.textContent = 'Female';
 
-				labelU = document.createElement("label");
-				labelU.setAttribute("for", "U");
-				labelU.textContent = 'Unisex';
+					genreOptionU = document.createElement("input");
+					genreOptionU.setAttribute("id", "U");
+					genreOptionU.setAttribute("name", "new_garment_value_option");
+					genreOptionU.setAttribute("value", "unisex");
+					genreOptionU.setAttribute("type", "radio");
 
-				genreOptions.appendChild(genreOptionM);
-				genreOptions.appendChild(labelM);
-				genreOptions.appendChild(genreOptionF);
-				genreOptions.appendChild(labelF);
-				genreOptions.appendChild(genreOptionU);
-				genreOptions.appendChild(labelU);
-				newValue.parentNode.replaceChild(genreOptions, newValue);
-				break;
+					labelU = document.createElement("label");
+					labelU.setAttribute("for", "U");
+					labelU.textContent = 'Unisex';
 
-			case 'collection':
-				collectionOptions = document.createElement("div");
-				collectionOptions.setAttribute("id", "new_garment_value");
+					genreOptions.appendChild(genreOptionM);
+					genreOptions.appendChild(labelM);
+					genreOptions.appendChild(genreOptionF);
+					genreOptions.appendChild(labelF);
+					genreOptions.appendChild(genreOptionU);
+					genreOptions.appendChild(labelU);
+					newValue.parentNode.replaceChild(genreOptions, newValue);
+					break;
 
-				collectionOptionSS = document.createElement("input");
-				collectionOptionSS.setAttribute("id", "SS");
-				collectionOptionSS.setAttribute("name", "new_garment_value_option");
-				collectionOptionSS.setAttribute("value", "S/S");
-				collectionOptionSS.setAttribute("type", "radio");
+				case 'collection':
+					collectionOptions = document.createElement("div");
+					collectionOptions.setAttribute("id", "new_garment_value");
 
-				labelSS = document.createElement("label");
-				labelSS.setAttribute("for", "SS");
-				labelSS.textContent = 'S/S';
+					collectionOptionSS = document.createElement("input");
+					collectionOptionSS.setAttribute("id", "SS");
+					collectionOptionSS.setAttribute("name", "new_garment_value_option");
+					collectionOptionSS.setAttribute("value", "S/S");
+					collectionOptionSS.setAttribute("type", "radio");
 
-				collectionOptionAW = document.createElement("input");
-				collectionOptionAW.setAttribute("id", "AW");
-				collectionOptionAW.setAttribute("name", "new_garment_value_option");
-				collectionOptionAW.setAttribute("value", "A/W");
-				collectionOptionAW.setAttribute("type", "radio");
+					labelSS = document.createElement("label");
+					labelSS.setAttribute("for", "SS");
+					labelSS.textContent = 'S/S';
 
-				labelAW = document.createElement("label");
-				labelAW.setAttribute("for", "AW");
-				labelAW.textContent = 'A/W';
+					collectionOptionAW = document.createElement("input");
+					collectionOptionAW.setAttribute("id", "AW");
+					collectionOptionAW.setAttribute("name", "new_garment_value_option");
+					collectionOptionAW.setAttribute("value", "A/W");
+					collectionOptionAW.setAttribute("type", "radio");
 
-				collectionOptions.appendChild(collectionOptionSS);
-				collectionOptions.appendChild(labelSS);
-				collectionOptions.appendChild(collectionOptionAW);
-				collectionOptions.appendChild(labelAW);
-				newValue.parentNode.replaceChild(collectionOptions, newValue);
-				break;
+					labelAW = document.createElement("label");
+					labelAW.setAttribute("for", "AW");
+					labelAW.textContent = 'A/W';
 
-			default:
-				inputField = document.createElement("input");
-				inputField.setAttribute("id", "new_garment_value");
-				inputField.setAttribute("name", "new_garment_value");
-				inputField.setAttribute("class", "input_field");
-				newValue.parentNode.replaceChild(inputField, newValue);
-				break;
+					collectionOptions.appendChild(collectionOptionSS);
+					collectionOptions.appendChild(labelSS);
+					collectionOptions.appendChild(collectionOptionAW);
+					collectionOptions.appendChild(labelAW);
+					newValue.parentNode.replaceChild(collectionOptions, newValue);
+					break;
+
+				default:
+					inputField = document.createElement("input");
+					inputField.setAttribute("id", "new_garment_value");
+					inputField.setAttribute("name", "new_garment_value");
+					inputField.setAttribute("class", "input_field");
+					newValue.parentNode.replaceChild(inputField, newValue);
+					break;
+			}
+		}
+
+		if(panel = "modify_order")
+		{
+			var field = getSelectedValue('order_select'); console.log(field + ", " + panel);
+			var newValue = document.getElementById('order_new_value');
+
+			switch(field)
+			{
+				case 'articoli':
+					document.getElementById('select_order_garment_id').disabled = false;
+					document.getElementById('select_order_garment_field').disabled = false;
+					break;
+
+				default:
+					document.getElementById('select_order_garment_id').disabled = true;
+					document.getElementById('select_order_garment_field').disabled = true;
+					break;
+			}
 		}
 	}
-/*
-AdminDashboard.clearInsertIntoCatalogFields =
-	function(data){
-	    var model = document.getElementById("model_input").value = "";
-	    var color = document.getElementById("color_input").value = "";
-	    var category = document.getElementById("category_input").value = "";
-	    var genre = document.getElementById("genre_input").value = "";
-	    var collection = document.getElementById("collection_input").value = "";
-	    var price = document.getElementById("price_input").value = "";
-	    var image = document.getElementById("image_input").value = "";
-	    AdminDashboard.reloadPage(data);
-}
 
-AdminDashboard.clearModifyGarmentFields =
-	function(data){
-		var newValue = document.getElementById("new_garment_value").value = "";
-		AdminDashboard.reloadPage(data);
-	}
-*/
 AdminDashboard.reloadPage = 
 	function(error){
 		if(error == null){

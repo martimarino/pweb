@@ -92,13 +92,13 @@
 								<br>
 								<div>New value: </div>
 							</div>
-							<form class="input" id="modify_garment" action="ajax/mmodify_garment.php" method="post" enctype="multipart/form-data">
+							<form class="input" id="modify_garment" action="ajax/modify_garment.php" method="post" enctype="multipart/form-data">
 								<select class="dropdown" id="ID" name="ID">
 									<?php 
 										allGarmentsID(); 
 									?>
 								</select>
-				    			<select id="garmentField" name="garmentField" onfocus="AdminLoader.showActualValue('garment', 'garmentId', getSelectedValue('ID'), getSelectedValue('garmentField'), 'garment_actual_value')" onchange="AdminLoader.showActualValue('garment', 'garmentId', getSelectedValue('ID'), getSelectedValue('garmentField'), 'garment_actual_value')">
+				    			<select id="garmentField" name="garmentField" onfocus="AdminLoader.showActualValue('garment', 'garmentId', getSelectedValue('ID'), getSelectedValue('garmentField'), 'garment_actual_value', 'modify_garment')" onchange="AdminLoader.showActualValue('garment', 'garmentId', getSelectedValue('ID'), getSelectedValue('garmentField'), 'garment_actual_value', 'modify_garment')">
 					  				<option value="model">model</option>
 						 			<option value="color">color</option>
 						 			<option value="category">category</option>
@@ -167,30 +167,45 @@
 						</div>
 						<div class="content">
 							<div class="label">
-								<div>Select order : </div>
+								<div>Select order: </div>
 								<div>Select field: </div>
-								<div>Actual value: </div>
+								<div>Select garment: </div>
+								<div>Select detail: </div>
+								<div id="order_actual_value_label">Actual value: </div>
 								<br>
 								<div>New value: </div>
 							</div>
-							<div class="input">
-								<select id="ordersID">
+							<form class="input" method="post" action="ajax/mmodify_order.php" enctype="multipart/form-data">
+								<select id="ordersID" name="ordersID" onfocus="AdminLoader.showOrderGarmentId('select_order_garment_id', getSelectedValue('ordersID'))" onchange="AdminLoader.showOrderGarmentId('select_order_garment_id', getSelectedValue('ordersID'))">
 									<?php
 										allOrdersID();
 									?>
 								</select>
-				    			<select id="order_select" onfocus="AdminLoader.showActualValue('order', 'codice', getSelectedValue('ordersID'), getSelectedValue('order_select'), 'order_actual_value')" onchange="AdminLoader.showActualValue('order', 'codice', getSelectedValue('ordersID'), getSelectedValue('order_select'), 'order_actual_value')">
+				    			<select id="order_select" name="order_select" onfocus="AdminLoader.showActualValue('order', 'codice', getSelectedValue('ordersID'), getSelectedValue('order_select'), 'order_actual_value', 'modify_order')" onchange="AdminLoader.showActualValue('order', 'codice', getSelectedValue('ordersID'), getSelectedValue('order_select'), 'order_actual_value', 'modify_order')">
 					  				<option value="email">email</option>
-						 			<option value="totale">totale</option>
-						 			<option value="data">data</option>
-						 			<option value="stato">stato</option>
-						 			<option value="pagamento">pagamento</option>
+						 			<option value="totale">total</option>
+						 			<option value="data">date</option>
+						 			<option value="stato">state</option>
+						 			<option value="pagamento">payment</option>
+						 			<option value="articoli">modify garment details</option>
+								</select>
+								<select id="select_order_garment_id" name="select_order_garment_id" disabled onfocus="AdminLoader.showActualValue('order_garment', getSelectedValue('ordersID'), getSelectedValue('select_order_garment_id'), getSelectedValue('select_order_garment_field'),'order_actual_value', 'modify_order')" onchange="AdminLoader.showActualValue('order_garment', getSelectedValue('ordersID'), getSelectedValue('select_order_garment_id'), getSelectedValue('select_order_garment_field'),'order_actual_value', 'modify_order')">
+									<option value="" disabled selected>Select modify garment details</option>
+									
+								</select>
+								<select id="select_order_garment_field" name="select_order_garment_field" disabled onfocus="AdminLoader.showActualValue('order_garment', getSelectedValue('ordersID'), getSelectedValue('select_order_garment_id'), getSelectedValue('select_order_garment_field'),'order_actual_value', 'modify_order')" onchange="AdminLoader.showActualValue('order_garment', getSelectedValue('ordersID'), getSelectedValue('select_order_garment_id'), getSelectedValue('select_order_garment_field'),'order_actual_value', 'modify_order')">
+									<option value="" disabled selected>Select modify garment details</option>
+									<option value="quantity">quantity</option>
+									<option value="garmentSize">garment size</option>
+									<option value="color">color</option>
+									<option value="price">price</option>
 								</select>
 								<div class="actual_value" id="order_actual_value"></div>
-								<input id="order_new_value" class="input_field">
-							</div>
+								<input id="order_new_value" name="order_new_value" class="input_field">
+								<input type="submit" class="button" value="Apply">
+							</form>
 						</div>
-						<button class="button" onclick="modifyOrder()">Apply</button>
+						<!-- <button class="button" onclick="modifyOrder()">Apply</button> -->
 					</div>
 				</li>
 				<li>
@@ -209,12 +224,11 @@
 							</div>
 							<div class="input">
 								<select id="stockGarmentID" onchange="AdminLoader.showGarmentSize(getSelectedValue('stockGarmentID'))">
-									<option value="" disabled selected>Select a garment</option>
 									<?php
 										allGarmentsID();
 									?>
 								</select>
-								<select id="sizes" onfocus="AdminLoader.showActualValue('stock', 'size', getSelectedValue('sizes'), 'quantity', 'actual_stock_quantity')" onchange="AdminLoader.showActualValue('stock', 'size', getSelectedValue('sizes'), 'quantity', 'actual_stock_quantity')">
+								<select id="sizes" onfocus="AdminLoader.showActualValue('stock', 'size', getSelectedValue('sizes'), 'quantity', 'actual_stock_quantity', 'stock')" onchange="AdminLoader.showActualValue('stock', 'size', getSelectedValue('sizes'), 'quantity', 'actual_stock_quantity', 'stock')">
 									<option value="" disabled selected>Please select a size</option>
 								</select>
 								<div class="actual_value" id="actual_stock_quantity"></div>

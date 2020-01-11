@@ -198,6 +198,16 @@
 		return $result;
 	}
 
+	function getOrderGarmentId($orderId){
+		global $supernovaDb;
+		$queryText = 'SELECT garmentId '
+						. 'FROM `order_garment` '
+						. 'WHERE orderId = \'' . $orderId . '\'';
+		$result = $supernovaDb->performQuery($queryText);
+		$supernovaDb->closeConnection();
+		return $result;
+	}
+
 	function getAllCollections(){
 		global $supernovaDb;
 		$queryText = 'SELECT DISTINCT collection '
@@ -251,16 +261,30 @@
 		return $result;
 	}
 
-	function getActualValue($table, $field, $fieldToFind, $value){
+	function getActualValue($table, $field, $value, $fieldToFind){
 		global $supernovaDb;
 		$table = $supernovaDb->sqlInjectionFilter($table);
 		$field = $supernovaDb->sqlInjectionFilter($field);
-		$fieldToFind = $supernovaDb->sqlInjectionFilter($fieldToFind);
 		$value = $supernovaDb->sqlInjectionFilter($value);
 		$queryText = 'SELECT ' . $fieldToFind . ' '
 						. 'FROM `' . $table . '` '
 						. 'WHERE ' . $field . ' = \'' 
 						. $value . '\''; 
+		$result = $supernovaDb->performQuery($queryText);
+		$supernovaDb->closeConnection();
+		return $result;
+	}
+
+	function getOrderGarmentActualValue($table, $orderId, $garmentId, $garmentField){
+		global $supernovaDb;
+		$table = $supernovaDb->sqlInjectionFilter($table);
+		$orderId = $supernovaDb->sqlInjectionFilter($orderId);
+		$garmentId = $supernovaDb->sqlInjectionFilter($garmentId);
+		$garmentField = $supernovaDb->sqlInjectionFilter($garmentField);
+		$queryText = 'SELECT ' . $garmentField . ' '
+						. 'FROM `' . $table . '` '
+						. 'WHERE orderId = \'' . $orderId . '\' '
+						. 'AND garmentId = \'' . $garmentId . '\'';
 		$result = $supernovaDb->performQuery($queryText);
 		$supernovaDb->closeConnection();
 		return $result;
@@ -363,6 +387,22 @@
 		$result = $supernovaDb->performQuery($queryText);
 		$supernovaDb->closeConnection();	
 		return $result;			
+	}
+
+	function modifyOrderGarment($orderId, $garmentId, $garmentField, $value){
+		global $supernovaDb;
+		$orderId = $supernovaDb->sqlInjectionFilter($orderId);
+		$garmentId = $supernovaDb->sqlInjectionFilter($garmentId);
+		$garmentField = $supernovaDb->sqlInjectionFilter($garmentField);
+		$value = $supernovaDb->sqlInjectionFilter($value);
+
+		$queryText = 'UPDATE `order_garment` '
+						. 'SET ' . $garmentField . '= \'' . $value . '\' '
+						. 'WHERE orderId = \'' . $orderId . '\' '
+						. 'AND garmentId = \'' . $garmentId . '\'';
+		$result = $supernovaDb->performQuery($queryText);
+		$supernovaDb->closeConnection();
+		return $result;		
 	}
 
 	function modifyStockQuantity($garmentId, $size, $quantity){

@@ -39,7 +39,7 @@ AjaxManager.performAjaxRequest =
 }		
 
 AjaxManager.performAdminAjaxRequest = 
-	function(method, url, isAsync, dataToSend, responseFunction, label){
+	function(method, url, isAsync, dataToSend, responseFunction, label, panel){
 		var xmlHttp = AjaxManager.getAjaxObject();
 		if (xmlHttp === null){
 			window.alert("Your browser does not support AJAX!"); // set error function
@@ -51,7 +51,7 @@ AjaxManager.performAdminAjaxRequest =
 			if (xmlHttp.readyState == 4){
 				console.log(xmlHttp.responseText);
 				var data = JSON.parse(xmlHttp.responseText);
-				responseFunction(data, label);
+				responseFunction(data, label, panel);
 			}
 		}
 		xmlHttp.send(dataToSend);

@@ -103,31 +103,6 @@ function getSelectedValue(tag){
     return selectedValue;
 }
 
-function modifyGarment(){
-    var garmentId = getSelectedValue("ID");
-    var field = getSelectedValue("garmentField");
-    switch(field)
-    {
-        case 'model':
-        case 'color':
-        case 'price':
-        case 'discountedPrice':
-            var newValue = document.getElementById("new_garment_value").value;
-            break;
-        
-        case 'category':
-        case 'genre':
-        case 'collection':
-            var newValue = "radio";
-            break;
-        case 'img':
-            var newValue = "img";
-            break;
-
-    }
-    AdminLoader.modifyGarmentProperty(garmentId, field, newValue);
-}
-
 function deleteFromCatalog(){
     var garmentId = getSelectedValue("garmentToDelete");
     AdminLoader.deleteGarment(garmentId);

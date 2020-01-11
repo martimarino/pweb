@@ -7,8 +7,8 @@
 
 	$response = new AjaxResponse();	
 
-	$garmentId = $_GET['selectedValue'];
-	$result = getAllGarmentSize($garmentId);
+	$orderId = $_GET['orderId'];
+	$result = getOrderGarmentId($orderId);
 
 	if(checkEmptyResult($result)){
 		$response = setEmptyResponse();
@@ -29,7 +29,7 @@
 	}
 
 	function setEmptyResponse(){
-		$message = "No size to load";
+		$message = "No order garments to load";
 		return new AjaxResponse("-1", $message);
 	}
 
@@ -39,11 +39,7 @@
 		$index = 0;
 		while ($row = $result->fetch_assoc()){
 
-			$stock->garmentId = $row['garmentId'];
-			$stock->size = $row['size'];
-			$stock->quantity = $row['quantity'];
-
-			$response->data[$index] = $stock;
+			$response->data[$index] = $row['garmentId'];
 
 			$index++;
 		}
