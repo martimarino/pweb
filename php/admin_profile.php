@@ -175,7 +175,7 @@
 								<br>
 								<div>New value: </div>
 							</div>
-							<form class="input" method="post" action="ajax/mmodify_order.php" enctype="multipart/form-data">
+							<form class="input" method="post" action="ajax/modify_order.php" enctype="multipart/form-data">
 								<select id="ordersID" name="ordersID" onfocus="AdminLoader.showOrderGarmentId('select_order_garment_id', getSelectedValue('ordersID'))" onchange="AdminLoader.showOrderGarmentId('select_order_garment_id', getSelectedValue('ordersID'))">
 									<?php
 										allOrdersID();
