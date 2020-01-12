@@ -19,18 +19,22 @@
 						
 						$searchType = MEN_GARMENTS_SEARCH; 
 						echo '<li onclick="GarmentLoader.init(); ';
+						echo 'GarmentLoader.CURRENT_PAGE_INDEX = 1; ';
   						echo 'GarmentLoader.loadGarment(' . $searchType . ')">Man</li>';   
 
 						$searchType = WOMEN_GARMENTS_SEARCH; 
 						echo '<li onclick="GarmentLoader.init(); ';
+						echo 'GarmentLoader.CURRENT_PAGE_INDEX = 1; ';
   						echo 'GarmentLoader.loadGarment(' . $searchType . ')">Woman</li>';   
 
   						$searchType = ACCESSORIES_GARMENTS_SEARCH_SEARCH; 
 						echo '<li onclick="GarmentLoader.init(); ';
+						echo 'GarmentLoader.CURRENT_PAGE_INDEX = 1; ';
   						echo 'GarmentLoader.loadGarment(' . $searchType . ')">Accessories</li>';   
 
   						$searchType = SALES_SEARCH; 
 						echo '<li onclick="GarmentLoader.init(); ';
+						echo 'GarmentLoader.CURRENT_PAGE_INDEX = 1; ';
   						echo 'GarmentLoader.loadGarment(' . $searchType . ')">SALES</li>';   
   					
   					?>
