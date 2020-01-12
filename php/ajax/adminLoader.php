@@ -39,6 +39,7 @@
 		$index = 0;
 		while ($row = $result->fetch_assoc()){
 
+			$stock = new Stock();
 			$stock->garmentId = $row['garmentId'];
 			$stock->size = $row['size'];
 			$stock->quantity = $row['quantity'];

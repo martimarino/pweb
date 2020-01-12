@@ -45,12 +45,14 @@ AdminLoader.onOrderGarmentIdAjaxResponse =
 
 AdminLoader.showActualValue = 
 	function(table, field, value, fieldToFind, label, panel)
-	{  
+	{    
 		var queryString = "?table=" + table +
 							"&field=" + field +
 							"&value=" + value +
 							"&fieldToFind=" + fieldToFind +
-							"&label=" + label;  
+							"&label=" + label +
+							"&panel=" + panel;  
+							console.log(queryString);
 		var url = AdminLoader.ACTUAL_VALUE_REQUEST + queryString;
 		var responseFunction = AdminLoader.onActualValueAjaxResponse;
 		AjaxManager.performAdminAjaxRequest(AdminLoader.DEFAULT_METHOD, url, AdminLoader.ASYNC_TYPE, null, responseFunction, label, panel);

@@ -11,13 +11,21 @@
 	$table = $_GET['table'];
 	$field = $_GET['field'];
 	$value = $_GET['value'];
+	$panel = $_GET['panel'];	//nel caso di stock è il garmentId
 	$fieldToFind = $_GET['fieldToFind'];
 
-	if($table == 'order_garment') {
-		$result = getOrderGarmentActualValue($table, $field, $value, $fieldToFind);
-	}
-	else{
-		$result = getActualValue($table, $field, $value, $fieldToFind);
+	switch ($table) {
+		case 'order_garment':
+			$result = getOrderGarmentActualValue($table, $field, $value, $fieldToFind);
+			break;
+
+		case 'stock';
+			$result = getStockActualQuantity($table, $value, $panel);
+			break;
+		
+		default:
+			$result = getActualValue($table, $field, $value, $fieldToFind);
+			break;
 	}
 
 	if($fieldToFind == 'articoli')

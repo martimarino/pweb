@@ -223,12 +223,12 @@
 								<div>Modify quantity;</div>
 							</div>
 							<div class="input">
-								<select id="stockGarmentID" onchange="AdminLoader.showGarmentSize(getSelectedValue('stockGarmentID'))">
+								<select id="stockGarmentID" onfocus="AdminLoader.showGarmentSize(getSelectedValue('stockGarmentID'))" onchange="AdminLoader.showGarmentSize(getSelectedValue('stockGarmentID'))">
 									<?php
 										allGarmentsID();
 									?>
 								</select>
-								<select id="sizes" onfocus="AdminLoader.showActualValue('stock', 'size', getSelectedValue('sizes'), 'quantity', 'actual_stock_quantity', 'stock')" onchange="AdminLoader.showActualValue('stock', 'size', getSelectedValue('sizes'), 'quantity', 'actual_stock_quantity', 'stock')">
+								<select id="sizes" onfocus="AdminLoader.showActualValue('stock', 'size', getSelectedValue('sizes'), 'quantity', 'actual_stock_quantity', getSelectedValue('stockGarmentID'))" onchange="AdminLoader.showActualValue('stock', 'size', getSelectedValue('sizes'), 'quantity', 'actual_stock_quantity', getSelectedValue('stockGarmentID'))">
 									<option value="" disabled selected>Please select a size</option>
 								</select>
 								<div class="actual_value" id="actual_stock_quantity"></div>

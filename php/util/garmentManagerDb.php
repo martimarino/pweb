@@ -275,6 +275,20 @@
 		return $result;
 	}
 
+	function getStockActualQuantity($table, $sizeValue, $garmentId){
+		global $supernovaDb;
+		$table = $supernovaDb->sqlInjectionFilter($table);
+		$sizeValue = $supernovaDb->sqlInjectionFilter($sizeValue);
+		$garmentId = $supernovaDb->sqlInjectionFilter($garmentId);
+		$queryText = 'SELECT quantity '
+						. 'FROM `' . $table . '` '
+						. 'WHERE size = \'' . $sizeValue . '\' '
+						. 'AND garmentId = \'' . $garmentId . '\'';
+		$result = $supernovaDb->performQuery($queryText);
+		$supernovaDb->closeConnection();
+		return $result;
+	}
+
 	function getOrderGarmentActualValue($table, $orderId, $garmentId, $garmentField){
 		global $supernovaDb;
 		$table = $supernovaDb->sqlInjectionFilter($table);
@@ -505,6 +519,18 @@
 		$result = $supernovaDb->performQuery($queryText);
 		$supernovaDb->closeConnection();	
 		return $result;		
+	}
+
+	function insertDefaultSizeInStock($garmentId){
+		global $supernovaDb;
+		$garmentId = $supernovaDb->sqlInjectionFilter($garmentId);
+		$queryText = 'INSERT INTO `stock`(`garmentId`, `size`, `quantity`) '
+						. 'VALUES (\'' . $garmentId . '\', \'S\', \'0\'), '
+						. '(\'' . $garmentId . '\', \'M\', \'0\'), '
+						. '(\'' . $garmentId . '\', \'L\', \'0\')';
+		$result = $supernovaDb->performQuery($queryText);
+		$supernovaDb->closeConnection();
+		return $result;
 	}
 
 	function getGarmentSizeQuantityInStock($garmentId, $garmentSize){
