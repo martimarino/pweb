@@ -304,7 +304,7 @@
 		return $result;
 	}
 
-	function garmentInsertion($id, $model, $color, $category, $genre, $collection, $price, $image){
+	function garmentInsertion($id, $model, $color, $category, $genre, $collection, $date, $price, $image){
 		global $supernovaDb;
 		$id = $supernovaDb->sqlInjectionFilter($id);
 		$model = $supernovaDb->sqlInjectionFilter($model);
@@ -312,6 +312,7 @@
 		$category = $supernovaDb->sqlInjectionFilter($category);
 		$genre = $supernovaDb->sqlInjectionFilter($genre);
 		$collection = $supernovaDb->sqlInjectionFilter($collection);
+		$date = $supernovaDb->sqlInjectionFilter($date);
 		$price = $supernovaDb->sqlInjectionFilter($price);
 		$image = $supernovaDb->sqlInjectionFilter($image);
 
@@ -321,7 +322,7 @@
 						. '\'' . $category . '\', '
 						. '\'' . $genre . '\', '
 						. '\'' . $collection . '\', '
-						. date("Y-m-d") . ', '
+						. '\'' . $date . '\', '
 						. '\'' . $price . '\', '
 						. '\'immagini/garments/' . $image . '\')'; 
 

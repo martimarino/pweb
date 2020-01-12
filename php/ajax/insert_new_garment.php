@@ -68,18 +68,19 @@
 		$category = $_POST['category_input'];
 		$genre = $_POST['genre_input'];
 		$collection = $_POST['collection_input'];
+		$date = date("Y-m-d");
 		$price = $_POST['price_input'];
 
 		$verify = verifyInsertNewGarmentInput($model, $color, $category, $genre, $collection, $price);
 		if(!$verify){ 
-			$query = garmentInsertion($id, $model, $color, $category, $genre, $collection, $price, $image);
+			$query = garmentInsertion($id, $model, $color, $category, $genre, $collection, $date, $price, $image);
 			if($category == 'clothing')
 				$stockQuery = insertDefaultClothingSizeInStock($id);
 			else
 				$stockQuery = insertDefaultAccessoriesSizeInStock($id);
 			if($query && $stockQuery)
 				return 'Garment added with success';
-			return $query;
+			return 'Query error';
 		}
 		return $verify;
 	}

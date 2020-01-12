@@ -67,11 +67,11 @@
 		<div class="slideshow-container">
 
 			<div class="mySlides fade">
-			  <img src="immagini/image7.jpg" alt="img-1">
+			  <img src="immagini/image5.jpg" alt="img-1">
 			</div>
 
 			<div class="mySlides fade">
-			  <img src="immagini/image2.jpg" alt="img-2">
+			  <img src="immagini/image11.jpg" alt="img-2">
 			</div>
 
 			<div class="mySlides fade">
@@ -87,7 +87,7 @@
 			</div>
 
 			<div class="mySlides fade">
-			  <img src="immagini/image6.jpg" alt="img-5">
+			  <img src="immagini/image14.jpg" alt="img-5">
 			</div>
 
 		</div>
