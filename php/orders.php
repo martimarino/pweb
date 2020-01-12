@@ -49,7 +49,7 @@
 		echo '</div>';
 
 	?>
-		<script type="text/javascript">
+		<script>
 			document.getElementById("orders_link").setAttribute("class", "highlighted_text");
 		</script>
 	</body>

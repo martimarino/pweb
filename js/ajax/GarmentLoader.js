@@ -43,6 +43,18 @@ GarmentLoader.loadGarment =
 		var url = GarmentLoader.URL_REQUEST + queryString;
 		var responseFunction = GarmentLoader.onAjaxResponse;
 		AjaxManager.performAjaxRequest(GarmentLoader.DEFAULT_METHOD, url, GarmentLoader.ASYNC_TYPE, null, responseFunction);
+
+
+		var previousElems = document.getElementsByClassName("previous");
+		previousElems[0].removeAttribute("onclick");
+		previousElems[0].setAttribute("onclick", "GarmentLoader.previous(" + searchType + ")");
+		previousElems[1].removeAttribute("onclick");
+		previousElems[1].setAttribute("onclick", "GarmentLoader.previous(" + searchType + ")");
+		var nextElems = document.getElementsByClassName("next");
+		nextElems[0].removeAttribute("onclick");
+		nextElems[0].setAttribute("onclick", "GarmentLoader.next(" + searchType + ")");
+		nextElems[1].removeAttribute("onclick");
+		nextElems[1].setAttribute("onclick", "GarmentLoader.next(" + searchType + ")");
 	}
 
 GarmentLoader.next = 
@@ -69,7 +81,6 @@ GarmentLoader.onAjaxResponse =
 				GarmentDashboard.updateNavigationPage(GarmentLoader.CURRENT_PAGE_INDEX,	true);
 				return;
 		}
-		console.log(); 
 		if (response.responseCode === GarmentLoader.SUCCESS_RESPONSE){
 			GarmentDashboard.refreshData(response.data);
 		}
@@ -82,6 +93,7 @@ GarmentLoader.search =
 	function(pattern){
 		if (pattern === null || pattern.length === 0){
 			GarmentDashboard.removeContent();
+			GarmentDashboard.updateNavigationPage(GarmentLoader.CURRENT_PAGE_INDEX,	true);
 			return;	
 		}
 			

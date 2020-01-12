@@ -123,7 +123,7 @@
 		$numRecord = $supernovaDb->sqlInjectionFilter($numRecord);
 		$queryText = 'SELECT * '
 						. 'FROM garment '
-						. 'WHERE ' . $discountedPrice . ' IS NOT NULL '
+						. 'WHERE discountedPrice IS NOT NULL '
 						. 'LIMIT ' . $offset . ',' . $numRecord;
 
 		$result = $supernovaDb->performQuery($queryText);

@@ -33,7 +33,7 @@
 
 	?>
 
-		<script type="text/javascript">
+		<script>
 			document.getElementById("my_measures_link").setAttribute("class", "highlighted_text");
 		</script>
 

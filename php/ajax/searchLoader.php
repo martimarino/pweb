@@ -50,6 +50,11 @@
 			$garment->model = $row['model'];
 			$garment->img = $row['img'];
 			$garment->price = $row['price'];
+			$garment->discountedPrice =$row['discountedPrice'];
+			
+			$checkStockResult = getGarmentTotalQuantityInStock($garment->garmentId);
+			$checkStock = $checkStockResult->fetch_assoc();
+			$garment->totalInStock = $checkStock['total'];
 
 			$response->data[$index] = $garment;
 

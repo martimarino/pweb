@@ -44,7 +44,7 @@
 
 	?>
 
-			<script type="text/javascript">
+			<script>
 				document.getElementById("wish_list_link").setAttribute("class", "highlighted_text");
 			</script>
 

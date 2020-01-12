@@ -10,7 +10,7 @@ UserGarmentNavBarEventHandler.SUCCESS_RESPONSE = "0";
 
 UserGarmentNavBarEventHandler.onDesiredEvent = 
 	function(garmentId) {
-		var flag =  getComplementaryFlag(document.getElementById("desiredItem_" + garmentId)); console.log(flag);
+		var flag =  getComplementaryFlag(document.getElementById("desiredItem_" + garmentId));
 		var queryString = "?garmentId=" + garmentId + "&desired=" + flag;
 		var url = UserGarmentNavBarEventHandler.URL_REQUEST + queryString;
 		var responseFunction = UserGarmentNavBarEventHandler.onAjaxResponse;

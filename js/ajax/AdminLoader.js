@@ -45,7 +45,7 @@ AdminLoader.onOrderGarmentIdAjaxResponse =
 
 AdminLoader.showActualValue = 
 	function(table, field, value, fieldToFind, label, panel)
-	{  console.log("TABLE = " + table + " FIELD= " + field + " VALUE = " + value + " FIELD TO FIND= " + fieldToFind + " LABEL = " + label + " PANEL = " + panel);
+	{  
 		var queryString = "?table=" + table +
 							"&field=" + field +
 							"&value=" + value +

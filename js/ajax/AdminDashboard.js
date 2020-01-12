@@ -194,7 +194,7 @@ AdminDashboard.fillActualValue =
 
 		if(panel = "modify_order")
 		{
-			var field = getSelectedValue('order_select'); console.log(field + ", " + panel);
+			var field = getSelectedValue('order_select'); 
 			var newValue = document.getElementById('order_new_value');
 
 			switch(field)

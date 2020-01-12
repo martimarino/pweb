@@ -43,7 +43,7 @@
 
 	?>
 
-		<script type="text/javascript">
+		<script>
 			document.getElementById("profile_informations_link").setAttribute("class", "highlighted_text");
 		</script>
 	
