@@ -521,13 +521,23 @@
 		return $result;		
 	}
 
-	function insertDefaultSizeInStock($garmentId){
+	function insertDefaultClothingSizeInStock($garmentId){
 		global $supernovaDb;
 		$garmentId = $supernovaDb->sqlInjectionFilter($garmentId);
 		$queryText = 'INSERT INTO `stock`(`garmentId`, `size`, `quantity`) '
 						. 'VALUES (\'' . $garmentId . '\', \'S\', \'0\'), '
 						. '(\'' . $garmentId . '\', \'M\', \'0\'), '
 						. '(\'' . $garmentId . '\', \'L\', \'0\')';
+		$result = $supernovaDb->performQuery($queryText);
+		$supernovaDb->closeConnection();
+		return $result;
+	}
+
+	function insertDefaultAccessoriesSizeInStock($garmentId){
+		global $supernovaDb;
+		$garmentId = $supernovaDb->sqlInjectionFilter($garmentId);
+		$queryText = 'INSERT INTO `stock`(`garmentId`, `size`, `quantity`) '
+						. 'VALUES (\'' . $garmentId . '\', \'U\', \'0\')';
 		$result = $supernovaDb->performQuery($queryText);
 		$supernovaDb->closeConnection();
 		return $result;

@@ -73,7 +73,10 @@
 		$verify = verifyInsertNewGarmentInput($model, $color, $category, $genre, $collection, $price);
 		if(!$verify){ 
 			$query = garmentInsertion($id, $model, $color, $category, $genre, $collection, $price, $image);
-			$stockQuery = insertDefaultSizeInStock($id);
+			if($category == 'clothing')
+				$stockQuery = insertDefaultClothingSizeInStock($id);
+			else
+				$stockQuery = insertDefaultAccessoriesSizeInStock($id);
 			if($query && $stockQuery)
 				return 'Garment added with success';
 			return $query;
