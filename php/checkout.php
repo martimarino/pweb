@@ -31,7 +31,7 @@
 	    	include"./layout/top_bar.php";
 	  	?>
 
-		<form action="" method="post" id="checkout_form">
+		<form method="post" id="checkout_form">
 			<div class="container">
 
 				<div id="form_error"></div>
