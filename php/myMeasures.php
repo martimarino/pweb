@@ -1,15 +1,9 @@
 <?php
 	require_once __DIR__ . "/config.php";
-	session_start();
-    include DIR_UTIL . "session.php";
     include DIR_UTIL . "supernovaDbManager.php";
     include DIR_UTIL . "garmentManagerDb.php";
     include DIR_UTIL . "utility.php";
 
-    if (!isLogged()){
-		    header('Location: ./../index.php');
-		    exit;
-    }	
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -28,17 +22,14 @@
 
 	<?php
   		include"./layout/top_bar.php";
-
-  			include DIR_LAYOUT . "profile_menu.php";
-
 	?>
 
 		<script>
 			document.getElementById("my_measures_link").setAttribute("class", "highlighted_text");
 		</script>
 
-		<section id="content">
-			<h1 id="personal_informations_title">Consulta la tabella per trovare la tua taglia.</h1>
+		<section id="size_table">
+			<h2 id="personal_informations_title">Consulta la tabella per trovare la tua taglia</h2>
 			<img src="../immagini/tabella_misure.jpg" alt="size_table">
 		</section>
 	</body>

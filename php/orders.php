@@ -44,7 +44,7 @@
 
 	<?php
 			
-		echo '<section id="orderDashboard" class="order_dashboard"></section>';
+		echo '<div id="orderDashboard" class="order_dashboard"></div>';
 
 		echo '</div>';
 

@@ -22,7 +22,7 @@ button {
     border-bottom-left-radius: 10px;
 }
 
-section {
+#garmentDashboard, #orderDashboard {
     text-align:               center;
     display:                  block;
     float:                    right;
@@ -30,7 +30,7 @@ section {
     font-size:                20px;
 }
 
-section>img{
+#garmentDashboard>img, #orderDashboard>img, section>img{
     width:                    85%;
     padding-top:              15px;
     padding-left:             5%;

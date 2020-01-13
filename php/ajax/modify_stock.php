@@ -32,7 +32,7 @@
 	
 		$query = modifyStockQuantity($garmentId, $size, $quantity);
 		if($query)
-			$result = null;
+			$result = "./../php/admin_profile.php?errorMessage=Quantity modified with success";
 		$message = "OK";
 
 	}

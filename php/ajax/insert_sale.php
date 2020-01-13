@@ -38,7 +38,6 @@
 
 		$message = "OK";
 		$response = setResponse($percentage, $result, $message);
-
 	}
 
 	else {
@@ -69,7 +68,7 @@
 
 			$newPrice = round($row['price']*((100 - $percentage)/100));
 			insertNewSale($row['garmentId'], $newPrice);
-
+			$response->data = "./../php/admin_profile.php?errorMessage=Collection discounted";
 			$index++;
 		}
 		

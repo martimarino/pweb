@@ -59,7 +59,6 @@ GarmentDashboard.refreshData =
 			var garmentItemElem = GarmentDashboard.createGarmentItemElement(data[i]);
 			newGarmentListElem.appendChild(garmentItemElem);
 		}		
-
 		document.getElementById("garmentDashboard").appendChild(newGarmentListElem);
 
 	}

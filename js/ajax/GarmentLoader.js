@@ -44,7 +44,6 @@ GarmentLoader.loadGarment =
 		var responseFunction = GarmentLoader.onAjaxResponse;
 		AjaxManager.performAjaxRequest(GarmentLoader.DEFAULT_METHOD, url, GarmentLoader.ASYNC_TYPE, null, responseFunction);
 
-
 		var previousElems = document.getElementsByClassName("previous");
 		previousElems[0].removeAttribute("onclick");
 		previousElems[0].setAttribute("onclick", "GarmentLoader.previous(" + searchType + ")");
@@ -74,15 +73,16 @@ GarmentLoader.previous =
 
 GarmentLoader.onAjaxResponse = 
 	function(response){
+
 		if (response.responseCode === GarmentLoader.NO_MORE_DATA 
 		 	&&	GarmentLoader.CURRENT_PAGE_INDEX === 1){
 			
-				GarmentDashboard.setEmptyDashboard(response.message);
+				GarmentDashboard.setEmptyDashboard(response.message); 
 				GarmentDashboard.updateNavigationPage(GarmentLoader.CURRENT_PAGE_INDEX,	true);
 				return;
 		}
 		if (response.responseCode === GarmentLoader.SUCCESS_RESPONSE){
-			GarmentDashboard.refreshData(response.data);
+			GarmentDashboard.refreshData(response.data); 
 		}
 		
 		var noMoreDataExist = (response.data === null || response.data.length < GarmentLoader.GARMENT_TO_LOAD);

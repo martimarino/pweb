@@ -18,7 +18,7 @@
 
 	$message = "OK";
 	$response = setResponse($result, $message);
-	$response->data = null;
+	$response->data = 'item deleted';
 	echo json_encode($response);
 	return;
 	

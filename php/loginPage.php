@@ -41,6 +41,7 @@
 
           <label>Password</label>
           <input type="password" placeholder="Enter Password" name="password" id="password" required>
+          <a href="">Password forgotten?</a>
           <input type="submit" value="Login" class="button">
           <?php
             if (isset($_GET['errorMessage'])){

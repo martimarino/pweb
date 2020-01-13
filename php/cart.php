@@ -46,7 +46,7 @@
 
 	<?php
 
-		echo '<section id="cartDashboard" class="cart_dashboard"></section>';
+		echo '<div id="cartDashboard" class="cart_dashboard"></div>';
 
 	?>
 

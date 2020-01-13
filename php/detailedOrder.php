@@ -39,7 +39,7 @@
 			require_once DIR_UTIL . "garmentManagerDb.php";	
 
 			echo '<br><br><div id="content">'; 
-			echo '<section id="orderDashboard" class="order_dashboard"></section>';
+			echo '<div id="orderDashboard" class="order_dashboard"></div>';
 
 			$result = getOrderById($orderId);	
 			showOrderDetails($result);

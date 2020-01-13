@@ -52,7 +52,7 @@
 
 		include DIR_LAYOUT . "navigation_page.php";
 
-		echo '<section id="garmentDashboard" class="garment_dashboard"></section>';
+		echo '<div id="garmentDashboard" class="garment_dashboard"></div>';
 
 		include DIR_LAYOUT . "navigation_page.php";
 

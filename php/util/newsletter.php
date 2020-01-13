@@ -8,7 +8,7 @@ echo "CIAO";
     $errorMessage = setNewsletterFlag($email);
     
     if(!$errorMessage)
-		header('Location: ./../../index.php');
+		header('Location: ./../../index.php?errorMessage=Now you can receive our news!');
 
 	else
 		header('Location: ./../../index.php?errorMessage=' . $errorMessage);

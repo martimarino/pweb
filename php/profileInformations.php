@@ -48,7 +48,7 @@
 		</script>
 	
 		<section id="content">
-			<h1 id="personal_informations_title">Personal details</h1>
+			<h2 id="personal_informations_title">Personal details</h2>
 			<p>E-mail: &nbsp <?php echo $username; ?></p>
 			<p>Name: &nbsp <?php echo $name; ?></p>
 			<p>Surname:  &nbsp <?php echo $surname; ?></p>

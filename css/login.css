@@ -14,7 +14,7 @@
     padding:                  16px;
     background-color:         #fff;
     box-shadow:               black 0px 5px 15px;
-    margin:                   7% auto 5% auto; /* 5% from the top, 15% from the bottom and centered */
+    margin:                   80px auto 0 auto; /* 5% from the top, 15% from the bottom and centered */
     border:                   1px solid #888;
     border-radius:            10px;
     width:                    35%; /* Could be more or less, depending on screen size */
@@ -46,4 +46,4 @@ h2{
 
 .sign_in_error {
     color:                    red;
-}
+

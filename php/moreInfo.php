@@ -25,7 +25,7 @@
 	?>
 
 		<section id="content">
-			<h1 class="page_title">Payment methods</h1>
+			<h2 class="page_title">Payment methods</h2>
 
 				<p><b>CREDIT CARDS</b></p>
 				<ul class="credit_cards">
@@ -41,7 +41,7 @@
 				</ul>
 				<p id="findAnchor">Use any payment method on the growing list of ways to fund a PayPal account in your country. Once you have funded your PayPal account, you can use our single-click PayPal express feature to speed through checkout.</p>
 
-			<h1 class="page_title" id="whereToFindUs">Where to find us</h1>
+			<h2 class="page_title" id="whereToFindUs">Where to find us</h2>
 
 				<p><b>MODENA</b></p>
 				<p><a href="https://www.google.com/maps/place/Centro+Commerciale+La+Rotonda/@44.622051,10.9247249,17z/data=!3m1!4b1!4m5!3m4!1s0x477fe5f41fa04555:0x28dc9d6cdca67564!8m2!3d44.622051!4d10.9269136">Centro Commerciale la Rotonda</a></p>
@@ -93,7 +93,7 @@
 				<p>09.30 - 20.30</p>
 
 
-			<h1 class="page_title" id="contacts">Contacts</h1><br>
+			<h2 class="page_title" id="contacts">Contacts</h2><br>
 
 				<p id="contactAnchor"><b>PHONE</b></p>
 				<p>Phone: +39 0186 45 75 63 (IN ENGLISH & ITALIAN)</p>
