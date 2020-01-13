@@ -1,6 +1,6 @@
 
 /* Full-width input fields */
-#username, #password, #firstname, #lastname, #email, #gender, #password, #confirm {
+#username, #password, #firstname, #lastname, #email, #gender, #password, #confirm, #country, #city, #address, #zipcode, #telephone, #securityCode, #nameOnCard, #type, #number {
     width:                    100%;
     padding:                  12px 20px;
     margin:                   8px 0;
@@ -8,6 +8,21 @@
     border:                   1px solid #ccc;
     box-sizing:               border-box;
     height:                   30px;
+}
+
+#country, #type {
+    padding:                  0px 20px;
+}
+
+#month, #year {
+    width:                    25%;
+    padding:                  0px 10px;
+    margin:                   0 8px;
+    display:                  inline-block;
+    border:                   1px solid #ccc;
+    box-sizing:               border-box;
+    height:                   20px;
+    float: right;
 }
 
 .container {
@@ -46,4 +61,19 @@ h2{
 
 .sign_in_error {
     color:                    red;
+}
 
+#form_error {
+    display: block;
+    opacity: 1;
+    color: red;
+    width: inherit;
+    text-align: center;
+    position: fixed;
+    padding: 10px 0;
+    background-color: rgba(244, 198, 198, 0.8);
+    float: right;
+    position: fixed;
+    top: 10%;
+    visibility: hidden;
+}

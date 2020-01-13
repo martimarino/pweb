@@ -54,9 +54,9 @@
       </form>
       <form action="./registration.php">
         <div class="container">
-          <label><b>Non possiedi un account?</b></label>
-          <p>Registrati e approfitta subito dei vantaggi riservati agli iscritti al sito Supernova.</p>
-          <button type="submit" class="button">Registrati ora</button>
+          <label><b>Don't you have an account?</b></label>
+          <p>Register now and take advantage of the benefits reserved for members of the Supernova site.</p>
+          <button type="submit" class="button">Sign in</button>
         </div>
       </form>
   </body>

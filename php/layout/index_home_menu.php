@@ -27,5 +27,5 @@
 					</ul>
 				</nav>
 			</nav>
-			<li id="guide"><a href="./php/documentazione.html">Guide</a></li>
+			<div id="guide"><a href="./php/documentazione.html">Guide</a></div>
 		</aside>

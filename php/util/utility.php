@@ -69,4 +69,16 @@
 		}
 	}
 
+	function verifyAlphabeticalInput($input){
+
+	}
+
+	function verifyNumericalInput($input){
+
+	}
+
+	function verifyEmailInput($input){
+		return (!preg_match("/^[a-zA-Z0-9._-]+@[a-zA-Z0-9-]+\.[a-zA-Z.]{2,5}$/", $input));	
+	}
+
 ?>

@@ -30,27 +30,27 @@
 		          	}
 		        ?>
 
-				<h2>Informazioni personali</h2>
+				<h2>Personal informations</h2>
 
-				<label>Nome</label>
+				<label>First name</label>
 				<input type="text" id="firstname" name="firstname" autofocus autocomplete="off" required>
 		
-				<label>Cognome</label>
+				<label>Surname</label>
 				<input type="text" id="lastname" name="lastname" autocomplete="off" required>
 		
 				<label>E-mail</label>
 				<input type="text" id="email" name="email" autocomplete="off" required>
 			
-				<label>Genere</label>
+				<label>Genre</label>
 				<input type="radio" id="female" name="gender" value="female" checked="checked">F
 				<input type="radio" id="male" name="gender" value="male">M
 
-				<h2>Informazioni di accesso</h2>
+				<h2>Access informations</h2>
 
 				<label>Password</label>
 				<input type="password" id="password" name="password" autocomplete="off" required>
 		
-				<label>Conferma password</label>
+				<label>Confirm password</label>
 				<input type="password" id="confirm" name="confirm"  autocomplete="off" required>
 				
 				<button type="submit" class="button">Invia</button>

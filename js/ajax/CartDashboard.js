@@ -47,6 +47,12 @@ CartDashboard.refreshData =
 		totalPrice.setAttribute("class", "totalPrice");
 		totalPrice.textContent = "Total price: " + data[0].total + " €";
 		document.getElementById("cartDashboard").appendChild(totalPrice);
+
+		var checkout = document.createElement("a");
+		checkout.setAttribute("id", "checkout");
+		checkout.setAttribute("href", "./../php/checkout.php");
+		checkout.textContent = "Checkout";
+		document.getElementById("cartDashboard").appendChild(checkout);		
 	}
 
 CartDashboard.createCartListElement = 

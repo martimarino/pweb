@@ -464,6 +464,20 @@ th, td {
     padding-top: 2%;
 }
 
+#checkout {
+
+    font-size: 18px;
+    float: right;
+    margin-right: 15%;
+    margin-top: 15%;
+    background-color: #0E2130;
+    height: 20px;
+    padding: 10px 40px;
+    color: white;
+    border-radius: 10px;
+
+}
+
 #sold_out {
     position: absolute;
     display: inline;

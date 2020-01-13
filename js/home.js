@@ -1,16 +1,9 @@
 
-
-
 /* ------------------------------------------------------------------------ */
 
 function fade(a) {                          //comparsa/scomparsa login
 	var e = document.getElementById(a);
     e.className == "fadeout" ? e.className = "fadein" : e.className = "fadeout";
-}
-
-function Nav(a) {                //menu a comparsa laterale
-	var e = document.getElementById(a);
-	e.style.width == "250px" ? e.style.width = "0" : e.style.width = "250px";
 }
 
 function showSlides() {
@@ -73,30 +66,6 @@ function slideUp(element, startPosition, endPosition){
 
 /* ------------------------------------------------------------------------- */
 
-function showPopUp(invalidInput) {
-    var popup = document.getElementById("myPopup");
-
-    document.getElementById("myPopup").firstChild.nodeValue=invalidInput;
-
-    popup.classList.toggle("show");
-    return;
-}
-
-function hideSlidesShowCatalog(){
-    var slides = document.getElementsByClassName("mySlides");
-    document.removeChild(slides);
-    content = document.createElement("div");
-    content.setAttribute("id", "content");
-    
-}
-
-function hideBadges(){
-    var badge = document.getElementById("wishlistBadge");
-    badge.remove();
-    badge = document.getElementById("cartBadge");
-    badge.remove();
-}
-
 function getSelectedValue(tag){
     var element = document.getElementById(tag);
     var selectedValue = element.options[element.selectedIndex].value; 
@@ -128,20 +97,46 @@ function stock(){
     AdminLoader.modifyQuantity(garmentId, size, quantity);
 }
 
-function removeFromRightLst(){
-        var heart = document.getElementById("favourites");
-        heart.parentNode.removeChild(heart);
-        var wishlistBadge = document.getElementById("wishlistBadge");
-        wishlistBadge.parentNode.removeChild("wishlistBadge");
-        var cart = document.getElementById("cart");
-        cart.parentNode.removeChild(cart);
-        cartBadge = document.getElementById("cartBadge");
-        cartBadge.parentNode.removeChild("cartBadge");
-    }
-
 function enableCartButton(){
     document.getElementById("add_to_cart").disabled = false;
     document.getElementById("add_to_cart").style.cursor = "pointer";
     if(document.getElementById("no_more_available"))
         document.getElementById("no_more_available").remove();
+}
+
+function validateEmail(mail) 
+{
+    if (!(mail.value.match(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/)) || (mail.value == '')){
+        document.getElementById('form_error').textContent = "invalid mail";
+        document.getElementById('form_error').style.visibility='visible';
+    }
+}
+
+function validateAllLetter(text)
+{
+    var letters = /^[A-Za-z]+$/;
+    var input = document.getElementById(text);
+    if (!(input.value.match(letters)) || (input.value == '')){
+        document.getElementById('form_error').textContent = text + " input should be alphabetical";
+        document.getElementById('form_error').style.visibility='visible';
+    }
+}
+
+function validateAllnumeric(input)
+{
+    var numbers = /^[0-9]+$/;
+    var toValidate = document.getElementById(input);
+    if(!(toValidate.value.match(numbers)) || (toValidate.value == '')){
+        document.getElementById('form_error').textContent = input + " input should be numeric";
+        document.getElementById('form_error').style.visibility='visible';
+    }
+}
+
+function validateAddress(street)
+   {
+    var valid = /\w+(\s\w+){2,}/;
+    if(!(street.value.match(valid)) || (street.value == '')){
+        document.getElementById('form_error').textContent = "insert a valid address";
+        document.getElementById('form_error').style.visibility='visible';
+    }
 }

@@ -108,6 +108,7 @@
 						 			<option value="price">price</option>
 						 			<option value="img">image</option>
 								</select>
+								<br>
 								<div class="actual_value" id="garment_actual_value"></div>
 								<input id="new_garment_value" name="new_garment_value" class="input_field">
 								<input class="button" type="submit" value="Apply">

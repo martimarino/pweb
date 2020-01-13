@@ -1,7 +1,7 @@
 <?php
     require_once "./supernovaDbManager.php"; //includes Database Class
     require_once "./session.php"; //includes session util functions
-echo "CIAO";
+
     $email = $_POST['newsletter'];
 
     $errorMessage = "";
