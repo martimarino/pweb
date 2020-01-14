@@ -42,7 +42,7 @@ CREATE TABLE `cart` (
 
 LOCK TABLES `cart` WRITE;
 /*!40000 ALTER TABLE `cart` DISABLE KEYS */;
-INSERT INTO `cart` VALUES ('francescomarino96@yahoo.com',2,'L',1,500),('martina.marino1996@gmail.com',1,'L',2,100),('martina.marino1996@gmail.com',9,'M',2,192),('rosa.campana05@gmail.com',4,'S',1,0);
+INSERT INTO `cart` VALUES ('francescomarino96@yahoo.com',2,'L',1,500),('martina.marino1996@gmail.com',1,'L',2,100),('martina.marino1996@gmail.com',5,'L',1,271),('martina.marino1996@gmail.com',7,'L',1,150),('rosa.campana05@gmail.com',4,'S',1,0);
 /*!40000 ALTER TABLE `cart` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -65,7 +65,7 @@ CREATE TABLE `garment` (
   `price` double NOT NULL,
   `img` varchar(45) NOT NULL,
   PRIMARY KEY (`garmentId`)
-) ENGINE=InnoDB AUTO_INCREMENT=41 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=38 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -130,7 +130,7 @@ CREATE TABLE `order_garment` (
 
 LOCK TABLES `order_garment` WRITE;
 /*!40000 ALTER TABLE `order_garment` DISABLE KEYS */;
-INSERT INTO `order_garment` VALUES (1,1,2,'S','Black',100),(1,2,10,'M','Yellow',50),(1,3,2,'L','Red',30),(2,3,2,'S','Gold',50),(2,4,1,'M','Black',25),(2,5,1,'L','Blue',25);
+INSERT INTO `order_garment` VALUES (1,1,2,'S','Black',100),(1,2,10,'M','Yellow',50),(1,3,2,'L','Red',30),(2,3,2,'S','Gold',100),(2,4,1,'M','Black',25),(2,5,1,'L','Blue',25);
 /*!40000 ALTER TABLE `order_garment` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -222,4 +222,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-01-13 16:03:37
+-- Dump completed on 2020-01-13 23:09:07

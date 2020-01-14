@@ -24,10 +24,6 @@
   		include"./layout/top_bar.php";
 	?>
 
-		<script>
-			document.getElementById("my_measures_link").setAttribute("class", "highlighted_text");
-		</script>
-
 		<section id="size_table">
 			<h2 id="personal_informations_title">Consulta la tabella per trovare la tua taglia</h2>
 			<img src="../immagini/tabella_misure.jpg" alt="size_table">
