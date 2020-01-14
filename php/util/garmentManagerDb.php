@@ -84,8 +84,8 @@
 		$email = $supernovaDb->sqlInjectionFilter($email);
 		$garmentId = $supernovaDb->sqlInjectionFilter($garmentId);
  		$desiredFlag = $supernovaDb->sqlInjectionFilter($desiredFlag);
-		$queryText = 'INSERT INTO user_garment (id, email, garmentId, desired) ' 
-						. 'VALUES (NULL, \'' . $email . '\', \'' . $garmentId . '\', ' . $desiredFlag . ')';
+		$queryText = 'INSERT INTO user_garment (email, garmentId, desired) ' 
+						. 'VALUES (\'' . $email . '\', \'' . $garmentId . '\', ' . $desiredFlag . ')';
  	
  		$result = $supernovaDb->performQuery($queryText);
 		$supernovaDb->closeConnection();

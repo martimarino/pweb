@@ -8,14 +8,12 @@
 	$response = new AjaxResponse();
 	$message = "OK";
 	
-	$garmentId = null;
 	if (!isset($_GET['garmentId'])){
 		echo json_encode($response);
 		return;
 	}		
 
-	$garmentId = $_GET['garmentId'];
-	$currentFlag = 0;		
+	$garmentId = $_GET['garmentId'];	
 
 	// check desired flag
 	if (isset($_GET['desired'])){
